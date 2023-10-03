@@ -144,3 +144,10 @@ footer {
     font-weight: bold;
     cursor: pointer;
   }
+
+  .blog-post-area {
+    display: flex;
+    justify-content: flex-start;
+    gap:2em;
+    padding-left: 30px;
+  }
