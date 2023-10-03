@@ -53,15 +53,26 @@ footer {
     
     
 }
-.footerNav li {
+
+.footerNav ul {
     list-style-type: none;
-}
+    display:flex;
+    justify-content: space-evenly; 
+    flex-direction: row;
+    margin: 2% 25%;
+    flex-wrap: wrap;
+  }
 
 .footerNav li a {
     color: white;
     text-decoration: none;
 
 }
+
+.footerNav a:hover {
+    text-decoration: underline;
+    color: aqua;
+  }
 
 .social {
     display:flex;
@@ -89,4 +100,5 @@ footer {
 .footer-bottom {
     text-align: center;
     color: grey;
+    flex-wrap: wrap;
 }
