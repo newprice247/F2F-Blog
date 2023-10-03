@@ -11,4 +11,4 @@ Project 2 UCF FullStack Coding Bootcamp
 
 Project Githup Repo:  https://github.com/newprice247/F2F-Blog
 
-Project Gitbub Deployment:  
+Project Heroku Deployment:  https://f2f-blog-ad8f414d0b59.herokuapp.com/
