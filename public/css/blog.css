@@ -104,3 +104,43 @@ footer {
 .quote2 {
     background-color: white;
 }
+
+/* this style for post template card */
+.card-body a {
+    float: right;
+    color:black;
+    background-color: aqua;
+    border-color: grey;
+}
+
+.modal {
+    display: none; /* Hide the modal by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    max-width: 600px; /* Adjust the maximum width as needed */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
