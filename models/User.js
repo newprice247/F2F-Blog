@@ -30,7 +30,11 @@ User.init(
         len: [6],
       },
     },
-  },
+      is_admin: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
+    },
   {
     sequelize,
     timestamps: false,
