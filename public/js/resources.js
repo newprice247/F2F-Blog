@@ -24,7 +24,7 @@ function handleSubmit(event) {
 const urlLinkDisplay = document.getElementById('urlLinkDisplay');
     if (urlLinkDisplay) {
         urlLinkDisplay.addEventListener('click', () => {
-            window.open(url);
+           window.open(url, '_blank');
         });
     }
 
