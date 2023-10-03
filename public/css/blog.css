@@ -4,18 +4,22 @@
     padding: 0;
     margin: 0;
     gap: 20px;
-
+    margin-left:50%;
+    
 
 }
 
 .nav-links li {
     margin: 0;
+    
 }
 
 .nav-links a:hover {
     text-decoration: underline;
     color: aqua;
 }
+
+
 
 .nav-links li a {
     text-decoration: none;
