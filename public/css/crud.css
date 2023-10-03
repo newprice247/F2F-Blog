@@ -1,0 +1,41 @@
+* {
+    font-family:'Ubuntu', sans-serif;
+}
+
+.nav-links {
+    list-style-type: none;
+    
+    
+}
+
+.nav-links li a {
+    text-decoration: none;
+    font-size: larger;
+    background-color: rgba(155, 155, 128, 0.158);
+    color:rgb(35, 217, 241)
+   
+}
+
+.profile-img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+}
+
+.manage-category {
+    height:100%;
+    padding-top:30px;
+    display:flex;
+    
+    
+    
+}
+
+.user-header {
+    text-align: center;
+}
+
+.user-action {
+    margin-left:90px;
+    
+}
