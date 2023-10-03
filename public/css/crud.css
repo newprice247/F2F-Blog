@@ -1,4 +1,6 @@
 * {
+    padding:0;
+    margin:0;
     font-family:'Ubuntu', sans-serif;
 }
 
@@ -38,4 +40,29 @@
 .user-action {
     margin-left:90px;
     
+}
+footer {
+    background-color: rgba(12, 179, 179, 0);
+}
+
+.footer-container {
+    width: 100%;
+    padding: 70px 30px 20px;
+}
+
+.footerNav li {
+    list-style-type: none;
+}
+
+.social {
+    display:flex;
+    justify-content: center;
+
+}
+.social i {
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 5px;
+    border-radius: 30%;
 }
