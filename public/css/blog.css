@@ -22,7 +22,7 @@
     justify-content: space-between;
 }
 
-.profile-img {
+.profile-img img {
     width: 40px;
     height: 40px;
     border-radius: 50%; 
