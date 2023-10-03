@@ -62,9 +62,9 @@
 
 <!-- Url Link -->
 <div class="form-group row">
-<label for="addUrl" class="col-sm-2 col-form-label">Add URL:</label>
+<label for="addUrl" class="col-sm-2 col-form-label">URL:</label>
 <div class="col-sm-10">
-<input type="text" class="form-control" id="urlLink" placeholder="Add a URL link here">
+<input type="text" class="form-control h-100" id="urlLink" placeholder="Add a URL link here">
 </div>
 </div>
 
@@ -72,15 +72,17 @@
 
 <!-- Tag ID -->
 <div class="form-group row">
-<label for="tagName" class="col-sm-2 col-form-label">Select a Tag Name:</label>
+<label for="tagName" class="col-sm-2 col-form-label">Tag Name:</label>
 <div class="col-sm-10">
-<select class="form-control" id="tagID">
-<option>HTML</option>
-<option>CSS</option>
-<option>JAVASCRIPT</option>
-<option>PYTHON</option>
-<option>C and C++</option>
-<option>JAVA</option>
+<select class="custom-select w-100 h-75" id="tagID" size="1">
+<option value="none">Select a Tag Name</option>
+<option value="html">HTML</option>
+<option value="css">CSS</option>
+<option value="javascript">JAVASCRIPT</option>
+<option value="python">PYTHON</option>
+<option value="c and c++">C and C++</option>
+<option value="c#">C#</option>
+<option value="java">JAVA</option>
 </select>
 </div>
 </div>
