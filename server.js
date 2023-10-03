@@ -36,27 +36,27 @@ app.use(express.static(path.join(__dirname, 'public')))
 // app.use(routes)
 
 
-app.get('/public/html/login.html', (req, res) => {
+app.get('/login.html', (req, res) => {
     res.sendFile(path.join(__dirname, './public/html/login.html'))
 })
 
-app.get('/public/html/about.html', (req, res) => {
+app.get('/about.html', (req, res) => {
     res.sendFile(path.join(__dirname, './public/html/about.html'))
 })
 
-app.get('/public/html/contact.html', (req, res) => {
+app.get('/contact.html', (req, res) => {
     res.sendFile(path.join(__dirname, './public/html/contact.html'))
 })
 
-app.get('/public/html/crud.html', (req, res) => {
+app.get('/crud.html', (req, res) => {
     res.sendFile(path.join(__dirname, './public/html/crud.html'))
 })
 
-app.get('/public/html/blog.html', (req, res) => {
+app.get('/blog.html', (req, res) => {
     res.sendFile(path.join(__dirname, './public/html/blog.html'))
 })
 
-app.get('/public/html/resources.html', (req, res) => {
+app.get('/resources.html', (req, res) => {
     res.sendFile(path.join(__dirname, './public/html/resources.html'))
 })
 
