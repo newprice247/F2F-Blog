@@ -49,6 +49,7 @@ footer {
     
     
 }
+
 .footerNav li {
     list-style-type: none;
 }
@@ -59,6 +60,18 @@ footer {
 
 }
 
+.social {
+    display:flex;
+    justify-content: center; 
+
+}
+.social i {
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 5px;
+    border-radius: 30%;
+}
 
 .youtube {
     color:red;
