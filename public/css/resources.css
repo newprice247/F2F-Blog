@@ -37,19 +37,21 @@
   border-radius: 50%; 
 }
 
-Form {
+form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  justify-content: space-evenly;
+  margin: 5% 25%;
   flex-wrap: wrap;
-  width: 100%;
+  text-align: center;
 }
 
 .btn{
-  width: 20%;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
 }
 
 
