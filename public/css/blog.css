@@ -37,3 +37,39 @@
     height: 40px;
     border-radius: 50%; 
 }
+
+footer {
+    background-color: black;
+    
+}
+
+.footer-container {
+    width: 100%;
+    padding: 70px 30px 20px;
+    
+    
+}
+.footerNav li {
+    list-style-type: none;
+}
+
+.footerNav li a {
+    color: white;
+    text-decoration: none;
+
+}
+
+
+.youtube {
+    color:red;
+
+}
+
+.github {
+    color:rgb(49, 7, 49);
+}
+
+.footer-bottom {
+    text-align: center;
+    color: grey;
+}
