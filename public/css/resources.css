@@ -48,7 +48,7 @@ form {
 
 .btn{
   margin-bottom: 1%;
-  width: 30%;
+  width: auto;
   display: flex;
   justify-content: center;
   align-self: center;
