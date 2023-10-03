@@ -97,3 +97,6 @@ footer {
     flex-wrap: wrap;
 }
 
+.quote {
+    text-align: center;
+}
