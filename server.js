@@ -35,8 +35,33 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // app.use(routes)
 
+
+app.get('/public/html/login.html', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/html/login.html'))
+})
+
+app.get('/public/html/about.html', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/html/about.html'))
+})
+
+app.get('/public/html/contact.html', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/html/contact.html'))
+})
+
+app.get('/public/html/crud.html', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/html/crud.html'))
+})
+
+app.get('/public/html/blog.html', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/html/blog.html'))
+})
+
+app.get('/public/html/resources.html', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/html/resources.html'))
+})
+
 app.get('/', (req, res) => {
-    res.send('F2F-Blog Coming Soon!')
+    res.sendFile(path.join(__dirname, './public/html/blog.html'))
 })
 
 sequelize.sync( ).then(() => {
