@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // app.use(routes)
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('F2F-Blog Coming Soon!')
 })
 
 sequelize.sync( ).then(() => {
