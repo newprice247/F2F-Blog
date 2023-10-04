@@ -4,7 +4,7 @@ const {User, Content} = require('../../models');
 router.get('/', async (req, res) => {
     try {
         const contentData = await Content.findAll({
-            include: [{model: User}],
+            include: [{model: User, attributes: ['username']}],
             exclude: [{model: User, attributes: ['password']}]
         });
         res.status(200).json(contentData);
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) =>{
     try {
         const contentData = await Content.findByPk(req.params.id, {
-            include: [{model: User}],
+            include: [{model: User, attributes: ['username']}],
             exclude: [{model: User, attributes: ['password']}]
         });
         if (!contentData) {
