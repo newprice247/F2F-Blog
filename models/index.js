@@ -1,6 +1,6 @@
 const User = require('./User');
 
-// const Admin = require('./Admin');
+const Admin = require('./Admin');
 
 
-module.exports = { User }
+module.exports = { User, Admin }

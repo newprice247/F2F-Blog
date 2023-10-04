@@ -15,22 +15,22 @@ router.get('/', async (req, res) => {
 });
 
 // GET /api/users/":id"
-// router.get('/:id', async (req, res) => {
-//     try {
-//         // Get a single user by id, excluding their password
-//         const userData = await User.findByPk(req.params.id, {
-//             attributes: { exclude: ['password'] }
-//         });
-//         // If no user is found, return an error
-//         if (!userData) {
-//             res.status(404).json({ message: 'No user found with this id!' });
-//             return;
-//         }
-//         res.status(200).json(userData);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+router.get('/:id', async (req, res) => {
+    try {
+        // Get a single user by id, excluding their password
+        const userData = await User.findByPk(req.params.id, {
+            attributes: { exclude: ['password'] }
+        });
+        // If no user is found, return an error
+        if (!userData) {
+            res.status(404).json({ message: 'No user found with this id!' });
+            return;
+        }
+        res.status(200).json(userData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 // // POST /api/users
 // router.post('/', async (req, res) => {

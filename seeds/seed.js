@@ -1,9 +1,10 @@
 require('dotenv').config();
 
 const sequelize = require('../config/connection');
-const { User } = require('../models');
+const { User, Admin } = require('../models');
 
 const userData = require('./userData.json');
+const adminData = require('./adminData.json');
 // const contentData = require('./contentData.json');
 
 const seedDatabase = async () => {
@@ -14,7 +15,7 @@ const seedDatabase = async () => {
         returning: true,
     });
 
-    process.exit(0);
+    await Admin.create({adminData});
 }
 
 seedDatabase();
