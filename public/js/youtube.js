@@ -12,14 +12,21 @@ fetch(apiUrl)
   })
   .then((data) => {
     console.log(data);
+    let videoSectionHTML = '';
     data.items.forEach(el => {
-        videoSection.innerHTML = `
-        <a href="https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}" class="youtube-video">
-        <img src="${el.snippet.thumbnails.maxres.url}" />
-         <h3>${el.snippet.title}</h3>
-         </a>`
+        videoSectionHTML += `
+        <div class="video-card">
+        <a target="_blank" href="https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}">
+            <img src="${el.snippet.thumbnails.maxres.url}" />
+            <h3>${el.snippet.title}</h3>
+        </a>
+    </div>`;
     
-    })
+    });
+
+
+    videoSection.innerHTML = videoSectionHTML;
+
    
     
   })
