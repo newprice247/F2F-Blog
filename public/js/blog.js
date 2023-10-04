@@ -1,4 +1,5 @@
 
+
 var closeModal = document.getElementById("close");
 document.addEventListener("DOMContentLoaded", function() {
     // Your code here
@@ -37,9 +38,10 @@ seePostButtons.forEach(function (button) {
         var postText = card.querySelector(".card-text").textContent;
         
         openPost(imageSrc, postTitle, postText);
-    });
+    
 });
 
 });
 
 closeModal.addEventListener("click", closePost);
+});

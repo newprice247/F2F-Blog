@@ -13,6 +13,7 @@
     "url": "git+https://github.com/newprice247/Project2.git"
   },
   "dependencies": {
+    "axios": "^1.5.1",
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.0.4",
     "dotenv": "^8.2.0",
