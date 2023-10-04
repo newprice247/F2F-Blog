@@ -5,6 +5,9 @@ class User extends Model { }
 
 User.init(
   {
+    // /////////////////////////////////////////////////////////////////////////
+    // INFO NEEDS TO BE EDITED TO RESEMBLE: comment, url, & tag name
+      
     // id: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
@@ -36,8 +39,8 @@ User.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'resources',
   }
 );
 
-module.exports = User;
+module.exports = resources;
