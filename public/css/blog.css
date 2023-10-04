@@ -147,7 +147,9 @@ footer {
 
   .blog-post-area {
     display: flex;
-    justify-content: flex-start;
-    gap:2em;
+    justify-content: space-evenly;
+
     padding-left: 30px;
   }
+
+  

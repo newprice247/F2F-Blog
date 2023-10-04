@@ -1,7 +1,7 @@
-const{ Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Admin extends Model {}
+class Admin extends Model { }
 
 Admin.init(
     {
@@ -9,7 +9,7 @@ Admin.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement:true
+            autoIncrement: true
         },
         password: {
             type: DataTypes.STRING,
@@ -22,24 +22,22 @@ Admin.init(
     {
         hooks: {
             //Sets up beforeCreate and beforeUpdate hooks to hash the password before the object is created or updated
-            async beforeCreate(newAdminData) {
+            beforeCreate: async (newAdminData) => {
                 newAdminData.password = await bcrypt.hash(newAdminData.password, 10);
-                return newAdminData
+                return newAdminData;
             },
-            async beforeUpdate(updatedAdminData) {
+            beforeUpdate: async (updatedAdminData) => {
                 updatedAdminData.password = await bcrypt.hash(updatedAdminData.password, 10);
-                return updatedAdminData
-            }
-    }
-},
-    {
+                return updatedAdminData;
+            },
+        },
+  
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName:'admin'
+        modelName: 'admin'
     }
-); 
-
+);
 
 module.exports = Admin;
