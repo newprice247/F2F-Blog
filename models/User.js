@@ -35,7 +35,6 @@ User.init(
         defaultValue: false,
       },
     },
-  },
   {
     sequelize,
     timestamps: true,
