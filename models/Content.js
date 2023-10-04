@@ -19,9 +19,6 @@ Content.init(
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
-        validate: {
-            isContent: true,
-        },
         },
         user_id: {
             type: DataTypes.INTEGER,
