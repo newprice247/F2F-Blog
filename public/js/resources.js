@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Display the data (you can replace this with sending the data to your server)
     displayResource(resourceData);
+    saveDataToServer(resourceData);
 
     // Clear the form fields
     clearFormFields();
@@ -43,6 +44,28 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('tagID').value = 'none';
   }
 });
+
+  function saveDataToServer(data) {
+  fetch('/api/resource', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Data saved successfully.');
+        displayResource(data); // Display the saved data on the client
+        clearFormFields(); // Clear the form fields
+      } else {
+        console.error('Error saving data.');
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+};
 
 
 
