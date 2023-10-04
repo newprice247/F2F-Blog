@@ -60,6 +60,10 @@ app.get('/resources.html', (req, res) => {
     res.sendFile(path.join(__dirname, './public/html/resources.html'))
 })
 
+app.get('/teambio.html', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/html/teambio.html'))
+})
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './public/html/blog.html'))
 })
