@@ -152,6 +152,7 @@ footer {
     padding-left: 30px;
   }
 
-.video-card {
-    width: 150px;
+.video-card img {
+    padding:10px;
+    width: 200px;
 }
