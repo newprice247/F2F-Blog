@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 let videoSectionHTML = '';
 
 let secondVideoSectionHTML = '';
@@ -99,7 +101,7 @@ fetch(apiUrl1)
     console.error('Problem fetching videos:', error);
   });
   
-  
+});
 /*
 channelId = UCxcQ_tkfXcXe3V2bgrntDGw
 
