@@ -158,19 +158,27 @@ footer {
 }
 
 .video-card h3 {
+    color:black;
     font-size: medium;
     padding: 10px;
     
 }
 
 .videos-container h1 {
+    
     padding:10px;
 }
 
 .video-card {
+    
     width: 300px;
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(7, 167, 241, 0.5);
+}
+
+.fetched-videos {
+    display: flex;
+    
 }
