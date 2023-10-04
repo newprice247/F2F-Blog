@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const sequelize = require('../config/connection');
 const { User } = require('../models');
 
@@ -11,11 +13,7 @@ const seedDatabase = async () => {
         individualHooks: true,
         returning: true,
     });
-    
-    // for (const content of contentData) {
-    //     await Content.create({
 
-    // }
     process.exit(0);
 }
 
