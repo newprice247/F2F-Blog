@@ -39,3 +39,5 @@ Content.init(
         modelName: 'content',
     }
     );
+
+module.exports = Content;

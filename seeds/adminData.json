@@ -1,5 +1,3 @@
-[
-    {
-      "password": "docker123"  
-    }
-]
+{
+  "password": "docker123"
+}

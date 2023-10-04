@@ -1,11 +1,11 @@
 require('dotenv').config();
 
 const sequelize = require('../config/connection');
-const { User, Admin } = require('../models');
+const { User, Admin, Content } = require('../models');
 
 const userData = require('./userData.json');
 const adminData = require('./adminData.json');
-// const contentData = require('./contentData.json');
+const contentData = require('./contentData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -15,7 +15,15 @@ const seedDatabase = async () => {
         returning: true,
     });
 
-    await Admin.create({adminData});
+    await Admin.create(adminData, {
+        individualHooks: true,
+        returning: true,
+    });
+
+    await Content.bulkCreate(contentData, {
+        individualHooks: true,
+        returning: true,
+    });
 }
 
 seedDatabase();

@@ -1,0 +1,17 @@
+[
+    {
+        "title": "JavaScript",
+        "content": "I feel like we are missing the script tag in our HTML.",
+        "user_id": 1
+    },
+    {
+        "title": "JavaScript",
+        "content": "Is bootcamp worth it? Enrolling Now UCF ONLINE Coding, Register now!\n\n UCF Schedule\n 12/11/23: Full-Time (12 weeks)\n\n10/10/23: Part-Time (24 weeks)",
+        "user_id": 2
+    },
+    {
+        "title": "JavaScript",
+        "content": "I thought this would help anyone learning MYSQL and building their own database/api's!",
+        "user_id": 3
+    }
+]
