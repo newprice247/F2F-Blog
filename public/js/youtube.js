@@ -89,7 +89,8 @@ fetch(apiUrl1)
             <h3>${el.snippet.title}</h3>
         </a>
     </div>`;
-    fetchedVideosContainer.innerHTML += secondVideoSectionHTML + thirdVideoSectionHTML;
+    fetchedVideosContainer.innerHTML = '';
+    fetchedVideosContainer.innerHTML += videoSectionHTML + secondVideoSectionHTML + thirdVideoSectionHTML;
     
     })
     
