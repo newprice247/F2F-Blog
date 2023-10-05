@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Display the data// eventually saving the data input
     displayResource(resourceData);
-  
+
 
     // Clear the form fields
     clearFormFields();

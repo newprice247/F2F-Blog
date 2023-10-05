@@ -32,7 +32,7 @@ Admin.init(
                 return updatedAdminData;
             },
         },
-  
+
         sequelize,
         timestamps: false,
         freezeTableName: true,

@@ -8,15 +8,15 @@
     padding: 0;
     margin: 0;
     gap: 20px;
-    margin-left:50%;
-    
-    
+    margin-left: 50%;
+
+
 
 }
 
 .nav-links li {
     margin: 0;
-    
+
 }
 
 .nav-links a:hover {
@@ -35,29 +35,29 @@
 .profile-img img {
     width: 40px;
     height: 40px;
-    border-radius: 50%; 
+    border-radius: 50%;
 }
 
 footer {
     background-color: black;
-    
+
 }
 
 .footer-container {
     width: 100%;
     padding: 70px 30px 20px;
-    
-    
+
+
 }
 
 .footerNav ul {
     list-style-type: none;
-    display:flex;
-    justify-content: space-evenly; 
+    display: flex;
+    justify-content: space-evenly;
     flex-direction: row;
     margin: 2% 25%;
     flex-wrap: wrap;
-  }
+}
 
 .footerNav li a {
     color: white;
@@ -67,13 +67,14 @@ footer {
 .footerNav a:hover {
     text-decoration: underline;
     color: aqua;
-  }
+}
 
 .social {
-    display:flex;
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
 
 }
+
 .social i {
     text-decoration: none;
     padding: 10px;
@@ -83,12 +84,12 @@ footer {
 }
 
 .youtube {
-    color:red;
+    color: red;
 
 }
 
 .github {
-    color:rgb(49, 7, 49);
+    color: rgb(49, 7, 49);
 }
 
 .footer-bottom {
@@ -108,13 +109,14 @@ footer {
 /* this style for post template card */
 .card-body a {
     float: right;
-    color:black;
+    color: black;
     background-color: aqua;
     border-color: grey;
 }
 
 .modal {
-    display: none; /* Hide the modal by default */
+    display: none;
+    /* Hide the modal by default */
     position: fixed;
     z-index: 1;
     left: 0;
@@ -131,46 +133,47 @@ footer {
     padding: 20px;
     border: 1px solid #888;
     border-radius: 4px;
-    max-width: 600px; /* Adjust the maximum width as needed */
+    max-width: 600px;
+    /* Adjust the maximum width as needed */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
-  }
+}
 
-  .close {
+.close {
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-  }
+}
 
-  .blog-post-area {
+.blog-post-area {
     display: flex;
     justify-content: space-evenly;
 
     padding-left: 30px;
-  }
+}
 
 .video-card img {
-    padding:10px;
+    padding: 10px;
     width: 250px;
 }
 
 .video-card h3 {
-    color:black;
+    color: black;
     font-size: medium;
     padding: 10px;
-    
+
 }
 
 .videos-container h1 {
-    
-    padding:10px;
+
+    padding: 10px;
 }
 
 .video-card {
-    
+
     width: 300px;
     border: 1px solid #ccc;
     padding: 10px;
@@ -180,42 +183,42 @@ footer {
 
 .fetched-videos {
     display: flex;
-    
+
 }
 
 
 .developer-cards img {
-    width:200px;
-    height:200px;
+    width: 200px;
+    height: 200px;
     display: block;
     border-radius: 10em;
-    padding:5px;
+    padding: 5px;
     margin: auto;
-    border: 3px solid aqua; 
+    border: 3px solid aqua;
     padding: 10px;
-    
+
 }
 
 .developer-cards p {
-    color:#5a5656ce;
-    width:400px;
+    color: #5a5656ce;
+    width: 400px;
     margin: auto;
-  
-  
-   
+
+
+
 
 
 }
 
 .developer-position {
-    display:flex;
-    
+    display: flex;
 
-  
+
+
 }
 
 .flex-container {
-    display: flex; 
+    display: flex;
     align-items: center;
     gap: 10px;
     padding-bottom: 40px;
@@ -224,26 +227,26 @@ footer {
 .about-app p {
     display: block;
     text-align: center;
-    width:800px;
+    width: 800px;
     margin-left: auto;
     margin-right: auto;
-    
-    
-  
+
+
+
 }
 
 .stanley-quote h3 {
-   text-align: center;
-   font-weight: bold;
-   padding-top: 40px;
-   font-size: xx-large;
-   
+    text-align: center;
+    font-weight: bold;
+    padding-top: 40px;
+    font-size: xx-large;
+
 }
 
 .stanley-quote ul li {
     list-style-type: none;
     text-align: center;
-    background-color:rgba(30, 231, 221, 0.521);
+    background-color: rgba(30, 231, 221, 0.521);
 }
 
 .bolded {
@@ -251,40 +254,40 @@ footer {
 }
 
 .stanley-quote p {
-    width:50%;
+    width: 50%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    
-    
-   
- }
 
- .stanley-quote h1 {
-    color:rgba(128, 128, 128, 0.205);
+
+
+}
+
+.stanley-quote h1 {
+    color: rgba(128, 128, 128, 0.205);
     font-weight: bold;
     padding-top: 20px;
     font-size: xx-large;
     text-decoration: underline;
- }
+}
 
- .background {
+.background {
     background-color: white;
-    
- }
 
- .date-created p {
+}
+
+.date-created p {
     font-size: 12px;
     color: #888;
     float: right;
-    display:block;
+    display: block;
 }
 
 
 .card-body {
-   display: block;
+    display: block;
 }
 
 .card-text {
-    color:black;
+    color: black;
 }
