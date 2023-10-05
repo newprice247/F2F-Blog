@@ -80,27 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
     clearFormFields();
   });
 
-  // // This adds new data
-  // function displayResource(data) {
-  //   const resourceDiv = document.createElement('div');
-  //   resourceDiv.className = 'resource-item';
-  //   resourceDiv.innerHTML = `
-  //     <h3>New Resource Added:</h3>
-  //     <p><strong>Comment:</strong> ${data.comment}</p>
-  //     <p><strong>URL:</strong> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
-  //     <p><strong>Tag:</strong> ${data.tag}</p>
-  //   </div>`;
 
-  //   displayArea.appendChild(resourceDiv);
-  // }
-  
-
-  // // clears the form after submitting input
-  // function clearFormFields() {
-  //   document.getElementById('commentBox').value = '';
-  //   document.getElementById('urlLink').value = '';
-  //   document.getElementById('tagID').value = 'none';
-  // }
 });
 
 
