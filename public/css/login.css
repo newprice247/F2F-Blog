@@ -10,13 +10,12 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: skyblue;
+    background: rgb(255, 255, 255);
 }
-
 .wrapper {
     width: 420px;
-    background: transparent;
-    color: aliceblue;
+    background: rgb(0, 0, 0);
+    color: #3ca1b0;
     border-radius: 10px;
     padding: 30px 40px;
 } 
@@ -38,10 +37,10 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid blue;
+    border: 2px solid #3ca1b0);
     border-radius: 40px;
     font-size: 16px;
-    color: #fff;
+    color: #fcfafa;
     padding: 20px 45px 20px 20px;
 
 }
@@ -95,9 +94,10 @@ body {
 }
 
 .register-link p a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
+    
 }
 .register-link p a :hover {
     text-decoration: underline;
