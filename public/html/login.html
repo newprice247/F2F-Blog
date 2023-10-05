@@ -10,39 +10,41 @@
     <link rel="icon" type="image/x-icon" href="../images/favicon1.png">
 </head>
 
-<body> 
+<body>
     <nav class="navbar bg-body-tertiary">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-      <a href="../blog">
-        <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
-     </a>
-      
-        <div class="wrapper"> 
-        <form action="..\crud">
-         <h1>login</h1>
-         <div class="input-box">
-          
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <a href="../blog">
+                    <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
+                </a>
 
-        </div>
-            <div class="input-box">
-                <input id="email-login" type="email" placeholder="Email" required>
-                <i class='bx bxs-user'></i>
-            </div>
-            <div class="input-box">
-                <input id="passwordLogin" type="password" placeholder="Password" required>
-                <i class='bx bxs-lock-alt'></i>
-            </div>
+                <div class="wrapper">
+                    <form id="loginBtn">
+                        <h1>login</h1>
+                        <div class="input-box">
 
-        <div class="remember-forgot">
-            <label><input type="checkbox"> Remember me</label>
-            <a href="#">Forgot password</a>
-        </div>
-        <button type="submit" 
-        class="btn">login</button>
-        <div class="register-link">
-            <p>Don't have an account? <a href="#">Register</a></p>
-        </div>
-        </form>
-    </div>
+
+                        </div>
+                        <div class="input-box">
+                            <input id="emailLogin" type="email" placeholder="Email" required>
+                            <i class='bx bxs-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id="passwordLogin" type="password" placeholder="Password" required>
+                            <i class='bx bxs-lock-alt'></i>
+                        </div>
+
+                        <div class="remember-forgot">
+                            <label><input type="checkbox"> Remember me</label>
+                            <a href="#">Forgot password</a>
+                        </div>
+                        <button type="submit" class="btn">login</button>
+                        <div class="register-link">
+                            <p>Don't have an account? <a href="#">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+                <script src="../js/login.js"></script>
 </body>
+
+</html>
