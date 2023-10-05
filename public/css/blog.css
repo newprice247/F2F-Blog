@@ -272,3 +272,19 @@ footer {
     background-color: white;
     
  }
+
+ .date-created p {
+    font-size: 12px;
+    color: #888;
+    float: right;
+    display:block;
+}
+
+
+.card-body {
+   display: block;
+}
+
+.card-text {
+    color:black;
+}
