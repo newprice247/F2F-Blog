@@ -8,14 +8,14 @@
   padding: 0;
   margin: 0;
   gap: 20px;
-  margin-left:50%;
+  margin-left: 50%;
 
 }
 
 
 .nav-links li {
   margin: 0;
-  
+
 }
 
 .nav-links a:hover {
@@ -34,7 +34,7 @@
 .profile-img img {
   width: 40px;
   height: 40px;
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
 form {
@@ -46,7 +46,7 @@ form {
   text-align: center;
 }
 
-.btn{
+.btn {
   margin-bottom: 1%;
   width: auto;
   display: flex;
@@ -57,19 +57,19 @@ form {
 
 footer {
   background-color: black;
-  
+
 }
 
 .footer-container {
   width: 100%;
   padding: 70px 30px 20px;
-  
+
 }
 
 .footerNav ul {
   list-style-type: none;
-  display:flex;
-  justify-content: space-evenly; 
+  display: flex;
+  justify-content: space-evenly;
   flex-direction: row;
   margin: 2% 25%;
   flex-wrap: wrap;
@@ -87,10 +87,11 @@ footer {
 }
 
 .social {
-  display:flex;
-  justify-content: center; 
+  display: flex;
+  justify-content: center;
 
 }
+
 .social i {
   text-decoration: none;
   padding: 10px;
@@ -101,12 +102,12 @@ footer {
 
 
 .youtube {
-  color:red;
+  color: red;
 
 }
 
 .github {
-  color:rgb(49, 7, 49);
+  color: rgb(49, 7, 49);
 }
 
 .footer-bottom {
@@ -114,4 +115,3 @@ footer {
   color: grey;
   flex-wrap: wrap;
 }
-

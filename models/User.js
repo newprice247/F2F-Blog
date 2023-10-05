@@ -30,7 +30,7 @@ User.init(
         len: [6],
       },
     },
-    },
+  },
   {
     sequelize,
     timestamps: true,
