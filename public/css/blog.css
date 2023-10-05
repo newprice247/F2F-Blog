@@ -183,11 +183,38 @@ footer {
     
 }
 
+
 .developer-cards img {
     width:200px;
     height:200px;
     display: block;
     border-radius: 10em;
     padding:5px;
+    margin: auto;
+    border: 3px solid rgb(194, 180, 180);
+    padding: 10px;
     
+}
+
+.developer-cards p {
+    width:400px;
+    margin: auto;
+    padding-bottom: 5px;
+  
+   
+
+
+}
+
+.developer-position {
+    display:flex;
+    justify-content: center;
+
+  
+}
+
+.flex-container {
+    display: flex; 
+    align-items: center;
+    gap: 10px;
 }
