@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
   const getResources = () => {
     fetch('/api/resources')
