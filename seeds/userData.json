@@ -1,18 +1,15 @@
 [
     {
-        "id": 1,
         "username": "John Doe",
         "email": "john@email.com",
         "password": "123456"
     },
     {
-        "id": 2,
         "username": "Jane Doe",
         "email": "jane@email.com",
         "password": "123456"
     },
     {
-        "id": 3,
         "username": "Jack Doe",
         "email": "jack@email.com",
         "password":"123456"

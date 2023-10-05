@@ -1,10 +1,9 @@
 const router = require('express').Router();
 const apiRoutes = require('./api');
+const htmlRoutes = require('./htmlRoutes');
 
 router.use('/api', apiRoutes);
 
-// router.get('/', async (req, res) => {
-//     res.send('This is the default API route.')
-// });
+router.use('/', htmlRoutes);
 
 module.exports = router;

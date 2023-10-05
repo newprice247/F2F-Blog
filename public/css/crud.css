@@ -1,36 +1,42 @@
 * {
-    padding:0;
-    margin:0;
-    font-family:'Ubuntu', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .nav-links {
     list-style-type: none;
-    
-    
+
+
+
 }
 
-.nav-links li a {
+.nav-links button {
+    display: block;
+    margin: 10px;
     text-decoration: none;
     font-size: larger;
     background-color: rgba(155, 155, 128, 0.158);
-    color:rgb(35, 217, 241)
-   
+    color: rgb(35, 217, 241);
+    border: none;
+
+    width: 150px;
+
 }
 
 .profile-img img {
     width: 40px;
     height: 40px;
-    border-radius: 50%; 
+    border-radius: 50%;
 }
 
 .manage-category {
-    height:100%;
-    padding-top:30px;
-    display:flex;
-    
-    
-    
+    height: 100%;
+    padding-top: 30px;
+    display: flex;
+
+
+
 }
 
 .user-header {
@@ -38,30 +44,30 @@
 }
 
 .user-action {
-    margin-left:90px;
-    
+    margin-left: 90px;
+
 }
 
 footer {
     background-color: black;
-    
+
 }
 
 .footer-container {
     width: 100%;
     padding: 70px 30px 20px;
-    
-    
+
+
 }
 
 .footerNav ul {
     list-style-type: none;
-    display:flex;
-    justify-content: space-evenly; 
+    display: flex;
+    justify-content: space-evenly;
     flex-direction: row;
     margin: 2% 25%;
     flex-wrap: wrap;
-  }
+}
 
 .footerNav li a {
     color: white;
@@ -72,23 +78,24 @@ footer {
 .footerNav a:hover {
     text-decoration: underline;
     color: aqua;
-  }
+}
 
 .social {
-    display:flex;
+    display: flex;
     justify-content: center;
-    
+
 
 }
 
 .youtube {
-    color:red;
+    color: red;
 
 }
 
 .github {
-    color:rgb(49, 7, 49);
+    color: rgb(49, 7, 49);
 }
+
 .social i {
     text-decoration: none;
     padding: 10px;
