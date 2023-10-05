@@ -237,11 +237,13 @@ footer {
    font-weight: bold;
    padding-top: 40px;
    font-size: xx-large;
+   
 }
 
 .stanley-quote ul li {
     list-style-type: none;
     text-align: center;
+    background-color:rgba(30, 231, 221, 0.521);
 }
 
 .bolded {
