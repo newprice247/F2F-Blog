@@ -1,7 +1,8 @@
+document.addEventListener('DOMContentLoaded', function() {
 
 
 var closeModal = document.getElementById("close");
-document.addEventListener("DOMContentLoaded", function() {
+
     // Your code here
   
    

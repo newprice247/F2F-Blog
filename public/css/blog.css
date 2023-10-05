@@ -154,5 +154,137 @@ footer {
 
 .video-card img {
     padding:10px;
-    width: 200px;
+    width: 250px;
+}
+
+.video-card h3 {
+    color:black;
+    font-size: medium;
+    padding: 10px;
+    
+}
+
+.videos-container h1 {
+    
+    padding:10px;
+}
+
+.video-card {
+    
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(7, 167, 241, 0.5);
+}
+
+.fetched-videos {
+    display: flex;
+    
+}
+
+
+.developer-cards img {
+    width:200px;
+    height:200px;
+    display: block;
+    border-radius: 10em;
+    padding:5px;
+    margin: auto;
+    border: 3px solid aqua; 
+    padding: 10px;
+    
+}
+
+.developer-cards p {
+    color:#5a5656ce;
+    width:400px;
+    margin: auto;
+  
+  
+   
+
+
+}
+
+.developer-position {
+    display:flex;
+    
+
+  
+}
+
+.flex-container {
+    display: flex; 
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 40px;
+}
+
+.about-app p {
+    display: block;
+    text-align: center;
+    width:800px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+  
+}
+
+.stanley-quote h3 {
+   text-align: center;
+   font-weight: bold;
+   padding-top: 40px;
+   font-size: xx-large;
+   
+}
+
+.stanley-quote ul li {
+    list-style-type: none;
+    text-align: center;
+    background-color:rgba(30, 231, 221, 0.521);
+}
+
+.bolded {
+    font-weight: bold;
+}
+
+.stanley-quote p {
+    width:50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+   
+ }
+
+ .stanley-quote h1 {
+    color:rgba(128, 128, 128, 0.205);
+    font-weight: bold;
+    padding-top: 20px;
+    font-size: xx-large;
+    text-decoration: underline;
+ }
+
+ .background {
+    background-color: white;
+    
+ }
+
+ .date-created p {
+    font-size: 12px;
+    color: #888;
+    float: right;
+    display:block;
+}
+
+
+.card-body {
+   display: block;
+}
+
+.card-text {
+    color:black;
 }
