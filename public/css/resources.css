@@ -120,12 +120,13 @@ footer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 100%;
 }
 
-.newComment {
-  border: 10px solid black;
+
+.resource-item{
+   border: 10px solid black;
   padding: 50px;
   margin: 10px 10px;
 }
