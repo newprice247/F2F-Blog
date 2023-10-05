@@ -32,6 +32,26 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.post('/login', async (req, res) => {
+    try {
+        console.log(req.body)
+        const userData = await User.findOne({ where: { email: req.body.email } });
+        if (userData.email !== req.body.email) {
+            res.statusText = 'Incorrect email';
+            res.status(400)
+            return;
+        } else if (userData.password !== req.body.password) {
+            res.statusText = 'Incorrect password';
+            res.status(400)
+            return;
+        } else {
+        res.status(200).json({ message: 'You are now logged in!'});
+        }
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 // POST /api/users
 router.post('/', async (req, res) => {
     try {
