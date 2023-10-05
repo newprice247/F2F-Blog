@@ -21,7 +21,7 @@ const getContent = () => {
         
         </div>
       </div>`);
-            }
+            } // is there a way to fetch image of profile pic so that we can use it in open post function 
         });
 }
 getContent();
