@@ -291,3 +291,39 @@ footer {
 .card-text {
     color: black;
 }
+
+.like-comment-section {
+    display: flex;
+    
+}
+
+
+.like-comment-section p {
+    padding-right: 5px;
+    margin:0;
+    color:grey;
+}
+
+.modal-close-button {
+    
+    width:60px;
+    border-radius: 4px;
+    background-color: aqua;
+    color:black;
+    border-color: white;
+    
+    
+}
+
+.modal-comment-button {
+    width:130px;
+    border-radius: 4px;
+    background-color: green;
+    color:black;
+    border-color: white;
+}
+
+.modal-button button {
+    padding-top: 2px;
+    float:right;
+}
