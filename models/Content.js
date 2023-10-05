@@ -6,19 +6,24 @@ class Content extends Model { }
 Content.init(
     {
         id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
         },
         title: {
-        type: DataTypes.STRING,
-        allowNull: false,
+            type: DataTypes.STRING,
+            allowNull: false,
         },
         content: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+        },
+        created_at: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -30,11 +35,11 @@ Content.init(
     },
     {
         sequelize,
-        timestamps: true,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'content',
     }
-    );
+);
 
 module.exports = Content;

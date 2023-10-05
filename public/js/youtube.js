@@ -3,25 +3,25 @@ const apiUrl2 = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=sn
 const apiUrl3 = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UU0gd2JJQK1R9_lRJWkkuvqg&key=AIzaSyDzzPbwlQWOA_qRC8F2pm6xG6W91d6b-2o`;
 
 
-const fetchedVideosContainer = document.querySelector('.fetched-videos'); 
+const fetchedVideosContainer = document.querySelector('.fetched-videos');
 let videoSectionHTML = '';
 let secondVideoSectionHTML = '';
 let thirdVideoSectionHTML = '';
 
 const getVideos = async () => {
-await fetch(apiUrl1)
-  .then((response) => {
+  await fetch(apiUrl1)
+    .then((response) => {
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    
-    return response.json();
-  })
-  .then((data) => {
-    console.log(data);
-   
-    data.items.forEach(el => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+
+      data.items.forEach(el => {
         videoSectionHTML += `
         <div class="video-card">
         <a target="_blank" href="https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}">
@@ -30,22 +30,22 @@ await fetch(apiUrl1)
         </a>
     </div>`;
 
-  });
-});
- 
-await  fetch(apiUrl2)
-  .then((response) => {
+      });
+    });
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    
-    return response.json();
-  }) 
-  .then((data) => {
-    console.log(data); 
+  await fetch(apiUrl2)
+    .then((response) => {
 
-    data.items.forEach(el => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+
+      data.items.forEach(el => {
         secondVideoSectionHTML += `
         <div class="video-card">
         <a target="_blank" href="https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}">
@@ -53,25 +53,25 @@ await  fetch(apiUrl2)
             <h3>${el.snippet.title}</h3>
         </a>
     </div>`;
-    
-    }); 
-  });
-  
 
-await  fetch(apiUrl3)
-  .then((response) => {
+      });
+    });
 
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    
-    return response.json();
-  }) 
-  .then((data) => {
-    console.log(data); 
 
-    let thirdVideoSectionHTML = '';
-    data.items.forEach(el => {
+  await fetch(apiUrl3)
+    .then((response) => {
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+
+      let thirdVideoSectionHTML = '';
+      data.items.forEach(el => {
         thirdVideoSectionHTML += `
         <div class="video-card">
         <a target="_blank" href="https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}">
@@ -79,15 +79,15 @@ await  fetch(apiUrl3)
             <h3>${el.snippet.title}</h3>
         </a>
     </div>`;
-    
-    });
-    fetchedVideosContainer.innerHTML = videoSectionHTML + secondVideoSectionHTML + thirdVideoSectionHTML;
 
-  })
-  .catch((error) => {
-    console.error('Problem fetching videos:', error);
-  });
-}; 
+      });
+      fetchedVideosContainer.innerHTML = videoSectionHTML + secondVideoSectionHTML + thirdVideoSectionHTML;
+
+    })
+    .catch((error) => {
+      console.error('Problem fetching videos:', error);
+    });
+};
 
 getVideos();
 

@@ -1,163 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>F2F BLOG</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="icon" type="image/x-icon" href="../images/favicon1.png"> <!--we can change color, leave feedback on favicon by url (blue hand at top)-->
-    <link rel="stylesheet" type="text/css" href="../css/blog.css" /> 
-    <script async src="../js/youtube.js"></script>
-    <script defer src="../js/blog.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F2F BLOG</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="icon" type="image/x-icon" href="../images/favicon1.png">
+  <!--we can change color, leave feedback on favicon by url (blue hand at top)-->
+  <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+  <script async src="../js/youtube.js"></script>
+  <script defer src="../js/blog.js"></script>
 
-    </head>
-    <body>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container">
-              <a class="navbar-brand" href="../blog.html">
-                <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
-              </a>
-        
-            <ul class="nav-links">
-                <li><a href="../blog.html"> Blog </a></li>
-                <li><a href="../about.html"> About </a></li>
-                <li><a href="../crud.html"> POST </a></li>
-                <li><a href="../resources.html"> Resources </a></li> 
-                <li><a href="../contact.html"> Contact us</a></li>
-                <li><a href="../login.html"> Logout </a></li> <!--Login page-->
-            </ul>
-            
-            <div class="profile-img">
-                <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
-            </div>
-            
-            </div>
-          </nav>
-          <br>
+</head>
 
-          <div class="post-content">
-            <!--I will be adding some default post (image, user pic, user text, hand and fist icon) here then the posts that are created will add to this page-->
-            <div class="card">
-              <div class="card-body">
-                <blockquote class="blockquote mb-0 quote">
-                  <p>“Website without visitors is like a ship lost in the horizon..”</p>
-                  <footer class="blockquote-footer quote2">Dr. Christopher Dayagdag <cite title="Source Title">Web Development Quotes</cite></footer>
-                </blockquote>
-              </div>
-            </div>
-          </div>
-          <br>
+<body>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="../blog.html">
+        <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
+      </a>
 
-          <div class="blog-post-area">
-          <!--template for blog card post below-->
-          <div class="card" style="width: 18rem;">
-            <img src="../images/pre-post1.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">JavaScript</h5>
-              <div class="profile-img">
-                <img src="../images/pre-profile-pic1.jpg" alt="profile-pic" width="40" height="40">
-                </div>
-                <div class="date-created">
-                  <p><i>John Doe posted</i> 5 September, 2023</p>
-              <p class="card-text">"I feel like we are missing the script tag in our HTML."</p>
-              <a href="#" class="btn btn-primary">See post</a>
-              </div>
-            </div>
-          </div>
-          <!--end of blog post car template -->
-          <!--pre-post templates(3)-->
+      <ul class="nav-links">
+        <li><a href="../blog.html"> Blog </a></li>
+        <li><a href="../about.html"> About </a></li>
+        <li><a href="../crud.html"> POST </a></li>
+        <li><a href="../resources.html"> Resources </a></li>
+        <li><a href="../contact.html"> Contact us</a></li>
+        <li><a href="../login.html"> Logout </a></li> <!--Login page-->
+      </ul>
 
-          <div class="card" style="width: 18rem;">
-            <img src="../images/pre-post3.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">JavaScript</h5>
-              <div class="profile-img">
-                <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
-                </div>
-                <div class="date-created">
-                  <p><i>Jane Doe posted</i> 10 October, 2023</p>
-              <p class="card-text">"Is bootcamp worth it?" Enrolling Now UCF ONLINE
-                Coding, Register now!</p>
-                <a href="https://bootcamp.ce.ucf.edu/coding/">UCF Schedule</a>
-                <p>12/11/23: Full-Time (12 weeks)</p>
-                <p>10/10/23: Part-Time (24 weeks)</p> 
-                <p><a href="#" class="btn btn-primary">See post</a></p>
-            </div>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem;">
-            <img src="../images/pre-post2.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">JavaScript</h5>
-              <div class="profile-img">
-                <img src="../images/pre-profile-pic2.jpeg" alt="profile-pic" width="40" height="40">
-                </div>
-                <div class="date-created">
-                <p><i>Jack Doe posted</i> 1 October, 2023</p>
-                <p class="card-text">"I thought this would help anyone learning MYSQL and building their own database/api's!"</p>
-                
-              <a href="#" class="btn btn-primary">See post</a>
-              </div>
-            
-            </div>
-          </div>
-          <!--End of pre-BLOGS-->
-
-          <!--Modal pop up when user click on blog posts-->
-          <div id="postModal" class="modal">
-            <div class="modal-content">
-              <img id="postImage" src="" alt="">
-                <div id="postContent">
-                  <!--post title and text will load here-->
-              </div>
-              <img id="modalProfilePic" src="" alt="" width="40" height="40">
-              <button id="close">Close</button>
-            </div>
-          </div>
-      </div>
-      <!--ENd of Modal code-->
-<br>
-<br>
-      <div class="videos-container">
-        <h1>Tutorial Videos</h1>
-        <div class="youtube-box">
-          <div class="fetched-videos">
-         
-        </div>
-       
-      
-
+      <div class="profile-img">
+        <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
       </div>
 
+    </div>
+  </nav>
+  <br>
 
-<br>
-        <footer>
-          <div class="footer-container">
-            <div class="social">
-                <a href=""><i class="bi bi-youtube youtube"></i></a>
-                <a href="https://github.com/newprice247/F2F-Blog"><i class="bi bi-github github"></i></a>
-            </div>
-            <div class="footerNav">
-                <ul>
-                    <li><a href="../about.html"> About </a></li>
-                    <li><a href="../blog.html"> Blog </a></li>
-                    <li><a href="../resources.html"> Resources </a></li>
-                    <li><a href="../contact.html"> Contact </a></li>
-                    <li><a href="../teambio.html"> Our Team</a></li>
-                </ul>
-            </div>
+  <div class="post-content">
+    <!--I will be adding some default post (image, user pic, user text, hand and fist icon) here then the posts that are created will add to this page-->
+    <div class="card">
+      <div class="card-body">
+        <blockquote class="blockquote mb-0 quote">
+          <p>“Website without visitors is like a ship lost in the horizon..”</p>
+          <footer class="blockquote-footer quote2">Dr. Christopher Dayagdag <cite title="Source Title">Web Development
+              Quotes</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="blog-post-area">
+    <!--template for blog card post below-->
+    <div class="card" style="width: 18rem;">
+      <img src="../images/pre-post1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">JavaScript</h5>
+        <div class="profile-img">
+          <img src="../images/pre-profile-pic1.jpg" alt="profile-pic" width="40" height="40">
         </div>
-        <div class="footer-bottom">
-          <p>Copyright &copy;2023; Designed by <span class="designer">F2FSquad</span> <img src="../images/favicon1.png" alt="F2F fist to five logo" width="30" height="30" ></p>
+        <div class="date-created">
+          <p><i>John Doe posted</i> 5 September, 2023</p>
+          <p class="card-text">"I feel like we are missing the script tag in our HTML."</p>
+          <a href="#" class="btn btn-primary">See post</a>
+        </div>
+      </div>
+    </div>
+    <!--end of blog post car template -->
+    <!--pre-post templates(3)-->
+
+    <div class="card" style="width: 18rem;">
+      <img src="../images/pre-post3.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">JavaScript</h5>
+        <div class="profile-img">
+          <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
+        </div>
+        <div class="date-created">
+          <p><i>Jane Doe posted</i> 10 October, 2023</p>
+          <p class="card-text">"Is bootcamp worth it?" Enrolling Now UCF ONLINE
+            Coding, Register now!</p>
+          <a href="https://bootcamp.ce.ucf.edu/coding/">UCF Schedule</a>
+          <p>12/11/23: Full-Time (12 weeks)</p>
+          <p>10/10/23: Part-Time (24 weeks)</p>
+          <p><a href="#" class="btn btn-primary">See post</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+      <img src="../images/pre-post2.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">JavaScript</h5>
+        <div class="profile-img">
+          <img src="../images/pre-profile-pic2.jpeg" alt="profile-pic" width="40" height="40">
+        </div>
+        <div class="date-created">
+          <p><i>Jack Doe posted</i> 1 October, 2023</p>
+          <p class="card-text">"I thought this would help anyone learning MYSQL and building their own database/api's!"
+          </p>
+
+          <a href="#" class="btn btn-primary">See post</a>
+        </div>
+
+      </div>
+    </div>
+    <!--End of pre-BLOGS-->
+
+    <!--Modal pop up when user click on blog posts-->
+    <div id="postModal" class="modal">
+      <div class="modal-content">
+        <img id="postImage" src="" alt="">
+        <div id="postContent">
+          <!--post title and text will load here-->
+        </div>
+        <img id="modalProfilePic" src="" alt="" width="40" height="40">
+        <button id="close">Close</button>
+      </div>
+    </div>
+  </div>
+  <!--ENd of Modal code-->
+  <br>
+  <br>
+  <div class="videos-container">
+    <h1>Tutorial Videos</h1>
+    <div class="youtube-box">
+      <div class="fetched-videos">
+
+      </div>
+
+
+
+    </div>
+
+
+    <br>
+    <footer>
+      <div class="footer-container">
+        <div class="social">
+          <a href=""><i class="bi bi-youtube youtube"></i></a>
+          <a href="https://github.com/newprice247/F2F-Blog"><i class="bi bi-github github"></i></a>
+        </div>
+        <div class="footerNav">
+          <ul>
+            <li><a href="../about.html"> About </a></li>
+            <li><a href="../blog.html"> Blog </a></li>
+            <li><a href="../resources.html"> Resources </a></li>
+            <li><a href="../contact.html"> Contact </a></li>
+            <li><a href="../teambio.html"> Our Team</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy;2023; Designed by <span class="designer">F2FSquad</span> <img src="../images/favicon1.png"
+            alt="F2F fist to five logo" width="30" height="30"></p>
       </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
 
 </body>
+
 </html>
