@@ -1,6 +1,38 @@
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  const getResources = () => {
+    fetch('/api/resources')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('getResources', data);
+        for (let i = 0; i < data.length; i++) {
+          $('#displayArea').append(`
+            <div class="resource-item">
+              <h3>Resource:</h3>
+              <p><strong>Comment:</strong> ${data[i].comment}</p>
+              <p><strong>URL:</strong> <a href="${data[i].url}" target="_blank" id="urlLinkDisplay">${data[i].url}</a></p>
+              <p><strong>Tag:</strong> ${data[i].tag}</p>
+            </div>`);
+        }
+      });
+  };
+  getResources();
+
+  const postResource = (comment, url, tag) => {
+    fetch('/api/resources', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ comment, url, tag }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('postResource', data);
+      });
+  };
+
 
   const form = document.getElementById('myForm');
   const displayArea = document.getElementById('displayArea');
@@ -21,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Display the data// eventually saving the data input
     displayResource(resourceData);
+    postResource(commentBox, urlLink, tagID);
 
 
     // Clear the form fields
@@ -39,24 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     displayArea.appendChild(resourceDiv);
   }
-  const getResources = () => {
-    fetch('/api/resources')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('getResources', data);
-        for (let i = 0; i < data.length; i++) {
-          $('#displayArea').append(`
-            <div class="resource-item">
-              <h3>Resource:</h3>
-              <p><strong>ID:</strong> ${data[i].user.username}</p>
-              <p><strong>Comment:</strong> ${data[i].comment}</p>
-              <p><strong>URL:</strong> <a href="${data[i].url}" target="_blank" id="urlLinkDisplay">${data[i].url}</a></p>
-              <p><strong>Tag:</strong> ${data[i].tag}</p>
-            </div>`);
-        }
-      });
-  };
-  getResources();
+  
 
   // clears the form after submitting input
   function clearFormFields() {
