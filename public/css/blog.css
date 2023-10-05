@@ -221,10 +221,15 @@ footer {
     padding-bottom: 40px;
 }
 
-.hero img {
+.about-app p {
     display: block;
+    text-align: center;
+    width:800px;
     margin-left: auto;
     margin-right: auto;
+    
+    
+  
 }
 
 .stanley-quote h3 {
@@ -254,9 +259,14 @@ footer {
  }
 
  .stanley-quote h1 {
-    text-align: center;
+    color:rgba(128, 128, 128, 0.205);
     font-weight: bold;
-    padding-top: 50px;
+    padding-top: 20px;
     font-size: xx-large;
     text-decoration: underline;
+ }
+
+ .background {
+    background-color: white;
+    
  }
