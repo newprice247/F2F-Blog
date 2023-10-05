@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>F2F BLOG</title>
+  <title>F2F RESOURCES</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,8 +13,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="icon" type="image/x-icon" href="../images/favicon1.png">
   <!--we can change color, leave feedback on favicon by url (blue hand at top)-->
-  <link rel="stylesheet" type="text/css" href="../css/blog.css" />
-  <link rel="stylesheet" type="text/css" href="../css/blog.css" />
+  <link rel="stylesheet" type="text/css" href="../css/resources.css" />
 
 </head>
 
@@ -40,13 +39,69 @@
 
     </div>
   </nav>
+
   <br>
 
-  <div class="contact-section">
-    <h1>Contact</h1>
-    <p>Each of our github pages here, including project repo github, our emails, fake number or real lol...</p>
+  <main>
 
-  </div>
+    <div class="resources-app">
+      <h1>Resources</h1>
+      <p>Valuable resources for programming <b>help</b> and <b>knowledge</b>!</p>
+    </div>
+
+
+
+    <form id="myForm">
+
+      <!-- Comment Box -->
+      <div class="form-group row">
+        <label for="commentArea" class="col-sm-2 col-form-label">Comment: </label>
+        <div class="col-sm-10">
+          <textarea class="form-control" id="commentBox" placeholder="Add your comment here" rows="5"></textarea>
+        </div>
+      </div>
+
+      <br />
+
+      <!-- Url Link -->
+      <div class="form-group row">
+        <label for="addUrl" class="col-sm-2 col-form-label">URL:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control h-100" id="urlLink" placeholder="Add a URL link here">
+        </div>
+      </div>
+
+      <br />
+
+      <!-- Tag ID -->
+      <div class="form-group row">
+        <label for="tagName" class="col-sm-2 col-form-label">Tag Name:</label>
+        <div class="col-sm-10">
+          <select class="custom-select w-100 h-75" id="tagID" size="1">
+            <option value="none" id="none">Select a Tag Name</option>
+            <option value="html" id="html">HTML</option>
+            <option value="css" id="css">CSS</option>
+            <option value="javascript" id="javascript">JAVASCRIPT</option>
+            <option value="python" id="python">PYTHON</option>
+            <option value="c and c++" id="c">C and C++</option>
+            <option value="c#" id="c#">C#</option>
+            <option value="java" id="java">JAVA</option>
+          </select>
+        </div>
+      </div>
+
+      <br />
+
+      <button type="Submit" class="btn btn-info">Submit</button>
+
+
+    </form>
+
+    <div id="displayArea"></div>
+
+  </main>
+
+
 
   <footer>
     <div class="footer-container">
@@ -64,11 +119,15 @@
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
       <p>Copyright &copy;2023; Designed by <span class="designer">F2FSquad</span> <img src="../images/favicon1.png"
           alt="F2F fist to five logo" width="30" height="30"></p>
     </div>
   </footer>
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
+  <script src="../js/resources.js"></script>
 </body>
 
 </html>
