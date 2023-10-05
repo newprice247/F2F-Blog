@@ -1,13 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
-
-let videoSectionHTML = '';
-
-let secondVideoSectionHTML = '';
-
-  const fetchedVideosContainer = document.querySelector('.fetched-videos'); 
 const apiUrl1 = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUxcQ_tkfXcXe3V2bgrntDGw&key=AIzaSyDzzPbwlQWOA_qRC8F2pm6xG6W91d6b-2o`;
 const apiUrl2 = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UUmqcVuqFT016HusUKVLTQoA&key=AIzaSyDzzPbwlQWOA_qRC8F2pm6xG6W91d6b-2o`;
 const apiUrl3 = `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=UU0gd2JJQK1R9_lRJWkkuvqg&key=AIzaSyDzzPbwlQWOA_qRC8F2pm6xG6W91d6b-2o`;
+
+
+const fetchedVideosContainer = document.querySelector('.fetched-videos'); 
+let videoSectionHTML = '';
+let secondVideoSectionHTML = '';
+let thirdVideoSectionHTML = '';
 
 fetch(apiUrl1)
   .then((response) => {
@@ -30,17 +29,9 @@ fetch(apiUrl1)
         </a>
     </div>`;
 
-    
-  fetchedVideosContainer.innerHTML = videoSectionHTML;
-    
-});
-  })
-  .catch((error) => {
-    console.error('Problem fetching videos:', error);
   });
-
-  
-
+});
+ 
   fetch(apiUrl2)
   .then((response) => {
 
@@ -63,10 +54,6 @@ fetch(apiUrl1)
     </div>`;
     
     }); 
-    fetchedVideosContainer.innerHTML += secondVideoSectionHTML;
-})
-  .catch((error) => {
-    console.error('Problem fetching videos:', error);
   });
   
 
@@ -91,17 +78,16 @@ fetch(apiUrl1)
             <h3>${el.snippet.title}</h3>
         </a>
     </div>`;
-    fetchedVideosContainer.innerHTML = '';
-    fetchedVideosContainer.innerHTML += videoSectionHTML + secondVideoSectionHTML + thirdVideoSectionHTML;
     
-    })
-    
+    });
+    fetchedVideosContainer.innerHTML = videoSectionHTML + secondVideoSectionHTML + thirdVideoSectionHTML;
+
   })
   .catch((error) => {
     console.error('Problem fetching videos:', error);
   });
   
-});
+
 /*
 channelId = UCxcQ_tkfXcXe3V2bgrntDGw
 

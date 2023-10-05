@@ -182,3 +182,12 @@ footer {
     display: flex;
     
 }
+
+.developer-cards img {
+    width:200px;
+    height:200px;
+    display: block;
+    border-radius: 10em;
+    padding:5px;
+    
+}
