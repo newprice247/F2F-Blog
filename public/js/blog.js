@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function() {
 
 
 var closeModal = document.getElementById("close");
@@ -44,3 +45,4 @@ seePostButtons.forEach(function (button) {
 });
 
 closeModal.addEventListener("click", closePost);
+});
