@@ -11,6 +11,11 @@ User.hasMany(Content, {
     onDelete: 'CASCADE'
 });
 
+User.hasMany(Resource, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
 Content.belongsTo(User, {
     foreignKey: 'user_id'
 });

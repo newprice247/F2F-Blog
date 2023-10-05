@@ -8,7 +8,8 @@ let videoSectionHTML = '';
 let secondVideoSectionHTML = '';
 let thirdVideoSectionHTML = '';
 
-fetch(apiUrl1)
+const getVideos = async () => {
+await fetch(apiUrl1)
   .then((response) => {
 
     if (!response.ok) {
@@ -32,7 +33,7 @@ fetch(apiUrl1)
   });
 });
  
-  fetch(apiUrl2)
+await  fetch(apiUrl2)
   .then((response) => {
 
     if (!response.ok) {
@@ -57,7 +58,7 @@ fetch(apiUrl1)
   });
   
 
-  fetch(apiUrl3)
+await  fetch(apiUrl3)
   .then((response) => {
 
     if (!response.ok) {
@@ -86,7 +87,9 @@ fetch(apiUrl1)
   .catch((error) => {
     console.error('Problem fetching videos:', error);
   });
-  
+}; 
+
+getVideos();
 
 /*
 channelId = UCxcQ_tkfXcXe3V2bgrntDGw
