@@ -1,33 +1,35 @@
-const getContent = () => {
-    fetch('/api/content')
-        .then((response) => response.json())
-        .then((data) => {
-
-            console.log('getContent', data);
-            for (let i = 0; i < data.length; i++) {
-                $('.blog-post-area').append(`
-    <div class="card" style="width: 18rem;">
-        <img src="../images/pre-post2.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">${data[i].title}</h5>
-          <div class="profile-img">
-            <img src="../images/pre-profile-pic2.jpeg" alt="profile-pic" width="40" height="40">
-            </div>
-            <div class="date-created">
-            <p><i>${data[i].user.username} posted </i>${data[i].created_at}</p>
-            <p class="card-text">"${data[i].content}"</p>
+export const getContent = () => {
+        fetch('/api/content')
+            .then((response) => response.json())
+            .then((data) => {
+    
+                console.log('getContent', data);
+                for (let i = 0; i < data.length; i++) {
+                    $('.blog-post-area').append(`
+        <div class="card" style="width: 18rem;">
+            <img src="../images/pre-post2.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">${data[i].title}</h5>
+              <div class="profile-img">
+                <img src="../images/pre-profile-pic2.jpeg" alt="profile-pic" width="40" height="40">
+                </div>
+                <div class="date-created">
+                <p><i>${data[i].title} posted </i>${data[i].created_at}</p>
+                <p class="card-text">"${data[i].content}"</p>
+                
+              <a href="#" class="btn btn-primary">See post</a>
+              </div>
             
-          <a href="#" class="btn btn-primary">See post</a>
-          </div>
-        
-        </div>
-      </div>`);
-            } // is there a way to fetch image of profile pic so that we can use it in open post function 
-        });
-}
-/*
-getContent();
-*/
+            </div>
+          </div>`);
+                } 
+                 
+            });
+  };
+  getContent(); 
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
 
     var closeModal = document.getElementById("close");
@@ -75,3 +77,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     closeModal.addEventListener("click", closePost);
 });
+
+

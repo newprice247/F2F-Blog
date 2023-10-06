@@ -1,20 +1,19 @@
 const postButton = document.getElementById("post-button");
 const saveButton = document.getElementById("save-post");
+import { getContent } from './blog.js';
 
-function addPost(e) {;
-
+function addPost(e) {
+    const title = document.querySelector(".postTitle").value;
+    const content = document.querySelector(".postContent").value;
 e.preventDefault();
 
-const postTitle = document.getElementById('title');
-const postContent = document.getElementById('content');
-
 const postData = {
-    Title: postTitle,
-    Content: postContent,
+    title: title,
+    content: content,
 
 };
 
-fetch('/api/content', { /*route doesn't work 404 bad connectoon, i tried control c, i tried locally and deployed */
+fetch('http://localhost:3001/api/content', { 
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -24,34 +23,14 @@ fetch('/api/content', { /*route doesn't work 404 bad connectoon, i tried control
 })
 .then((res) => res.json())
 .then((data) => {
-    console.log('Post added:', data)  
-   const newPost = document.createElement('div');
-   newPost.classList.add('addedPost');
-
-   newPost.innerHTML = `
-   <div class="card" style="width: 18rem;">
-      <img src="../images/pre-post1.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">${data.title}</h5>
-        <div class="profile-img">
-          <img src="../images/pre-profile-pic1.jpg" alt="profile-pic" width="40" height="40">
-        </div>
-        <div class="date-created">
-          <p><i>${data.username} posted</i> 5 September, 2023</p>
-          <p class="card-text">"${data.content}"</p>
-          <a href="#" class="btn btn-primary">See post</a>
-        </div>
-      </div>
-    </div>`;
-    const blogPostArea = document.getElementById('blog-post-area');
-    blogPostArea.appendChild(newPost);
-
-    alert('new post added!')
-
+   console.log(data);
+   getContent();
 })
-.catch((err) => console.error('oops sorry post could not be added. Error!'));
-}
 
+.catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+
+};
+/*
 function savePost(e) {
     e.preventDefault();
     fetch('api/content')
@@ -132,7 +111,7 @@ fetch('/api/content/${postId}', {
     
 
 
-/* code has error in console
+code has error in console
 const getProfile = () => {
     fetch('/api/users/profile')
         .then((response) => response.json()) 
@@ -152,7 +131,9 @@ const getProfile = () => {
 }
 getProfile()
 
-*/
+
 
 postButton.addEventListener("click", addPost);
 saveButton.addEventListener("click", savePost);
+*/
+postButton.addEventListener("click", addPost);
