@@ -79,6 +79,24 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
+// Search by tag functionality
+  const tagSearchButton = document.getElementById('tagSearchButton');
+  tagSearchButton.addEventListener('click', function () {
+    const tagSearchText = document.getElementById('tagSearchInput').value.toLowerCase();
+    const resources = document.querySelectorAll('.resource-item');
+
+    for (let i = 0; i < resources.length; i++) {
+      const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
+      if (resourceTag.includes(tagSearchText) || tagSearchText === 'all') {
+        resources[i].style.display = 'block';
+      } else {
+        resources[i].style.display = 'none';
+      }
+    }
+  });
+
+
+
   const tagButtons = document.querySelectorAll('.tag-button');
   tagButtons.forEach((button) => {
     button.addEventListener('click', function () {
