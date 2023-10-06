@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             Content: postContent,
         };
         postUserContent(postTitle, postContent);
-        // displayPost(postData);
+        // displayPost(postData);   //refer to the comment below
         document.location.replace('/crud');
     });
 
@@ -90,30 +90,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // function deletePost(e) {
-    //     const row = e.target.closest('tr');
-    //     if (!row) return;
+    function deletePost(e) {
+        const row = e.target.closest('tr');
+        if (!row) return;
 
-    //     const postId = row.getAttribute('data-post-id');
-    //     if (!postId) return;
+        const postId = row.getAttribute('data-post-id');
+        if (!postId) return;
 
-    //     fetch('/api/content/${postId}', { //api accept data-post-id to find closest row to delete post 
-    //         method: 'DELETE',
-    //     })
-    //         .then((res) => {
-    //             if (res.ok) {
-    //                 row.remove();
-    //                 console.log('Post removed.');
-    //             } else {
-    //                 console.error('Post could not be deleted.');
-    //             }
-    //         })
-    //         .catch((error) => console.error('Eroor:', error));
-    // }
-    // const trash = document.querySelectorAll('.delete-post');
-    // trash.forEach((deleteButton) => {
-    //     deleteButton.addEventListener('click', deletePost)
-    // });
+        fetch('/api/content/${postId}', { //api accept data-post-id to find closest row to delete post 
+            method: 'DELETE',
+        })
+            .then((res) => {
+                if (res.ok) {
+                    row.remove();
+                    console.log('Post removed.');
+                } else {
+                    console.error('Post could not be deleted.');
+                }
+            })
+            .catch((error) => console.error('Eroor:', error));
+    }
+    const trash = document.querySelectorAll('.delete-post');
+    trash.forEach((deleteButton) => {
+        deleteButton.addEventListener('click', deletePost)
+    });
 
     // function editPost(e) {
     //     const editRow = e.target.closest('.edit-post');
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 for (let i = 0; i < data.contents.length; i++) {
                     $('#userPostTable').append(`
-                <tr>
+                <tr ${data.contents[i].id}>
                     <th scope="row">${data.contents[i].createdAt}</th>
                     <td>${data.contents[i].title}</td>
                     <td>${data.contents[i].content}</td>
