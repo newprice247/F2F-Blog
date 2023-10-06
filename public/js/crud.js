@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    
+
     // function savePost(e) {
     //     e.preventDefault();
     //     fetch('api/content')
@@ -90,30 +90,65 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    function deletePost(e) {
-        const row = e.target.closest('tr');
-        if (!row) return;
-
-        const postId = row.getAttribute('data-post-id');
-        if (!postId) return;
-
-        fetch('/api/content/${postId}', { //api accept data-post-id to find closest row to delete post 
+    const deletePost = async (postId) => {
+        console.log('trying to delete post');
+        const response = await fetch(`/api/content/${postId}`, { //api accept data-post-id to find closest row to delete post 
             method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
         })
-            .then((res) => {
-                if (res.ok) {
-                    row.remove();
-                    console.log('Post removed.');
-                } else {
-                    console.error('Post could not be deleted.');
+        if (response.ok) {
+            console.log('Post has been deleted');
+        } else {
+            console.error('Post could not be deleted.');
+        }
+    }
+
+    const handleDelete = (e) => {
+        console.log('delete button clicked')
+
+        const row = e.target.closest('tr');
+        // if (!row) {
+        //     console.log('no row found')
+        //     return;
+        // }
+        const postId =JSON.parse(row.getAttribute('id'))
+        console.log(postId);
+        // if (!postId) {
+        //     console.log('no post id found')
+        //     return;
+        // }
+        deletePost(postId)
+      };
+
+      $('.delete-post').click(handleDelete);
+    
+
+    const getProfile = () => {
+        fetch('/api/users/profile')
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('getProfile', data);
+                $('.user-header').append(`<h1>Welcome ${data.username}... </h1>`);
+
+                //once the user is logged in, the user's posts will be displayed in the table by default
+
+                for (let i = 0; i < data.contents.length; i++) {
+                    $('#userPostTable').append(`
+                        <tr id="${data.contents[i].id}">
+                            <th scope="row">${data.contents[i].createdAt}</th>
+                            <td>${data.contents[i].title}</td>
+                            <td>${data.contents[i].content}</td>
+                            <td>
+                                <button class="edit-post btn"><i class="bi bi-pencil-square"></i></button>
+                                <button class="delete-post btn"><i class="bi bi-trash3-fill"></i></button>
+                            </td>
+                        </tr>`);
                 }
             })
-            .catch((error) => console.error('Eroor:', error));
     }
-    const trash = document.querySelectorAll('.delete-post');
-    trash.forEach((deleteButton) => {
-        deleteButton.addEventListener('click', deletePost)
-    });
+    getProfile()
 
     // function editPost(e) {
     //     const editRow = e.target.closest('.edit-post');
@@ -146,28 +181,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    const getProfile = () => {
-        fetch('/api/users/profile')
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('getProfile', data);
-                $('.user-header').append(`<h1>Welcome ${data.username}... </h1>`);
-
-                //once the user is logged in, the user's posts will be displayed in the table by default
-
-                for (let i = 0; i < data.contents.length; i++) {
-                    $('#userPostTable').append(`
-                <tr ${data.contents[i].id}>
-                    <th scope="row">${data.contents[i].createdAt}</th>
-                    <td>${data.contents[i].title}</td>
-                    <td>${data.contents[i].content}</td>
-                    <td><i class="bi bi-pencil-square edit-post"></i><i class="bi bi-trash3-fill"></i></td>
-                  </tr>`);
-                }
-            })
-    }
-    getProfile()
+    
 
 });
 // postButton.addEventListener("click", addPost);
 // saveButton.addEventListener("click", savePost);
+
