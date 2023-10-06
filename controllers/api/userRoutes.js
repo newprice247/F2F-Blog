@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     try {
         // Get all users, excluding their password
         const userData = await User.findAll({
-            attributes: { exclude: ['password'] }
+            attributes: { exclude: ['password', 'email'] }
         });
         res.status(200).json(userData);
     } catch (err) {

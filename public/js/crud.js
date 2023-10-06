@@ -89,7 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // Ideally, the delete post would target the table in the html at all, it would just delete the post from the database and then refresh the page to show the updated table
 
     // function deletePost(e) {
     //     const row = e.target.closest('tr');
