@@ -1,3 +1,5 @@
+
+const postButton = document.getElementById(post-button);
 function addPost(e) {;
 
 e.preventDefault();
@@ -28,3 +30,6 @@ fetch('/api/posts', {
 })
 .catch(err => console.error('oops sorry post could not be added. Error!'));
 }
+
+
+postButton.addEventListener("click", addPost);
