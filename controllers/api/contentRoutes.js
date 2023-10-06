@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User, Content} = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
@@ -29,14 +30,27 @@ router.get('/:id', async (req, res) =>{
     }
 });
 
-router.post('/', async (req, res) =>{
+// router.post('/', async (req, res) =>{
+//     try {
+//         const contentData = await Content.create(req.body);
+//         res.status(200).json(contentData);
+//     } catch (err) {
+//         res.status(400).json(err);
+//     }
+// });
+
+router.post('/', withAuth, async (req, res) => {
     try {
-        const contentData = await Content.create(req.body);
-        res.status(200).json(contentData);
+      const newContent = await Content.create({
+        ...req.body,
+        user_id: req.session.user_id,
+      });
+  
+      res.status(200).json(newContent);
     } catch (err) {
-        res.status(400).json(err);
+      res.status(400).json(err);
     }
-});
+  });
 
 // router.put('/:id', async (req, res) =>{
 //     try {

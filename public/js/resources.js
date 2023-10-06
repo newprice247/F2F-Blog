@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
-// Search by tag functionality
+ // Search by tag functionality
   const tagSearchButton = document.getElementById('tagSearchButton');
   tagSearchButton.addEventListener('click', function () {
     const tagSearchText = document.getElementById('tagSearchInput').value.toLowerCase();
