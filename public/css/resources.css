@@ -92,6 +92,7 @@ footer {
 
 }
 
+
 .social i {
   text-decoration: none;
   padding: 10px;
@@ -106,9 +107,11 @@ footer {
 
 }
 
+
 .github {
   color: rgb(49, 7, 49);
 }
+
 
 .footer-bottom {
   text-align: center;
@@ -116,6 +119,8 @@ footer {
   flex-wrap: wrap;
 }
 
+
+/* New resource card */
 .displayNew{
   display: flex;
   flex-direction: row;
@@ -125,12 +130,30 @@ footer {
 }
 
 
+/* Previously saved resource card */
 .resource-item{
    border: 10px solid black;
   padding: 50px;
   margin: 10px 10px;
 }
 
+
+/* Search bar is fixed to top when scrolling */
+.searchFixed {
+  background-color: black;
+  width: 100%;
+  height: auto;
+  transition: position ease; /* Add a smooth transition for the position property */
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+
+/* Search by #TagName and search box */
 .searchInLine{
   display: flex;
   flex-direction: row;
@@ -139,7 +162,7 @@ footer {
 }
 
 
-
+/* #Tag Buttons */
 .tag-buttons {
   display: flex;
   flex-direction: row;
