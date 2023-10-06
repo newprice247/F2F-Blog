@@ -131,6 +131,15 @@ footer {
   margin: 10px 10px;
 }
 
+.searchInLine{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0px 10%;
+}
+
+
+
 .tag-buttons {
   display: flex;
   flex-direction: row;
