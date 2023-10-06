@@ -179,12 +179,11 @@ h3{
 
 
 .Sbtn {
-margin-left: 5%;
 width: 25%;
 }
 
 .Sbtn:hover {
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
 /* 
