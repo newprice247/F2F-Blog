@@ -158,7 +158,10 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 0px 10%;
+  margin: 10px 10%;
+  padding-top: 10px;
+  color: aqua;
+  letter-spacing: 4px;
 }
 
 
@@ -168,8 +171,6 @@ footer {
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  border: 10px solid black;
-  margin: 0px 10%;
-  padding: 50px 10px;
+  margin: 0px 15%;
   width: auto;
 }
