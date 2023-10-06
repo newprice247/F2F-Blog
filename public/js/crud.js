@@ -1,5 +1,5 @@
 const postButton = document.getElementById(post-button);
-
+const saveButton = document.getElementById(save-post);
 function addPost(e) {;
 
 e.preventDefault();
@@ -30,6 +30,28 @@ fetch('/api/posts', {
 })
 .catch(err => console.error('oops sorry post could not be added. Error!'));
 }
+
+function savePost() {
+    fetch('api/post')
+    .then(res => res.json())
+    .then(data => {
+        const postHistoryTable = document.getElementById('userPostTable');
+
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+            <td>${item.createdAt}</td>
+            <td>${item.title}</td>
+            <td>${item.content}</td>
+            `;
+
+        postHistoryTable.appendChild(row);
+                
+        });
+    }).catch(error => console.error('Post could not be found:', error));
+}
+
+
 const getProfile = () => {
     fetch('/api/users/profile')
         .then((response) => response.json())
@@ -52,3 +74,4 @@ getProfile()
 
 
 postButton.addEventListener("click", addPost);
+saveButton.addEventListener("click", savePost);
