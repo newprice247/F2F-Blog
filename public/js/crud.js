@@ -10,7 +10,6 @@ const postContent = document.getElementById('content');
 const postData = {
     Title: postTitle,
     Content: postContent,
-    createdAt: new Date().toISOString(),
 
 };
 
