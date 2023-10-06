@@ -139,3 +139,25 @@ window.addEventListener('scroll', checkScrollPosition);
 checkScrollPosition();
 });
 
+
+
+
+
+let Sbtn = document.querySelector(".Sbtn");
+let searchNav = document.querySelector(".searchFixed");
+
+// Calculate the height of the search nav bar
+var searchNavHeight = searchNav.offsetHeight;
+
+// Add a scroll event listener to the window
+window.addEventListener("scroll", function() {
+  // Check the scroll position relative to the search nav bar's bottom
+  if (window.scrollY > searchNavHeight) {
+    // If scrolled below the search nav bar, hide the button
+    Sbtn.style.display = "none";
+  } else {
+    // If not scrolled below the search nav bar, show the button
+    Sbtn.style.display = "block";
+  }
+});
+

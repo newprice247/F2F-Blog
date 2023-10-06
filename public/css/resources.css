@@ -133,8 +133,8 @@ footer {
 /* Previously saved resource card */
 .resource-item{
    border: 10px solid black;
-  padding: 50px;
-  margin: 10px 10px;
+  padding: 30px;
+  margin: 5px 10px;
 }
 
 
@@ -144,6 +144,7 @@ footer {
   width: 100%;
   height: auto;
   transition: position ease; 
+  z-index: 1000;
 }
 
 .fixed {
@@ -167,6 +168,29 @@ h3{
   letter-spacing: 10px;
   text-decoration: underline;
 }
+
+/* resouces and stanley button */
+.resources-app{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.Sbtn {
+  /* Add your button styling here */
+  margin-top: 50px; /* Adjust this value to create space below the search nav bar */
+}
+
+
+.titleButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+
+
 
 .formTitle{
   display: flex;
