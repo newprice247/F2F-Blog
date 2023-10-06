@@ -109,3 +109,36 @@ footer {
     color: grey;
     flex-wrap: wrap;
 }
+
+.user-action {
+    background-color: blue;
+}
+
+
+.addPost {
+width: 80%;
+border-radius:2em;
+padding-left:20px;
+color:grey;
+padding-right: 20px;
+}
+
+.post-button {
+    width:100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aqua;
+    border-color: white;
+   
+}
+
+.submit-post {
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+ 
+
+}
