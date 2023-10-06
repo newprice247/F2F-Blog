@@ -43,7 +43,7 @@
             <!--admin login page will prompt user and pass and javascript will show table of users etc.-->
             <button><i class="bi bi-door-closed"></i> Logout</button> <!--login page-->
         </div>
-        <div class="user-action-form addPost" hidden="hidden">
+        <div class="user-action-form addPost">
           <form class="post-form">
             <div class="mb-3">
                 <label for="titleName" class="form-label title">Title:</label>
@@ -54,8 +54,9 @@
                 <textarea class="form-control postContent" id="content" rows="10" required></textarea>
               </div>
               <div class="submit-post-container">
-                <div class="submit-post">
+              <div class="submit-post">
               <button type="submit" id="post-button" class="post-button">Post</button>
+              <button id="save-post" class="save-button">Save Post</button>
               </div>
               </div>
               </form>
@@ -64,7 +65,7 @@
               
         </div>
         
-        <table class="table table-light table-striped table-hover">
+        <table class="table table-light table-striped table-hover" hidden="hidden">
             <thead>
               <tr>
                 <th scope="col">Date Created</th>
@@ -77,7 +78,7 @@
               </tr>
             </thead>
             <tbody id="userPostTable">
-              <!-- <tr>
+              
                 <th scope="row">10 October, 2023</th>
                 <td>JavaScript</td>
                 <td>I feel like we are missing the script tag in our HTML.</td>
@@ -97,7 +98,7 @@
                 <td>I thought this would help anyone learning MYSQL and building their own database/api's!</td>
                 <td><i class="bi bi-pencil-square edit-post"></i><i class="bi bi-trash3-fill"></i></td>
                 
-              </tr> -->
+             
             </tbody>
           </table>
     </div>
