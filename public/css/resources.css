@@ -168,17 +168,28 @@ h3{
   text-decoration: underline;
 }
 
-/* #TagButton Container to scroll left and right */
+/* #TagButton Container */
 .tagButtonContainer {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0px 10%;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin: 0px 5%;
 }
 
 /* #Tag Buttons */
 .tag-buttons {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 10px;
+  white-space: nowrap;
+  overflow-x: auto; 
 }
 
+
+
+
+@media screen and (max-width: 1000px) {
+  .tagButtonContainer {
+    margin: 0px 5%;
+  }
+}
