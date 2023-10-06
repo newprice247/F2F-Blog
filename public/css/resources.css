@@ -173,22 +173,27 @@ h3{
 .resources-app{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-left: 5%;
 }
 
 
 .Sbtn {
-  /* Add your button styling here */
-  margin-top: 50px; /* Adjust this value to create space below the search nav bar */
+margin-left: 5%;
+width: 25%;
 }
 
+.Sbtn:hover {
+  transform: scale(1.2);
+}
 
+/* 
 .titleButton{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   margin: 0 5%;
-}
+} */
 
 
 
