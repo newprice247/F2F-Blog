@@ -43,7 +43,7 @@
             <!--admin login page will prompt user and pass and javascript will show table of users etc.-->
             <button><i class="bi bi-door-closed"></i> Logout</button> <!--login page-->
         </div>
-        <div class="user-action-form addPost">
+        <div class="user-action-form addPost" hidden="hidden">
           <form class="post-form">
             <div class="mb-3">
                 <label for="titleName" class="form-label title">Title:</label>
@@ -63,7 +63,43 @@
               
               
         </div>
-        </div>
+        
+        <table class="table table-light table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Date Created</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col"></th>
+               
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">10 October, 2023</th>
+                <td>JavaScript</td>
+                <td>I feel like we are missing the script tag in our HTML.</td>
+                <td><i class="bi bi-pencil-square edit-post"></i><i class="bi bi-trash3-fill"></i></td>
+                
+              </tr>
+              <tr>
+                <th scope="row">1 October, 2023</th>
+                <td>Ucf bootcamp</td>
+                <td>Is bootcamp worth it? Enrolling Now UCF ONLINE Coding, Register now!</td>
+                <td><i class="bi bi-pencil-square edit-post"></i><i class="bi bi-trash3-fill"></i></td>
+            
+              </tr>
+              <tr>
+                <th scope="row">5 September, 2023</th>
+                <td>Mysql</td>
+                <td>I thought this would help anyone learning MYSQL and building their own database/api's!</td>
+                <td><i class="bi bi-pencil-square edit-post"></i><i class="bi bi-trash3-fill"></i></td>
+                
+              </tr>
+            </tbody>
+          </table>
     </div>
     <footer>
         <div class="footer-container">
@@ -81,6 +117,7 @@
                 </ul>
             </div>
         </div>
+    </div>
         <div class="footer-bottom">
             <p>Copyright &copy;2023; Designed by <span class="designer">F2FSquad</span> <img
                     src="../images/favicon1.png" alt="F2F fist to five logo" width="30" height="30"></p>
