@@ -1,4 +1,3 @@
-
 function addPost(e) {;
 
 e.preventDefault();
@@ -48,3 +47,6 @@ const getProfile = () => {
 }
 getProfile()
 
+
+
+postButton.addEventListener("click", addPost);
