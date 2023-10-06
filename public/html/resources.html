@@ -44,11 +44,6 @@
 
   <main>
 
-    <div class="resources-app">
-      <h1>Resources</h1>
-      <p>Valuable resources for programming <b>help</b> and <b>knowledge</b>!</p>
-    </div>
-
 
   <div class="searchFixed">
 
@@ -88,16 +83,25 @@
     </div>
     
 </div>
+<br/>
 
-    
+<div class="resources-app">
+  <h1>Resources</h1>
+  <p>Valuable resources for programming <b>help</b> and <b>knowledge</b>!</p>
+</div>
+
+
+    <div class="formTitle">
+     <h3>Add a Resource Link Below:</h3>  
+    </div>
 
     <form id="myForm">
 
       <!-- Comment Box -->
       <div class="form-group row">
-        <label for="commentArea" class="col-sm-2 col-form-label">Comment: </label>
+        <label for="commentArea" class="col-sm-2 col-form-label">Description: </label>
         <div class="col-sm-10">
-          <textarea class="form-control" id="commentBox" placeholder="Add your comment here" rows="5"></textarea>
+          <textarea class="form-control" id="commentBox" placeholder="Add a description here" rows="5"></textarea>
         </div>
       </div>
 
@@ -115,10 +119,10 @@
 
       <!-- Tag ID -->
       <div class="form-group row">
-        <label for="tagName" class="col-sm-2 col-form-label">Tag Name:</label>
+        <label for="tagName" class="col-sm-2 col-form-label">#Tag Name:</label>
         <div class="col-sm-10">
           <select class="custom-select w-100 h-75" id="tagID" size="1">
-            <option value="none" id="none">Select a Tag Name</option>
+            <option value="none" id="none">Select a #</option>
             <option value="html" id="html">HTML</option>
             <option value="css" id="css">CSS</option>
             <option value="javascript" id="javascript">JAVASCRIPT</option>

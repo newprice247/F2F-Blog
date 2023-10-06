@@ -143,13 +143,13 @@ footer {
   background-color: black;
   width: 100%;
   height: auto;
-  transition: position ease; /* Add a smooth transition for the position property */
+  transition: position ease; 
 }
 
 .fixed {
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 0;
 }
 
 
@@ -166,6 +166,13 @@ footer {
 h3{
   letter-spacing: 10px;
   text-decoration: underline;
+}
+
+.formTitle{
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  margin: 3% 0px;
 }
 
 #tagSearchButton:hover{
