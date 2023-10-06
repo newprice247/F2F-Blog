@@ -45,18 +45,19 @@ router.post('/login', async (req, res) => {
             res.statusText = 'Incorrect email';
             res.status(400)
             return;
-        } else if (userData.password !== req.body.password) {
+        }
+        const validPassword = await userData.checkPassword(req.body.password);
+        if (!validPassword) {
             res.statusText = 'Incorrect password';
             res.status(400)
             return;
-        } else {
+        }
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
             res.status(200).json({ message: 'You are now logged in!' });
             console.log(`${userData.username} logged in`)
         });
-    }
     } catch (err) {
         res.status(400).json(err);
     }
@@ -67,11 +68,11 @@ router.post('/register', async (req, res) => {
         console.log(req.body)
         const userData = await User.create(req.body);
         console.log(userData)
-        // req.session.save(() => {
-        //     req.session.user_id = userData.id;
-        //     req.session.logged_in = true;
-        //     console.log(`${userData.username} registered`)
-        // });
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+            console.log(`${userData.username} registered`)
+        });
         res.status(200).json({ message: 'You are now logged in!' });
     } catch (err) {
         res.status(400).json(err);
