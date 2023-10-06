@@ -27,7 +27,12 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         postUserContent(postTitle, postContent);
         // displayPost(postData);
+        document.location.replace('/crud');
     });
+
+
+
+    // the displayPost function should be called after the postUserContent function is called, and it should include functionality to immediately load the user's Post History table with the new post included, at the moment i un-hid the table so that we can see the requests are going through
 
 
     // function displayPost(data) {
@@ -56,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // }
 
 
+
+    
     // function savePost(e) {
     //     e.preventDefault();
     //     fetch('api/content')
@@ -78,6 +85,11 @@ document.addEventListener('DOMContentLoaded', function () {
     //             });
     //         }).catch((error) => console.error('Post could not be found:', error));
     // }
+
+
+
+
+    // Ideally, the delete post would target the table in the html at all, it would just delete the post from the database and then refresh the page to show the updated table
 
     // function deletePost(e) {
     //     const row = e.target.closest('tr');
@@ -135,8 +147,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-    //  code has error in console
     const getProfile = () => {
         fetch('/api/users/profile')
             .then((response) => response.json())
@@ -146,15 +156,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 //once the user is logged in, the user's posts will be displayed in the table by default
 
-                // for (let i = 0; i < data.contents.length; i++) {
-                //     $('#userPostTable').append(`
-                // <tr>
-                //     <th scope="row">${data.contents[i].createdAt}</th>
-                //     <td>${data.contents[i].title}</td>
-                //     <td>${data.contents[i].content}</td>
-                //     <td><i class="bi bi-pencil-square edit-post"></i><i class="bi bi-trash3-fill"></i></td>
-                //   </tr>`);
-                // }
+                for (let i = 0; i < data.contents.length; i++) {
+                    $('#userPostTable').append(`
+                <tr>
+                    <th scope="row">${data.contents[i].createdAt}</th>
+                    <td>${data.contents[i].title}</td>
+                    <td>${data.contents[i].content}</td>
+                    <td><i class="bi bi-pencil-square edit-post"></i><i class="bi bi-trash3-fill"></i></td>
+                  </tr>`);
+                }
             })
     }
     getProfile()
