@@ -1,0 +1,20 @@
+[
+  {
+    "comment": "Website to give you more information of SQL",
+    "url": "https://www.w3schools.com/sql/default.asp",
+    "tag": "javascript",
+    "user_id": 1
+  },
+  {
+    "comment": "Sample comment",
+    "url": "https://github.com/newprice247/F2F-Blog",
+    "tag": "javascript",
+    "user_id": 2
+  },
+  {
+    "comment": "Website to give you more information of SQL",
+    "url": "https://bulma.io/documentation/",
+    "tag": "css",
+    "user_id": 3
+  }
+]
