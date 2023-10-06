@@ -7,6 +7,7 @@
     <title>F2F login</title>
     <link rel="stylesheet" href="../css/login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<<<<<<< HEAD
     <link rel="icon" type="image/x-icon" href="/public/images/favicon1.png">
     <link rel="background" href="public/images/img.jpg">
 </head>
@@ -28,26 +29,79 @@
            required>
            <i class='bx bxs-user'></i>
           
+=======
+    <link rel="icon" type="image/x-icon" href="../images/favicon1.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
 
-        </div>
-            <div class="input-box">
-                <input type="text" placeholder="Username" required>
-                <i class='bx bxs-user'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" placeholder="password" required>
-                <i class='bx bxs-lock-alt'></i>
-            </div>
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <a href="../blog">
+                    <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
+                </a>
+>>>>>>> 24bb638e2aa8ecf9e98950effa878ca9a4898d7b
 
-        <div class="remember-forgot">
-            <label><input type="checkbox"> Remember me</label>
-            <a href="#">Forgot passwprd</a>
-        </div>
-        <button type="submit" 
-        class="btn">login</button>
-        <div class="register-link">
-            <p>Don't have an account? <a href="#">Register</a></p>
-        </div>
-        </form>
-    </div>
+                <div class="wrapper">
+                    <form id="loginBtn">
+                        <h1>login</h1>
+                        <div class="input-box">
+
+                        </div>
+                        <div class="input-box">
+                            <input id="emailLogin" type="email" placeholder="Email" required>
+                            <i class='bx bxs-user'></i>
+                        </div>
+                        <div class="input-box">
+                            <input id="passwordLogin" type="password" placeholder="Password" required>
+                            <i class='bx bxs-lock-alt'></i>
+                        </div>
+
+                        <div class="remember-forgot">
+                            <label><input type="checkbox"> Remember me</label>
+                            <a href="#">Forgot password</a>
+                        </div>
+                        <button type="submit" class="btn">login</button>
+                        <div class="register-link">
+                            <p>Don't have an account? <a href="#" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Register</a> </p>
+                        </div>
+                    </form>
+                </div>
+                <div id="id01" class="modal">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <form id="registerBtn" class="modal-content">
+                      <div class="container">
+                        <h1>Sign Up</h1>
+                        <p>Please fill in this form to create an account.</p>
+                        <hr>
+                        <label for="username"><b>Username</b></label>
+                        <input id="usernameRegister" type="text" placeholder="Enter Username" name="username" required>
+
+                        <label for="email"><b>Email</b></label>
+                        <input id="emailRegister" type="text" placeholder="Enter Email" name="email" required>
+                  
+                        <label for="psw"><b>Password</b></label>
+                        <input id="passwordRegister" type="password" placeholder="Enter Password" name="psw" required>
+                  
+                        <label for="psw-repeat"><b>Repeat Password</b></label>
+                        <input id="passwordConfirm" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                        
+                        <label>
+                          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                        </label>
+                  
+                        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                  
+                        <div class="clearfix">
+                          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                          <button type="submit" class="signupbtn">Sign Up</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                <script src="../js/login.js"></script>
 </body>
+
+</html>

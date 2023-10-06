@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
   const getResources = () => {
     fetch('/api/resources')
@@ -8,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('getResources', data);
         for (let i = 0; i < data.length; i++) {
           $('#displayArea').append(`
-            <div class="resource-item">
+            <div class="resource-item" data-tag="${data[i].tag}"> <!-- Add data-tag attribute -->
               <h3>Resource:</h3>
               <p><strong>Comment:</strong> ${data[i].comment}</p>
               <p><strong>URL:</strong> <a href="${data[i].url}" target="_blank" id="urlLinkDisplay">${data[i].url}</a></p>
@@ -33,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   };
 
-
   const form = document.getElementById('myForm');
   const displayArea = document.getElementById('displayArea');
 
@@ -55,24 +52,24 @@ document.addEventListener('DOMContentLoaded', function () {
     displayResource(resourceData);
     postResource(commentBox, urlLink, tagID);
 
-
     // Clear the form fields
     clearFormFields();
   });
 
+  // This adds new data
   function displayResource(data) {
     const resourceDiv = document.createElement('div');
     resourceDiv.className = 'resource-item';
+    resourceDiv.setAttribute('data-tag', data.tag); // Add data-tag attribute
     resourceDiv.innerHTML = `
       <h3>New Resource Added:</h3>
       <p><strong>Comment:</strong> ${data.comment}</p>
       <p><strong>URL:</strong> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
       <p><strong>Tag:</strong> ${data.tag}</p>
-    `;
+    </div>`;
 
-    displayArea.appendChild(resourceDiv);
+    displayArea.insertBefore(resourceDiv, displayArea.firstChild);
   }
-  
 
   // clears the form after submitting input
   function clearFormFields() {
@@ -80,8 +77,65 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('urlLink').value = '';
     document.getElementById('tagID').value = 'none';
   }
+
+
+ // Search by tagName in SEARCH BOX
+  const tagSearchButton = document.getElementById('tagSearchButton');
+
+  tagSearchButton.addEventListener('click', function () {
+    const tagSearchText = document.getElementById('tagSearchInput').value.toLowerCase();
+    const resources = document.querySelectorAll('.resource-item');
+
+    for (let i = 0; i < resources.length; i++) {
+      const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
+      if (resourceTag.includes(tagSearchText) || tagSearchText === 'all') {
+        resources[i].style.display = 'block';
+      } else {
+        resources[i].style.display = 'none';
+      }
+    }
+    // clears search box after
+    tagSearchInput.value = '';
+  
+  });
+
+
+// search by Tag name by BUTTON
+  const tagButtons = document.querySelectorAll('.tag-button');
+  tagButtons.forEach((button) => {
+    button.addEventListener('click', function () {
+      const selectedTag = button.getAttribute('data-tag');
+      const resources = document.querySelectorAll('.resource-item');
+
+      for (let i = 0; i < resources.length; i++) {
+        const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
+        if (selectedTag === 'all' || resourceTag === selectedTag) {
+          resources[i].style.display = 'block'; // Show the button
+        } else {
+          resources[i].style.display = 'none'; // Hide the button
+        }
+      }
+    });
+  });
+
+
+  // Loads Search NavBar to top when user scrolls
+  const searchFixed = document.querySelector('.searchFixed');
+const scrollThreshold = 250; 
+
+// Function to check and update the position of .searchFixed
+function checkScrollPosition() {
+  if (window.pageYOffset >= scrollThreshold) {
+    searchFixed.classList.add('fixed');
+  } else {
+    searchFixed.classList.remove('fixed');
+  }
+}
+
+// scroll event listener to call the checkScrollPosition function
+window.addEventListener('scroll', checkScrollPosition);
+
+// Initial check to handle page load position
+checkScrollPosition();
 });
-
-
-
 

@@ -20,17 +20,17 @@
 <body>
   <nav class="navbar bg-body-tertiary">
     <div class="container">
-      <a class="navbar-brand" href="../blog.html">
+      <a class="navbar-brand" href="../blog">
         <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
       </a>
 
       <ul class="nav-links">
-        <li><a href="../blog.html"> Blog </a></li>
-        <li><a href="../about.html"> About </a></li>
-        <li><a href="../crud.html"> POST </a></li>
-        <li><a href="../resources.html"> Resources </a></li>
-        <li><a href="../contact.html"> Contact </a></li>
-        <li><a href="../login.html"> Logout </a></li>
+        <li><a href="../blog"> Blog </a></li>
+        <li><a href="../about"> About </a></li>
+        <li><a href="../crud"> POST </a></li>
+        <li><a href="../resources"> Resources </a></li>
+        <li><a href="../contact"> Contact us </a></li>
+        <li><a href="../login"> Logout </a></li>
       </ul>
 
       <div class="profile-img">
@@ -50,6 +50,46 @@
     </div>
 
 
+  <div class="searchFixed">
+
+    <div class="searchInLine">
+    <div class="searchFor">
+      <h3>Search by #Tag Name</h3>
+    </div>
+
+     <div class="search-bar">
+      <input type="text" id="tagSearchInput" placeholder="Search by #Tag Name">
+      <button id="tagSearchButton">Search</button>
+    </div>
+  </div>
+
+    <!-- Tag Buttons at Top -->
+    <div class="tagButtonContainer">
+      
+    <div class="tag-buttons">
+      <button class="btn btn-info tag-button" data-tag="all">All</button>
+      <button class="btn btn-info tag-button" data-tag="html">HTML</button>
+      <button class="btn btn-info tag-button" data-tag="css">CSS</button>
+      <button class="btn btn-info tag-button" data-tag="javascript">JavaScript</button>
+      <button class="btn btn-info tag-button" data-tag="python">Python</button>
+      <button class="btn btn-info tag-button" data-tag="c and c++">C & C++</button>
+      <button class="btn btn-info tag-button" data-tag="c#">C#</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+    </div>
+    
+    </div>
+    
+</div>
+
+    
 
     <form id="myForm">
 
@@ -92,12 +132,15 @@
 
       <br />
 
-      <button type="Submit" class="btn btn-info">Submit</button>
+      <button type="Submit" class="btn btn-info">Add to Resources</button>
 
 
     </form>
+    
+    
+    <div class="displayNew" id="displayArea"></div>
 
-    <div id="displayArea"></div>
+    
 
   </main>
 
@@ -111,11 +154,11 @@
       </div>
       <div class="footerNav">
         <ul>
-          <li><a href="../about.html"> About </a></li>
-          <li><a href="../blog.html"> Blog </a></li>
-          <li><a href="../resources.html"> Resources </a></li>
-          <li><a href="../contact.html"> Contact us </a></li>
-          <li><a href="../teambio.html"> Our Team</a></li>
+          <li><a href="../about"> About </a></li>
+          <li><a href="../blog"> Blog </a></li>
+          <li><a href="../resources"> Resources </a></li>
+          <li><a href="../contact"> Contact us </a></li>
+          <li><a href="../teambio"> Our Team</a></li>
         </ul>
       </div>
     </div>
@@ -128,6 +171,6 @@
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
     crossorigin="anonymous"></script>
   <script src="../js/resources.js"></script>
-</body>
 
+</body>
 </html>

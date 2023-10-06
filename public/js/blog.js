@@ -2,6 +2,7 @@ const getContent = () => {
     fetch('/api/content')
         .then((response) => response.json())
         .then((data) => {
+
             console.log('getContent', data);
             for (let i = 0; i < data.length; i++) {
                 $('.blog-post-area').append(`
@@ -13,7 +14,7 @@ const getContent = () => {
             <img src="../images/pre-profile-pic2.jpeg" alt="profile-pic" width="40" height="40">
             </div>
             <div class="date-created">
-            <p><i>${data[i].user.username} posted</i>${data[i].created_at}</p>
+            <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
             <p class="card-text">"${data[i].content}"</p>
             
           <a href="#" class="btn btn-primary">See post</a>
@@ -21,10 +22,11 @@ const getContent = () => {
         
         </div>
       </div>`);
-            }
+            } // is there a way to fetch image of profile pic so that we can use it in open post function 
         });
 }
-getContent();
+
+// getContent();
 
 document.addEventListener('DOMContentLoaded', function () {
 
