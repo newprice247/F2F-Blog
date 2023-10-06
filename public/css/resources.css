@@ -157,19 +157,28 @@ footer {
 .searchInLine{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin: 0px 10%;
+  justify-content: space-evenly;
+  margin: 10px 5%;
+  padding-top: 10px;
+  color: aqua;
 }
 
+h3{
+  letter-spacing: 10px;
+  text-decoration: underline;
+}
+
+/* #TagButton Container to scroll left and right */
+.tagButtonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 10%;
+}
 
 /* #Tag Buttons */
 .tag-buttons {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   flex-wrap: wrap;
-  border: 10px solid black;
-  margin: 0px 10%;
-  padding: 50px 10px;
-  width: auto;
+  gap: 10px;
 }
+
