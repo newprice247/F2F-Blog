@@ -130,3 +130,14 @@ footer {
   padding: 50px;
   margin: 10px 10px;
 }
+
+.tag-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  border: 10px solid black;
+  margin: 0px 10%;
+  padding: 50px 10px;
+  width: auto;
+}
