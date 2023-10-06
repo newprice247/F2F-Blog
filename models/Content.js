@@ -20,7 +20,7 @@ Content.init(
             allowNull: false,
             unique: true,
         },
-        created_at: {
+        createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,

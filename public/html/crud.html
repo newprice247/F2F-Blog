@@ -32,7 +32,7 @@
     </nav>
     <br>
     <div class="user-header">
-        <h1>Welcome user name... </h1>
+        <!-- username welcome message will be pulled dynamically from database -->
     </div>
     <div class="manage-category">
         <div class="nav-links">
@@ -76,8 +76,8 @@
 
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody id="userPostTable">
+              <!-- <tr>
                 <th scope="row">10 October, 2023</th>
                 <td>JavaScript</td>
                 <td>I feel like we are missing the script tag in our HTML.</td>
@@ -97,7 +97,7 @@
                 <td>I thought this would help anyone learning MYSQL and building their own database/api's!</td>
                 <td><i class="bi bi-pencil-square edit-post"></i><i class="bi bi-trash3-fill"></i></td>
                 
-              </tr>
+              </tr> -->
             </tbody>
           </table>
     </div>
@@ -123,6 +123,8 @@
                     src="../images/favicon1.png" alt="F2F fist to five logo" width="30" height="30"></p>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script>
     <script src="../js/crud.js"></script>
 </body>
 
