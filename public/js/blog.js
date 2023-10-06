@@ -2,7 +2,7 @@ const getContent = () => {
     fetch('/api/content')
         .then((response) => response.json())
         .then((data) => {
-            
+
             console.log('getContent', data);
             for (let i = 0; i < data.length; i++) {
                 $('.blog-post-area').append(`
@@ -25,8 +25,9 @@ const getContent = () => {
             } // is there a way to fetch image of profile pic so that we can use it in open post function 
         });
 }
+/*
 getContent();
-
+*/
 document.addEventListener('DOMContentLoaded', function () {
 
     var closeModal = document.getElementById("close");
