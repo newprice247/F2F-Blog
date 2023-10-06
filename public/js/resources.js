@@ -113,4 +113,21 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+  const searchFixed = document.querySelector('.searchFixed');
+const scrollThreshold = 250; // Adjust this value as needed
+
+// Function to check and update the position of .searchFixed
+function checkScrollPosition() {
+  if (window.pageYOffset >= scrollThreshold) {
+    searchFixed.classList.add('fixed');
+  } else {
+    searchFixed.classList.remove('fixed');
+  }
+}
+
+// Add a scroll event listener to call the checkScrollPosition function
+window.addEventListener('scroll', checkScrollPosition);
+
+// Initial check to handle page load position
+checkScrollPosition();
 });
