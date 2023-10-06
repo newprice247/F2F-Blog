@@ -1,3 +1,5 @@
+const postButton = document.getElementById(post-button);
+
 function addPost(e) {;
 
 e.preventDefault();
