@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-
-    // const postButton = document.getElementById("post-button");
-    // const saveButton = document.getElementById("save-post");
-
+    //Function to post a new post to the api, using the user id saved in the session
     const postUserContent = (title, content) => {
         fetch('/api/content', {
             method: 'POST',
@@ -16,15 +13,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('postResource', data);
             });
     };
-
+    //Function that uses the information in the form to post a new post to the api
     $('#post-form').submit(function (event) {
         event.preventDefault();
         const postTitle = document.getElementById('title').value;
         const postContent = document.getElementById('content').value;
-        const postData = {
-            Title: postTitle,
-            Content: postContent,
-        };
+        // const postData = {
+        //     Title: postTitle,
+        //     Content: postContent,
+        // };
         postUserContent(postTitle, postContent);
         // displayPost(postData);   //refer to the comment below
         document.location.replace('/crud');
@@ -85,14 +82,10 @@ document.addEventListener('DOMContentLoaded', function () {
     //             });
     //         }).catch((error) => console.error('Post could not be found:', error));
     // }
-
-
-
-
-
+    //Function to send a delete request to the api
     const deletePost = async (postId) => {
         console.log('trying to delete post');
-        const response = await fetch(`/api/content/${postId}`, { //api accept data-post-id to find closest row to delete post 
+        const response = await fetch(`/api/content/${postId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -100,31 +93,13 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         if (response.ok) {
             console.log('Post has been deleted');
+            //Reloads the page to show the post has been deleted
+            document.location.replace('/crud');
         } else {
             console.error('Post could not be deleted.');
         }
     }
-
-    const handleDelete = (e) => {
-        console.log('delete button clicked')
-
-        const row = e.target.closest('tr');
-        // if (!row) {
-        //     console.log('no row found')
-        //     return;
-        // }
-        const postId =JSON.parse(row.getAttribute('id'))
-        console.log(postId);
-        // if (!postId) {
-        //     console.log('no post id found')
-        //     return;
-        // }
-        deletePost(postId)
-      };
-
-      $('.delete-post').click(handleDelete);
-    
-
+    //Function to get the user's profile information, including their posts
     const getProfile = () => {
         fetch('/api/users/profile')
             .then((response) => response.json())
@@ -146,6 +121,17 @@ document.addEventListener('DOMContentLoaded', function () {
                             </td>
                         </tr>`);
                 }
+                //Event listener for delete button
+                $('.delete-post').on('click', (e) => {
+                    console.log('delete button clicked')
+                    e.preventDefault();
+                    //Targets the closest row to the delete button and gets the id of the post, which is saved as the logged in user's id
+                    const row = e.target.closest('tr');
+                    //Parses the id from the row, which is how the api will find the post to delete
+                    const postId = JSON.parse(row.getAttribute('id'))
+                    //Calls the deletePost function, passing in the postId
+                    deletePost(postId)
+                });
             })
     }
     getProfile()
@@ -179,11 +165,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // });
 
-
-
-    
-
 });
-// postButton.addEventListener("click", addPost);
-// saveButton.addEventListener("click", savePost);
-
