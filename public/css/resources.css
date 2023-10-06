@@ -158,8 +158,8 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 10px 5%;
-  padding-top: 10px;
+  margin: 5px 5%;
+  padding-top: 5px;
   color: aqua;
 }
 
@@ -168,6 +168,16 @@ h3{
   text-decoration: underline;
 }
 
+#tagSearchButton:hover{
+ background-color: whitesmoke
+}
+
+  #tagSearchButton:active {
+    background-color: aqua;
+    box-shadow: 0 5px #666;
+    transform: translateX(4px);
+  }
+
 /* #TagButton Container */
 .tagButtonContainer {
   display: flex;
@@ -175,6 +185,7 @@ h3{
   flex-wrap: nowrap;
   margin: 0px 5%;
 }
+
 
 /* #Tag Buttons */
 .tag-buttons {
@@ -185,6 +196,16 @@ h3{
   overflow-x: auto; 
 }
 
+.tag-button{
+  height: 60%;
+  align-items: center;
+  background-color: rgb(203, 255, 255);
+  text-align: center;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
+.tag-button:hover {opacity: 1}
 
 
 
