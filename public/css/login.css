@@ -10,11 +10,11 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: rgb(255, 255, 255);
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlhaEqsomYWJ2jV47_i6Ef9bAwjNqpEzA3Mw&usqp=CAU);
 }
 .wrapper {
     width: 420px;
-    background: rgb(0, 0, 0);
+    background: rgb(3, 3, 3);
     color: #3ca1b0;
     border-radius: 10px;
     padding: 30px 40px;
@@ -37,7 +37,7 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid #3ca1b0);
+    border: 2px solid #3ca1b0;
     border-radius: 40px;
     font-size: 16px;
     color: #fcfafa;
