@@ -79,6 +79,28 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
+ // Search by tagName in SEARCH BOX
+  const tagSearchButton = document.getElementById('tagSearchButton');
+
+  tagSearchButton.addEventListener('click', function () {
+    const tagSearchText = document.getElementById('tagSearchInput').value.toLowerCase();
+    const resources = document.querySelectorAll('.resource-item');
+
+    for (let i = 0; i < resources.length; i++) {
+      const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
+      if (resourceTag.includes(tagSearchText) || tagSearchText === 'all') {
+        resources[i].style.display = 'block';
+      } else {
+        resources[i].style.display = 'none';
+      }
+    }
+    // clears search box after
+    tagSearchInput.value = '';
+  
+  });
+
+
+// search by Tag name by BUTTON
   const tagButtons = document.querySelectorAll('.tag-button');
   tagButtons.forEach((button) => {
     button.addEventListener('click', function () {
@@ -95,4 +117,47 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+
+  // Loads Search NavBar to top when user scrolls
+  const searchFixed = document.querySelector('.searchFixed');
+const scrollThreshold = 50; 
+
+// Function to check and update the position of .searchFixed
+function checkScrollPosition() {
+  if (window.pageYOffset >= scrollThreshold) {
+    searchFixed.classList.add('fixed');
+  } else {
+    searchFixed.classList.remove('fixed');
+  }
+}
+
+// scroll event listener to call the checkScrollPosition function
+window.addEventListener('scroll', checkScrollPosition);
+
+// Initial check to handle page load position
+checkScrollPosition();
 });
+
+
+
+
+
+let Sbtn = document.querySelector(".Sbtn");
+let searchNav = document.querySelector(".searchFixed");
+
+// Calculate the height of the search nav bar
+var searchNavHeight = searchNav.offsetHeight;
+
+// Add a scroll event listener to the window
+window.addEventListener("scroll", function() {
+  // Check the scroll position relative to the search nav bar's bottom
+  if (window.scrollY > searchNavHeight) {
+    // If scrolled below the search nav bar, hide the button
+    Sbtn.style.display = "none";
+  } else {
+    // If not scrolled below the search nav bar, show the button
+    Sbtn.style.display = "block";
+  }
+});
+

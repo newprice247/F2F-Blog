@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
     try {
         // Get all users, excluding their password
         const userData = await User.findAll({
-            attributes: { exclude: ['password'] }
+            attributes: { exclude: ['password', 'email'] }
         });
         res.status(200).json(userData);
     } catch (err) {
@@ -68,6 +68,18 @@ router.get('/profile', async (req, res) => {
         const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password'] },
             include: [{ model: Content, Resource }]
+        });
+        res.status(200).json(userData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/postHistory', async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Content }]
         });
         res.status(200).json(userData);
     } catch (err) {
