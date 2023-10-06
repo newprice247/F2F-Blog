@@ -157,11 +157,15 @@ footer {
 .searchInLine{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin: 10px 10%;
+  justify-content: space-evenly;
+  margin: 10px 5%;
   padding-top: 10px;
   color: aqua;
-  letter-spacing: 4px;
+}
+
+h3{
+  letter-spacing: 10px;
+  text-decoration: underline;
 }
 
 /* #TagButton Container to scroll left and right */
@@ -176,6 +180,5 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  transition: transform 1s ease-in-out; 
 }
 
