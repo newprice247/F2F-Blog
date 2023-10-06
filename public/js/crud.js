@@ -42,6 +42,8 @@ function savePost() {
             <td>${item.createdAt}</td>
             <td>${item.title}</td>
             <td>${item.content}</td>
+            <td><i class="bi bi-pencil-square edit-post"></i><i class="bi bi-trash3-fill"></i></td>
+                
             `;
 
         postHistoryTable.appendChild(row);
@@ -49,6 +51,33 @@ function savePost() {
         });
     }).catch(error => console.error('Post could not be found:', error));
 }
+
+function deletePost(e) {
+    const row = e.target.closest('tr');
+    if(!row) return;
+
+    const postId = row.getAttribute('data-post-id');
+    if(!postId) return;
+
+    fetch('/api/content/${postId}', {
+        method: 'DELETE',
+    })
+    .then((res) => {
+        if(res.ok) {
+        row.remove();
+        console.log('Post removed.');
+    } else { 
+        console.error('Post could not be deleted.');
+    }
+})
+    .catch((error)=> console.error('Eroor:', error));
+}
+const trash = document.querySelectorAll('.delete-post');
+trash.forEach((deleteButton) => {
+    trash.addEventListener('click', deletePost)
+});
+    
+
 
 
 const getProfile = () => {
