@@ -32,6 +32,11 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// router.get('/profile', async (req, res) => {
+//     try {
+//         const 
+//     }
+
 router.post('/login', async (req, res) => {
     try {
         console.log(req.body)
@@ -45,28 +50,43 @@ router.post('/login', async (req, res) => {
             res.status(400)
             return;
         } else {
-        res.status(200).json({ message: 'You are now logged in!'});
-        }
+        req.session.save(() => {
+            req.session.user_id = userData.id;
+            req.session.logged_in = true;
+            res.status(200).json({ message: 'You are now logged in!' });
+            console.log(`${userData.username} logged in`)
+        });
+    }
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
-// POST /api/users
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
     try {
-        // Create a new user
+        console.log(req.body)
         const userData = await User.create(req.body);
+        console.log(userData)
         // req.session.save(() => {
         //     req.session.user_id = userData.id;
         //     req.session.logged_in = true;
-        //     res.status(200).json(userData);
+        //     console.log(`${userData.username} registered`)
         // });
-        res.status(200).json(userData);
+        res.status(200).json({ message: 'You are now logged in!' });
     } catch (err) {
         res.status(400).json(err);
     }
 });
+
+// router.post('/logout', (req, res) => {
+//     if (req.session.logged_in) {
+//         req.session.destroy(() => {
+//             res.status(204).end();
+//         });
+//     } else {
+//         res.status(404).end();
+//     }
+// });
 
 // DELETE /api/users/":id"
 router.delete('/:id', async (req, res) => {

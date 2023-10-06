@@ -1,4 +1,9 @@
-
+// clears the form after submitting input
+function clearFormFields() {
+  document.getElementById('commentBox').value = '';
+  document.getElementById('urlLink').value = '';
+  document.getElementById('tagID').value = 'none';
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   const getResources = () => {
@@ -59,27 +64,22 @@ document.addEventListener('DOMContentLoaded', function () {
     // Clear the form fields
     clearFormFields();
   });
-
-  function displayResource(data) {
-    const resourceDiv = document.createElement('div');
-    resourceDiv.className = 'resource-item';
-    resourceDiv.innerHTML = `
-      <h3>New Resource Added:</h3>
-      <p><strong>Comment:</strong> ${data.comment}</p>
-      <p><strong>URL:</strong> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
-      <p><strong>Tag:</strong> ${data.tag}</p>
-    `;
-
-    displayArea.appendChild(resourceDiv);
-  }
   
+  // This adds new data
+function displayResource(data) {
+  const resourceDiv = document.createElement('div');
+  resourceDiv.className = 'resource-item';
+  resourceDiv.innerHTML = `
+    <h3>New Resource Added:</h3>
+    <p><strong>Comment:</strong> ${data.comment}</p>
+    <p><strong>URL:</strong> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
+    <p><strong>Tag:</strong> ${data.tag}</p>
+  </div>`;
 
-  // clears the form after submitting input
-  function clearFormFields() {
-    document.getElementById('commentBox').value = '';
-    document.getElementById('urlLink').value = '';
-    document.getElementById('tagID').value = 'none';
-  }
+  displayArea.insertBefore(resourceDiv, displayArea.firstChild);
+}
+
+
 });
 
 

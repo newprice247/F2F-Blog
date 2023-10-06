@@ -115,3 +115,18 @@ footer {
   color: grey;
   flex-wrap: wrap;
 }
+
+.displayNew{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.resource-item{
+   border: 10px solid black;
+  padding: 50px;
+  margin: 10px 10px;
+}

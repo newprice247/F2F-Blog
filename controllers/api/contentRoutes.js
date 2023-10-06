@@ -38,6 +38,21 @@ router.post('/', async (req, res) =>{
     }
 });
 
+// router.put('/:id', async (req, res) =>{
+//     try {
+//         const contentData = await Content.update(req.body, {
+//             where: {id: req.params.id}
+//         });
+//         if (!contentData) {
+//             res.status(404).json({message: 'No content found with this id!'});
+//             return;
+//         }
+//         res.status(200).json(contentData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
+
 router.delete('/:id', async (req, res) =>{
     try {
         const contentData = await Content.destroy({
