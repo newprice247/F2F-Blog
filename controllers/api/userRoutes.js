@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Content, Resource } = require('../../models');
 
 // GET /api/users
 router.get('/', async (req, res) => {
@@ -15,22 +15,22 @@ router.get('/', async (req, res) => {
 });
 
 // GET /api/users/":id"
-router.get('/:id', async (req, res) => {
-    try {
-        // Get a single user by id, excluding their password
-        const userData = await User.findByPk(req.params.id, {
-            attributes: { exclude: ['password'] }
-        });
-        // If no user is found, return an error
-        if (!userData) {
-            res.status(404).json({ message: 'No user found with this id!' });
-            return;
-        }
-        res.status(200).json(userData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+// router.get('/:id', async (req, res) => {
+//     try {
+//         // Get a single user by id, excluding their password
+//         const userData = await User.findByPk(req.params.id, {
+//             attributes: { exclude: ['password'] }
+//         });
+//         // If no user is found, return an error
+//         if (!userData) {
+//             res.status(404).json({ message: 'No user found with this id!' });
+//             return;
+//         }
+//         res.status(200).json(userData);
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 // router.get('/profile', async (req, res) => {
 //     try {
@@ -63,6 +63,18 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.get('/profile', async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, {
+            attributes: { exclude: ['password'] },
+            include: [{ model: Content, Resource }]
+        });
+        res.status(200).json(userData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 router.post('/register', async (req, res) => {
     try {
         console.log(req.body)
@@ -73,6 +85,7 @@ router.post('/register', async (req, res) => {
             req.session.logged_in = true;
             console.log(`${userData.username} registered`)
         });
+        req.session.
         res.status(200).json({ message: 'You are now logged in!' });
     } catch (err) {
         res.status(400).json(err);
