@@ -14,7 +14,7 @@ const postData = {
 
 };
 
-fetch('/api/posts', {
+fetch('/api/crud', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ fetch('/api/posts', {
 }
 
 function savePost() {
-    fetch('api/post')
+    fetch('api/crud')
     .then(res => res.json())
     .then(data => {
         const postHistoryTable = document.getElementById('userPostTable');
