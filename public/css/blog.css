@@ -150,10 +150,13 @@ footer {
 
 .blog-post-area {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
-    padding-left: 30px;
+   
 }
+
+
+
 
 .video-card img {
     padding: 10px;

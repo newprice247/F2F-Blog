@@ -144,3 +144,17 @@ padding-right: 20px;
 
 }
 
+
+.edit-post {
+    padding-right:15px;
+    }
+
+
+
+.save-button {
+    width:100px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: aqua;
+    border-color: white;
+}
