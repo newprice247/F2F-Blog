@@ -164,13 +164,18 @@ footer {
   letter-spacing: 4px;
 }
 
+/* #TagButton Container to scroll left and right */
+.tagButtonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 10%;
+}
 
 /* #Tag Buttons */
 .tag-buttons {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   flex-wrap: wrap;
-  margin: 0px 15%;
-  width: auto;
+  gap: 10px;
+  transition: transform 1s ease-in-out; 
 }
+

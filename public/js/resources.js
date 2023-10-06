@@ -113,8 +113,10 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+  // Loads Search NavBar to top when user scrolls
   const searchFixed = document.querySelector('.searchFixed');
-const scrollThreshold = 250; // Adjust this value as needed
+const scrollThreshold = 250; 
 
 // Function to check and update the position of .searchFixed
 function checkScrollPosition() {
@@ -125,9 +127,10 @@ function checkScrollPosition() {
   }
 }
 
-// Add a scroll event listener to call the checkScrollPosition function
+// scroll event listener to call the checkScrollPosition function
 window.addEventListener('scroll', checkScrollPosition);
 
 // Initial check to handle page load position
 checkScrollPosition();
 });
+
