@@ -1,6 +1,6 @@
 
 const postButton = document.getElementById("post-button");
-const saveButton = document.getElementById("save-post");
+
 import { getContent } from './blog.js';
 
 function addPost(e) {
@@ -90,7 +90,7 @@ const getProfile = () => {
 getProfile()
 
 
-
+//this button will add post to blog page using the getcontent function  and send the post data to database 
 postButton.addEventListener("click", addPost);
 
 
