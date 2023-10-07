@@ -1,7 +1,7 @@
 
 const postButton = document.getElementById("post-button");
 
-// import { getContent } from './blog.js';
+import { getContent } from './blog.js';
 
 function addPost(e) {
     const title = document.querySelector(".postTitle").value;
@@ -25,7 +25,7 @@ function addPost(e) {
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
-            // getContent();
+            getContent();
             document.location.replace('/crud');
             
         })
