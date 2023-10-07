@@ -50,7 +50,7 @@ const deletePost = async (postId) => {
     }
 }
 
-
+//Onload the table needs to show the user logged post data in table already there  when they enter the crud page 
 
 //Function to get the user's profile information, including their posts
 const getProfile = () => {
