@@ -198,31 +198,6 @@ postButton.addEventListener("click", addPost);
     // }
 
 
-
-
-    // function savePost(e) {
-    //     e.preventDefault();
-    //     fetch('api/content')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             const postHistoryTable = document.getElementById('userPostTable');
-
-    //             data.forEach(item => {
-    //                 const row = document.createElement('tr');
-    //                 row.innerHTML = `
-    //             <td>${item.createdAt}</td>
-    //             <td>${item.title}</td>
-    //             <td>${item.content}</td>
-    //             <td><i class="bi bi-pencil-square edit-post"></i><i class="bi bi-trash3-fill"></i></td>
-
-    //             `;
-
-    //                 postHistoryTable.appendChild(row);
-
-    //             });
-    //         }).catch((error) => console.error('Post could not be found:', error));
-    // }
-    //Function to send a delete request to the api
     const deletePost = async (postId) => {
         console.log('trying to delete post');
         const response = await fetch(`/api/content/${postId}`, {
