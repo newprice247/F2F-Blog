@@ -1,8 +1,5 @@
 
 const router = require("express").Router();
-// const homeController = require("../controllers/home");
-const uploadController = require("../controllers/upload");
-const upload = require("../utils/upload");
 const path = require("path");
 const fs = require('fs');
 
