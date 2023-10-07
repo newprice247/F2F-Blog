@@ -149,13 +149,11 @@ footer {
 }
 
 .blog-post-area {
-    display: flex;
-    justify-content: space-around;
+    display: block;
+   
 
    
 }
-
-
 
 
 .video-card img {
@@ -215,16 +213,10 @@ footer {
     width: 400px;
     margin: auto;
 
-
-
-
-
 }
 
 .developer-position {
     display: flex;
-
-
 
 }
 
