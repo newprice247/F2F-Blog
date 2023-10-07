@@ -10,6 +10,10 @@ const path = require('path')
 const routes = require('./controllers')
 
 const app = express()
+const models = require('./models')
+// const initRoutes = require('./controllers/web')
+// initRoutes(app)
+
 const PORT = process.env.PORT || 3001;
 
 const sess = {
