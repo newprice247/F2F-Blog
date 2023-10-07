@@ -149,7 +149,9 @@ footer {
 }
 
 .blog-post-area {
-    display: block;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
    
 
    
