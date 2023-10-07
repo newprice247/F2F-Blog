@@ -127,13 +127,18 @@ footer {
     background-color: blue;
 }
 
-
+.user-action-form {
+    width: 80%; 
+    margin: 0 auto; 
+  }
+  
 .addPost {
 width: 80%;
 border-radius:2em;
 padding-left:20px;
 color:grey;
 padding-right: 20px;
+
 
 }
 
