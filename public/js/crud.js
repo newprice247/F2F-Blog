@@ -26,11 +26,13 @@ function addPost(e) {
         .then((data) => {
             console.log(data);
             getContent();
+            
         })
 
         .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
 
 };
+
 
 
 const deletePost = async (postId) => {
@@ -51,6 +53,7 @@ const deletePost = async (postId) => {
 }
 
 //Onload the table needs to show the user logged post data in table already there  when they enter the crud page 
+//data is not loading in table provided, if we can switch something for it to load in table 
 
 //Function to get the user's profile information, including their posts
 const getProfile = () => {
