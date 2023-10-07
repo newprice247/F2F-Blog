@@ -14,7 +14,7 @@ function addPost(e) {
 
     };
 
-    fetch('http://localhost:3001/api/content', {
+    fetch('/api/content', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
