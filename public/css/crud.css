@@ -33,10 +33,7 @@
 .manage-category {
     height: 100%;
     padding-top: 30px;
-    display: flex;
-
-
-
+    
 }
 
 .user-header {
@@ -72,7 +69,6 @@ footer {
 .footerNav li a {
     color: white;
     text-decoration: none;
-
 }
 
 .footerNav a:hover {
@@ -84,7 +80,14 @@ footer {
     display: flex;
     justify-content: center;
 
+}
 
+.social i {
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 5px;
+    border-radius: 30%;
 }
 
 .youtube {
@@ -96,19 +99,19 @@ footer {
     color: rgb(49, 7, 49);
 }
 
-.social i {
-    text-decoration: none;
-    padding: 10px;
-    background-color: white;
-    margin: 5px;
-    border-radius: 30%;
-}
-
 .footer-bottom {
     text-align: center;
     color: grey;
     flex-wrap: wrap;
 }
+
+.footer-position {
+    display:block;
+}
+
+
+
+
 
 .user-action {
     background-color: blue;
@@ -138,9 +141,6 @@ padding-right: 20px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    
-
- 
 
 }
 
