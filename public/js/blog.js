@@ -1,4 +1,5 @@
 var modal;  //declared globally
+var closeModal;
 
 
 export const getContent = () => {   
