@@ -1,5 +1,6 @@
 
 const postButton = document.getElementById("post-button");
+const commentButton = document.getElementById("comment");
 
 import { getContent } from './blog.js';
 
@@ -35,6 +36,34 @@ function addPost(e) {
 };
 
 
+function addComment(e) {
+    e.preventDefault();
+
+    const comment = document.querySelector(".textarea").value;
+
+    const commentData = {
+        comment: comment,
+
+    };
+
+fetch('api/comment', {    //fetch api content 
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postData),
+  })
+  .then((res) => res.json())
+  .then((data) => {
+      console.log(data);
+      getContent();
+      document.location.replace('/crud');
+      
+  })
+
+  .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+
+};
 
 const deletePost = async (postId) => {
     console.log('trying to delete post');
@@ -96,5 +125,4 @@ getProfile()
 
 //this button will add post to blog page using the getcontent function  and send the post data to database 
 postButton.addEventListener("click", addPost);
-
-
+commentButton.addEventListener("click", addComment);
