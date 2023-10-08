@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {  //fixed modal so th
 
       $(document).on('click', '.btn-primary', function() {
       
-          $('#postModal').modal('show');
+          $('#postModal').appendTo("body");
         });
       });    
 
