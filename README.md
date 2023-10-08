@@ -9,6 +9,6 @@ Project 2 UCF FullStack Coding Bootcamp
     * Yesenia Benitez | Slack name: Yesenia Benitez | Github: yeseniax2
     * Katie Waters | Slack name: Katie Waters | Github: kwaters3
 
-Project Githup Repo:  https://github.com/newprice247/F2F-Blog
+Project Github Repo:  https://github.com/newprice247/F2F-Blog
 
 Project Heroku Deployment:  https://f2f-blog-ad8f414d0b59.herokuapp.com/
