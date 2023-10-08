@@ -10,7 +10,7 @@ export const getContent = () => {
           console.log('getContent', data);
           for (let i = 0; i < data.length; i++) {
               $('.blog-post-area').append(`
-  <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 18rem;">
       <img src="../images/pre-post2.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${data[i].title}</h5>
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {  //fixed modal so th
 
       $(document).on('click', '.close-button', function() {
       
-        modal.style.display = "none";
+        $('#postModal').modal('hide');
       });
     
    
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {  //fixed modal so th
         postProfilePic.width = 40;
         postProfilePic.height = 40;
 
-        modal.style.display = "block"; //show when clicked "see post"
+        $('#postModal').modal('show'); //show when clicked "see post"
     }
 
 
