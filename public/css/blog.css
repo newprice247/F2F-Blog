@@ -163,6 +163,30 @@ footer {
     width: 250px;
 }
 
+.comment {
+    padding-left: 5px;
+}
+
+.comments img {
+display:flex;
+margin-right:5px;
+
+}
+
+.modalEdit {
+    border: 10px solid aqua;
+}
+
+.comment-area p {
+    background-color:beige;
+}
+
+.comment-area {
+display:flex;
+
+}
+
+
 .video-card h3 {
     color: black;
     font-size: medium;
