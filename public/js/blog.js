@@ -48,10 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {  //fixed modal so th
         });
       });    
 
-    function closePost() {
+      $(document).on('click', '.close-button', function() {
+      
         modal.style.display = "none";
-    }
-
+      });
+    
+   
     function openPost(imageSrc, postTitle, postText, profilePic) {
         var postImage = document.getElementById("postImage");
         var postContent = document.getElementById("postContent");
@@ -82,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function () {  //fixed modal so th
             openPost(imageSrc, postTitle, postText, profilePic);
 
         });
-
+        
     });
-
-    closeModal.addEventListener("click", closePost);
+    
+    
 
 
 $('.modal-comment-button').click(function() {  //append new comment each time user adds a comment 
