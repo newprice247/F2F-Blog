@@ -99,4 +99,4 @@ $('.modal-comment-button').click(function() {  //append new comment each time us
       $('.textarea').val('');
 });
 
- 
+
