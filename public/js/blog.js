@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {  //fixed modal so th
 
       $(document).on('click', '.btn-primary', function() {
       
-          $('#postModal').appendTo("body");
+          $('#postModal').modal('show');
         });
       });    
 
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {  //fixed modal so th
         postProfilePic.width = 40;
         postProfilePic.height = 40;
 
-        $('#postModal').appendTo("body"); //show when clicked "see post"
+        $('#postModal').modal('show'); //show when clicked "see post"
     }
 
 
