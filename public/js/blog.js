@@ -15,7 +15,7 @@ export const getContent = () => {
                 <img src="../images/pre-profile-pic2.jpeg" alt="profile-pic" width="40" height="40">
                 </div>
                 <div class="date-created">
-                <p><i>${data[i].title} posted </i>${data[i].created_at}</p>
+                <p><i>${data[i].user.username} posted </i>${data[i].created_at}</p>
                 <p class="card-text">"${data[i].content}"</p>
                 
               <a href="#" class="btn btn-primary">See post</a>
@@ -33,26 +33,29 @@ export const getContent = () => {
 document.addEventListener('DOMContentLoaded', function () {
 
     var closeModal = document.getElementById("close");
-
-    // Your code here
-
-
     var modal = document.getElementById("postModal");
+
+    $(document).ready(function() {  //added to test modal opening on new cards
+       
+        $('.modalSeePost').click(function() {
+          $('#postModal').modal('show');
+        });
+      });    //end of test function 
 
     function closePost() {
         modal.style.display = "none";
     }
 
-    function openPost(imageSrc, postTitle, postText, profilePicSrc) {
+    function openPost(imageSrc, postTitle, postText, profilePic) {
         var postImage = document.getElementById("postImage");
         var postContent = document.getElementById("postContent");
         var postProfilePic = document.getElementById("modalProfilePic");
-        var profilePicSrc = "../images/Profile-pic.jpg"; // Profile pic for the modal post's author
+       // Profile pic for the modal post's author
 
 
         postImage.src = imageSrc;
         postContent.innerHTML = "<h2>" + postTitle + "</h2><p>" + postText + "</p>";
-        postProfilePic.src = profilePicSrc;
+        postProfilePic.src = profilePic;
 
         postProfilePic.width = 40;
         postProfilePic.height = 40;
@@ -68,8 +71,9 @@ document.addEventListener('DOMContentLoaded', function () {
             var imageSrc = card.querySelector(".card-img-top").src;
             var postTitle = card.querySelector(".card-title").textContent;
             var postText = card.querySelector(".card-text").textContent;
+            var profilePic = card.querySelector(".profile-pic-match").src;
 
-            openPost(imageSrc, postTitle, postText);
+            openPost(imageSrc, postTitle, postText, profilePic);
 
         });
 
