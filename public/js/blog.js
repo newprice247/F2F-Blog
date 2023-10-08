@@ -83,6 +83,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     closeModal.addEventListener("click", closePost);
+})
+
+$('.modal-comment-button').click(function() {  //append new comment each time user adds a comment 
+  const commentText = $('.textarea').val();
+
+  const newComment = `
+  <div class="comment-area">
+        <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
+        <p>${commentText}</p>
+      </div>`;
+
+      $('#commentList').append(newComment);
+
+      $('.textarea').val('');
 });
 
-
+ 
