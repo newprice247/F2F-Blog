@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 $('.modal-comment-button').click(function() {  //append new comment each time user adds a comment 
-  const commentText = $('.textarea').val();
+ 
 //use as template to append comment from database 
   const newComment = `
   <div class="comment-area">
