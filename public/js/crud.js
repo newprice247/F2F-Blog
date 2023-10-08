@@ -65,6 +65,9 @@ fetch('api/comment', {    //fetch api content
 
 };
 
+
+
+
 const deletePost = async (postId) => {
     console.log('trying to delete post');
     const response = await fetch(`/api/content/${postId}`, {

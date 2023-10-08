@@ -1,5 +1,5 @@
 
-export const getContent = () => {
+export const getContent = () => {   
         fetch('/api/content')
             .then((response) => response.json())
             .then((data) => {
@@ -87,16 +87,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 $('.modal-comment-button').click(function() {  //append new comment each time user adds a comment 
   const commentText = $('.textarea').val();
-
+//use as template to append comment from database 
   const newComment = `
   <div class="comment-area">
-        <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
-        <p>${commentText}</p>
+        <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
+        <p>${data.comment.comment}</p>
       </div>`;
 
       $('#commentList').append(newComment);
 
-      $('.textarea').val('');
+      $('.textarea').val('');       
 });
 
 
