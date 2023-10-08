@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {  //fixed modal so th
         postProfilePic.width = 40;
         postProfilePic.height = 40;
 
-        $('#postModal').modal('show'); //show when clicked "see post"
+        $('#postModal').appendTo("body"); //show when clicked "see post"
     }
 
 
