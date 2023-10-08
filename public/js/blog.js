@@ -1,3 +1,5 @@
+var modal;  //declared globally
+
 
 export const getContent = () => {   
         fetch('/api/content')
@@ -33,17 +35,17 @@ export const getContent = () => {
   getContent(); 
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {  //fixed modal so that appended cards open modal as well
 
-    var closeModal = document.getElementById("close");
-    var modal = document.getElementById("postModal");
+  closeModal = document.getElementById("close"); 
+  modal = document.getElementById("postModal");
 
-    $(document).ready(function() {  //added to test modal opening on new cards
-       
-        $('.modalSeePost').click(function() {
+
+      $(document).on('click', '.modalSeePost', function() {
+      
           $('#postModal').modal('show');
         });
-      });    //end of test function 
+      });    
 
     function closePost() {
         modal.style.display = "none";
@@ -83,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     closeModal.addEventListener("click", closePost);
-})
+
 
 $('.modal-comment-button').click(function() {  //append new comment each time user adds a comment 
  
