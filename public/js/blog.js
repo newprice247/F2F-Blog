@@ -24,7 +24,7 @@ export const getContent = () => {
 
           <p class="card-text">"${data[i].content}"</p>
           
-        <a href="#" class="btn btn-primary modalSeePost">See post</a>
+        <a href="#" class="btn btn-primary">See post</a>
         </div>
       
       </div>
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {  //fixed modal so th
   modal = document.getElementById("postModal");
 
 
-      $(document).on('click', '.modalSeePost', function() {
+      $(document).on('click', '.btn-primary', function() {
       
           $('#postModal').modal('show');
         });
