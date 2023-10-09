@@ -96,9 +96,8 @@ router.post('/register', async (req, res) => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
             console.log(`${userData.username} registered`)
+            res.status(200).json({ message: 'You are now logged in!' });
         });
-        req.session.
-        res.status(200).json({ message: 'You are now logged in!' });
     } catch (err) {
         res.status(400).json(err);
     }

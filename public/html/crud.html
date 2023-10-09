@@ -24,6 +24,15 @@
         <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
       </a>
 
+      <ul class="nav-links">
+        <li><a href="../blog"> Blog </a></li>
+        <li><a href="../about"> About </a></li>
+        <li><a href="../crud"> POST </a></li>
+        <li><a href="../resources"> Resources </a></li>
+        <li><a href="../contact"> Contact us</a></li>
+        <li><a href="../login"> Logout </a></li> <!--Login page-->
+      </ul>
+
       <div class="profile-img">
         <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
       </div>
@@ -31,39 +40,33 @@
     </div>
   </nav>
   <br>
+ 
   <div class="user-header">
-    <!-- username welcome message will be pulled dynamically from database -->
   </div>
-  <div class="manage-category">
-    <div class="nav-links">
-      <button><i class="bi bi-house-fill"></i>Blog</button>
-      <button><i class="bi bi-plus-square-fill"></i> Add post </button>
-      <button><i class="bi bi-pencil-fill"></i> Edit post </button>
-      <button><i class="bi bi-clock-history"></i> Post history </button>
-      <!--admin login page will prompt user and pass and javascript will show table of users etc.-->
-      <button><i class="bi bi-door-closed"></i> Logout</button> <!--login page-->
-    </div>
-    <div class="user-action-form addPost">
-      <form id="post-form" class="post-form">
-        <div class="mb-3">
-          <label for="titleName" class="form-label title">Title:</label>
-          <input type="text" class="form-control postTitle" id="title" placeholder="title" required>
-        </div>
-        <div class="mb-3">
-          <label for="content" class="form-label content">Post text:</label>
-          <textarea class="form-control postContent" id="content" rows="10" required></textarea>
-        </div>
-        <div class="submit-post-container">
-          <div class="submit-post">
-            <button type="submit" id="post-button" class="post-button">Post</button>
-            <!-- <button id="save-post" class="save-button">Save Post</button> -->
-          </div>
-        </div>
-      </form>
-      <br>
+  <br> 
+        <div class="user-action-form addPost">
+          <form class="post-form" method="post">
+            <div class="mb-3">
+                <label for="titleName" class="form-label title">Title:</label>
+                <input type="text" class="form-control postTitle" id="title" placeholder="title" required>
+              </div>
+              <div class="mb-3">
+                <label for="content" class="form-label content">Post text:</label>
+                <textarea class="form-control postContent" id="content" rows="10" required></textarea>
+              </div>
+              <div class="submit-post-container">
+              <div class="submit-post">
+              <button type="submit" id="post-button" class="post-button">Post</button>
+              </div>
+              </div>
+              </form>
 
+        
+              <br>
 
-    </div>
+              <div class="post-history-area">
+                <h1>Post history</h1>
+              </div>
 
     <table class="table table-light table-striped table-hover">
       <thead>
@@ -73,73 +76,47 @@
           <th scope="col">Content</th>
           <th scope="col"></th>
 
-
-
         </tr>
       </thead>
       <tbody id="userPostTable">
-         <!--add row id to post so that the delete rquest knows which row to delete-->
-        <!-- <tr data-post-id="1">
-          <th scope="row">10 October, 2023</th>
-          <td>JavaScript</td>
-          <td>I feel like we are missing the script tag in our HTML.</td>
-          <td>
-            <i class="bi bi-pencil-square edit-post"></i>
-            <i class="bi bi-trash3-fill delete-post"></i>
-          </td>
-        </tr> -->
-
-         <!--add row id to post so that the delete rquest knows which row to delete-->
-        <!-- <tr data-post-id="2">
-          <th scope="row">1 October, 2023</th>
-          <td>Ucf bootcamp</td>
-          <td>Is bootcamp worth it? Enrolling Now UCF ONLINE Coding, Register now!</td>
-          <td>
-            <i class="bi bi-pencil-square edit-post"></i>
-            <i class="bi bi-trash3-fill delete-post"></i>
-          </td>
-        </tr> -->
-
-         <!--add row id to post so that the delete rquest knows which row to delete-->
-        <!-- <tr data-post-id="3"> 
-          <th scope="row">5 September, 2023</th>
-          <td>Mysql</td>
-          <td>I thought this would help anyone learning MYSQL and building their own database/api's!</td>
-          <td>
-            <i class="bi bi-pencil-square edit-post"></i>
-            <i class="bi bi-trash3-fill delete-post"></i>
-          </td>
-        </tr> -->
-
+        
+          <!--shows in javascript -->
 
       </tbody>
     </table>
   </div>
-  <footer>
-    <div class="footer-container">
-      <div class="social">
-        <a href=""><i class="bi bi-youtube youtube"></i></a>
-        <a href="https://github.com/newprice247/F2F-Blog"><i class="bi bi-github github"></i></a>
+  
+  <br>
+ 
+<footer>
+      <div class="footer-container">
+        <div class="social">
+          <a href=""><i class="bi bi-youtube youtube"></i></a>
+          <a href="https://github.com/newprice247/F2F-Blog"><i class="bi bi-github github"></i></a>
+        </div>
+        <div class="footerNav">
+          <ul>
+            <li><a href="../about"> About </a></li>
+            <li><a href="../blog"> Blog </a></li>
+            <li><a href="../resources"> Resources </a></li>
+            <li><a href="../contact"> Contact </a></li>
+            <li><a href="../teambio"> Our Team</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footerNav">
-        <ul>
-          <li><a href="../about"> About </a></li>
-          <li><a href="../blog"> Blog </a></li>
-          <li><a href="../resources"> Resources </a></li>
-          <li><a href="../contact"> Contact </a></li>
-          <li><a href="../teambio"> Our Team</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <p>Copyright &copy;2023; Designed by <span class="designer">F2FSquad</span> <img src="../images/favicon1.png"
+            alt="F2F fist to five logo" width="30" height="30"></p>
       </div>
-    </div>
-    </div>
-    <div class="footer-bottom">
-      <p>Copyright &copy;2023; Designed by <span class="designer">F2FSquad</span> <img src="../images/favicon1.png"
-          alt="F2F fist to five logo" width="30" height="30"></p>
-    </div>
-  </footer>
+    </footer>
+ 
+
+
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
     crossorigin="anonymous"></script>
-  <script src="../js/crud.js"></script>
+
+    <script type="module" src="../js/crud.js"></script>
+
 </body>
 
 </html>

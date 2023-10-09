@@ -4,26 +4,36 @@
     font-family: 'Ubuntu', sans-serif;
 }
 
+
 .nav-links {
     list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    margin-left: 50%;
 
 
 
 }
 
-.nav-links button {
-    display: block;
-    margin: 10px;
+.nav-links li {
+    margin: 0;
+
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+    color: aqua;
+}
+
+
+
+.nav-links li a {
     text-decoration: none;
-    font-size: larger;
-    background-color: rgba(155, 155, 128, 0.158);
-    color: rgb(35, 217, 241);
-    border: none;
-
-    width: 150px;
-
+    justify-content: space-between;
+    color: rgb(19, 225, 240)
 }
-
 .profile-img img {
     width: 40px;
     height: 40px;
@@ -33,10 +43,7 @@
 .manage-category {
     height: 100%;
     padding-top: 30px;
-    display: flex;
-
-
-
+    
 }
 
 .user-header {
@@ -47,6 +54,8 @@
     margin-left: 90px;
 
 }
+
+
 
 footer {
     background-color: black;
@@ -72,7 +81,6 @@ footer {
 .footerNav li a {
     color: white;
     text-decoration: none;
-
 }
 
 .footerNav a:hover {
@@ -84,7 +92,14 @@ footer {
     display: flex;
     justify-content: center;
 
+}
 
+.social i {
+    text-decoration: none;
+    padding: 10px;
+    background-color: white;
+    margin: 5px;
+    border-radius: 30%;
 }
 
 .youtube {
@@ -96,25 +111,29 @@ footer {
     color: rgb(49, 7, 49);
 }
 
-.social i {
-    text-decoration: none;
-    padding: 10px;
-    background-color: white;
-    margin: 5px;
-    border-radius: 30%;
-}
-
 .footer-bottom {
     text-align: center;
     color: grey;
     flex-wrap: wrap;
 }
 
+.footer-position {
+    display:block;
+}
+
+
+
+
+
 .user-action {
     background-color: blue;
 }
 
-
+.user-action-form {
+    width: 80%; 
+    margin: 0 auto; 
+  }
+  
 .addPost {
 width: 80%;
 border-radius:2em;
@@ -122,7 +141,9 @@ padding-left:20px;
 color:grey;
 padding-right: 20px;
 
+
 }
+
 
 .post-button {
     width:100px;
@@ -138,9 +159,6 @@ padding-right: 20px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    
-
- 
 
 }
 
@@ -151,10 +169,3 @@ padding-right: 20px;
 
 
 
-.save-button {
-    width:100px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: aqua;
-    border-color: white;
-}
