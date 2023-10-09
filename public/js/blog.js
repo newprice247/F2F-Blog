@@ -37,57 +37,42 @@ export const getContent = () => {
   getContent(); 
 
 
-document.addEventListener('DOMContentLoaded', function () {  //fixed modal so that appended
 
-  closeModal = document.querySelector('#close'); 
-  modal = document.querySelector('#postModal');
-  openModal = document.querySelector('#seePost');
+document.addEventListener('DOMContentLoaded', function () {
+  const closeModal = document.querySelector('#close');
+  const blogPostArea = document.querySelector('.blog-post-area');
+
   closeModal.addEventListener('click', closePost);
-  openModal.addEventListener('click', openP);
 
+  // Use event delegation to handle click events on dynamically added elements
+  blogPostArea.addEventListener('click', function (event) {
+    if (event.target.matches('[data-bs-toggle="modal"]')) {
+      const card = event.target.closest('.card');
+      const imageSrc = card.querySelector('.card-img-top').src;
+      const postTitle = card.querySelector('.card-title').textContent;
+      const postText = card.querySelector('.card-text').textContent;
+      const profilePic = card.querySelector('.profile-pic-match').src;
+
+      openPost(imageSrc, postTitle, postText, profilePic);
+    }
+  });
 });
-function openP() {
-  $('#postModal').modal('show'); // Use Bootstrap's modal hide method
+
+function openPost(imageSrc, postTitle, postText, profilePic) {
+  const postImage = document.getElementById('postImage');
+  const postContent = document.getElementById('postContent');
+  const postProfilePic = document.getElementById('modalProfilePic');
+
+  postImage.src = imageSrc;
+  postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
+  postProfilePic.src = profilePic;
+
+  postProfilePic.width = 40;
+  postProfilePic.height = 40;
+
+  const postModal = new bootstrap.Modal(document.getElementById('postModal'));
+  postModal.show();
 }
-      
-    
-
-        function closePost() {
-          $('#postModal').modal('hide'); // Use Bootstrap's modal hide method
-      }
-
-    function openPost(imageSrc, postTitle, postText, profilePic) {
-        var postImage = document.getElementById("postImage");
-        var postContent = document.getElementById("postContent");
-        var postProfilePic = document.getElementById("modalProfilePic");
-       // Profile pic for the modal post's author
-
-        postImage.src = imageSrc;
-        postContent.innerHTML = "<h2>" + postTitle + "</h2><p>" + postText + "</p>";
-        postProfilePic.src = profilePic;
-
-        postProfilePic.width = 40;
-        postProfilePic.height = 40;
-        $('#postModal').modal('show');
-      }
-        
-    
-
-    console.log('imageSrc:', imageSrc);
-    var seePostButtons = document.querySelectorAll(".btn-primary");
-    seePostButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-            var card = this.closest(".card");
-            var imageSrc = card.querySelector(".card-img-top").src;
-            var postTitle = card.querySelector(".card-title").textContent;
-            var postText = card.querySelector(".card-text").textContent;
-            var profilePic = card.querySelector(".profile-pic-match").src;
-
-            openPost(imageSrc, postTitle, postText, profilePic);
-
-        });
-
-    });
 
 /*
 $('.modal-comment-button').click(function() {  //append new comment each time user adds a comment 
