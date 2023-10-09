@@ -105,7 +105,7 @@
         <div class="date-created">
           <p><i>Jack Doe posted</i> 1 October, 2023</p>
           <p class="card-text">"I thought this would help anyone learning MYSQL and building their own database/api's!"</p>
-          <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
+          <a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
         </div>
         </div>
     </div>
@@ -143,7 +143,7 @@
         </div>
         <div class="modal-button">
           <button class="modal-comment-button" id="comment" typ="submit">Post comment</button>
-        <button class="modal-close-button close-button" id="close" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+        <button class="modal-close-button close-button" id="close" data-bs-dismiss="modal" aria-label="Close" onclick="close_modal();">Cancel</button>
         </div>
       </div>
     </div>
