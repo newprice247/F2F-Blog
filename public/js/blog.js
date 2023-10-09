@@ -1,5 +1,3 @@
-
-
 export const getContent = () => {   
         fetch('/api/content')
             .then((response) => response.json())
@@ -13,7 +11,7 @@ export const getContent = () => {
             <div class="card-body">
               <h5 class="card-title">${data[i].title}</h5>
               <div class="profile-img">
-                <img src="../images/pre-profile-pic2.jpeg" alt="profile-pic" width="40" height="40">
+                <img src="../images/pre-profile-pic2.jpeg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
                 </div>
                 <div class="date-created">
 
@@ -33,13 +31,13 @@ export const getContent = () => {
   };
   getContent(); 
 
-
+  function closePost() {
+    $('#postModal').modal('hide');
+  }
 
 document.addEventListener('DOMContentLoaded', function () {
   
-function closePost() {
-  $('#postModal').modal('hide');
-}
+
   const closeModal = document.querySelector('#close');
   const blogPostArea = document.querySelector('.blog-post-area');
 
