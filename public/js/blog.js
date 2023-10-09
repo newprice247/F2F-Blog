@@ -1,6 +1,7 @@
 var modal;  //declared globally
 var closeModal;
 var openModal;
+let imageSrc;
 
 export const getContent = () => {   
         fetch('/api/content')
@@ -42,19 +43,18 @@ document.addEventListener('DOMContentLoaded', function () {  //fixed modal so th
   modal = document.querySelector('#postModal');
   openModal = document.querySelector('#seePost');
   closeModal.addEventListener('click', closePost);
-openModal.addEventListener('click', openP);
+  openModal.addEventListener('click', openP);
 
 });
-  function openP() {
-      
-         modal.style.display = "block";
-        };
+function openP() {
+  $('#postModal').modal('show'); // Use Bootstrap's modal hide method
+}
       
     
 
-    function closePost() {
-        modal.style.display = "none";
-    }
+        function closePost() {
+          $('#postModal').modal('hide'); // Use Bootstrap's modal hide method
+      }
 
     function openPost(imageSrc, postTitle, postText, profilePic) {
         var postImage = document.getElementById("postImage");
@@ -62,18 +62,18 @@ openModal.addEventListener('click', openP);
         var postProfilePic = document.getElementById("modalProfilePic");
        // Profile pic for the modal post's author
 
-
         postImage.src = imageSrc;
         postContent.innerHTML = "<h2>" + postTitle + "</h2><p>" + postText + "</p>";
         postProfilePic.src = profilePic;
 
         postProfilePic.width = 40;
         postProfilePic.height = 40;
+        $('#postModal').modal('show');
+      }
+        
+    
 
-        modal.style.display = "block"; //show when clicked "see post"
-    }
-
-
+    console.log('imageSrc:', imageSrc);
     var seePostButtons = document.querySelectorAll(".btn-primary");
     seePostButtons.forEach(function (button) {
         button.addEventListener("click", function () {
