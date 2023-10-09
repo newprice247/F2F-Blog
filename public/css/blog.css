@@ -127,6 +127,12 @@ footer {
     border-color: grey;
 }
 
+.image-computer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .modal {
     display: none;
     /* Hide the modal by default */
