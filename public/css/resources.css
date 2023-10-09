@@ -165,6 +165,7 @@ footer {
   color: aqua;
 }
 
+
 h3{
   letter-spacing: 10px;
   text-decoration: underline;
@@ -224,8 +225,9 @@ h1 {
   margin: 5% 1%;
 }
 
-#carouselExample {
-  margin: 3% 0;
+
+.spinner {
+  margin: 5% 0;
 }
 
 .form-group {

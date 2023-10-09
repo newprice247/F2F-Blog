@@ -123,5 +123,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 })
-
-$('.collapse').collapse()
