@@ -18,7 +18,6 @@ export const getContent = () => {
                 </div>
                 <div class="date-created">
 
-                <p><i>${data[i].user.username} posted </i>${data[i].created_at}</p>
                 <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
 
                 <p class="card-text">"${data[i].content}"</p>
