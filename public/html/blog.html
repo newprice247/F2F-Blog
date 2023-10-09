@@ -5,11 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>F2F BLOG</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
@@ -72,7 +69,7 @@
         <div class="date-created">
           <p><i>John Doe posted</i> 5 September, 2023</p>
           <p class="card-text">"I feel like we are missing the script tag in our HTML."</p>
-          <a href="#" class="btn btn-primary">See post</a>
+          <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
         </div>
       </div>
     </div>
@@ -93,7 +90,7 @@
           <a href="https://bootcamp.ce.ucf.edu/coding/">UCF Schedule</a>
           <p>12/11/23: Full-Time (12 weeks)</p>
           <p>10/10/23: Part-Time (24 weeks)</p>
-          <p><a href="#" class="btn btn-primary">See post</a></p>
+          <p><a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">See post</a></p>
         </div>
       </div>
     </div>
@@ -108,7 +105,7 @@
         <div class="date-created">
           <p><i>Jack Doe posted</i> 1 October, 2023</p>
           <p class="card-text">"I thought this would help anyone learning MYSQL and building their own database/api's!"</p>
-          <a href="#" class="btn btn-primary">See post</a>
+          <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
         </div>
         </div>
     </div>
@@ -116,7 +113,7 @@
     <!--End of pre-BLOGS-->
 
     <!--Modal pop up when user click on blog posts-->
-    <div id="postModal" class="modal">
+    <div id="postModal" class="modal" role="dialog" tabindex="-1">
       <div class="modal-content modalEdit">
         <img id="postImage" src="" alt="">
         <div id="postContent">
@@ -145,8 +142,8 @@
           </div>
         </div>
         <div class="modal-button">
-          <button class="modal-comment-button" id="comment">Post comment</button>
-        <button class="modal-close-button close-button" id="close" data-dismiss="modal" aria-label="Close">Cancel</button>
+          <button class="modal-comment-button" id="comment" typ="submit">Post comment</button>
+        <button class="modal-close-button close-button" id="close" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
         </div>
       </div>
     </div>
@@ -186,9 +183,6 @@
       </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 </body>
 
