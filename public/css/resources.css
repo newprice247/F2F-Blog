@@ -146,15 +146,13 @@ footer {
   background-color: black;
   width: 100%;
   height: auto;
-  transition: position ease; 
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px;
   z-index: 1000;
 }
 
-.fixed {
-  position: fixed;
-  top: 0;
-  z-index: 0;
-}
 
 
 /* Search by #TagName and search box */
@@ -173,13 +171,22 @@ h3{
 }
 
 /* resouces and stanley button */
-.resources-app{
+/* .resources-app{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- margin: 5%;
+  align-items: center;
+  margin: 3%;
+} */
+
+
+h1 {
+  align-items: center;
+  margin: 3%;
+  letter-spacing: 8px;
 }
 
+/* Resources TITLE */
 .res {
   background: linear-gradient(
     to right, 
@@ -187,14 +194,12 @@ h3{
     hsl(204 100% 59%)
   );
   -webkit-background-clip: text;
+          background-clip: text; 
   -webkit-text-fill-color: transparent;
   text-align: center;
 
   
 }
-
-
-
 
 
 
@@ -297,7 +302,5 @@ width: 25%;
   .tagButtonContainer {
     margin: 0px 5%;
   }
-  .center{
-   
-  }
+ 
 }
