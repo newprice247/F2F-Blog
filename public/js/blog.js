@@ -31,9 +31,6 @@ export const getContent = () => {
   };
   getContent(); 
 
-  function closePost() {
-    $('#postModal').modal('hide');
-  }
 
 document.addEventListener('DOMContentLoaded', function () {
   
@@ -91,3 +88,6 @@ $('.modal-comment-button').click(function() {  //append new comment each time us
 */
 
 
+function closePost() {
+  $('#postModal').modal('hide');
+}
