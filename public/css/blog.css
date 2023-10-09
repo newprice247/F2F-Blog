@@ -75,6 +75,10 @@ footer {
 
 }
 
+.card {
+    padding-bottom: 10px;
+}
+
 .social i {
     text-decoration: none;
     padding: 10px;
