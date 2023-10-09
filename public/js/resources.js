@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <p><strong>Username:</strong> ${data[i].user.username}</p>
               <p><strong>Comment:</strong> ${data[i].comment}</p>
               <p><strong>URL:</strong> <a href="${data[i].url}" target="_blank" id="urlLinkDisplay">${data[i].url}</a></p>
-              <p><strong>Tag:</strong> ${data[i].tag}</p>
+              <p><strong>#Tag:</strong> ${data[i].tag}</p>
             </div>`);
         }
       });
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('postResource', data);
       });
   };
+
 
 
   // Grabs input from Form and displays after submitting
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <h3>New Resource Added:</h3>
       <p><strong>Comment:</strong> ${data.comment}</p>
       <p><strong>URL:</strong> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
-      <p><strong>Tag:</strong> ${data.tag}</p>
+      <p><strong>#Tag:</strong> ${data.tag}</p>
     </div>`;
 
     displayArea.insertBefore(resourceDiv, displayArea.firstChild);
@@ -122,9 +123,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
+
+
   // Loads Search NavBar to top when user scrolls
   const searchFixed = document.querySelector('.searchFixed');
-const scrollThreshold = 50; 
+const scrollThreshold = 300; 
 
 // Function to check and update the position of .searchFixed
 function checkScrollPosition() {
@@ -144,23 +147,4 @@ checkScrollPosition();
 
 
 
-
-
-let Sbtn = document.querySelector(".Sbtn");
-let searchNav = document.querySelector(".searchFixed");
-
-// Calculate the height of the search nav bar
-var searchNavHeight = searchNav.offsetHeight;
-
-// Add a scroll event listener to the window
-window.addEventListener("scroll", function() {
-  // Check the scroll position relative to the search nav bar's bottom
-  if (window.scrollY > searchNavHeight) {
-    // If scrolled below the search nav bar, hide the button
-    Sbtn.style.display = "none";
-  } else {
-    // If not scrolled below the search nav bar, show the button
-    Sbtn.style.display = "block";
-  }
-});
 

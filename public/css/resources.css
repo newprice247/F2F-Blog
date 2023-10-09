@@ -37,6 +37,8 @@
   border-radius: 50%;
 }
 
+
+
 form {
   display: flex;
   flex-direction: column;
@@ -138,6 +140,7 @@ footer {
 }
 
 
+
 /* Search bar is fixed to top when scrolling */
 .searchFixed {
   background-color: black;
@@ -174,7 +177,7 @@ h3{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 5%;
+ margin: 5%;
 }
 
 
