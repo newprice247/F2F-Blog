@@ -1,22 +1,5 @@
 var modal;  //declared globally
 var closeModal;
-var my_modal = new bootstrap.Modal(document.getElementById('postModal'), {
-  keyboard: false
-})
-
-function open_modal () {
-    my_modal.open();
-}
-
-function close_modal ()
-{
-   my_modal.hide();
-}
-
-var seePost = document.getElementById('seePost');
-var closePost = document.getElementById('close');
-
-
 
 
 export const getContent = () => {   
@@ -38,7 +21,7 @@ export const getContent = () => {
           <p><i>${data[i].user.username} posted </i>${data[i].created_at}</p>
           <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
           <p class="card-text">"${data[i].content}"</p>
-          <a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
+          <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
         </div>
       </div>
     </div>`);
@@ -48,7 +31,22 @@ export const getContent = () => {
 };
 getContent(); 
 
+jQuery(document).ready(function($) {  //fixed modal so that appended cards open modal as well
 
+  closeModal = document.getElementById("close"); 
+  modal = document.getElementById("postModal");
+
+
+      $(document).on('click', '.btn-primary', function() {
+      
+          $('#postModal').modal('show');
+        });
+      });    
+
+      $(document).on('click', '.close-button', function() {
+      
+        $('#postModal').modal('hide');
+      });
     
    
     function openPost(imageSrc, postTitle, postText, profilePic) {
@@ -65,7 +63,7 @@ getContent();
         postProfilePic.width = 40;
         postProfilePic.height = 40;
 
-       //show when clicked "see post"
+        $('#postModal').modal('show'); //show when clicked "see post"
     }
 
 
@@ -102,5 +100,3 @@ $('.modal-comment-button').click(function() {  //append new comment each time us
 });
 
 
-seePost.addEventListener('click', open_modal);
-closePost.addEventListener('click', close_modal);
