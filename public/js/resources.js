@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   };
 
+
+  // Grabs input from Form and displays after submitting
   const form = document.getElementById('myForm');
   const displayArea = document.getElementById('displayArea');
 
@@ -49,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
       tag: tagID,
     };
 
-    // Display the data// eventually saving the data input
+    // Display the data
     displayResource(resourceData);
     postResource(commentBox, urlLink, tagID);
 
