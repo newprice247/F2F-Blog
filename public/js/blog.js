@@ -71,7 +71,7 @@ function openPost(imageSrc, postTitle, postText, profilePic) {
 }
 
 /*
-$('.modal-comment-button').click(function() {  //append new comment each time user adds a comment 
+$('#comment').click(function() {  //append new comment each time user adds a comment 
  
 //use as template to append comment from database 
   const newComment = `
@@ -89,5 +89,6 @@ $('.modal-comment-button').click(function() {  //append new comment each time us
 
 
 function closePost() {
-  $('#postModal').modal('hide');
+  const postModal = new bootstrap.Modal(document.getElementById('postModal'));
+  postModal.hide(); // Hide the Bootstrap modal
 }
