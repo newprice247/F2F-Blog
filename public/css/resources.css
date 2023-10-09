@@ -224,8 +224,9 @@ h1 {
   margin: 5% 1%;
 }
 
-#carouselExample {
-  margin: 3% 0;
+
+.spinner {
+  margin: 5% 0;
 }
 
 .form-group {
