@@ -170,21 +170,16 @@ h3{
   text-decoration: underline;
 }
 
-/* resouces and stanley button */
-/* .resources-app{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin: 3%;
-} */
 
 
 h1 {
-  align-items: center;
-  margin: 3%;
-  letter-spacing: 8px;
+  margin: 5%;
+  font-size: 55px;
+  letter-spacing: 5px;
+  text-align: center;
 }
+
+
 
 /* Resources TITLE */
 .res {
@@ -197,8 +192,6 @@ h1 {
           background-clip: text; 
   -webkit-text-fill-color: transparent;
   text-align: center;
-
-  
 }
 
 
@@ -223,36 +216,20 @@ h1 {
 }
 
 
-.Sbtn {
-width: 25%;
-}
-
-.Sbtn:hover {
-  transform: scale(1.3);
-}
-
-/* 
-.titleButton{
+.center {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin: 0 5%;
-} */
-
-
-.center {
+  justify-content: center;
   text-align: center;
+  margin: 5% 1%;
 }
 
-.formTitle{
-  display: flex;
-  justify-content: center;
-  padding-top: 30px;
-  margin-top: 20px;
+#carouselExample {
+  margin: 3% 0;
 }
 
 .form-group {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 
