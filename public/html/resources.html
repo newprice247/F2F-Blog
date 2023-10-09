@@ -29,7 +29,7 @@
         <li><a href="../about"> About </a></li>
         <li><a href="../crud"> POST </a></li>
         <li><a href="../resources"> Resources </a></li>
-        <li><a href="../contact"> Contact </a></li>
+        <li><a href="../contact"> Contact us </a></li>
         <li><a href="../login"> Logout </a></li>
       </ul>
 
@@ -40,43 +40,82 @@
     </div>
   </nav>
 
-  <br>
 
   <main>
+    
+    
+    
 
-    <div class="resources-app">
-      <h1>Resources</h1>
-      <p>Valuable resources for programming <b>help</b> and <b>knowledge</b>!</p>
+  <div class="searchFixed">
+
+    <div class="searchInLine">
+    <div class="searchFor">
+      <h3>Search by #Tag Name</h3>
     </div>
+
+     <div class="search-bar">
+      <input type="text" id="tagSearchInput" placeholder="Search by #Tag Name">
+      <button id="tagSearchButton">Search</button>
+    </div>
+  </div>
 
     <!-- Tag Buttons at Top -->
-    <div class="tag-buttons">
-      <button class="btn btn-primary tag-button" data-tag="all">All</button>
-      <button class="btn btn-primary tag-button" data-tag="html">HTML</button>
-      <button class="btn btn-primary tag-button" data-tag="css">CSS</button>
-      <button class="btn btn-primary tag-button" data-tag="javascript">JavaScript</button>
-      <button class="btn btn-primary tag-button" data-tag="python">Python</button>
-      <button class="btn btn-primary tag-button" data-tag="c and c++">C and C++</button>
-      <button class="btn btn-primary tag-button" data-tag="c#">C#</button>
-      <button class="btn btn-primary tag-button" data-tag="java">JAVA</button>
-
+    <div class="tagButtonContainer">
       
+    <div class="tag-buttons">
+      <button class="btn btn-info tag-button" data-tag="all">All</button>
+      <button class="btn btn-info tag-button" data-tag="html">HTML</button>
+      <button class="btn btn-info tag-button" data-tag="css">CSS</button>
+      <button class="btn btn-info tag-button" data-tag="javascript">JavaScript</button>
+      <button class="btn btn-info tag-button" data-tag="python">Python</button>
+      <button class="btn btn-info tag-button" data-tag="c & c++">C & C++</button>
+      <button class="btn btn-info tag-button" data-tag="c#">C#</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
+      <button class="btn btn-info tag-button" data-tag="java">JAVA</button>
     </div>
-
-
     
+    </div>
+    
+</div>
+
+
+
+
+<div class="resources-app">
+  
+  <h1> <span class="res" style="font-size: 55px; letter-spacing: 3px; text-shadow: 4px 4px  #2d4848">RESOURCES</span> for programming <span class="fancy"><b>help</b></span> and <span class="fancy"><b>knowledge</b>!</span></h1>
+</div>
+
+
+<div class="Sbtn">
+<a class="btn btn-info tag-button" href="../html/stanley.html">Big Winner!</a>
+</div>
+
+
+
+    <div class="center">
+    <div class="formTitle">
+     <h3>Add a Resource Link Below:</h3>  
+    </div>
 
     <form id="myForm">
 
       <!-- Comment Box -->
       <div class="form-group row">
-        <label for="commentArea" class="col-sm-2 col-form-label">Comment: </label>
+        <label for="commentArea" class="col-sm-2 col-form-label">Description: </label> 
         <div class="col-sm-10">
-          <textarea class="form-control" id="commentBox" placeholder="Add your comment here" rows="5"></textarea>
+          <textarea class="form-control" id="commentBox" placeholder="Add a description here" rows="5"></textarea>
         </div>
       </div>
 
-      <br />
+      
 
       <!-- Url Link -->
       <div class="form-group row">
@@ -86,33 +125,34 @@
         </div>
       </div>
 
-      <br />
+     
 
       <!-- Tag ID -->
       <div class="form-group row">
-        <label for="tagName" class="col-sm-2 col-form-label">Tag Name:</label>
+        <label for="tagName" class="col-sm-2 col-form-label">#Tag Name:</label>
         <div class="col-sm-10">
           <select class="custom-select w-100 h-75" id="tagID" size="1">
-            <option value="none" id="none">Select a Tag Name</option>
+            <option value="none" id="none">Select a #</option>
             <option value="html" id="html">HTML</option>
             <option value="css" id="css">CSS</option>
             <option value="javascript" id="javascript">JAVASCRIPT</option>
             <option value="python" id="python">PYTHON</option>
-            <option value="c and c++" id="c">C and C++</option>
+            <option value="c & c++" id="c">C & C++</option>
             <option value="c#" id="c#">C#</option>
             <option value="java" id="java">JAVA</option>
           </select>
         </div>
       </div>
 
-      <br />
+    
 
       <button type="Submit" class="btn btn-info">Add to Resources</button>
 
 
     </form>
+    </div>
     
-    
+    <!-- Displays new resource card -->
     <div class="displayNew" id="displayArea"></div>
 
     

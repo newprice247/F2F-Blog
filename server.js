@@ -10,6 +10,10 @@ const path = require('path')
 const routes = require('./controllers')
 
 const app = express()
+const models = require('./models')
+// const initRoutes = require('./controllers/web')
+// initRoutes(app)
+
 const PORT = process.env.PORT || 3001;
 
 const sess = {
@@ -27,6 +31,14 @@ const sess = {
     })
 }
 
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions)) // Use this after the variable declaration
 // const hbs = exphbs.create({ })
 
 app.use(session(sess))
