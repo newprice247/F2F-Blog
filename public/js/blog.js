@@ -18,15 +18,11 @@ export const getContent = () => {
           <img src="../images/pre-profile-pic2.jpeg" alt="profile-pic" width="40" height="40">
           </div>
           <div class="date-created">
-
           <p><i>${data[i].user.username} posted </i>${data[i].created_at}</p>
           <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
-
           <p class="card-text">"${data[i].content}"</p>
-          
-        <a href="#" class="btn btn-primary">See post</a>
+          <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
         </div>
-      
       </div>
     </div>`);
           } 
@@ -35,7 +31,7 @@ export const getContent = () => {
 };
 getContent(); 
 
-document.addEventListener('DOMContentLoaded', function () {  //fixed modal so that appended cards open modal as well
+jQuery(document).ready(function($) {  //fixed modal so that appended cards open modal as well
 
   closeModal = document.getElementById("close"); 
   modal = document.getElementById("postModal");
