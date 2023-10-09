@@ -72,7 +72,7 @@ function openPost(imageSrc, postTitle, postText, profilePic) {
   postModal.show();
 }
 
-/*
+
 $('#comment').click(function() {  //append new comment each time user adds a comment 
  
 //use as template to append comment from database 
@@ -87,7 +87,7 @@ $('#comment').click(function() {  //append new comment each time user adds a com
       $('.textarea').val('');       
 });
 
-*/
+
 
 
 function closePost() {
