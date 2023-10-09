@@ -1,3 +1,6 @@
+
+
+const closeModal = document.querySelector('.close-button');
 export const getContent = () => {   
         fetch('/api/content')
             .then((response) => response.json())
@@ -35,10 +38,9 @@ export const getContent = () => {
 document.addEventListener('DOMContentLoaded', function () {
   
 
-  const closeModal = document.querySelector('#close');
   const blogPostArea = document.querySelector('.blog-post-area');
 
-  closeModal.addEventListener('click', closePost);
+ 
 
   // Use event delegation to handle click events on dynamically added elements
   blogPostArea.addEventListener('click', function (event) {
@@ -92,3 +94,5 @@ function closePost() {
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
   postModal.hide(); // Hide the Bootstrap modal
 }
+
+closeModal.addEventListener('click', closePost);
