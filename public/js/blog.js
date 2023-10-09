@@ -1,7 +1,4 @@
-var modal;  //declared globally
-var closeModal;
-var openModal;
-let imageSrc;
+
 
 export const getContent = () => {   
         fetch('/api/content')
@@ -39,6 +36,10 @@ export const getContent = () => {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  
+function closePost() {
+  $('#postModal').modal('hide');
+}
   const closeModal = document.querySelector('#close');
   const blogPostArea = document.querySelector('.blog-post-area');
 
