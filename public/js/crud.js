@@ -36,34 +36,34 @@ function addPost(e) {
 };
 
 
-function addComment(e) {
-    e.preventDefault();
+// function addComment(e) {
+//     e.preventDefault();
 
-    const comment = document.querySelector(".textarea").value;
+//     const comment = document.querySelector(".textarea").value;
 
-    const commentData = {
-        comment: comment,
+//     const commentData = {
+//         comment: comment,
 
-    };
+//     };
 
-fetch('api/comment', {    //fetch api content 
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(postData),
-  })
-  .then((res) => res.json())
-  .then((data) => {
-      console.log(data);
-      getContent();
-      document.location.replace('/crud');
+// fetch('api/comment', {    //fetch api content 
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(postData),
+//   })
+//   .then((res) => res.json())
+//   .then((data) => {
+//       console.log(data);
+//       getContent();
+//       document.location.replace('/crud');
       
-  })
+//   })
 
-  .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+//   .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
 
-};
+// };
 
 
 
