@@ -2,7 +2,7 @@
 const router = require("express").Router();
 const path = require("path");
 const fs = require('fs');
-
+const baseDir = process.cwd();
 const multer = require('multer');
 
 const Image = require('../models/Image');
@@ -45,7 +45,7 @@ const uploadFiles = async (req, res) => {
             user_id: req.session.user_id,
         }).then((image) => {
             fs.writeFileSync(
-                 '../public/images/tmp' + req.session.user_id,
+                baseDir + '/public/images/tmp/' + req.session.user_id + '.jpg',
                 image.data
             );
 
@@ -62,18 +62,18 @@ router.get("/upload", (req, res) => {
 });
 
 //This is the route to get the image from the database
-router.get("/images/:id", (req, res) => {
-    Image.findById(req.params.id)
-        .then(image => {
-            res.setHeader('Content-Type', image.type);
-            res.send(image.data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: "Could not retrieve image with id=" + req.params.id
-            });
-        });
-});
+// router.get("/images/:id", (req, res) => {
+//     Image.findById(req.params.id)
+//         .then(image => {
+//             res.setHeader('Content-Type', image.type);
+//             res.send(image.data);
+//         })
+//         .catch(err => {
+//             res.status(500).send({
+//                 message: "Could not retrieve image with id=" + req.params.id
+//             });
+//         });
+// });
 
 
 
