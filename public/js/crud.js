@@ -1,8 +1,6 @@
 
 const postButton = document.getElementById("post-button");
 
- import { getContent } from './blog.js';
-
 function addPost(e) {
     const title = document.querySelector(".postTitle").value;
     const content = document.querySelector(".postContent").value;
@@ -55,7 +53,6 @@ function addComment(e) {
   .then((res) => res.json())
   .then((data) => {
       console.log(data);
-      getContent();
      document.location.replace('/crud');
       
   })
