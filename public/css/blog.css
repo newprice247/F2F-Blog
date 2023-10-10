@@ -120,7 +120,7 @@ footer {
 }
 
 /* this style for post template card */
-.card-body a {
+.btn-primary {
     float: right;
     color: black;
     background-color: aqua;
@@ -379,4 +379,10 @@ display:flex;
 .modal-button button {
     padding-top: 2px;
     float:right;
+}
+
+
+.seePostButton  {
+    padding:5px;
+    display:block;
 }
