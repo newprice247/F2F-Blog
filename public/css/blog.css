@@ -343,7 +343,6 @@ display:flex;
 
 .card-text {
     color: black;
-    display:block;
 }
 
 .like-comment-section {
@@ -351,10 +350,6 @@ display:flex;
     
 }
 
-
-.content-and-button {
-    display:block;
-}
 
 .like-comment-section p {
     padding-right: 5px;
