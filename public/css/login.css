@@ -10,7 +10,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background: rgb(255, 255, 255);
-    background-image: url("../images/log.png");
+    background-image: url("../images/loginp.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -29,7 +29,7 @@ body {
 .nav-links li a {
   text-decoration: none;
   justify-content: space-between;
-  color: rgb(8, 8, 8)
+  color:  #3ca1b0;
 }
 
 .wrapper {
