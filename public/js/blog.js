@@ -6,7 +6,8 @@ export const getContent = () => {
             .then((data) => {
                 
                 console.log('getContent', data);
-                for (let i = 0; i < data.length; i++) {
+                for (let i = 0; i < data.length; i++) {;
+                  let getDate = new Date(data[i].createdAt).toLocaleDateString();
                     $('.blog-post-area').append(`
         <div id="${data[i].id}" class="card" style="width: 18rem;">
             <img src="../images/npmjs image.png" class="card-img-top" alt="...">
@@ -16,7 +17,7 @@ export const getContent = () => {
                 <img src="../images/tmp/${data[i].user.id}.jpg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
                 </div>
                 <div class="date-created newPost">
-                <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
+                <p><i>${data[i].user.username} posted </i> ${getDate}</p>
                 <p class="card-text">"${data[i].content}"</p>
                 </p><a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</a></p>
               </div>
