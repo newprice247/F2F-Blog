@@ -1,36 +1,34 @@
 const commentButton = document.getElementById("comment");
 
 const closeModal = document.querySelector('.close-button');
-export const getContent = () => {
-  fetch('/api/content')
-    .then((response) => response.json())
-    .then((data) => {
-
-      console.log('getContent', data);
-      for (let i = 0; i < data.length; i++) {
-        $('.blog-post-area').append(`
-                    <div id="${data[i].id}" class="card" style="width: 18rem;">
-                        <img src="../images/pre-post2.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">${data[i].title}</h5>
-                          <div class="profile-img">
-                            <img src="../images/pre-profile-pic2.jpeg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
-                            </div>
-                            <div class="date-created">
-
-                            <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
-
-                            <p class="card-text">"${data[i].content}"</p>
-                            
-                          <a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
-                          </div>
-                        
-                        </div>
-                      </div>`);
-      }
-    });
-};
-getContent();
+export const getContent = () => {   
+        fetch('/api/content')
+            .then((response) => response.json())
+            .then((data) => {
+    
+                console.log('getContent', data);
+                for (let i = 0; i < data.length; i++) {
+                    $('.blog-post-area').append(`
+        <div id="${data[i].id}" class="card" style="width: 18rem;">
+            <img src="../images/npmjs image.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">${data[i].title}</h5>
+              <div class="profile-img">
+                <img src="../images/pre-profile-pic2.jpeg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
+                </div>
+                <div class="date-created newPost">
+                <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
+                <p class="card-text">"${data[i].content}"</p>
+                </p><a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</a></p>
+              </div>
+            
+            </div>
+          </div>`);
+                } 
+                 
+            });
+  };
+  getContent(); 
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -54,6 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
       //       // Set the modal's id to match the div's id
       //       $("#modal").attr("id", divId);
       openPost(imageSrc, postTitle, postText, profilePic, id);
+
+     
     }
   });
 });
@@ -62,8 +62,8 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   const postImage = document.getElementById('postImage');
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
-  const modal = document.getElementById('postModal')
-  modal.classList.add(id);
+  const modal = document.getElementById('postModal');
+  modal.classList.add(`modalId-${id}`);
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
@@ -85,41 +85,45 @@ function addComment(e) {
     comment: comment,
   };
 
-  fetch('api/comments', {    //fetch api content 
-    method: 'POST',
-    headers: {
+fetch('api/comments', {     
+  method: 'POST',
+  headers: {
       'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(commentData),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      // getContent();
-      // document.location.replace('/crud');
-      // return data
-    })
-    .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+  },
+  body: JSON.stringify(commentData),
+})
+.then((res) => res.json())
+.then((data) => {
+    console.log(data);
+   
+    // document.location.replace('/crud');
+    // return data
+})
+
+.catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
 
 };
 
 
 
 
-// $('#comment').click(function() {  //append new comment each time user adds a comment 
+$('#comment').click(function() {  //append new comment each time user adds a comment 
+ 
+//use as template to append comment from database
+ 
+  const newComment = `
+  <div class="comment-area">
+        <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
+        <p>${data.comment.comment}</p>
+      </div>`;
 
-// //use as template to append comment from database
+      $('#commentList').append(newComment);
 
-//   const newComment = `
-//   <div class="comment-area">
-//         <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
-//         <p>${data.comment.comment}</p>
-//       </div>`;
+      $('.textarea').val('');  
+});
 
-//       $('#commentList').append(newComment);
 
-//       $('.textarea').val('');  
-// });
+
 
 function closePost() {
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
