@@ -55,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
       //       // Set the modal's id to match the div's id
       //       $("#modal").attr("id", divId);
       openPost(imageSrc, postTitle, postText, profilePic, id);
+
+      appendModalId(id);
     }
   });
 });
@@ -63,8 +65,8 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   const postImage = document.getElementById('postImage');
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
-  const modal = document.getElementById('postModal')
-  modal.classList.add(id);
+  const modal = document.getElementById('postModal');
+  modal.classList.add(`modalId-${id}`);
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
