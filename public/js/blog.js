@@ -19,10 +19,9 @@ export const getContent = () => {
                 <div class="date-created newPost">
                 <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
                 <p class="card-text">"${data[i].content}"</p>
-                <div class="content-and-button>
                 <a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
               </div>
-            </div>
+            
             </div>
           </div>`);
                 } 
