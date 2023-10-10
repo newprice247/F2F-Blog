@@ -352,6 +352,10 @@ display:flex;
 }
 
 
+.newPost {
+    display:block;
+}
+
 .like-comment-section p {
     padding-right: 5px;
     margin:0;
