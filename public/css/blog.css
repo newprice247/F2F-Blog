@@ -131,8 +131,13 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left:30px;
 }
 
+.purpose-container {
+    display:block;
+    background-color: black;
+}
 .modal {
     display: none;
     /* Hide the modal by default */
