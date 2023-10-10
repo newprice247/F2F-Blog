@@ -4,14 +4,23 @@ const Admin = require('./Admin');
 
 const Content = require('./Content');
 
+const Comment = require('./Comment')
+
 const Resource = require('./Resource');
 
-const Image = require('./Image');
+const Image = require('./Image')
+
+
 
 User.hasMany(Content, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
+
+User.hasMany(Comment, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+})
 
 User.hasMany(Resource, {
     foreignKey: 'user_id',
@@ -23,9 +32,22 @@ User.hasMany(Image, {
     onDelete: 'CASCADE'
 });
 
+Content.hasMany(Comment, {
+    foreignKey: 'content_id',
+    onDelete: 'CASCADE'
+})
+
 Content.belongsTo(User, {
     foreignKey: 'user_id'
 });
+
+Comment.belongsTo(User, {
+    foreignKey: 'user_id'
+})
+
+Comment.belongsTo(Content, {
+    foreignKey: 'content_id'
+})
 
 Resource.belongsTo(User, {
     foreignKey: 'user_id'
@@ -37,4 +59,4 @@ Image.belongsTo(User, {
 
 
 
-module.exports = { User, Admin, Content, Resource, Image }
+module.exports = { User, Admin, Content, Resource, Image, Comment }

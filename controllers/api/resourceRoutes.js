@@ -31,7 +31,10 @@ router.get('/:id', async (req, res) =>{
 
 router.post('/', async (req, res) =>{
     try {
-        const resourceData = await Resource.create(req.body);
+        const resourceData = await Resource.create({
+            ...req.body,
+            user_id: req.session.user_id,
+          });
         res.status(200).json(resourceData);
     } catch (err) {
         res.status(400).json(err);

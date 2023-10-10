@@ -1,0 +1,20 @@
+[
+    {
+        
+        "comment": "Cool.",
+        "user_id": 1,
+        "content_id": 1
+    },
+    {
+        
+        "comment": "This should be helpful, thanks!",
+        "user_id": 2,
+        "content_id": 2
+    },
+    {
+
+        "comment": "This post sucks!",
+        "user_id": 3,
+        "content_id": 3
+    }
+]
