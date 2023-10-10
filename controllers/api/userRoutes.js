@@ -1,12 +1,13 @@
 const router = require('express').Router();
-const { User, Content, Resource } = require('../../models');
+const { User, Content, Resource, Image } = require('../../models');
 
 // GET /api/users
 router.get('/', async (req, res) => {
     try {
         // Get all users, excluding their password
         const userData = await User.findAll({
-            attributes: { exclude: ['password', 'email'] }
+            attributes: { exclude: ['password'] },
+             include: [{model: Content, Resource, Image}]
         });
         res.status(200).json(userData);
     } catch (err) {
