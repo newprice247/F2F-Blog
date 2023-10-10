@@ -214,14 +214,14 @@ h3{
 }
 
 
-h4{
+h5{
   letter-spacing: 5px;
 }
 
 
 .title{
   width: 75%;
-  margin: 6% 12% 0%;
+  margin: 7% 12% 3%;
 }
 
 
@@ -335,8 +335,20 @@ h4{
 
 
 .spinner {
-  margin: 5% 0;
+  margin-top: 12%;
 }
+
+main img {
+  width: 175px;
+  height: 175px;
+}
+
+
+main img:hover {
+  transform: scale(1.2);
+
+}
+
 
 .form-group {
   margin-bottom: 10px;
@@ -382,6 +394,14 @@ h4{
   .subtitle h1{
     font-size: xx-large;
   }
+
+  h2 {
+    font-size: x-large;
+   }
+
+    h4{
+    font-size: large;
+  }
 }
 
 
@@ -409,6 +429,16 @@ h4{
    #tagSearchButton {
      font-size: 15px; 
    }
+
+   h2, h4{
+    font-size: larger;
+  }
+  
+  
+  main img {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 
@@ -461,6 +491,16 @@ h4{
   font-size: 14px;
 }
 
+h2, h4{
+  font-size: large;
+}
+
+
+main img {
+  width: 130px;
+  height: 130px;
+}
+
 
 
 }
@@ -489,6 +529,20 @@ h4{
    #tagSearchButton {
      font-size: 15px; 
    }
+
+   h2 {
+    font-size: small;
+   }
+
+    h4{
+    font-size: small;
+  }
+  
+  
+  main img {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 
@@ -510,6 +564,11 @@ h4{
    #tagSearchButton {
      font-size: 15px; 
    }
+
+   main img {
+    width: 120px;
+    height: 120px;
+  }
 }
 
 
