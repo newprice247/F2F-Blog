@@ -222,6 +222,7 @@ h5{
 .title{
   width: 75%;
   margin: 7% 12% 3%;
+
 }
 
 
@@ -231,6 +232,9 @@ h5{
   margin: 0px 25%;
 
 }
+
+
+
 
 
 
@@ -253,9 +257,11 @@ h5{
 
 
 
+
 /* Fancy RESOURCES title...maybe */
 .grid{
   margin-top: 4%;
+ 
 }
 
 .stroke {
