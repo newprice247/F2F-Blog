@@ -1,6 +1,5 @@
 
 const postButton = document.getElementById("post-button");
- const commentButton = document.getElementById("comment");
 
  import { getContent } from './blog.js';
 
