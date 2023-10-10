@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
       //       $("#modal").attr("id", divId);
       openPost(imageSrc, postTitle, postText, profilePic, id);
 
-      appendModalId(id);
+     
     }
   });
 });
