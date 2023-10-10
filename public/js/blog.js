@@ -1,4 +1,4 @@
-
+const commentButton = document.getElementById("comment");
 
 const closeModal = document.querySelector('.close-button');
 export const getContent = () => {   
@@ -9,7 +9,7 @@ export const getContent = () => {
                 console.log('getContent', data);
                 for (let i = 0; i < data.length; i++) {
                     $('.blog-post-area').append(`
-        <div class="card" style="width: 18rem;">
+        <div id="${data[i].id}" class="card" style="width: 18rem;">
             <img src="../images/pre-post2.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">${data[i].title}</h5>
@@ -44,28 +44,34 @@ document.addEventListener('DOMContentLoaded', function () {
   // Use event delegation to handle click events on dynamically added elements
   blogPostArea.addEventListener('click', function (event) {
     if (event.target.matches('[data-bs-toggle="modal"]')) {
+      
       const card = event.target.closest('.card');
+      const id = card.id
       const imageSrc = card.querySelector('.card-img-top').src;
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
       const profilePic = card.querySelector('.profile-pic-match').src;
-
-      openPost(imageSrc, postTitle, postText, profilePic);
+      // var divId = $(this).closest('div').attr('id');
+      //       // Set the modal's id to match the div's id
+      //       $("#modal").attr("id", divId);
+      openPost(imageSrc, postTitle, postText, profilePic, id);
     }
   });
 });
 
-function openPost(imageSrc, postTitle, postText, profilePic) {
+function openPost(imageSrc, postTitle, postText, profilePic, id) {
   const postImage = document.getElementById('postImage');
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
-
+  const modal = document.getElementById('postModal')
+  modal.classList.add(id);
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
 
   postProfilePic.width = 40;
   postProfilePic.height = 40;
+
 
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
   postModal.show();
@@ -85,14 +91,14 @@ fetch('api/comments', {    //fetch api content
   headers: {
       'Content-Type': 'application/json',
   },
-  body: JSON.stringify(postData),
+  body: JSON.stringify(commentData),
 })
 .then((res) => res.json())
 .then((data) => {
     console.log(data);
     // getContent();
-    document.location.replace('/crud');
-    
+    // document.location.replace('/crud');
+    // return data
 })
 
 .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
@@ -101,21 +107,22 @@ fetch('api/comments', {    //fetch api content
 
 
 
-/*
-$('#comment').click(function() {  //append new comment each time user adds a comment 
+
+// $('#comment').click(function() {  //append new comment each time user adds a comment 
  
-//use as template to append comment from database 
-  const newComment = `
-  <div class="comment-area">
-        <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
-        <p>${data.comment.comment}</p>
-      </div>`;
+// //use as template to append comment from database
+ 
+//   const newComment = `
+//   <div class="comment-area">
+//         <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
+//         <p>${data.comment.comment}</p>
+//       </div>`;
 
-      $('#commentList').append(newComment);
+//       $('#commentList').append(newComment);
 
-      $('.textarea').val('');       
-});
-*/
+//       $('.textarea').val('');  
+// });
+
 
 
 
@@ -124,4 +131,5 @@ function closePost() {
   postModal.hide(); // Hide the Bootstrap modal
 }
 
+commentButton.addEventListener("click", addComment);
 closeModal.addEventListener('click', closePost);

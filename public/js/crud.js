@@ -1,6 +1,6 @@
 
 const postButton = document.getElementById("post-button");
-const commentButton = document.getElementById("comment");
+// const commentButton = document.getElementById("comment");
 
 // import { getContent } from './blog.js';
 
@@ -128,4 +128,4 @@ getProfile()
 
 //this button will add post to blog page using the getcontent function  and send the post data to database 
 postButton.addEventListener("click", addPost);
-commentButton.addEventListener("click", addComment);
+// commentButton.addEventListener("click", addComment);
