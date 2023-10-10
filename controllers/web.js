@@ -7,7 +7,6 @@ const multer = require('multer');
 
 const Image = require('../models/Image');
 
-
 const imageFilter = (req, file, cb) => {
     if (file.mimetype.startsWith('image')) {
         cb(null, true);
@@ -57,7 +56,6 @@ const uploadFiles = async (req, res) => {
         return res.send(`Error when trying upload images: ${error}`);
     }
 }
-
 
 router.get("/upload", (req, res) => {
     res.sendFile(path.join(`${__dirname}/../views/images.html`))
