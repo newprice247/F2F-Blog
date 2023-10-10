@@ -86,7 +86,7 @@ function addComment(e) {
       comment: comment,
   };
 
-fetch('api/comments', {    //fetch api content 
+fetch('api/comments', {     
   method: 'POST',
   headers: {
       'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ fetch('api/comments', {    //fetch api content
 .then((res) => res.json())
 .then((data) => {
     console.log(data);
-    // getContent();
+   
     // document.location.replace('/crud');
     // return data
 })
@@ -108,20 +108,20 @@ fetch('api/comments', {    //fetch api content
 
 
 
-// $('#comment').click(function() {  //append new comment each time user adds a comment 
+$('#comment').click(function() {  //append new comment each time user adds a comment 
  
-// //use as template to append comment from database
+//use as template to append comment from database
  
-//   const newComment = `
-//   <div class="comment-area">
-//         <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
-//         <p>${data.comment.comment}</p>
-//       </div>`;
+  const newComment = `
+  <div class="comment-area">
+        <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
+        <p>${data.comment.comment}</p>
+      </div>`;
 
-//       $('#commentList').append(newComment);
+      $('#commentList').append(newComment);
 
-//       $('.textarea').val('');  
-// });
+      $('.textarea').val('');  
+});
 
 
 
