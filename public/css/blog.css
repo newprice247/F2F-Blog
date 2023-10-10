@@ -75,6 +75,10 @@ footer {
 
 }
 
+.card {
+    margin-bottom: 20px;
+}
+
 .social i {
     text-decoration: none;
     padding: 10px;
@@ -102,8 +106,17 @@ footer {
     text-align: center;
 }
 
+.quote p {
+    color:darkslategray;
+}
+
+.card:hover {
+    box-shadow: 0 0 11px rgba(89, 197, 240, 0.856); 
+}
+
 .quote2 {
     background-color: white;
+    color:grey;
 }
 
 /* this style for post template card */
@@ -114,11 +127,22 @@ footer {
     border-color: grey;
 }
 
+.image-computer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left:30px;
+}
+
+.purpose-container {
+    display:block;
+    background-color: black;
+}
 .modal {
     display: none;
     /* Hide the modal by default */
     position: fixed;
-    z-index: 1;
+   
     left: 0;
     top: 0;
     width: 100%;
@@ -150,15 +174,42 @@ footer {
 
 .blog-post-area {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap:wrap;
+   justify-content: space-evenly;
+   
 
-    padding-left: 30px;
+   
 }
+
 
 .video-card img {
     padding: 10px;
     width: 250px;
 }
+
+.comment {
+    padding-left: 5px;
+}
+
+.comments img {
+display:flex;
+margin-right:5px;
+
+}
+
+.modalEdit {
+    border: 10px solid aqua;
+}
+
+.comment-area p {
+    background-color:beige;
+}
+
+.comment-area {
+display:flex;
+
+}
+
 
 .video-card h3 {
     color: black;
@@ -186,6 +237,14 @@ footer {
 
 }
 
+.about-developers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
 
 .developer-cards img {
     width: 200px;
@@ -204,16 +263,10 @@ footer {
     width: 400px;
     margin: auto;
 
-
-
-
-
 }
 
 .developer-position {
     display: flex;
-
-
 
 }
 
@@ -327,3 +380,5 @@ footer {
     padding-top: 2px;
     float:right;
 }
+
+

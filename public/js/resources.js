@@ -7,11 +7,13 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < data.length; i++) {
           $('#displayArea').append(`
             <div class="resource-item" data-tag="${data[i].tag}"> <!-- Add data-tag attribute -->
-              <h3>Resource:</h3>
+              <h3>Resource:</h3>   
+              <p><strong>Username:</strong> ${data[i].user.username}</p>        
               <p><strong>Comment:</strong> ${data[i].comment}</p>
               <p><strong>URL:</strong> <a href="${data[i].url}" target="_blank" id="urlLinkDisplay">${data[i].url}</a></p>
-              <p><strong>Tag:</strong> ${data[i].tag}</p>
+              <p><strong>#Tag:</strong> ${data[i].tag}</p>
             </div>`);
+            console.log(data)
         }
       });
   };
@@ -31,6 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   };
 
+
+
+  // Grabs input from Form and displays after submitting
   const form = document.getElementById('myForm');
   const displayArea = document.getElementById('displayArea');
 
@@ -48,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
       tag: tagID,
     };
 
-    // Display the data// eventually saving the data input
+    // Display the data
     displayResource(resourceData);
     postResource(commentBox, urlLink, tagID);
 
@@ -65,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <h3>New Resource Added:</h3>
       <p><strong>Comment:</strong> ${data.comment}</p>
       <p><strong>URL:</strong> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
-      <p><strong>Tag:</strong> ${data.tag}</p>
+      <p><strong>#Tag:</strong> ${data.tag}</p>
     </div>`;
 
     displayArea.insertBefore(resourceDiv, displayArea.firstChild);
@@ -79,6 +84,28 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
+ // Search by tagName in SEARCH BOX
+  const tagSearchButton = document.getElementById('tagSearchButton');
+
+  tagSearchButton.addEventListener('click', function () {
+    const tagSearchText = document.getElementById('tagSearchInput').value.toLowerCase();
+    const resources = document.querySelectorAll('.resource-item');
+
+    for (let i = 0; i < resources.length; i++) {
+      const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
+      if (resourceTag.includes(tagSearchText) || tagSearchText === 'all') {
+        resources[i].style.display = 'block';
+      } else {
+        resources[i].style.display = 'none';
+      }
+    }
+    // clears search box after
+    tagSearchInput.value = '';
+  
+  });
+
+
+// search by Tag name by BUTTON
   const tagButtons = document.querySelectorAll('.tag-button');
   tagButtons.forEach((button) => {
     button.addEventListener('click', function () {
@@ -95,4 +122,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-});
+})

@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Content extends Model { }
+class Content extends Model {}
 
 Content.init(
     {
@@ -20,7 +20,7 @@ Content.init(
             allowNull: false,
             unique: true,
         },
-        created_at: {
+        createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
             defaultValue: DataTypes.NOW,
