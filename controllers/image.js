@@ -2,11 +2,10 @@
 const router = require("express").Router();
 const path = require("path");
 const fs = require('fs');
-
+const baseDir = process.cwd();
 const multer = require('multer');
 
 const Image = require('../models/Image');
-
 
 const imageFilter = (req, file, cb) => {
     if (file.mimetype.startsWith('image')) {
@@ -21,7 +20,8 @@ const storage = multer.diskStorage({
         cb(null, __dirname + '/resources/static/assets/uploads/');
     },
     filename: (req, file, cb) => {
-        cb(null, `${Date.now()}-f2f-${file.originalname}`);
+        console.log(`the user id i can attach is here: ${req.session.user_id}`)
+        cb(null, `${req.session.user_id}`);
     },
 });
 
@@ -30,6 +30,7 @@ const uploadFile = multer({ storage: storage, fileFilter: imageFilter });
 const uploadFiles = async (req, res) => {
     try {
         console.log(req.file);
+        console.log(req.session.user_id)
 
         if (req.file == undefined) {
             return res.send(`You must select a file.`);
@@ -41,9 +42,10 @@ const uploadFiles = async (req, res) => {
             data: fs.readFileSync(
                 __dirname + '/resources/static/assets/uploads/' + req.file.filename
             ),
+            user_id: req.session.user_id,
         }).then((image) => {
             fs.writeFileSync(
-                __dirname + '/resources/static/assets/tmp/' + image.name,
+                baseDir + '/public/images/tmp/' + req.session.user_id + '.jpg',
                 image.data
             );
 
@@ -55,9 +57,40 @@ const uploadFiles = async (req, res) => {
     }
 }
 
-
-router.get("/", (req, res) => {
+router.get("/upload", (req, res) => {
     res.sendFile(path.join(`${__dirname}/../views/images.html`))
+});
+
+//This is the route to get the image from the database
+// router.get("/images/:id", (req, res) => {
+//     Image.findById(req.params.id)
+//         .then(image => {
+//             res.setHeader('Content-Type', image.type);
+//             res.send(image.data);
+//         })
+//         .catch(err => {
+//             res.status(500).send({
+//                 message: "Could not retrieve image with id=" + req.params.id
+//             });
+//         });
+// });
+
+
+
+
+
+router.get('/profilePic', async (req, res) =>{
+    try {
+        const imageData = await Image.findOne({where: {user_id: req.session.user_id}})
+        if (!imageData) {
+            res.status(404).json({message: 'No content found with this id!'});
+            return;
+        }
+        res.setHeader('Content-Type', imageData.type);
+        res.status(404).send(imageData.data);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 router.post("/upload", uploadFile.single("file"), uploadFiles);
