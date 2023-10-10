@@ -4,20 +4,37 @@
     box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
 }
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background: rgb(255, 255, 255);
-    background-image: url("../images/img.jpg");
+    background-image: url("../images/log.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+  margin-left: 50%;
+} 
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  justify-content: space-between;
+  color: rgb(0, 0, 0)
+}
+
 .wrapper {
     width: 420px;
-    background: rgb(0, 0, 0);
+    background: rgb(3, 3, 3);
     color: #3ca1b0;
     border-radius: 10px;
     padding: 30px 40px;
