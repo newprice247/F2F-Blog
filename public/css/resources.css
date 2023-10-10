@@ -201,9 +201,9 @@ h4{
 
 }
 
-
+/* This is a maybe..... */
 /* Resources TITLE */
-.res {
+/* .res {
   background: linear-gradient(
     to right, 
     hsl(98 100% 62%), 
@@ -216,7 +216,59 @@ h4{
   font-size: 130px; 
   letter-spacing: 6px; 
   text-shadow: 4px 4px  #2d4848;
+} */
+
+
+
+/* Fancy RESOURCES title...maybe */
+.grid{
+  margin-top: 4%;
 }
+
+.stroke {
+  -webkit-text-stroke-width: 2px;
+  -moz-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #111827;
+  -moz-text-stroke-color: #111827;
+  color: transparent;
+}
+
+.shadow {
+  text-shadow: 6px 6px aqua;
+}
+
+.stroke-shadow {
+  color: #fef3c7;
+  text-shadow: -2px 0 #111827, 0 -2px #111827, 2px 0 #111827, 0 2px #111827, 2px 2px #111827, -2px -2px #111827, -2px 2px #111827, 2px -2px #111827, 6px 6px aqua;
+}
+
+.halftone {
+  position: relative;
+}
+.halftone:after {
+  content: "RESOURCES";
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAHElEQVQYV2NUVFT8f//+fUYGBgYGMAEDcA5IBQCKJQVmn76DhAAAAABJRU5ErkJggg==") repeat;
+  font-size: 15vw;
+  letter-spacing: 6px;
+  left: calc(50% + 6px);
+  position: absolute;
+  top: calc(50% + 6px);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  -webkit-text-stroke-width: 0;
+  -moz-text-stroke-width: 0;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.halftone-color:after {
+  background-color: aqua;
+}
+
+
 
 
 
@@ -325,3 +377,6 @@ h4{
   font-size: 30px;
   }
 }
+
+
+
