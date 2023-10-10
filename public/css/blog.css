@@ -120,7 +120,7 @@ footer {
 }
 
 /* this style for post template card */
-.btn-primary {
+.card-body a {
     float: right;
     color: black;
     background-color: aqua;
@@ -343,6 +343,7 @@ display:flex;
 
 .card-text {
     color: black;
+    display:block;
 }
 
 .like-comment-section {
@@ -382,7 +383,3 @@ display:flex;
 }
 
 
-.seePostButton  {
-    padding:5px;
-    display:block;
-}
