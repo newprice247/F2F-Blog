@@ -236,28 +236,6 @@ h5{
 
 
 
-
-
-/* This is a maybe..... */
-/* Resources TITLE */
-/* .res {
-  background: linear-gradient(
-    to right, 
-    hsl(98 100% 62%), 
-    hsl(204 100% 59%)
-  );
-  -webkit-background-clip: text;
-          background-clip: text; 
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  font-size: 130px; 
-  letter-spacing: 6px; 
-  text-shadow: 4px 4px  #2d4848;
-} */
-
-
-
-
 /* Fancy RESOURCES title...maybe */
 .grid{
   margin-top: 4%;
@@ -474,6 +452,12 @@ main img:hover {
     width: 150px;
     height: 150px;
   }
+
+
+  .addLink h1 {
+    width: 110%;
+    font-size: 80px;
+  }
 }
 
 
@@ -536,7 +520,10 @@ main img {
   height: 130px;
 }
 
-
+.addLink h1 {
+  width: 120%;
+  font-size: 70px;
+}
 
 }
 
@@ -577,6 +564,11 @@ main img {
   main img {
     width: 120px;
     height: 120px;
+  }
+
+  .addLink h1 {
+    width: 100%;
+    font-size: 50px;
   }
 }
 
