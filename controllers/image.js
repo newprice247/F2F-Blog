@@ -45,7 +45,7 @@ const uploadFiles = async (req, res) => {
             user_id: req.session.user_id,
         }).then((image) => {
             fs.writeFileSync(
-                __dirname + '/resources/static/assets/tmp/' + image.name,
+                 '../public/images/tmp' + req.session.user_id,
                 image.data
             );
 
