@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         console.log(`the user id i can attach is here: ${req.session.user_id}`)
-        cb(null, `${Date.now()}-f2f-userID${req.session.user_id}`);
+        cb(null, `${req.session.user_id}`);
     },
 });
 
@@ -45,7 +45,7 @@ const uploadFiles = async (req, res) => {
             user_id: req.session.user_id,
         }).then((image) => {
             fs.writeFileSync(
-                __dirname + '/resources/static/assets/tmp/' + image.user_id,
+                __dirname + '/resources/static/assets/tmp/' + image.name,
                 image.data
             );
 
@@ -61,36 +61,37 @@ router.get("/upload", (req, res) => {
     res.sendFile(path.join(`${__dirname}/../views/images.html`))
 });
 
-// router.get("/:id", (req, res) => {
-//     res.sendFile(path.join(``))
-// })
-
-// router.get('/', async (req, res) => {
-//     try {
-//         // Get all users, excluding their password
-//         const imageData = await Image.findAll({
-//             attributes: { include: }
-//         });
-        
-//         res.status(200);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+//This is the route to get the image from the database
+router.get("/images/:id", (req, res) => {
+    Image.findById(req.params.id)
+        .then(image => {
+            res.setHeader('Content-Type', image.type);
+            res.send(image.data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Could not retrieve image with id=" + req.params.id
+            });
+        });
+});
 
 
-// router.get('/:id', async (req, res) =>{
-//     try {
-//         const imageData = await Image.findByPk(req.params.id);
-//         if (!imageData) {
-//             res.status(404).json({message: 'No content found with this id!'});
-//             return;
-//         }
-//         res.status(200).json(imageData);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
+
+
+
+router.get('/profilePic', async (req, res) =>{
+    try {
+        const imageData = await Image.findOne({where: {user_id: req.session.user_id}})
+        if (!imageData) {
+            res.status(404).json({message: 'No content found with this id!'});
+            return;
+        }
+        res.setHeader('Content-Type', imageData.type);
+        res.status(404).send(imageData.data);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 router.post("/upload", uploadFile.single("file"), uploadFiles);
 

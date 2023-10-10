@@ -17,6 +17,11 @@ Image.init(
             allowNull: false,
         },
 
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+
         data: {
             type: DataTypes.BLOB('long'),
             allowNull: false,
