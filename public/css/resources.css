@@ -2,6 +2,8 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
+
+
 .nav-links {
   list-style-type: none;
   display: flex;
@@ -166,12 +168,6 @@ footer {
 }
 
 
-h3{
-  letter-spacing: 10px;
-  text-decoration: underline;
-}
-
-
 
 h1 {
   margin: 5%;
@@ -180,6 +176,30 @@ h1 {
   text-align: center;
 }
 
+h3{
+  letter-spacing: 10px;
+  text-decoration: underline;
+}
+
+
+h4{
+  letter-spacing: 5px;
+}
+
+.title{
+  display: flex;
+  justify-content: center;
+  width: 75%;
+  margin: 0px 15%;
+}
+
+
+.resources-app{
+  width: 50%;
+  height: auto;
+  margin: 0px 25%;
+
+}
 
 
 /* Resources TITLE */
@@ -193,6 +213,9 @@ h1 {
           background-clip: text; 
   -webkit-text-fill-color: transparent;
   text-align: center;
+  font-size: 130px; 
+  letter-spacing: 6px; 
+  text-shadow: 4px 4px  #2d4848;
 }
 
 
@@ -282,4 +305,23 @@ h1 {
     margin: 0px 5%;
   }
  
+  .resources-app{
+    width: 75%;
+    height: 50%;
+    margin: 50px 15%;
+  }
+
+  .title{
+    
+    margin: 10%;
+  }
+
+  .res{
+    font-size: 80px;
+  }
+
+
+  h1{
+  font-size: 30px;
+  }
 }
