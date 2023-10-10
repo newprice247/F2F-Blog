@@ -16,7 +16,7 @@ export const getContent = () => {
               <div class="profile-img">
                 <img src="../images/pre-profile-pic2.jpeg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
                 </div>
-                <div class="date-created">
+                <div class="date-created newPost">
                 <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
                 <p class="card-text">"${data[i].content}"</p>
                 <a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
