@@ -10,20 +10,19 @@ export const getContent = () => {
                 for (let i = 0; i < data.length; i++) {
                     $('.blog-post-area').append(`
         <div id="${data[i].id}" class="card" style="width: 18rem;">
-            <img src="../images/pre-post2.png" class="card-img-top" alt="...">
+            <img src="../images/npmjs image.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">${data[i].title}</h5>
               <div class="profile-img">
-                <img src="../images/npmjs image.png" class="profile-pic-match" alt="profile-pic" width="40" height="40">
+                <img src="../images/pre-profile-pic2.jpeg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
                 </div>
                 <div class="date-created">
                 <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
                 <p class="card-text">"${data[i].content}"</p>
-                <div class="seePostButton>
-                <button class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</button>
-                </div>
+                <a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</a>
               </div>
-          </div>
+            
+            </div>
           </div>`);
                 } 
                  
