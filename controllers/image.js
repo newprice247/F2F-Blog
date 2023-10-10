@@ -15,6 +15,8 @@ const imageFilter = (req, file, cb) => {
     }
 };
 
+const baseDir = process.cwd();
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, __dirname + '/resources/static/assets/uploads/');
@@ -35,7 +37,7 @@ const uploadFiles = async (req, res) => {
         if (req.file == undefined) {
             return res.send(`You must select a file.`);
         }
-
+        console.log(baseDir);
         Image.create({
             type: req.file.mimetype,
             name: req.file.originalname,
@@ -45,7 +47,7 @@ const uploadFiles = async (req, res) => {
             user_id: req.session.user_id,
         }).then((image) => {
             fs.writeFileSync(
-                 '../public/images/tmp' + req.session.user_id,
+                baseDir + '/public/images/tmp/' + req.session.user_id,
                 image.data
             );
 

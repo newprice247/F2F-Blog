@@ -36,7 +36,7 @@ const register = async (event) => {
     event.preventDefault();
 
     const username = document.querySelector('#usernameRegister').value.trim();
-    const email = document.querySelector('#emailRegister').value.trim();
+    const email = document.querySelector('#emailRegister').value.trim().toLowerCase();
     const password = document.querySelector('#passwordRegister').value.trim();
     const passwordConfirm = document.querySelector('#passwordConfirm').value.trim();
     if (password !== passwordConfirm) {
