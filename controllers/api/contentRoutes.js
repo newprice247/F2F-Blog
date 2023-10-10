@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 router.get('/', async (req, res) => {
     try {
         const contentData = await Content.findAll({
-            include: [{model: User, attributes: ['username']}],
+            include: [{model: User, attributes: ['username', 'id']}],
             exclude: [{model: User, attributes: ['password']}]
         });
         res.status(200).json(contentData);

@@ -1,11 +1,10 @@
 const commentButton = document.getElementById("comment");
-
 const closeModal = document.querySelector('.close-button');
 export const getContent = () => {   
         fetch('/api/content')
             .then((response) => response.json())
             .then((data) => {
-    
+                
                 console.log('getContent', data);
                 for (let i = 0; i < data.length; i++) {
                     $('.blog-post-area').append(`
@@ -14,7 +13,7 @@ export const getContent = () => {
             <div class="card-body">
               <h5 class="card-title">${data[i].title}</h5>
               <div class="profile-img">
-                <img src="../images/pre-profile-pic2.jpeg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
+                <img src="../images/tmp/${data[i].user.id}.jpg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
                 </div>
                 <div class="date-created newPost">
                 <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
