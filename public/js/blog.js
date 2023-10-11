@@ -18,9 +18,9 @@ export const getContent = () => {
                 <img src="../images/pre-profile-pic2.jpeg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
                 </div>
                 <div class="date-created newPost">
-                <p><i>${data[i].user.username} posted </i>${data[i].createdAt}</p>
+                <p><i>${data[i].user.username} posted </i>${getDate}</p>
                 <p class="card-text">"${data[i].content}"</p>
-                </p><a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</a></p>
+                </p><a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a></p>
               </div>
             
             </div>
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
       const profilePic = card.querySelector('.profile-pic-match').src;
-      
-      openPost(imageSrc, postTitle, postText, profilePic, id);
+      const postId = event.target.getAttribute('data-post-id');
+      openPost(postId, imageSrc, postTitle, postText, profilePic, id);
 
      
     }
@@ -58,16 +58,16 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
   const modal = document.getElementById('postModal');
-  const comment = document.querySelector(".textarea").value;
   modal.setAttribute('modal-id', id);
-  const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
 
   postProfilePic.width = 40;
   postProfilePic.height = 40;
-}
+
+
+
   fetch(`/api/content/${id}`, {
     method: 'GET',
     headers: {
@@ -93,10 +93,11 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
       postModal.show();
     })
 
-
+  
 
 
   .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+}
 
   function addComment(e) {
     e.preventDefault();
@@ -109,7 +110,7 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
       comment: comment,
       content_id: modalId
     };
-    // console.log(commentData)
+  
     fetch('api/comments', {
       method: 'POST',
       headers: {
@@ -129,35 +130,7 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   
   };
   
-  const getComments = () => {
-    fetch('/api/comments')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('getComment', data);
-        $('.commentList')
   
-      });
-  };
-  
-  getComments();
-
-
-
-$('#comment').click(function() {  //append new comment each time user adds a comment 
- 
-//use as template to append comment from database
- 
-  const newComment = `
-  <div class="comment-area">
-        <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
-        <p>${data.comment.comment}</p>
-      </div>`;
-
-      $('#commentList').append(newComment);
-
-      $('.textarea').val('');  
-});
-
 
 
 
