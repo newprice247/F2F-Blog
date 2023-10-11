@@ -1,7 +1,6 @@
+// const { get } = require("../../controllers/api/contentRoutes");
 
-
-let commentList;
-
+const commentButton = document.getElementById("comment");
 const closeModal = document.querySelector('.close-button');
 export const getContent = () => {   
         fetch('/api/content')
@@ -33,9 +32,29 @@ export const getContent = () => {
   };
   getContent(); 
 
-
+const getContentComments = (id) => {
+  fetch(`/api/content/${id}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('getComments', data.comments);
+      
+      for (let i = 0; i < data.comments.length; i++) {
+        let getDate = new Date(data.comments[i].created_at).toLocaleDateString();
+        
+        $('#commentList').append(`
+         <div class="comment-container-1" id="${data.comments[i].id}">
+            <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
+            <p>${data.comments[i].user_id} commented ${getDate}</p>
+            <p>${data.comments[i].comment}</p>
+          </div>`
+        );
+      }
+    });
+};
 document.addEventListener('DOMContentLoaded', function () {
   const blogPostArea = document.querySelector('.blog-post-area');
+
+  
 
   // Use event delegation to handle click events on dynamically added elements
   blogPostArea.addEventListener('click', function (event) {
@@ -47,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
       const profilePic = card.querySelector('.profile-pic-match').src;
-      
+      $('#commentList').empty();
       openPost(imageSrc, postTitle, postText, profilePic, id);
       console.log(id)
      
@@ -55,88 +74,72 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-function openPost(imageSrc, postTitle, postText, profilePic, id) {
+const openPost = (imageSrc, postTitle, postText, profilePic, id) => {
   const postImage = document.getElementById('postImage');
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
   const modal = document.getElementById('postModal');
- 
+  const modalId = document.querySelector('#postModal').setAttribute('modal-id', id);
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
  
 
   postProfilePic.width = 40;
-  postProfilePic.height = 40;
-
+  postProfilePic.height = 40; 0
+  getContentComments(id);
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
   postModal.show();
+}
 
+function addComment(e) {
+  e.preventDefault();
+  // console.log('addComment function called')
+  const comment = document.querySelector(".textarea").value;
+  const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
+  // const modalId = document.querySelector(`.modalId-${}`)
 
-  const postCommentButton = document.getElementById('comment');
-  // When the user submits a comment, post it to the server, and if successful, update the comment section.
-  postCommentButton.addEventListener('click', function (e) {
-    modal.setAttribute('modal-id', id);
-    let modalId = modal.getAttribute('modal-id');
-    e.preventDefault();
-    const commentTextArea = document.getElementById('commentTextArea');
-    const comment = commentTextArea.value;
-    const commentData = {
-      comment: comment,
-      content_id: parseInt(modalId, 10)
-    };
-  console.log(commentData)
-    
-     fetch(`/api/comments/${modalId}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(commentData)
-      })
-      .then((res) => res.json())
-      .then((data) => {
-          console.log(data);
-      })
+  const commentData = {
+    comment: comment,
+    content_id: modalId
+  };
+  // console.log(commentData)
+  fetch('api/comments', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(commentData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(`here is the addComment data ${data}`)
+
+      // document.location.replace('/crud');
+      // return data
     })
-  }
-        // Comment posted successfully; update the comment section
-        /*
-        updateCommentSection(modalId);
-        commentTextArea.value = ''; // Clear the text area
-        */
-      
-  
-/*
-  function updateCommentSection(modalId) {
-    console.log('Fetching comments for modalId:', modalId);
-    // Make a Fetch request to retrieve comments for the given modalId
-    fetch(`/api/comments/${modalId}`)
-      .then(response => response.json())
-      .then(comments => {
-        // Clear the existing comment section
-        const commentList = document.getElementById(`commentList-${modalId}`);
-        commentList.innerHTML = '';
-  
-        // Append the new comments
-        comments.forEach(commentObj => {
-          const commentText = commentObj.comment;
-          console.log(commentText);
-          appendComment(commentText, modalId);
-        });
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  }
-  */
-  
-  
-  
+
+    .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+
+};
 
 
 
 
+// $('#comment').click(function() {  //append new comment each time user adds a comment 
+
+// //use as template to append comment from database
+
+//   const newComment = `
+//   <div class="comment-area">
+//         <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
+//         <p>${data.comment.comment}</p>
+//       </div>`;
+
+//       $('#commentList').append(newComment);
+
+//       $('.textarea').val('');  
+// });
 
 
 function closePost() {
@@ -144,5 +147,5 @@ function closePost() {
   postModal.hide(); // Hide the Bootstrap modal
 }
 
-
+commentButton.addEventListener('click', addComment);
 closeModal.addEventListener('click', closePost);
