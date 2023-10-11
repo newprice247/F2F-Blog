@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Comment} = require('../../models');
+const {User, Content, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
@@ -7,7 +7,8 @@ router.get('/', async (req, res) => {
     try {
         const commentData = await Comment.findAll({
             include: [
-                {model: User, attributes: ['username']}
+                {model: User, attributes: ['username']},
+                {model: Content}
             ],
             exclude: [{model: User, attributes: ['password']}]
         });
@@ -16,6 +17,8 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
 
 router.post('/', async (req, res) => {
     try {

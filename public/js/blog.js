@@ -1,14 +1,15 @@
 const commentButton = document.getElementById("comment");
 const closeModal = document.querySelector('.close-button');
-const getContent = () => {   
-        fetch('/api/content')
-            .then((response) => response.json())
-            .then((data) => {
-                
-                console.log('getContent', data);
-                for (let i = 0; i < data.length; i++) {;
-                  let getDate = new Date(data[i].createdAt).toLocaleDateString();
-                    $('.blog-post-area').append(`
+const getContent = () => {
+  fetch('/api/content')
+    .then((response) => response.json())
+    .then((data) => {
+
+      console.log('getContent', data);
+      for (let i = 0; i < data.length; i++) {
+        ;
+        let getDate = new Date(data[i].createdAt).toLocaleDateString();
+        $('.blog-post-area').append(`
         <div id="${data[i].id}" class="card" style="width: 18rem;">
             <img src="../images/npmjs image.png" class="card-img-top" alt="...">
             <div class="card-body">
@@ -24,12 +25,12 @@ const getContent = () => {
             
             </div>
           </div>`);
-                } 
-                 
-            });
-  };
-  
-  getContent(); 
+      }
+
+    });
+};
+
+getContent();
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -54,12 +55,12 @@ document.addEventListener('DOMContentLoaded', function () {
       //       $("#modal").attr("id", divId);
       openPost(imageSrc, postTitle, postText, profilePic, id);
 
-     
+
     }
   });
 });
 
-const openPost = async (imageSrc, postTitle, postText, profilePic, id) {
+const openPost = async (imageSrc, postTitle, postText, profilePic, id) => {
   const postImage = document.getElementById('postImage');
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
@@ -71,10 +72,30 @@ const openPost = async (imageSrc, postTitle, postText, profilePic, id) {
 
   postProfilePic.width = 40;
   postProfilePic.height = 40; 0
+  await fetch(`/api/content/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
 
-
-  const postModal = new bootstrap.Modal(document.getElementById('postModal'));
-  postModal.show();
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      for (let i = 0; i < data.length; i++) {
+        console.log(data[i])
+        $('.commentList').append(`
+  <div class="comment-area" id="comment-id-1">
+    <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
+    <p>${data[i].comment.user_id}</p>
+  <p>${data[i].comments.comment}</p>
+  </div>
+  `)
+      }
+    })
+    .then(() => {
+      const postModal = new bootstrap.Modal(document.getElementById('postModal'));
+      postModal.show();
+    })
 }
 
 function addComment(e) {
@@ -83,28 +104,28 @@ function addComment(e) {
   const comment = document.querySelector(".textarea").value;
   const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
   // const modalId = document.querySelector(`.modalId-${}`)
-  
+
   const commentData = {
     comment: comment,
     content_id: modalId
   };
   // console.log(commentData)
-fetch('api/comments', {     
-  method: 'POST',
-  headers: {
+  fetch('api/comments', {
+    method: 'POST',
+    headers: {
       'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(commentData),
-})
-.then((res) => res.json())
-.then((data) => {
-    console.log(`here is the addComment data ${data}`)
-   
-    // document.location.replace('/crud');
-    // return data
-})
+    },
+    body: JSON.stringify(commentData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(`here is the addComment data ${data}`)
 
-.catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+      // document.location.replace('/crud');
+      // return data
+    })
+
+    .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
 
 };
 
@@ -112,9 +133,9 @@ fetch('api/comments', {
 
 
 // $('#comment').click(function() {  //append new comment each time user adds a comment 
- 
+
 // //use as template to append comment from database
- 
+
 //   const newComment = `
 //   <div class="comment-area">
 //         <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
@@ -126,14 +147,14 @@ fetch('api/comments', {
 //       $('.textarea').val('');  
 // });
 
-const getComments = () => {   
+const getComments = () => {
   fetch('/api/comments')
-      .then((response) => response.json())
-      .then((data) => {
-          console.log('getComment', data);
-        $('.commentList')
-           
-      });
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('getComment', data);
+      $('.commentList')
+
+    });
 };
 
 getComments();
