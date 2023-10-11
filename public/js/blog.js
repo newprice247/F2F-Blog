@@ -2,6 +2,24 @@
 
 const commentButton = document.getElementById("comment");
 const closeModal = document.querySelector('.close-button');
+
+// this will get the logged-in user's profile image and display it in the navbar
+const getProfileImg = () => {
+    fetch('/api/users/profile')
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            if (data !== null) {
+              console.log('getProfileImg', data.id);
+                $('.user-profile-img').html(`<img src="../images/tmp/${data.id}.jpg" class="profile-pic" alt="profile-pic" width="40" height="40">`);
+            } else {
+                $('.user-profile-img').html(`<img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">`);
+            }
+        });
+};
+
+getProfileImg();
+
 export const getContent = () => {   
         fetch('/api/content')
             .then((response) => response.json())
