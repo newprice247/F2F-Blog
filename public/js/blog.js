@@ -83,7 +83,7 @@ const openPost = async (imageSrc, postTitle, postText, profilePic, id) => {
     .then((data) => {
       for (let i = 0; i < data.length; i++) {
         console.log(data[i])
-        $('.commentList').append(`
+        $('#commentList').append(`
   <div class="comment-area" id="comment-id-1">
     <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
     <p>${data[i].comment.user_id}</p>
