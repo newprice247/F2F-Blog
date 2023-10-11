@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
       const profilePic = card.querySelector('.profile-pic-match').src;
-      const postId = event.target.getAttribute('data-post-id');
-      openPost(postId, imageSrc, postTitle, postText, profilePic, id);
+      
+      openPost(imageSrc, postTitle, postText, profilePic, id);
 
      
     }
@@ -66,37 +66,9 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   postProfilePic.width = 40;
   postProfilePic.height = 40;
 
+  const postModal = new bootstrap.Modal(document.getElementById('postModal'));
+  postModal.show();
 
-
-  fetch(`/api/content/${id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        console.log(data[i])
-        $('.commentList').append(`
-  <div class="comment-area" id="comment-id-1">
-    <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
-    <p>${data[i].comment.user_id}</p>
-  <p>${data[i].comments.comment}</p>
-  </div>
-  `)
-      }
-    })
-    .then(() => {
-      const postModal = new bootstrap.Modal(document.getElementById('postModal'));
-      postModal.show();
-    })
-
-  
-
-
-  .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
 }
 
   function addComment(e) {
