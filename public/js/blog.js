@@ -1,6 +1,6 @@
 const commentButton = document.getElementById("comment");
 const closeModal = document.querySelector('.close-button');
-export const getContent = () => {   
+const getContent = () => {   
         fetch('/api/content')
             .then((response) => response.json())
             .then((data) => {
@@ -28,6 +28,7 @@ export const getContent = () => {
                  
             });
   };
+  
   getContent(); 
 
 
@@ -78,13 +79,13 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
 
 function addComment(e) {
   e.preventDefault();
-
+  console.log('addComment function called')
   const comment = document.querySelector(".textarea").value;
-
+  console.log(comment)
   const commentData = {
     comment: comment,
   };
-
+  console.log(commentData)
 fetch('api/comments', {     
   method: 'POST',
   headers: {
@@ -94,7 +95,7 @@ fetch('api/comments', {
 })
 .then((res) => res.json())
 .then((data) => {
-    console.log(data);
+    console.log(`here is the addComment data ${data}`)
    
     // document.location.replace('/crud');
     // return data
@@ -107,20 +108,20 @@ fetch('api/comments', {
 
 
 
-$('#comment').click(function() {  //append new comment each time user adds a comment 
+// $('#comment').click(function() {  //append new comment each time user adds a comment 
  
-//use as template to append comment from database
+// //use as template to append comment from database
  
-  const newComment = `
-  <div class="comment-area">
-        <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
-        <p>${data.comment.comment}</p>
-      </div>`;
+//   const newComment = `
+//   <div class="comment-area">
+//         <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
+//         <p>${data.comment.comment}</p>
+//       </div>`;
 
-      $('#commentList').append(newComment);
+//       $('#commentList').append(newComment);
 
-      $('.textarea').val('');  
-});
+//       $('.textarea').val('');  
+// });
 
 
 
