@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const profilePic = card.querySelector('.profile-pic-match').src;
       
       openPost(imageSrc, postTitle, postText, profilePic, id);
-
+      console.log(id)
      
     }
   });
@@ -69,21 +69,28 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
   postModal.show();
 
-}
+  const modalId = modal.getAttribute('modal-id');
+  const commentList = document.getElementById(`commentList-${modalId}`);
 
-  function addComment(e) {
-    e.preventDefault();
-    // console.log('addComment function called')
-    const comment = document.querySelector(".textarea").value;
-    const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
-    // const modalId = document.querySelector(`.modalId-${}`)
-  
-    const commentData = {
-      comment: comment,
-      content_id: modalId
-    };
-  
-    fetch('api/comments', {
+  fetch(`/api/comments/${modalId}`)
+  .then(response => response.json())
+  .then(comments => {
+    // Append comments to the commentList container
+    comments.forEach(comment => {
+      commentList += `
+      <div class="new-comment">
+      <img src="../images/about-abigail.jpg" width="20" height="20">
+      <p>${comment.text}</p>
+    </div>
+      `;
+     
+    });
+  });
+
+
+
+
+    fetch(`api/comments/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -93,6 +100,7 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
       .then((res) => res.json())
       .then((data) => {
         console.log(`here is the addComment data ${data}`)
+        console.log(commentData)
   
         // document.location.replace('/crud');
         // return data
