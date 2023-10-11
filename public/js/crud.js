@@ -9,58 +9,75 @@ function addPost(e) {
     const postData = {
         title: title,
         content: content,
+    };
+
+    // Check if this is an edit or a new post
+    if (postButton.getAttribute("data-edit")) {
+        const postId = postButton.getAttribute("data-edit");
+        // Send a PUT request to update the post with postId
+        fetch(`/api/content/${postId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(postData),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                // Clear the edit flag
+                postButton.removeAttribute("data-edit");
+                // getContent();
+                document.location.replace('/crud');
+            })
+            
+            .catch((err) => console.error('Oops, sorry, post could not be updated. Error:', err));
+    } else {
+        // Send a POST request to add a new post
+        fetch('/api/content', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(postData),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                // getContent();
+                document.location.replace('/crud');
+            })
+            .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+    }
+}
+
+function addComment(e) {
+    e.preventDefault();
+
+    const comment = document.querySelector(".textarea").value;
+
+    const commentData = {
+        comment: comment,
 
     };
 
-    fetch('/api/content', {
+    fetch('api/comment', {    //fetch api content 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(postData),
-
     })
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
-            // getContent();
             document.location.replace('/crud');
-            
+
         })
 
         .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
 
 };
-
-
-function addComment(e) {
-  e.preventDefault();
-
-  const comment = document.querySelector(".textarea").value;
-
-    const commentData = {
-       comment: comment,
-
-     };
-
- fetch('api/comment', {    //fetch api content 
-    method: 'POST',
-    headers: {
-         'Content-Type': 'application/json',
-     },
-    body: JSON.stringify(postData),
-  })
-  .then((res) => res.json())
-  .then((data) => {
-      console.log(data);
-     document.location.replace('/crud');
-      
-  })
-
-  .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
-
- };
-
 
 
 
@@ -123,7 +140,20 @@ const getProfile = () => {
                             </td>
                         </tr>`);
             }
-            //Event listener for delete button
+            $('.edit-post').on('click', (e) => {
+                e.preventDefault();
+                const row = e.target.closest('tr');
+                const postId = JSON.parse(row.getAttribute('id'));
+                const post = data.contents.find(post => post.id === postId);
+
+                // Populate the title and content fields with the post's data
+                document.querySelector(".postTitle").value = post.title;
+                document.querySelector(".postContent").value = post.content;
+
+                // Optionally, set a flag or data attribute to identify this as an edit
+                document.querySelector("#post-button").setAttribute("data-edit", postId);
+            });
+
             $('.delete-post').on('click', (e) => {
                 console.log('delete button clicked')
                 e.preventDefault();
