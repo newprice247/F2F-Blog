@@ -66,7 +66,7 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
 
   postProfilePic.width = 40;
   postProfilePic.height = 40;
-
+}
   fetch(`/api/content/${id}`, {
     method: 'GET',
     headers: {
@@ -93,27 +93,42 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
     })
 
 
-const commentData = {
-  comment: comment,
-  content_id: modalId
-};
 
-fetch('api/comments', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(commentData),
-})
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(`here is the addComment data ${data}`)
-
-    // document.location.replace('/crud');
-    // return data
-  })
 
   .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+
+  function addComment(e) {
+    e.preventDefault();
+    // console.log('addComment function called')
+    const comment = document.querySelector(".textarea").value;
+    const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
+    // const modalId = document.querySelector(`.modalId-${}`)
+  
+    const commentData = {
+      comment: comment,
+      content_id: modalId
+    };
+    // console.log(commentData)
+    fetch('api/comments', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(commentData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(`here is the addComment data ${data}`)
+  
+        // document.location.replace('/crud');
+        // return data
+      })
+  
+      .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+  
+  };
+  
+
 
 
 
