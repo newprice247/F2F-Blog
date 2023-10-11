@@ -26,10 +26,11 @@ function addPost(e) {
             .then((data) => {
                 console.log(data);
                 // Clear the edit flag
-                document.querySelector(".postButton").removeAttribute("data-edit");
+                postButton.removeAttribute("data-edit");
                 // getContent();
                 document.location.replace('/crud');
             })
+            
             .catch((err) => console.error('Oops, sorry, post could not be updated. Error:', err));
     } else {
         // Send a POST request to add a new post
