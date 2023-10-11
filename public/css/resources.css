@@ -45,9 +45,9 @@ form {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin: 2% 25% 10%;
-  flex-wrap: wrap;
   text-align: center;
+  margin: 2% 20% 2%;
+  padding: 0px 10px;
 }
 
 .btn {
@@ -130,17 +130,30 @@ footer {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
 }
 
 
 /* Previously saved resource card */
 .resource-item{
-   border: 10px solid black;
-  padding: 30px;
-  margin: 5px 10px;
+  background-image: url(../images/img.jpg);
+  border-radius: 8px;
+  border: 5px solid black;
+  padding: 10px;
+  margin: 10px;
+  width: 30%;
+  height: 30%;
 }
 
+.resourceInner{
+  border-radius: 5px;
+  background-color: rgba(245, 245, 245, 0.6);
+  margin: 5px;
+  font-weight: 600;
+}
+
+.resourceInner h3{
+ letter-spacing: 3px;
+}
 
 
 /* Search bar is fixed to top when scrolling */
@@ -175,7 +188,7 @@ footer {
 }
 
 #tagSearchInput {
-  width: 200px; /* Set the initial width of the input field */
+  width: 200px; 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -308,14 +321,34 @@ h5{
   }
 }
 
+.buttonS{
+  display: flex;
+  justify-content: center;
+}
+
+
+.Sbtn{
+  text-decoration: none;
+}
+
+/* Big Winner button! */
+.Sbtn:hover{
+  transform: scale(1.8);
+  width: 20%;
+}
+
 
 .center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  margin: 5% 1%;
+  margin: 30px 10%;
 }
+
+form .btn {
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
 
 
 .spinner {
@@ -364,7 +397,7 @@ main img:hover {
 
 
 .form-group {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 
@@ -415,6 +448,9 @@ main img:hover {
     h4{
     font-size: large;
   }
+  .center {
+    margin: 4%;
+  }
 }
 
 
@@ -458,6 +494,8 @@ main img:hover {
     width: 110%;
     font-size: 80px;
   }
+
+
 }
 
 
@@ -485,7 +523,6 @@ main img:hover {
   .subtitle h1{
     font-size: large;
   }
-
 
 
 .searchFor h3 {
@@ -525,6 +562,7 @@ main img {
   font-size: 70px;
 }
 
+
 }
 
 
@@ -562,7 +600,7 @@ main img {
   
   
   main img {
-    width: 120px;
+    width: 110px;
     height: 120px;
   }
 

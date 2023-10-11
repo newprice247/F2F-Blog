@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < data.length; i++) {
           $('#displayArea').append(`
             <div class="resource-item" data-tag="${data[i].tag}"> <!-- Add data-tag attribute -->
-              <h3>Resource:</h3>   
+              <div class="resourceInner"><h3>Resource:</h3>   
               <p><strong>Username:</strong> ${data[i].user.username}</p>        
               <p><strong>Comment:</strong> ${data[i].comment}</p>
               <p><strong>URL:</strong> <a href="${data[i].url}" target="_blank" id="urlLinkDisplay">${data[i].url}</a></p>
               <p><strong>#Tag:</strong> ${data[i].tag}</p>
+            </div>
             </div>`);
             console.log(data)
         }
@@ -67,11 +68,12 @@ document.addEventListener('DOMContentLoaded', function () {
     resourceDiv.className = 'resource-item';
     resourceDiv.setAttribute('data-tag', data.tag); // Add data-tag attribute
     resourceDiv.innerHTML = `
+    <div class="resourceInner">
       <h3>New Resource Added:</h3>
       <p><strong>Comment:</strong> ${data.comment}</p>
       <p><strong>URL:</strong> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
       <p><strong>#Tag:</strong> ${data.tag}</p>
-    </div>`;
+    </div></div>`;
 
     displayArea.insertBefore(resourceDiv, displayArea.firstChild);
   }
