@@ -436,6 +436,10 @@ main img:hover {
 
 
 
+
+
+
+
 @media screen and (max-width: 1300px) {
   .subtitle h1{
     font-size: xx-large;
@@ -561,7 +565,6 @@ main img {
   width: 120%;
   font-size: 70px;
 }
-
 
 }
 
