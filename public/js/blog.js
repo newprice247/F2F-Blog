@@ -1,14 +1,15 @@
 const commentButton = document.getElementById("comment");
 const closeModal = document.querySelector('.close-button');
-const getContent = () => {   
-        fetch('/api/content')
-            .then((response) => response.json())
-            .then((data) => {
-                
-                console.log('getContent', data);
-                for (let i = 0; i < data.length; i++) {;
-                  let getDate = new Date(data[i].createdAt).toLocaleDateString();
-                    $('.blog-post-area').append(`
+const getContent = () => {
+  fetch('/api/content')
+    .then((response) => response.json())
+    .then((data) => {
+
+      console.log('getContent', data);
+      for (let i = 0; i < data.length; i++) {
+        ;
+        let getDate = new Date(data[i].createdAt).toLocaleDateString();
+        $('.blog-post-area').append(`
         <div id="${data[i].id}" class="card" style="width: 18rem;">
             <img src="../images/npmjs image.png" class="card-img-top" alt="...">
             <div class="card-body">
@@ -24,12 +25,12 @@ const getContent = () => {
             
             </div>
           </div>`);
-                } 
-                 
-            });
-  };
-  
-  getContent(); 
+      }
+
+    });
+};
+
+getContent();
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
       //       $("#modal").attr("id", divId);
       openPost(imageSrc, postTitle, postText, profilePic, id);
 
-     
+
     }
   });
 });
@@ -83,28 +84,28 @@ function addComment(e) {
   const comment = document.querySelector(".textarea").value;
   const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
   // const modalId = document.querySelector(`.modalId-${}`)
-  
+
   const commentData = {
     comment: comment,
     content_id: modalId
   };
   // console.log(commentData)
-fetch('api/comments', {     
-  method: 'POST',
-  headers: {
+  fetch('api/comments', {
+    method: 'POST',
+    headers: {
       'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(commentData),
-})
-.then((res) => res.json())
-.then((data) => {
-    console.log(`here is the addComment data ${data}`)
-   
-    // document.location.replace('/crud');
-    // return data
-})
+    },
+    body: JSON.stringify(commentData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(`here is the addComment data ${data}`)
 
-.catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+      // document.location.replace('/crud');
+      // return data
+    })
+
+    .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
 
 };
 
@@ -112,9 +113,9 @@ fetch('api/comments', {
 
 
 // $('#comment').click(function() {  //append new comment each time user adds a comment 
- 
+
 // //use as template to append comment from database
- 
+
 //   const newComment = `
 //   <div class="comment-area">
 //         <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
