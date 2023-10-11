@@ -8,7 +8,8 @@ export const getContent = () => {
     
                 console.log('getContent', data);
                 for (let i = 0; i < data.length; i++) {
-                    $('.blog-post-area').append(`
+                  let getDate = new Date(data[i].createdAt).toLocaleDateString();
+                  $('.blog-post-area').appen(`
         <div id="${data[i].id}" class="card" style="width: 18rem;">
             <img src="../images/npmjs image.png" class="card-img-top" alt="...">
             <div class="card-body">
@@ -128,7 +129,17 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   
   };
   
-
+  const getComments = () => {
+    fetch('/api/comments')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('getComment', data);
+        $('.commentList')
+  
+      });
+  };
+  
+  getComments();
 
 
 
