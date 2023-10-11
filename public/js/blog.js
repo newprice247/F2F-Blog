@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-function openPost(imageSrc, postTitle, postText, profilePic, id) {
+const openPost = async (imageSrc, postTitle, postText, profilePic, id) {
   const postImage = document.getElementById('postImage');
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
@@ -126,7 +126,17 @@ fetch('api/comments', {
 //       $('.textarea').val('');  
 // });
 
+const getComments = () => {   
+  fetch('/api/comments')
+      .then((response) => response.json())
+      .then((data) => {
+          console.log('getComment', data);
+        $('.commentList')
+           
+      });
+};
 
+getComments();
 
 
 function closePost() {
