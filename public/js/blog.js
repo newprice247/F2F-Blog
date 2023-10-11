@@ -32,11 +32,7 @@ export const getContent = () => {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  
-
   const blogPostArea = document.querySelector('.blog-post-area');
-
- 
 
   // Use event delegation to handle click events on dynamically added elements
   blogPostArea.addEventListener('click', function (event) {
@@ -62,7 +58,7 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   const postProfilePic = document.getElementById('modalProfilePic');
   const modal = document.getElementById('postModal');
   const comment = document.querySelector(".textarea").value;
-  modal.setAttribute('modal-id');
+  modal.setAttribute('modal-id', id);
   const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
@@ -71,18 +67,37 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   postProfilePic.width = 40;
   postProfilePic.height = 40;
 
+  fetch(`/api/content/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
 
-  const postModal = new bootstrap.Modal(document.getElementById('postModal'));
-  postModal.show();
-}
-
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      for (let i = 0; i < data.length; i++) {
+        console.log(data[i])
+        $('.commentList').append(`
+  <div class="comment-area" id="comment-id-1">
+    <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
+    <p>${data[i].comment.user_id}</p>
+  <p>${data[i].comments.comment}</p>
+  </div>
+  `)
+      }
+    })
+    .then(() => {
+      const postModal = new bootstrap.Modal(document.getElementById('postModal'));
+      postModal.show();
+    })
 
 
 const commentData = {
   comment: comment,
   content_id: modalId
 };
-// console.log(commentData)
+
 fetch('api/comments', {
   method: 'POST',
   headers: {
