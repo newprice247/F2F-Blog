@@ -1,3 +1,5 @@
+// const { get } = require("../../controllers/api/contentRoutes");
+
 const commentButton = document.getElementById("comment");
 const closeModal = document.querySelector('.close-button');
 const getContent = () => {
@@ -32,13 +34,29 @@ const getContent = () => {
 
 getContent();
 
-
+const getContentComments = (id) => {
+  fetch(`/api/content/${id}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('getComments', data.comments);
+      for (let i = 0; i < data.comments.length; i++) {
+        let getDate = new Date(data.comments[i].created_at).toLocaleDateString();
+        $('#commentList').append(`
+         <div class="comment-container-1" id="${data.comments[i].id}">
+            <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
+            <p>${data.comments[i].user_id} commented ${getDate}</p>
+            <p>${data.comments[i].comment}</p>
+          </div>`
+        );
+      }
+    });
+};
 document.addEventListener('DOMContentLoaded', function () {
 
 
   const blogPostArea = document.querySelector('.blog-post-area');
 
-
+  
 
   // Use event delegation to handle click events on dynamically added elements
   blogPostArea.addEventListener('click', function (event) {
@@ -60,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-const openPost = async (imageSrc, postTitle, postText, profilePic, id) => {
+const openPost = (imageSrc, postTitle, postText, profilePic, id) => {
   const postImage = document.getElementById('postImage');
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
@@ -72,30 +90,9 @@ const openPost = async (imageSrc, postTitle, postText, profilePic, id) => {
 
   postProfilePic.width = 40;
   postProfilePic.height = 40; 0
-  await fetch(`/api/content/${id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      for (let i = 0; i < data.length; i++) {
-        console.log(data[i])
-        $('#commentList').append(`
-  <div class="comment-area" id="comment-id-1">
-    <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
-    <p>${data[i].comment.user_id}</p>
-  <p>${data[i].comments.comment}</p>
-  </div>
-  `)
-      }
-    })
-    .then(() => {
-      const postModal = new bootstrap.Modal(document.getElementById('postModal'));
-      postModal.show();
-    })
+  getContentComments(id);
+  const postModal = new bootstrap.Modal(document.getElementById('postModal'));
+  postModal.show();
 }
 
 function addComment(e) {
@@ -146,18 +143,6 @@ function addComment(e) {
 
 //       $('.textarea').val('');  
 // });
-
-const getComments = () => {
-  fetch('/api/comments')
-    .then((response) => response.json())
-    .then((data) => {
-      console.log('getComment', data);
-      $('.commentList')
-
-    });
-};
-
-getComments();
 
 
 function closePost() {
