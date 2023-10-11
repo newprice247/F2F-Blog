@@ -16,7 +16,7 @@ export const getContent = () => {
             <div class="card-body">
               <h5 class="card-title">${data[i].title}</h5>
               <div class="profile-img">
-                <img src="../images/pre-profile-pic2.jpeg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
+                <img src="../images/tmp/${data[i].user.id}.jpg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
                 </div>
                 <div class="date-created newPost">
                 <p><i>${data[i].user.username} posted </i>${getDate}</p>
@@ -114,7 +114,7 @@ function addComment(e) {
     .then((res) => res.json())
     .then((data) => {
       console.log(`here is the addComment data ${data}`)
-
+      
       // document.location.replace('/crud');
       // return data
     })
@@ -142,10 +142,18 @@ function addComment(e) {
 // });
 
 
-function closePost() {
+function closePost(boolean) {
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
-  postModal.hide(); // Hide the Bootstrap modal
+  if (boolean) {
+    postModal.hide(); // Hide the Bootstrap modal
+  } else {
+    postModal.reload(); //
+  }
 }
 
-commentButton.addEventListener('click', addComment);
+commentButton.addEventListener('click', addComment, );
 closeModal.addEventListener('click', closePost);
+
+// this function will refresh the modal when a user adds a comment
+
+
