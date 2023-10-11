@@ -98,6 +98,23 @@ const deletePost = async (postId) => {
     }
 }
 
+const editPost = async (postId) => {
+    console.log('trying to edit post');
+    const response = await fetch(`/api/content/${postId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    if (response.ok) {
+        console.log('Post has been edited');
+        //Reloads the page to show the post has been edited
+        document.location.replace('/crud');
+    } else {
+        console.error('Post could not be edited.');
+    }
+}
+
 //Onload the table needs to show the user logged post data in table already there  when they enter the crud page 
 //data is not loading in table provided, if we can switch something for it to load in table 
 
