@@ -64,7 +64,7 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
   const modal = document.getElementById('postModal');
-  modal.classList.add(`modalId-${id}`);
+  modal.setAttribute('modal-id', id);
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
@@ -79,13 +79,16 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
 
 function addComment(e) {
   e.preventDefault();
-  console.log('addComment function called')
+  // console.log('addComment function called')
   const comment = document.querySelector(".textarea").value;
-  console.log(comment)
+  const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
+  // const modalId = document.querySelector(`.modalId-${}`)
+  
   const commentData = {
     comment: comment,
+    content_id: modalId
   };
-  console.log(commentData)
+  // console.log(commentData)
 fetch('api/comments', {     
   method: 'POST',
   headers: {
