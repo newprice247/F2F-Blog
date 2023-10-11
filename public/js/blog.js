@@ -61,7 +61,9 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
   const modal = document.getElementById('postModal');
-  modal.classList.add(`modalId-${id}`);
+  const comment = document.querySelector(".textarea").value;
+  modal.setAttribute('modal-id');
+  const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
@@ -76,22 +78,27 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
 
 
 
-fetch('api/comments', {     
+const commentData = {
+  comment: comment,
+  content_id: modalId
+};
+// console.log(commentData)
+fetch('api/comments', {
   method: 'POST',
   headers: {
-      'Content-Type': 'application/json',
+    'Content-Type': 'application/json',
   },
   body: JSON.stringify(commentData),
 })
-.then((res) => res.json())
-.then((data) => {
-    console.log(data);
-   
-   
-})
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(`here is the addComment data ${data}`)
 
-.catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+    // document.location.replace('/crud');
+    // return data
+  })
 
+  .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
 
 
 
