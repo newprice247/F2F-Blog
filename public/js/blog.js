@@ -1,4 +1,6 @@
-const commentButton = document.getElementById("comment");
+let modalId;
+
+let commentList;
 
 const closeModal = document.querySelector('.close-button');
 export const getContent = () => {   
@@ -63,52 +65,75 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
 
+  const modalId = modal.getAttribute('modal-id');
   postProfilePic.width = 40;
   postProfilePic.height = 40;
 
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
+  const commentList = document.getElementById(`commentList-${modalId}`);
   postModal.show();
 
-  const modalId = modal.getAttribute('modal-id');
-  const commentList = document.getElementById(`commentList-${modalId}`);
 
-  fetch(`/api/comments/${modalId}`)
-  .then(response => response.json())
-  .then(comments => {
-    // Append comments to the commentList container
-    comments.forEach(comment => {
-      commentList += `
-      <div class="new-comment">
-      <img src="../images/about-abigail.jpg" width="20" height="20">
-      <p>${comment.text}</p>
-    </div>
-      `;
-     
-    });
-  });
+ 
 
-
-
-
-    fetch(`api/comments/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(commentData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(`here is the addComment data ${data}`)
-        console.log(commentData)
+  const postCommentButton = document.getElementById('comment');
+  postCommentButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  const commentTextArea = document.getElementById('commentTextArea');
+  const comment = commentTextArea.value;
   
-        // document.location.replace('/crud');
-        // return data
-      })
-  
-      .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
-  
+ 
+  const commentData = {
+    comment: comment,
+    content_id: modalId
   };
+
+ 
+  
+  fetch(`/api/comments`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(commentData)
+  })
+  .then(response => {
+    if (response.ok) {
+      // Comment posted successfully; update the comment list
+      appendComment(comment); // A function to append the comment to the comment list
+      commentTextArea.value = ''; // Clear the text area
+    } else {
+      console.log('comment not added.')
+    }
+  })
+})
+
+//still playing around with this fetch to append comments
+fetch(`/api/comments/${modalId}`)
+      .then(response => response.json())
+      .then(comments => {
+        // Append comments to the comment list
+        comments.forEach(commentObj => {
+          const commentText = commentObj.comment;
+
+      // Call the appendComment function with the comment text
+      appendComment({ text: commentText });
+    })
+  })
+}
+
+function appendComment(comment) {
+// Append the comment to the comment list
+const commentList = document.getElementById(`commentList-${modalId}`);
+const commentDiv = document.createElement('div');
+commentDiv.classList.add('comment-area');
+commentDiv.innerHTML = `
+  <img src="../images/about-abigail.jpg" width="20" height="20">
+  <p>${comment}</p>
+`;
+commentList.appendChild(commentDiv);
+}
+
   
   
 
@@ -119,5 +144,5 @@ function closePost() {
   postModal.hide(); // Hide the Bootstrap modal
 }
 
-commentButton.addEventListener("click", addComment);
+
 closeModal.addEventListener('click', closePost);
