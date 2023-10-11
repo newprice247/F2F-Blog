@@ -37,8 +37,10 @@ const getContentComments = (id) => {
     .then((response) => response.json())
     .then((data) => {
       console.log('getComments', data.comments);
+      
       for (let i = 0; i < data.comments.length; i++) {
         let getDate = new Date(data.comments[i].created_at).toLocaleDateString();
+        
         $('#commentList').append(`
          <div class="comment-container-1" id="${data.comments[i].id}">
             <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
@@ -64,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
       const profilePic = card.querySelector('.profile-pic-match').src;
-      
+      $('#commentList').empty();
       openPost(imageSrc, postTitle, postText, profilePic, id);
       console.log(id)
      
@@ -77,7 +79,7 @@ const openPost = (imageSrc, postTitle, postText, profilePic, id) => {
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
   const modal = document.getElementById('postModal');
- 
+  const modalId = document.querySelector('#postModal').setAttribute('modal-id', id);
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
@@ -145,5 +147,5 @@ function closePost() {
   postModal.hide(); // Hide the Bootstrap modal
 }
 
-
+commentButton.addEventListener('click', addComment);
 closeModal.addEventListener('click', closePost);
