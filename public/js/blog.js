@@ -1,4 +1,4 @@
-let modalId;
+
 
 let commentList;
 
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (event.target.matches('[data-bs-toggle="modal"]')) {
       
       const card = event.target.closest('.card');
-      const id = card.id
+      let id = card.id
       const imageSrc = card.querySelector('.card-img-top').src;
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
@@ -60,82 +60,82 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
   const modal = document.getElementById('postModal');
-  modal.setAttribute('modal-id', id);
+ 
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
+ 
 
-  const modalId = modal.getAttribute('modal-id');
   postProfilePic.width = 40;
   postProfilePic.height = 40;
 
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
-  const commentList = document.getElementById(`commentList-${modalId}`);
   postModal.show();
 
 
- 
-
   const postCommentButton = document.getElementById('comment');
+  // When the user submits a comment, post it to the server, and if successful, update the comment section.
   postCommentButton.addEventListener('click', function (e) {
-  e.preventDefault();
-  const commentTextArea = document.getElementById('commentTextArea');
-  const comment = commentTextArea.value;
+    modal.setAttribute('modal-id', id);
+    let modalId = modal.getAttribute('modal-id');
+    e.preventDefault();
+    const commentTextArea = document.getElementById('commentTextArea');
+    const comment = commentTextArea.value;
+    const commentData = {
+      comment: comment,
+      content_id: parseInt(modalId, 10)
+    };
+  console.log(commentData)
+    
+     fetch(`/api/comments/${modalId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(commentData)
+      })
+      .then((res) => res.json())
+      .then((data) => {
+          console.log(data);
+      })
+    })
+  }
+        // Comment posted successfully; update the comment section
+        /*
+        updateCommentSection(modalId);
+        commentTextArea.value = ''; // Clear the text area
+        */
+      
   
- 
-  const commentData = {
-    comment: comment,
-    content_id: modalId
-  };
-
- 
-  
-  fetch(`/api/comments`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(commentData)
-  })
-  .then(response => {
-    if (response.ok) {
-      // Comment posted successfully; update the comment list
-      appendComment(comment); // A function to append the comment to the comment list
-      commentTextArea.value = ''; // Clear the text area
-    } else {
-      console.log('comment not added.')
-    }
-  })
-})
-
-//still playing around with this fetch to append comments
-fetch(`/api/comments/${modalId}`)
+/*
+  function updateCommentSection(modalId) {
+    console.log('Fetching comments for modalId:', modalId);
+    // Make a Fetch request to retrieve comments for the given modalId
+    fetch(`/api/comments/${modalId}`)
       .then(response => response.json())
       .then(comments => {
-        // Append comments to the comment list
+        // Clear the existing comment section
+        const commentList = document.getElementById(`commentList-${modalId}`);
+        commentList.innerHTML = '';
+  
+        // Append the new comments
         comments.forEach(commentObj => {
           const commentText = commentObj.comment;
-
-      // Call the appendComment function with the comment text
-      appendComment({ text: commentText });
-    })
-  })
-}
-
-function appendComment(comment) {
-// Append the comment to the comment list
-const commentList = document.getElementById(`commentList-${modalId}`);
-const commentDiv = document.createElement('div');
-commentDiv.classList.add('comment-area');
-commentDiv.innerHTML = `
-  <img src="../images/about-abigail.jpg" width="20" height="20">
-  <p>${comment}</p>
-`;
-commentList.appendChild(commentDiv);
-}
-
+          console.log(commentText);
+          appendComment(commentText, modalId);
+        });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+  */
   
   
+  
+
+
+
 
 
 
