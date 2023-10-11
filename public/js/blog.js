@@ -2,37 +2,35 @@
 
 const commentButton = document.getElementById("comment");
 const closeModal = document.querySelector('.close-button');
-const getContent = () => {
-  fetch('/api/content')
-    .then((response) => response.json())
-    .then((data) => {
-
-      console.log('getContent', data);
-      for (let i = 0; i < data.length; i++) {
-        ;
-        let getDate = new Date(data[i].createdAt).toLocaleDateString();
-        $('.blog-post-area').append(`
+export const getContent = () => {   
+        fetch('/api/content')
+            .then((response) => response.json())
+            .then((data) => {
+    
+                console.log('getContent', data);
+                for (let i = 0; i < data.length; i++) {
+                  let getDate = new Date(data[i].createdAt).toLocaleDateString();
+                  $('.blog-post-area').append(`
         <div id="${data[i].id}" class="card" style="width: 18rem;">
             <img src="../images/npmjs image.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">${data[i].title}</h5>
               <div class="profile-img">
-                <img src="../images/tmp/${data[i].user.id}.jpg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
+                <img src="../images/pre-profile-pic2.jpeg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
                 </div>
                 <div class="date-created newPost">
-                <p><i>${data[i].user.username} posted </i> ${getDate}</p>
+                <p><i>${data[i].user.username} posted </i>${getDate}</p>
                 <p class="card-text">"${data[i].content}"</p>
-                </p><a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-bs-target="#postModal">See post</a></p>
+                </p><a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a></p>
               </div>
             
             </div>
           </div>`);
-      }
-
-    });
-};
-
-getContent();
+                } 
+                 
+            });
+  };
+  getContent(); 
 
 const getContentComments = (id) => {
   fetch(`/api/content/${id}`)
@@ -52,8 +50,6 @@ const getContentComments = (id) => {
     });
 };
 document.addEventListener('DOMContentLoaded', function () {
-
-
   const blogPostArea = document.querySelector('.blog-post-area');
 
   
@@ -61,19 +57,17 @@ document.addEventListener('DOMContentLoaded', function () {
   // Use event delegation to handle click events on dynamically added elements
   blogPostArea.addEventListener('click', function (event) {
     if (event.target.matches('[data-bs-toggle="modal"]')) {
-
+      
       const card = event.target.closest('.card');
-      const id = card.id
+      let id = card.id
       const imageSrc = card.querySelector('.card-img-top').src;
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
       const profilePic = card.querySelector('.profile-pic-match').src;
-      // var divId = $(this).closest('div').attr('id');
-      //       // Set the modal's id to match the div's id
-      //       $("#modal").attr("id", divId);
+      
       openPost(imageSrc, postTitle, postText, profilePic, id);
-
-
+      console.log(id)
+     
     }
   });
 });
@@ -83,10 +77,11 @@ const openPost = (imageSrc, postTitle, postText, profilePic, id) => {
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
   const modal = document.getElementById('postModal');
-  modal.setAttribute('modal-id', id);
+ 
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
+ 
 
   postProfilePic.width = 40;
   postProfilePic.height = 40; 0
@@ -150,5 +145,5 @@ function closePost() {
   postModal.hide(); // Hide the Bootstrap modal
 }
 
-commentButton.addEventListener("click", addComment);
+
 closeModal.addEventListener('click', closePost);
