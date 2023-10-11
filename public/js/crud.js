@@ -112,7 +112,10 @@ const getProfile = () => {
         .then((response) => response.json())
         .then((data) => {
             console.log('getProfile', data);
-            $('.user-header').append(`<h1>Welcome ${data.username}... </h1>`);
+            $('.user-header').append(`
+            <h1>Welcome ${data.username}... </h1>
+            <a href="../images/upload"> Upload Profile Image</a>  
+            `);
 
             //once the user is logged in, the user's posts will be displayed in the table by default
 

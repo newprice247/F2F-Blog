@@ -49,7 +49,7 @@ const uploadFiles = async (req, res) => {
                 image.data
             );
 
-            return res.send(`File has been uploaded.`);
+            return res.sendFile(path.join(`${__dirname}/../public/html/crud.html`));
         });
     } catch (error) {
         console.log(error);
