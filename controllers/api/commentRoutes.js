@@ -22,14 +22,26 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
+      // if (!req.session.logged_in) {
+      //   res.redirect('/login');
+      // } else {
       const newComment = await Comment.create({
         ...req.body,
         user_id: req.session.user_id,});
   
       res.status(200).json(newComment);
+      // }
     } catch (err) {
       res.status(400).json(err);
     }
   });
 
+//   router.get('/login', async (req, res) => {
+//     try {
+//         res.sendFile(path.join(__dirname, '../../public/login.html'));
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// }
+// );
 module.exports = router

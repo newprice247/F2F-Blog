@@ -36,7 +36,7 @@ export const getContent = () => {
                 console.log('getContent', data);
                 for (let i = 0; i < data.length; i++) {
                   let getDate = new Date(data[i].createdAt).toLocaleString();
-                  $('.blog-post-area').prepend(`
+                  $('.blog-post-area').append(`
         <div id="${data[i].id}" class="card" style="width: 18rem;">
             <img src="../images/npmjs image.png" class="card-img-top" alt="...">
             <div class="card-body">
