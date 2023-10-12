@@ -138,24 +138,55 @@ footer {
 
 /* Previously saved resource card */
 .resource-item{
+  flex: 1 1 1;
   background-image: url(../images/img.jpg);
   border-radius: 8px;
   border: 5px solid black;
   padding: 10px;
-  margin: 10px;
-  width: 30%;
-  height: 30%;
+  margin: 15px;
+
 }
 
 .resourceInner{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: wrap;
   border-radius: 5px;
   background-color: rgba(245, 245, 245, 0.6);
   margin: 5px;
   font-weight: 600;
+  text-align: center;
+  font: bold;
+  
+}
+
+
+.resourceInner h2{
+  text-decoration: underline;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkred;
 }
 
 .resourceInner h3{
- letter-spacing: 3px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.resourceInner h4{
+  letter-spacing: 0px;
+  text-transform: uppercase;  
+  text-shadow: 0 0 3px rgb(13, 37, 53);
+}
+
+.resourceInner p{
+  letter-spacing: -1px;
 }
 
 
