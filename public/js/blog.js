@@ -17,8 +17,9 @@ const getProfileImg = () => {
             }
         });
 };
-
 getProfileImg();
+
+
 
 export const getContent = () => {   
         fetch('/api/content')
@@ -53,11 +54,12 @@ const getContentComments = (id) => {
   fetch(`/api/content/${id}`)
     .then((response) => response.json())
     .then((data) => {
+      $('#commentList').empty();
       console.log('getComments', data.comments);
       
+      if(data.comments.length !== 0) {
       for (let i = 0; i < data.comments.length; i++) {
         let getDate = new Date(data.comments[i].createdAt).toLocaleString();
-        
         $('#commentList').append(`
          <div class="comment-container-1" id="${data.comments[i].id}">
             <img src="../images/tmp/${data.comments[i].user_id}.jpg" class="profile-pic"width="40" height="40">
@@ -66,8 +68,68 @@ const getContentComments = (id) => {
           </div>`
         );
       }
-    });
+    } else {
+      $('#commentList').append(`
+      <div class="comment-container-1">
+         <p>Be the first to comment!</p>
+       </div>`
+      );
+    }
+    }
+    )
 };
+
+function addComment(e) {
+  e.preventDefault();
+  // console.log('addComment function called')
+  const comment = document.querySelector(".textarea").value;
+  const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
+  // const modalId = document.querySelector(`.modalId-${}`)
+  
+  const commentData = {
+    comment: comment,
+    content_id: modalId
+  };
+  // console.log(commentData)
+  fetch('api/comments', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(commentData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      // const date = new Date().toLocaleString();
+      // $('#commentList').append(`
+      // <br>
+      // <div class="comment-container-1"">
+      //       <p>You commented ${date}:</p>
+      //       <p>${comment}</p>
+      //     </div>`
+      // );
+      console.log(data)
+      // document.location.replace('/crud');
+      return fetch('/api/users/loggedInUser')
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      const date = new Date().toLocaleString();
+      $('#commentList').append(`
+      <div class="comment-container-1" id="${data.id}">
+         <img src="../images/tmp/${data.id}.jpg" class="profile-pic"width="40" height="40">
+         <p>${data.username} commented ${date}</p>
+         <p>${comment}</p>
+       </div>`
+      );
+    })
+
+
+    .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
+
+};
+
 document.addEventListener('DOMContentLoaded', function () {
   const blogPostArea = document.querySelector('.blog-post-area');
 
@@ -83,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
       const profilePic = card.querySelector('.profile-pic-match').src;
-      $('#commentList').empty();
+      
       openPost(imageSrc, postTitle, postText, profilePic, id);
       console.log(id)
      
@@ -109,36 +171,7 @@ const openPost = (imageSrc, postTitle, postText, profilePic, id) => {
   postModal.show();
 }
 
-function addComment(e) {
-  e.preventDefault();
-  // console.log('addComment function called')
-  const comment = document.querySelector(".textarea").value;
-  const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
-  // const modalId = document.querySelector(`.modalId-${}`)
 
-  const commentData = {
-    comment: comment,
-    content_id: modalId
-  };
-  // console.log(commentData)
-  fetch('api/comments', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(commentData),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(`here is the addComment data ${data}`)
-      
-      // document.location.replace('/crud');
-      // return data
-    })
-
-    .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
-
-};
 
 function closePost(boolean) {
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
@@ -149,7 +182,7 @@ function closePost(boolean) {
   }
 }
 
-commentButton.addEventListener('click', addComment, );
+commentButton.addEventListener('click', addComment );
 closeModal.addEventListener('click', closePost);
 
 // this function will refresh the modal when a user adds a comment
