@@ -27,21 +27,20 @@ export const getContent = () => {
     
                 console.log('getContent', data);
                 for (let i = 0; i < data.length; i++) {
-                  let getDate = new Date(data[i].createdAt).toLocaleDateString();
+                  let getDate = new Date(data[i].createdAt).toLocaleString();
                   $('.blog-post-area').append(`
         <div id="${data[i].id}" class="card" style="width: 18rem;">
             <img src="../images/npmjs image.png" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">${data[i].title}</h5>
               <div class="profile-img">
-                <img src="../images/tmp/${data[i].user.id}.jpg" class="profile-pic-match" alt="profile-pic" width="40" height="40">
+                <img src="../images/tmp/${data[i].user.id}.jpg" class="profile-pic profile-pic-match" alt="profile-pic" width="40" height="40">
                 </div>
                 <div class="date-created newPost">
                 <p><i>${data[i].user.username} posted </i>${getDate}</p>
                 <p class="card-text">"${data[i].content}"</p>
                 </p><a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a></p>
               </div>
-            
             </div>
           </div>`);
                 } 
@@ -57,12 +56,12 @@ const getContentComments = (id) => {
       console.log('getComments', data.comments);
       
       for (let i = 0; i < data.comments.length; i++) {
-        let getDate = new Date(data.comments[i].created_at).toLocaleDateString();
+        let getDate = new Date(data.comments[i].createdAt).toLocaleString();
         
         $('#commentList').append(`
          <div class="comment-container-1" id="${data.comments[i].id}">
-            <img src="../images/pre-profile-pic1.jpg" width="20" height="20">
-            <p>${data.comments[i].user_id} commented ${getDate}</p>
+            <img src="../images/tmp/${data.comments[i].user_id}.jpg" class="profile-pic"width="40" height="40">
+            <p>${data.comments[i].user.username} commented ${getDate}</p>
             <p>${data.comments[i].comment}</p>
           </div>`
         );
@@ -140,25 +139,6 @@ function addComment(e) {
     .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
 
 };
-
-
-
-
-// $('#comment').click(function() {  //append new comment each time user adds a comment 
-
-// //use as template to append comment from database
-
-//   const newComment = `
-//   <div class="comment-area">
-//         <img src="../images/pre-profile-pic1.jpg" width="20" height="20"> 
-//         <p>${data.comment.comment}</p>
-//       </div>`;
-
-//       $('#commentList').append(newComment);
-
-//       $('.textarea').val('');  
-// });
-
 
 function closePost(boolean) {
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));

@@ -206,6 +206,12 @@ margin-right:5px;
     border: 10px solid aqua;
 }
 
+#modalProfilePic {
+    margin: auto;
+    width: 5em;
+    height: 5em;
+}
+
 .comment-area p {
     background-color:beige;
 }
