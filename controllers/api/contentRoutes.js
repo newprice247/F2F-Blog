@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) =>{
     try {
         const contentData = await Content.findByPk(req.params.id, {
             include: [{model: User, attributes: ['username']},
-            {model: Comment, attributes: ['comment', 'created_at', 'user_id']}],
+            {model: Comment, include: [{model: User, attributes: ['username']}]}],
             exclude: [{model: User, attributes: ['password']}]
         });
         if (!contentData) {
