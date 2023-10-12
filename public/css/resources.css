@@ -138,18 +138,21 @@ footer {
 
 /* Previously saved resource card */
 .resource-item{
+  display: flex; 
+  justify-content: center;
+  align-items: stretch;
   flex: 1 1 1;
   background-image: url(../images/img.jpg);
   border-radius: 8px;
   border: 5px solid black;
   padding: 10px;
   margin: 15px;
-
 }
 
 .resourceInner{
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   align-items: stretch;
   flex-wrap: wrap;
   border-radius: 5px;
