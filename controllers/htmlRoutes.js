@@ -14,7 +14,7 @@ router.get('/contact', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/html/contact.html'))
 })
 
-router.get('/crud', (req, res) => {
+router.get('/crud', withAuth, (req, res) => {
     res.sendFile(path.join(__dirname, '../public/html/crud.html'))
 })
 
