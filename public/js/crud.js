@@ -114,6 +114,9 @@ const getProfile = () => {
             console.log('getProfile', data);
             $('.user-header').append(`
             <h1>Welcome ${data.username}... </h1>
+            
+            <img src="../images/tmp/${data.id}.jpg" class="profile-pic" alt="profile-pic" width="300" height="300">
+            <br>
             <a href="../images/upload"> Upload Profile Image</a>  
             `);
 

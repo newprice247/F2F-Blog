@@ -39,7 +39,10 @@
   border-radius: 50%;
 }
 
-
+.profile-pic {
+  border-radius: 25%;
+  object-fit: cover;
+}
 
 form {
   display: flex;

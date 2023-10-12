@@ -61,24 +61,6 @@ router.get("/upload", (req, res) => {
     res.sendFile(path.join(`${__dirname}/../views/images.html`))
 });
 
-//This is the route to get the image from the database
-// router.get("/images/:id", (req, res) => {
-//     Image.findById(req.params.id)
-//         .then(image => {
-//             res.setHeader('Content-Type', image.type);
-//             res.send(image.data);
-//         })
-//         .catch(err => {
-//             res.status(500).send({
-//                 message: "Could not retrieve image with id=" + req.params.id
-//             });
-//         });
-// });
-
-
-
-
-
 router.get('/profilePic', async (req, res) =>{
     try {
         const imageData = await Image.findOne({where: {user_id: req.session.user_id}})
@@ -94,8 +76,6 @@ router.get('/profilePic', async (req, res) =>{
 });
 
 router.post("/upload", uploadFile.single("file"), uploadFiles);
-
-
 
 
 

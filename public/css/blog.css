@@ -32,6 +32,11 @@
     color: rgb(19, 225, 240)
 }
 
+.profile-pic {
+    border-radius: 25%;
+    object-fit: cover;
+}
+
 .profile-img img {
     width: 40px;
     height: 40px;
@@ -243,6 +248,7 @@ display:flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    object-fit: cover;
 }
 
 
