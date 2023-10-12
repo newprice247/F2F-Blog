@@ -64,6 +64,22 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.get('/logout', async (req, res) => {
+    try {
+        if (req.session.logged_in) {
+            req.session.destroy(() => {
+                res.redirect('/');
+                console.log('logged out')
+            }
+            );
+        } else {
+            res.status(404).end();
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 router.get('/profile', async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {

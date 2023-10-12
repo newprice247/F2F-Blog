@@ -8,9 +8,7 @@
     padding: 0;
     margin: 0;
     gap: 20px;
-    margin-left: 50%;
-
-
+    margin-left: 40%;
 
 }
 
@@ -24,8 +22,6 @@
     color: aqua;
 }
 
-
-
 .nav-links li a {
     text-decoration: none;
     justify-content: space-between;
@@ -35,6 +31,9 @@
 .profile-pic {
     border-radius: 25%;
     object-fit: cover;
+}
+.user-profile-img {
+    justify-content: center;
 }
 
 .profile-img img {
@@ -53,6 +52,10 @@ footer {
     padding: 70px 30px 20px;
 
 
+}
+
+.navbar {
+    margin: 0;
 }
 
 .footerNav ul {
