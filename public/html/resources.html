@@ -23,10 +23,20 @@
 <body>
   <nav class="navbar bg-body-tertiary">
     <div class="container">
+
+      
+      <div class="menu">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; F2F menu</span>
+      </div>
+      
       <a class="navbar-brand" href="../blog">
         <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
       </a>
 
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="overlay-content">
       <ul class="nav-links">
         <li><a href="../blog"> Blog </a></li>
         <li><a href="../about"> About </a></li>
@@ -34,9 +44,12 @@
         <li><a href="../resources"> Resources </a></li>
         <li><a href="../contact"> Contact us </a></li>
       </ul>
+    </div>
+  </div>
+ 
 
       <div class="user-profile-img">
-        <!-- <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40"> -->
+        <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
       </div>
 
     </div>
@@ -115,7 +128,7 @@
 
   <div class="resources-app">
     <div class="spinner">
-      <div class="container mb-2 p-2
+      <div class="containerS mb-2 p-2
                   text-light text-center"> 
           <div id="carouselExample" 
                class="carousel slide carousel-fade" 
