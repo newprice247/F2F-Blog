@@ -79,7 +79,8 @@ const getContentComments = (id) => {
           );
         }
       } else {
-        $('#commentList').append(`
+        $('#commentList').empty();
+        $('#commentList').html(`
       <div class="comment-container-1">
          <p>Be the first to comment!</p>
        </div>`
@@ -91,12 +92,16 @@ const getContentComments = (id) => {
     .then((data) => {
       console.log(data)
       if (data) {
-        $('#modal-button').prepend(`
-          <button class="modal-comment-button" id="comment" type="submit">Post comment</button>`
+        $('#modal-button').html(`
+          <button class="modal-comment-button" id="comment" type="submit">Post comment</button>
+          <button class="modal-close-button close-button" id="close" data-dismiss="modal"
+          aria-label="Close">Cancel</button>`
         );
       } else {
-        $('#modal-button').prepend(`
-        <p><a href="../login">Login to post a comment</a></p>`
+        $('#modal-button').html(`
+        <p><a href="../login">Login to post a comment</a></p>
+        <button class="modal-close-button close-button" id="close" data-dismiss="modal"
+          aria-label="Close">Cancel</button>`
         );
       }
       const commentButton = document.getElementById("comment");
