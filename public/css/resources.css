@@ -47,6 +47,7 @@
 .profile-pic {
   border-radius: 25%;
   object-fit: cover;
+  margin-left: 1rem;
 }
 
 form {
