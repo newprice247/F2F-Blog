@@ -33,11 +33,12 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < data.length; i++) {
           $('#displayArea').append(`
             <div class="resource-item" data-tag="${data[i].tag}"> <!-- Add data-tag attribute -->
-              <div class="resourceInner"><h3>Resource:</h3>
-              <p><strong>Username:</strong> ${data[i].user.username}</p>        
-              <p><strong>Comment:</strong> ${data[i].comment}</p>
-              <p><strong>URL:</strong> <a href="${data[i].url}" target="_blank" id="urlLinkDisplay">${data[i].url}</a></p>
-              <p><strong>#Tag:</strong> ${data[i].tag}</p>
+              <div class="resourceInner">
+             <h3>Resource:</h3>
+              <h4><strong>Username:</strong></h4> <p> ${data[i].user.username}</p>        
+              <h4><strong>Comment:</strong></h4> <p> ${data[i].comment}</p>
+              <h4><strong>URL:</strong></h4> <p> <a href="${data[i].url}" target="_blank" id="urlLinkDisplay">${data[i].url}</a></p>
+              <h4><strong>#Tag:</strong></h4> <p> ${data[i].tag}</p>
             </div>
             </div>`);
             console.log(data)
@@ -95,10 +96,10 @@ document.addEventListener('DOMContentLoaded', function () {
     resourceDiv.setAttribute('data-tag', data.tag); // Add data-tag attribute
     resourceDiv.innerHTML = `
     <div class="resourceInner">
-      <h3>New Resource Added:</h3>
-      <p><strong>Comment:</strong> ${data.comment}</p>
-      <p><strong>URL:</strong> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
-      <p><strong>#Tag:</strong> ${data.tag}</p>
+      <h2>New Resource Added:</h2>
+      <h4><strong>Comment:</strong></h4> <p> ${data.comment}</p>
+      <h4><strong>URL:</strong></h4> <p> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
+      <h4><strong>#Tag:</strong></h4> <p> ${data.tag}</p>
     </div></div>`;
 
     displayArea.insertBefore(resourceDiv, displayArea.firstChild);
