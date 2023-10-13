@@ -1,6 +1,6 @@
 // const { get } = require("../../controllers/api/contentRoutes");
 
-const commentButton = document.getElementById("comment");
+
 const closeModal = document.querySelector('.close-button');
 
 // this will get the content from the database and display it on the page as cards
@@ -99,6 +99,8 @@ const getContentComments = (id) => {
         <p><a href="../login">Login to post a comment</a></p>`
         );
       }
+      const commentButton = document.getElementById("comment");
+      commentButton.addEventListener('click', addComment);
     })
 };
 
@@ -183,7 +185,7 @@ function closePost() {
   postModal.hide(); // Hide the Bootstrap modal
 }
 
-commentButton.addEventListener('click', addComment);
+
 closeModal.addEventListener('click', closePost);
 
 // this function will refresh the modal when a user adds a comment
