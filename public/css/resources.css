@@ -38,17 +38,30 @@
 }
 
 
+.profile-pic {
+  border-radius: 25%;
+  object-fit: cover;
+  margin-top: .5rem;
+  margin-left: 1rem;
+}
+
+.center-vertically {
+  display: flex;
+  align-items: center; /* Vertically center the content */
+}
+
+.center-vertically p {
+  margin-bottom: 0;
+  margin-left: 1rem;
+}
+
 .profile-img img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-.profile-pic {
-  border-radius: 25%;
-  object-fit: cover;
-  margin-left: 1rem;
-}
+
 
 form {
   display: flex;
@@ -71,6 +84,10 @@ form {
 footer {
   background-color: black;
 
+}
+
+.navbar {
+  margin: 0;
 }
 
 .footer-container {
@@ -864,7 +881,7 @@ margin: 0 55%;
   margin: 50px 33%;
 }
 
-p {
+.under {
   text-align: center;
   margin: 0 5%;
 }
