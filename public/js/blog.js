@@ -1,42 +1,18 @@
 // const { get } = require("../../controllers/api/contentRoutes");
 
-const commentButton = document.getElementById("comment");
+
 const closeModal = document.querySelector('.close-button');
 
-// this will get the logged-in user's profile image and display it in the navbar
-const getProfileImg = () => {
-    fetch('/api/users/profile')
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-            if (data !== null) {
-              console.log('getProfileImg', data.id);
-                $('.user-profile-img').html(`
-                <p>${data.username}</p>
-                <img src="../images/tmp/${data.id}.jpg" class="profile-pic" alt="profile-pic" width="40" height="40">
-                <p><a href="../api/users/logout">Logout</a></p>
-                `);
-            } else {
-                $('.user-profile-img').html(`
-                <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
-                <p><a href="../login">Login</a></p>
-                `);
-            }
-        });
-};
-getProfileImg();
+// this will get the content from the database and display it on the page as cards
+const getContent = () => {
+  fetch('/api/content')
+    .then((response) => response.json())
+    .then((data) => {
 
-
-
-export const getContent = () => {   
-        fetch('/api/content')
-            .then((response) => response.json())
-            .then((data) => {
-    
-                console.log('getContent', data);
-                for (let i = 0; i < data.length; i++) {
-                  let getDate = new Date(data[i].createdAt).toLocaleString();
-                  $('.blog-post-area').append(`
+      console.log('getContent', data);
+      for (let i = 0; i < data.length; i++) {
+        let getDate = new Date(data[i].createdAt).toLocaleString();
+        $('.blog-post-area').prepend(`
         <div id="${data[i].id}" class="card" style="width: 18rem;">
             <img src="../images/npmjs image.png" class="card-img-top" alt="...">
             <div class="card-body">
@@ -51,53 +27,92 @@ export const getContent = () => {
               </div>
             </div>
           </div>`);
-                } 
-                 
-            });
-  };
-  getContent(); 
+      }
 
+    });
+};
+getContent();
+
+// this will get the logged-in user's profile image and display it in the navbar
+const getProfileImg = () => {
+  fetch('/api/users/profile')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      if (data !== null) {
+        console.log('getProfileImg', data.id);
+        $('.user-profile-img').html(`
+                <div class="center-vertically">
+                  <img src="../images/tmp/${data.id}.jpg" class="profile-pic" alt="profile-pic" width="40" height="40">
+                  <p class="profile-p">${data.username}</p>
+                </div>
+                `);
+        $('.nav-links').append(`
+                <li><a href="../api/users/logout">Logout</a></li>
+                `);
+      } else {
+        $('.nav-links').append(`
+                <li><a href="../login">Login</a></li>
+                `);
+      }
+    });
+};
+getProfileImg();
+
+// this will get the logged-in user's profile image and display it in the modal
 const getContentComments = (id) => {
   fetch(`/api/content/${id}`)
     .then((response) => response.json())
     .then((data) => {
       $('#commentList').empty();
       console.log('getComments', data.comments);
-      
-      if(data.comments.length !== 0) {
-      for (let i = 0; i < data.comments.length; i++) {
-        let getDate = new Date(data.comments[i].createdAt).toLocaleString();
-        $('#commentList').append(`
+
+      if (data.comments.length !== 0) {
+        for (let i = 0; i < data.comments.length; i++) {
+          let getDate = new Date(data.comments[i].createdAt).toLocaleString();
+          $('#commentList').append(`
          <div class="comment-container-1" id="${data.comments[i].id}">
             <img src="../images/tmp/${data.comments[i].user_id}.jpg" class="profile-pic"width="40" height="40">
             <p>${data.comments[i].user.username} commented ${getDate}</p>
             <p>${data.comments[i].comment}</p>
           </div>`
-        );
-      }
-    } else {
-      $('#commentList').append(`
+          );
+        }
+      } else {
+        $('#commentList').append(`
       <div class="comment-container-1">
          <p>Be the first to comment!</p>
        </div>`
-      );
-    }
-    }
-    )
+        );
+      }
+      return fetch('/api/users/loggedInUser')
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      if (data) {
+        $('#modal-button').prepend(`
+          <button class="modal-comment-button" id="comment" type="submit">Post comment</button>`
+        );
+      } else {
+        $('#modal-button').prepend(`
+        <p><a href="../login">Login to post a comment</a></p>`
+        );
+      }
+      const commentButton = document.getElementById("comment");
+      commentButton.addEventListener('click', addComment);
+    })
 };
 
+// this will add a comment to the database
 function addComment(e) {
   e.preventDefault();
-  // console.log('addComment function called')
   const comment = document.querySelector(".textarea").value;
   const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
-  // const modalId = document.querySelector(`.modalId-${}`)
-  
   const commentData = {
     comment: comment,
     content_id: modalId
   };
-  // console.log(commentData)
   fetch('api/comments', {
     method: 'POST',
     headers: {
@@ -107,21 +122,13 @@ function addComment(e) {
   })
     .then((res) => res.json())
     .then((data) => {
-      // const date = new Date().toLocaleString();
-      // $('#commentList').append(`
-      // <br>
-      // <div class="comment-container-1"">
-      //       <p>You commented ${date}:</p>
-      //       <p>${comment}</p>
-      //     </div>`
-      // );
-      console.log(data)
-      // document.location.replace('/crud');
+      console.log(data);
       return fetch('/api/users/loggedInUser')
     })
     .then((response) => response.json())
     .then((data) => {
       console.log(data)
+      // this will add the comment to the modal
       const date = new Date().toLocaleString();
       $('#commentList').append(`
       <div class="comment-container-1" id="${data.id}">
@@ -131,35 +138,31 @@ function addComment(e) {
        </div>`
       );
     })
-
-
     .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
-
 };
 
 document.addEventListener('DOMContentLoaded', function () {
   const blogPostArea = document.querySelector('.blog-post-area');
 
-  
-
   // Use event delegation to handle click events on dynamically added elements
   blogPostArea.addEventListener('click', function (event) {
     if (event.target.matches('[data-bs-toggle="modal"]')) {
-      
+
       const card = event.target.closest('.card');
       let id = card.id
       const imageSrc = card.querySelector('.card-img-top').src;
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
       const profilePic = card.querySelector('.profile-pic-match').src;
-      
+
       openPost(imageSrc, postTitle, postText, profilePic, id);
       console.log(id)
-     
+
     }
   });
 });
 
+// this will open the modal and display the post
 const openPost = (imageSrc, postTitle, postText, profilePic, id) => {
   const postImage = document.getElementById('postImage');
   const postContent = document.getElementById('postContent');
@@ -169,8 +172,6 @@ const openPost = (imageSrc, postTitle, postText, profilePic, id) => {
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;
- 
-
   postProfilePic.width = 40;
   postProfilePic.height = 40; 0
   getContentComments(id);
@@ -178,18 +179,13 @@ const openPost = (imageSrc, postTitle, postText, profilePic, id) => {
   postModal.show();
 }
 
-
-
-function closePost(boolean) {
+// this will close the modal
+function closePost() {
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
-  if (boolean) {
-    postModal.hide(); // Hide the Bootstrap modal
-  } else {
-    postModal.reload(); //
-  }
+  postModal.hide(); // Hide the Bootstrap modal
 }
 
-commentButton.addEventListener('click', addComment );
+
 closeModal.addEventListener('click', closePost);
 
 // this function will refresh the modal when a user adds a comment

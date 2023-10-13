@@ -3,25 +3,22 @@ const postButton = document.getElementById("post-button");
 
 const getProfileImg = () => {
     fetch('/api/users/profile')
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-            if (data !== null) {
-              console.log('getProfileImg', data.id);
-                $('.user-profile-img').html(`
-                <p>${data.username}</p>
-                <img src="../images/tmp/${data.id}.jpg" class="profile-pic" alt="profile-pic" width="40" height="40">
-                <p><a href="../api/users/logout">Logout</a></p>
-                `);
-            } else {
-                $('.user-profile-img').html(`
-                <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
-                <p><a href="../login">Login</a></p>
-                `);
-            }
-        });
-};
-getProfileImg();
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        if (data !== null) {
+          console.log('getProfileImg', data.id);
+          $('.nav-links').append(`
+                  <li><a href="../api/users/logout">Logout</a></li>
+                  `);
+        } else {
+          $('.nav-links').append(`
+                  <li><a href="../login">Login</a></li>
+                  `);
+        }
+      });
+  };
+  getProfileImg();
 
 function addPost(e) {
     const title = document.querySelector(".postTitle").value;
@@ -67,7 +64,7 @@ function addPost(e) {
             .then((data) => {
                 console.log(data);
                 // getContent();
-                document.location.replace('/crud');
+                document.location.replace('/');
             })
             .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
     }
