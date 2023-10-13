@@ -31,10 +31,18 @@
 .profile-pic {
     border-radius: 25%;
     object-fit: cover;
+    margin-top: .5rem;
 }
-.user-profile-img {
-    justify-content: center;
-}
+
+.center-vertically {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+  }
+
+.center-vertically p {
+    margin-bottom: 0;
+    margin-left: 1rem;
+  }
 
 .profile-img img {
     width: 40px;
@@ -397,3 +405,8 @@ display:flex;
 }
 
 
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1500px;
+    }
+}
