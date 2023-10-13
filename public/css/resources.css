@@ -109,7 +109,7 @@ footer {
   text-decoration: none;
   padding: 10px;
   background-color: white;
-  margin: 5px;
+  margin: 5px 7px;
   border-radius: 30%;
 }
 
@@ -190,7 +190,7 @@ footer {
 .resourceInner h4{
   letter-spacing: 0px;
   text-transform: uppercase;  
-  text-shadow: 0 0 3px rgb(13, 37, 53);
+  text-shadow: 0 0 2px rgb(13, 37, 53);
 }
 
 .resourceInner p{
@@ -383,7 +383,7 @@ h5 {
 
 
 .center {
-  margin: 30px 10%;
+  margin: 30px 5%;
 }
 
 form .btn {
@@ -442,6 +442,7 @@ main img:hover {
 
 .form-group {
   margin-bottom: 15px;
+
 }
 
 
@@ -486,7 +487,7 @@ main img:hover {
 
 
 
-@media screen and (min-width: 951px) {
+@media screen and (max-width: 1200px) {
   .subtitle h1 {
     font-size: xx-large;
   }
@@ -499,9 +500,18 @@ main img:hover {
     font-size: large;
   }
 
-  .center {
-    margin: 4%;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+  
   }
+
+  .center {
+    margin: 30px 5%;
+  }
+
 }
 
 
@@ -512,14 +522,11 @@ main img:hover {
   }
 
   .searchFor h3 {
-    font-size: 30px;
-    letter-spacing: 5px;
+    font-size: 35px;
+    letter-spacing: 5px; 
   }
 
-  .searchFor h3 {
-    font-size: xx-large;
-    letter-spacing: 7px;
-  }
+
 
   #tagSearchInput {
     width: 175px;
@@ -588,7 +595,7 @@ main img:hover {
   }
 
   .tagButtonContainer {
-    margin: 0px 7%;
+    margin: 0px 12%;
   }
 
   .tag-button {
@@ -622,7 +629,9 @@ margin-top: 20px;
 }
 
 .social {
-margin: 0 52%;
+margin: 0 55%;
+
+
 }
 
 }
@@ -713,13 +722,23 @@ margin: 0 52%;
     margin-top: 20px;
   }
 
+ #commentBox.form-control{
+    font-size: small;
+  }
+
+#urlLink.form-control{
+    font-size: small;
+
+}
+
 }
 
 
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 400px) {
   .subtitle h1 {
     font-size: x-small;
+    flex-wrap: wrap;
   }
 
   .searchFor h3 {
@@ -740,10 +759,37 @@ margin: 0 52%;
     font-size: 10px;
   }
 
+  #commentBox.form-control{
+    font-size: x-small;
+  }
+
+#urlLink.form-control{
+    font-size: x-small;
+
+}
 
 }
 
 
+
+@media screen and (max-width: 355px) {
+
+
+  .searchFor h3 {
+    font-size: 16px;
+ text-align: center;
+   
+  }
+
+  #commentBox.form-control{
+    font-size: xx-small;
+  }
+
+  #urlLink.form-control{
+    font-size: xx-small;
+
+}
+}
 
 
 
