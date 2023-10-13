@@ -169,3 +169,7 @@ getProfile()
 //this button will add post to blog page using the getcontent function  and send the post data to database 
 postButton.addEventListener("click", addPost);
 // commentButton.addEventListener("click", addComment);
+
+
+
+
