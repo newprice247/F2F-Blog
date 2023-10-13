@@ -1,4 +1,4 @@
-
+let modalId;
 
 let commentList;
 
@@ -42,7 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (event.target.matches('[data-bs-toggle="modal"]')) {
       
       const card = event.target.closest('.card');
-      let id = card.id
+      
+      const contentId = card.getAttribute('data-content-id');
+
+      const id = card.id
       const imageSrc = card.querySelector('.card-img-top').src;
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
@@ -51,6 +54,22 @@ document.addEventListener('DOMContentLoaded', function () {
       openPost(imageSrc, postTitle, postText, profilePic, id);
       console.log(id)
      
+      const modalId = comments.filter(comment => comment.content_id === parseInt(contentId));
+      let contentIdCounter = 0;
+
+      const newPost = document.createElement('div');
+newPost.innerHTML = `
+  <div class="card" style="width: 18rem;" data-content-id="${contentIdCounter}">
+    <!-- ... other card content ... -->
+  </div>
+`;
+
+
+contentIdCounter++;
+
+
+
+
     }
   });
 });
@@ -77,7 +96,7 @@ function openPost(imageSrc, postTitle, postText, profilePic, id) {
   // When the user submits a comment, post it to the server, and if successful, update the comment section.
   postCommentButton.addEventListener('click', function (e) {
     modal.setAttribute('modal-id', id);
-    let modalId = modal.getAttribute('modal-id');
+    const modalId = modal.getAttribute('modal-id');
     e.preventDefault();
     const commentTextArea = document.getElementById('commentTextArea');
     const comment = commentTextArea.value;
