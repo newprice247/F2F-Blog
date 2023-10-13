@@ -408,11 +408,7 @@ display:flex;
 }
 
 
-/* @media (min-width: 1200px) {
-    .container {
-        max-width: 1500px;
-    }
-} */
+
 
 
 
@@ -460,7 +456,22 @@ display:flex;
     font-size: 60px;
   }
   
-  
+  @media screen and (max-width: 820px) {
+    .footerNav ul {
+        display: flex;
+      flex-direction: column;
+      flex-wrap:  nowrap;
+      align-items: center;
+      margin-top: 20px;
+      
+      }
+      
+      .social {
+      margin: 0 52%;
+      }
+  }
+
+
   @media screen and (max-width: 600px) {
     .container{
         display: flex;
