@@ -866,4 +866,44 @@ margin: 0 55%;
 
 p {
   text-align: center;
+  margin: 0 5%;
+}
+
+
+
+table, th, td {
+  border:1px solid black;
+  text-align: center;
+  padding: 2% 0;
+  
+}
+
+th {
+  letter-spacing: 5px;
+  background-color: rgba(0, 255, 255, 0.2);
+}
+
+table {
+  width: 75%;
+  margin: 0 15%;
+}
+
+td a{
+  text-decoration: none;
+}
+
+td:hover{
+  transform: scale(1.2);
+  background-color: #688ad53f;
+  
+}
+
+
+@media screen and (max-width: 450px){
+  table {
+    width: 125%;
+    margin: 0 auto;
+    transform: translateX(-20px);
+  }
+
 }
