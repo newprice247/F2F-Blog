@@ -462,8 +462,7 @@ main img:hover {
   flex-wrap: nowrap;
   gap: 10px;
   white-space: nowrap;
-  overflow-x: auto;
-
+  overflow-x: auto; 
 }
 
 .tag-button {
@@ -607,25 +606,10 @@ main img:hover {
     height: 130px;
   }
 
-  .addLink h1 {
-    width: 120%;
-    font-size: 70px;
-  }
-
-.footerNav ul {
-    display: flex;
-  flex-direction: column;
-  flex-wrap:  nowrap;
-  align-items: center;
-  margin-top: 20px;
-  
+.addLink h1 {
+  width: 120%;
+  font-size: 70px;
 }
-
-.social {
-  margin: 0 52%;
-}
-
-
 
 }
 
