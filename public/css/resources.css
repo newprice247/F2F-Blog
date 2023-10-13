@@ -631,8 +631,8 @@ margin-top: 20px;
 .social {
 margin: 0 55%;
 
-
 }
+
 
 }
 
@@ -842,7 +842,6 @@ margin: 0 55%;
 
 
 
-
 @media screen and (max-height: 450px) {
   .overlay {overflow-y: auto;}
   .overlay a {font-size: 20px}
@@ -861,7 +860,7 @@ margin: 0 55%;
 /* STANLEY PAGE */
 
 .videos{
-  margin: 50px 15%;
+  margin: 50px 33%;
 }
 
 p {
@@ -899,11 +898,26 @@ td:hover{
 }
 
 
+
+
+@media screen and (max-width: 850px){
+.videos{
+  margin: 50px 25%;
+}
+
+}
+
+
+
 @media screen and (max-width: 450px){
   table {
     width: 125%;
     margin: 0 auto;
     transform: translateX(-20px);
+  }
+
+  .videos{
+    margin: 50px 15%;
   }
 
 }
