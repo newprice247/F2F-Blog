@@ -153,6 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })
 
+
+// this opens F2f menu bar
 function openNav() {
   document.getElementById("myNav").style.height = "100%";
 }

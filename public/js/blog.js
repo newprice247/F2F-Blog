@@ -162,6 +162,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+
+
+
+
+
+
 // this will open the modal and display the post
 const openPost = (imageSrc, postTitle, postText, profilePic, id) => {
   const postImage = document.getElementById('postImage');
