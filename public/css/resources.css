@@ -611,6 +611,20 @@ main img:hover {
   font-size: 70px;
 }
 
+
+.footerNav ul {
+  display: flex;
+flex-direction: column;
+flex-wrap:  nowrap;
+align-items: center;
+margin-top: 20px;
+
+}
+
+.social {
+margin: 0 52%;
+}
+
 }
 
 
