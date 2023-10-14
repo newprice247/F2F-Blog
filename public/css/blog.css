@@ -56,8 +56,12 @@
 
 footer {
     background-color: black;
-
 }
+
+footer p{
+    letter-spacing: 1px;
+    color: whitesmoke;
+  }
 
 .footer-container {
     width: 100%;
@@ -300,7 +304,6 @@ display:flex;
     font-size: 18px;
     text-align: center;
     letter-spacing: 1px;
-    text-shadow: 1px 1px #1f535d;
 }
 
 
@@ -340,9 +343,10 @@ display:flex;
 }
 
 .developer-cards p {
-    color: #5a5656ce;
+    color:#1f535d;
     width: 400px;
     margin: auto;
+    text-shadow: .5px .5px rgb(16, 69, 69);
 
 }
 
