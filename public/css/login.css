@@ -12,19 +12,29 @@ body {
     background-size: cover;
 }
 
+nav.navbar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1%; 
+  margin-top: 1%
+}
 
-
+nav img{
+  width: 175px;
+  height: 75px;
+  margin-bottom: 10px;
+}
 .nav-links {
   list-style-type: none;
   display: flex;
-  padding: 0;
-  margin: 0;
+  flex-direction: row;
   gap: 20px;
-  margin-left: 50%;
-} 
-.nav-links li {
-  margin: 0;
-}
+  transform: translateX(-30px);
+
+}  
+
 
 .nav-links li a {
   text-decoration: none;
@@ -36,9 +46,12 @@ body {
   color:  aqua;
 }
 
-.wrapper {
+container{
   display: flex;
-align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
     width: 420px;
     background: rgb(3, 3, 3);
     color: #3ca1b0;
