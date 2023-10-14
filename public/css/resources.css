@@ -86,6 +86,11 @@ footer {
 
 }
 
+footer p{
+  letter-spacing: 1px;
+  color: whitesmoke;
+}
+
 .navbar {
   margin: 0;
 }
