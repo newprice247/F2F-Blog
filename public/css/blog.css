@@ -285,8 +285,6 @@ display:flex;
     font-size: 75px;
     padding: 5px;
     text-align: center;
-    letter-spacing: 2px;
-    /* font-weight: bold; */
     text-shadow: 2px 3px #42b1c7;
 }
 
@@ -302,7 +300,7 @@ display:flex;
     font-size: 18px;
     text-align: center;
     letter-spacing: 1px;
-    text-shadow: .5px .5px #1f535d;
+    text-shadow: 1px 1px #1f535d;
 }
 
 
