@@ -247,6 +247,11 @@ padding-right: 20px;
       flex-direction: row;
       width: 500px;
       }
+
+      table{
+        transform: translateX(-20px);
+        
+      }
   }
 
 
@@ -260,6 +265,12 @@ padding-right: 20px;
     
       .menu {
         margin-top: 20px;
+      }
+
+
+      table{
+        transform: translateX(-20px);
+        
       }
   }
   

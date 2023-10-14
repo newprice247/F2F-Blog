@@ -167,11 +167,10 @@ footer p{
     border-color: grey;
 }
 
-.image-computer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left:30px;
+.imageCenter img{
+    width: 400px;
+    height: 400px;
+    margin-bottom: 50px;
 }
 
 .purpose-container {
@@ -377,8 +376,15 @@ display:flex;
 }
 
 
+.banner {
+    width: 50%;
+    height: auto;
+    margin: 0px 25%;
+  
+  }
 
-.stanley-quote h3 {
+
+.stanley-quote h1, h3 {
     text-align: center;
     font-weight: bold;
     padding-top: 40px;
@@ -386,10 +392,14 @@ display:flex;
 
 }
 
-.stanley-quote ul li {
+.stanley-quote ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     list-style-type: none;
     text-align: center;
-    background-color: rgba(30, 231, 221, 0.521);
+    letter-spacing: 1px;
+    background-color: rgba(30, 231, 221, 0.5);
 }
 
 .bolded {
@@ -406,12 +416,14 @@ display:flex;
 
 }
 
-.stanley-quote h1 {
-    color: rgba(128, 128, 128, 0.205);
+.stanley-quote h2 {
+    color: silver;
     font-weight: bold;
-    padding-top: 20px;
     font-size: xx-large;
     text-decoration: underline;
+    text-align: center;
+    padding-top: 20px;
+    
 }
 
 .background {
@@ -521,6 +533,14 @@ display:flex;
   }
   
 
+  @media screen and (max-width: 1150px) {
+    .banner {
+        width: 70%;
+        margin: 50px 15%;
+      }
+  }
+
+
 
   
   @media screen and (max-width: 820px) {
@@ -533,6 +553,11 @@ display:flex;
       
       }
 
+      .imageCenter img{
+        width: 300px;
+        height: 300px;
+    }
+
       .flex-container {
         display: flex;
         flex-direction: column;
@@ -544,6 +569,16 @@ display:flex;
 
       .social {
       margin: 0 55%;
+      }
+
+      .banner {
+        width: 75%;
+        margin: 50px 15%;
+      }
+
+
+      .stanley-quote p{
+        width: 80%;
       }
   }
 
@@ -565,8 +600,21 @@ display:flex;
         background-position: center;
     }
     
+    .imageCenter img{
+        width: 250px;
+        height: 250px;
+    }
 
+   .spinner h2 {
+        font-size: larger;
+        background-color: none;
+    }
       
+    
+    .stanley-quote p{
+        width: 70%;
+        font-size: small;
+      }
   }
 
 
@@ -591,6 +639,20 @@ display:flex;
         height: 175px;
     }
 
+    .banner {
+        width: 100%;
+        margin: 50px 0%;
+      }
+
+      .stanley-quote h1, h3 {
+        font-size: x-large;
+    
+    }
+
+    .stanley-quote h2 {
+        font-size: large;
+    
+    }
     
   }
   
@@ -629,6 +691,12 @@ display:flex;
     width: 280px;
 
 }
+
+
+.stanley-quote p{
+    width: 80%;
+    font-size: smaller;
+  }
 }
 
 
@@ -658,13 +726,21 @@ display:flex;
 
 
 
-
-
-
-
     .TeamMember-shortBio h2{
         font-size: 15px;
         width: 75%;
     
       }
+
+
+      .banner {
+        width: 100%;
+        margin: 50px 0%;
+      }
+
+
+      .stanley-quote h2 {
+        font-size: large;
+    
+    }
 }
