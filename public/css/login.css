@@ -5,15 +5,15 @@
     font-family: 'Times New Roman', Times, serif;
 }
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background: rgb(255, 255, 255);
     background-image: url("../images/loginp.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+
 .nav-links {
   list-style-type: none;
   display: flex;
@@ -32,7 +32,13 @@ body {
   color:  #3ca1b0;
 }
 
+.nav-links li a:hover {
+  color:  aqua;
+}
+
 .wrapper {
+  display: flex;
+align-items: center;
     width: 420px;
     background: rgb(3, 3, 3);
     color: #3ca1b0;
