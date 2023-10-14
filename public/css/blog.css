@@ -577,7 +577,15 @@ display:flex;
       .menu {
         margin-top: 20px;
       }
+      
+      .developer-cards p {
+        font-size: smaller;
+    }
 
+    .developer-cards img {
+        width: 175px;
+        height: 175px;
+    }
 
     
   }
@@ -608,7 +616,15 @@ display:flex;
     font-size: 55px;
   }
 
+  .TeamMember-shortBio h2{
+    font-size: 18px;
 
+  }
+
+  .developer-cards p {
+    width: 280px;
+
+}
 }
 
 
@@ -620,7 +636,31 @@ display:flex;
     }
 
     .developer-cards p {
-        width: 200px;
-    
+        width: 115%;
+        font-size: x-small;
+        transform: translateX(-15px);
+        
     }
+
+    .developer-cards img {
+        width: 150px;
+        height: 150px;
+        transform: translateX(-10px);
+    }
+
+    .ghub {
+        transform: translateX(-10px);
+    }
+
+
+
+
+
+
+
+    .TeamMember-shortBio h2{
+        font-size: 15px;
+        width: 75%;
+    
+      }
 }
