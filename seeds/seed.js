@@ -17,11 +17,6 @@ const seedDatabase = async () => {
         returning: true,
     });
 
-    await Admin.create(adminData, {
-        individualHooks: true,
-        returning: true,
-    });
-
     await Content.bulkCreate(contentData, {
         individualHooks: true,
         returning: true,
