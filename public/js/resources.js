@@ -7,11 +7,17 @@ const getProfileImg = () => {
         console.log('getProfileImg', data.id);
         $('.user-profile-img').html(`
                 <div class="center-vertically">
-                  <a href="../api/users/logout">Logout</a>
                   <img src="../images/tmp/${data.id}.jpg" class="profile-pic" alt="profile-pic" width="40" height="40">
                   <p class="profile-p">${data.username}</p>
                 </div>
                 `);
+        $('.nav-links').append(`
+                  <li><a href="../api/users/logout">Logout</a></li>
+                  `);
+      } else {
+        $('.nav-links').append(`
+                  <li><a href="../login">Login</a></li>
+                  `);
       }
     });
 };
@@ -35,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <h4><strong>#Tag:</strong></h4> <p> ${data[i].tag}</p>
             </div>
             </div>`);
-            console.log(data)
+          console.log(data)
         }
       });
   };
@@ -107,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
- // Search by tagName in SEARCH BOX
+  // Search by tagName in SEARCH BOX
   const tagSearchButton = document.getElementById('tagSearchButton');
 
   tagSearchButton.addEventListener('click', function () {
@@ -124,11 +130,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // clears search box after
     tagSearchInput.value = '';
-  
+
   });
 
 
-// search by Tag name by BUTTON
+  // search by Tag name by BUTTON
   const tagButtons = document.querySelectorAll('.tag-button');
   tagButtons.forEach((button) => {
     button.addEventListener('click', function () {
