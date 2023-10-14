@@ -89,6 +89,22 @@ footer {
     color: aqua;
 }
 
+
+.ghub a{
+    display: flex;
+    text-decoration: none;
+    padding: 10px;
+    background-color: rgba(0, 255, 255, 0.383);
+    margin: 5px 7px;
+    border-radius: 30%;
+
+}
+
+.ghub a:hover{
+    border:#1f535d solid 2px;
+}
+
+
 .social {
     display: flex;
     justify-content: center;
@@ -266,12 +282,42 @@ display:flex;
 
 
 .TeamMember-shortBio h1{
+    font-size: 75px;
+    padding: 5px;
     text-align: center;
     letter-spacing: 2px;
-    text-shadow: 2px 2px #818181;
-    margin-bottom: 3%;
+    /* font-weight: bold; */
+    text-shadow: 2px 3px #42b1c7;
 }
 
+.TeamMember-shortBio h2{
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 2px 1px #42b1c7;
+}
+
+.TeamMember-shortBio p{
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: .5px .5px #1f535d;
+}
+
+
+.teamback{
+    background-image: url(..//images/c.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
 
 .about-developers {
     display: flex;
@@ -302,17 +348,19 @@ display:flex;
 
 }
 
-.developer-position {
-    display: flex;
 
-}
 
 .flex-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
-    padding-bottom: 40px;
+    gap: 20px;
+    padding: 25px;
+    border: rgba(31, 163, 163, 0.507) 5px solid;
+    border-radius: 50px;
+    margin: 20px;
+    background-color: rgba(245, 245, 245, 0.9);
 }
 
 .about-app p {
@@ -482,7 +530,16 @@ display:flex;
       margin-top: 20px;
       
       }
+
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+      }
       
+    
+
       .social {
       margin: 0 55%;
       }
@@ -495,6 +552,19 @@ display:flex;
       flex-direction: row;
       width: 500px;
       }
+
+
+      .developer-cards p {
+        width: 300px;
+    
+    }
+
+    .teamback{
+        background-position: center;
+    }
+    
+
+      
   }
 
 
@@ -509,6 +579,9 @@ display:flex;
       .menu {
         margin-top: 20px;
       }
+
+
+    
   }
   
   
@@ -521,4 +594,35 @@ display:flex;
     top: 15px;
     right: 35px;
     }
+
+    .teamback{
+        background-position: center;
+    }
+
+
   }
+
+
+  @media screen and (max-width: 415px) {
+
+
+  .TeamMember-shortBio h1{
+    font-size: 55px;
+  }
+
+
+}
+
+
+@media screen and (max-width: 315px) {
+
+
+    .TeamMember-shortBio h1{
+      font-size: 45px;
+    }
+
+    .developer-cards p {
+        width: 200px;
+    
+    }
+}
