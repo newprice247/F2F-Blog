@@ -2,19 +2,37 @@
   {
     "comment": "Website to give you more information of SQL",
     "url": "https://www.w3schools.com/sql/default.asp",
-    "tag": "javascript",
+    "tag": "SQL",
     "user_id": 1
   },
   {
-    "comment": "Sample comment",
-    "url": "https://github.com/newprice247/F2F-Blog",
+    "comment": "A little self-referential, but a good resource for supporting your learning",
+    "url": "https://f2f-blog-ad8f414d0b59.herokuapp.com/resources",
     "tag": "javascript",
     "user_id": 2
   },
   {
-    "comment": "Website to give you more information of SQL",
+    "comment": "Love this CSS framework! So easy to use and looks great!",
     "url": "https://bulma.io/documentation/",
     "tag": "css",
+    "user_id": 3
+  },
+  {
+    "comment": "A great resource for learning about all things coding!",
+    "url": "https://www.w3schools.com/",
+    "tag": "javascript",
+    "user_id": 2
+  },
+  {
+    "comment": "Great tutorial to learn nodejs",
+    "url": "https://www.w3schools.com/nodejs/default.asp",
+    "tag": "Nodejs",
+    "user_id": 1
+  },
+  {
+    "comment": "If you want more practice with JavaScript, you should play this game!",
+    "url": "https://store.steampowered.com/app/1812820/Bitburner/",
+    "tag": "javascript",
     "user_id": 3
   }
 ]
