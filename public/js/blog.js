@@ -8,7 +8,6 @@ const getContent = () => {
   fetch('/api/content')
     .then((response) => response.json())
     .then((data) => {
-
       console.log('getContent', data);
       for (let i = 0; i < data.length; i++) {
         let getDate = new Date(data[i].createdAt).toLocaleString();
@@ -21,15 +20,19 @@ const getContent = () => {
                 <img src="../images/tmp/${data[i].user.id}.jpg" class="profile-pic profile-pic-match" alt="profile-pic" width="40" height="40">
                 </div>
                 <div class="date-created newPost">
-                <p><i>${data[i].user.username} posted </i>${getDate}</p>
+                <p><i class="usernameI" data-username="${data[i].user.username}">${data[i].user.username} posted </i>${getDate}</p>
                 <p class="card-text">"${data[i].content}"</p>
                 </p><a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a></p>
               </div>
             </div>
           </div>`);
       }
-
-    });
+      return fetch('/api/users/loggedInUser')
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+    })
 };
 getContent();
 
@@ -159,8 +162,9 @@ document.addEventListener('DOMContentLoaded', function () {
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
       const profilePic = card.querySelector('.profile-pic-match').src;
+      const username = card.querySelector('.usernameI').getAttribute('data-username').valueOf();
 
-      openPost(imageSrc, postTitle, postText, profilePic, id);
+      openPost(imageSrc, postTitle, postText, profilePic, id, username);
       console.log(id)
 
     }
@@ -174,12 +178,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // this will open the modal and display the post
-const openPost = (imageSrc, postTitle, postText, profilePic, id) => {
+const openPost = (imageSrc, postTitle, postText, profilePic, id, username) => {
   const postImage = document.getElementById('postImage');
   const postContent = document.getElementById('postContent');
   const postProfilePic = document.getElementById('modalProfilePic');
   const modal = document.getElementById('postModal');
   const modalId = document.querySelector('#postModal').setAttribute('modal-id', id);
+  const modalUsername = document.getElementById('modalUsername');
   postImage.src = imageSrc;
   postContent.innerHTML = '<h2>' + postTitle + '</h2><p>' + postText + '</p>';
   postProfilePic.src = profilePic;

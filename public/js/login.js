@@ -13,7 +13,7 @@ const login = async (event) => {
 
         if (response.ok) {
             console.log('Logged in successfully!');
-            document.location.replace('/');
+            document.location.replace('/crud');
         } else {
             alert(response.statusText);
         }
