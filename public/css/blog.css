@@ -101,6 +101,7 @@ footer p{
     background-color: rgba(0, 255, 255, 0.383);
     margin: 5px 7px;
     border-radius: 30%;
+    border: aqua solid 2px;
 
 }
 
@@ -407,10 +408,11 @@ display:flex;
 }
 
 .stanley-quote p {
-    width: 50%;
+    width: 40%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+
 
 
 
@@ -537,6 +539,10 @@ display:flex;
     .banner {
         width: 70%;
         margin: 50px 15%;
+      }
+
+      .stanley-quote p{
+        width: 60%;
       }
   }
 
@@ -694,7 +700,7 @@ display:flex;
 
 
 .stanley-quote p{
-    width: 80%;
+    width: 90%;
     font-size: smaller;
   }
 }
