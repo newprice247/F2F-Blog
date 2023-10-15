@@ -59,7 +59,30 @@
   <div class="user-header">
   </div>
   <br> 
+  
         <div class="user-action-form addPost">
+          <div class="post-history-area">
+            <h1>Post history</h1>
+          </div>
+          <table class="table table-light table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Date Created</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col"></th>
+        
+              </tr>
+            </thead>
+            <tbody id="userPostTable">
+              
+                <!--shows in javascript -->
+        
+            </tbody>
+          </table>
+          <div class="post-history-area">
+            <h1 id="createEditDelete"></h1>
+          </div>
           <form class="post-form" method="post">
             <div class="mb-3">
                 <label for="titleName" class="form-label title">Title:</label>
@@ -79,26 +102,9 @@
         
               <br>
 
-              <div class="post-history-area">
-                <h1>Post history</h1>
-              </div>
+              
 
-    <table class="table table-light table-striped table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Date Created</th>
-          <th scope="col">Title</th>
-          <th scope="col">Content</th>
-          <th scope="col"></th>
-
-        </tr>
-      </thead>
-      <tbody id="userPostTable">
-        
-          <!--shows in javascript -->
-
-      </tbody>
-    </table>
+   
   </div>
   
   <br>
