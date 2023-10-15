@@ -12,8 +12,8 @@ const getContent = () => {
       for (let i = 0; i < data.length; i++) {
         let getDate = new Date(data[i].createdAt).toLocaleString();
         $('.blog-post-area').prepend(`
-        <div id="${data[i].id}" class="card" style="width: 18rem;">
-            <img src="../images/npmjs image.png" class="card-img-top" alt="...">
+        <div id="${data[i].id}" data-content-id="${data[i].id}" class="card" style="width: 18rem;">
+            <img src="../images/contentImages/${data[i].id}.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">${data[i].title}</h5>
               <div class="profile-img">
@@ -22,19 +22,102 @@ const getContent = () => {
                 <div class="date-created newPost">
                 <p><i class="usernameI" data-username="${data[i].user.username}">${data[i].user.username} posted </i>${getDate}</p>
                 <p class="card-text">"${data[i].content}"</p>
-                </p><a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a></p>
+                <div class="content-card-buttons" data-user-posted-id="${data[i].user.id}">
+                <a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a>
+                </div>
+                
+              
               </div>
+              
             </div>
-          </div>`);
+            
+          </div>
+          <div id="uploadImage"></div>`);
       }
       return fetch('/api/users/loggedInUser')
     })
     .then((response) => response.json())
     .then((data) => {
       console.log(data)
+      if (data) {
+        console.log('user logged in')
+        // this will target only the posts that the logged-in user has posted
+        $('.content-card-buttons').each(function () {
+          if ($(this).attr('data-user-posted-id') === data.id.toString()) {
+            $(this).html(`
+            <a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a>
+            <a href="../crud" class="btn btn-primary" id="editPost">Edit post</a>
+            <a href="#" class="btn btn-primary" id="deletePost">Delete post</a>
+            <a href="#" class="btn btn-primary" id="uploadContentImage">Upload Image</a>
+            `);
+            $('#uploadContentImage').on('click', (e) => {
+              e.preventDefault();
+              const content = e.target.closest('.card');
+              const postId = content.getAttribute('data-content-id').valueOf();
+              console.log(postId)
+              $('#uploadImage').html(`
+              <div class="container">
+      <div class="row">
+        <div class="col-sm-8 mt-3">
+          <h4>Node.js upload images - bezkoder.com</h4>
+
+          <form
+            class="mt-4"
+            action="/images/uploadContentImage"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <input
+                type="file"
+                name="file"
+                id="input-files"
+                class="form-control-file border"
+              />
+            </div>
+            <input type="hidden" name="content_id" id="content_id" value="${postId}">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="preview-images"></div>
+        </div>
+      </div>
+    </div>
+              `);
+
+              let imagesPreview = function(input, placeToInsertImagePreview) {
+                if (input.files) {
+                  let filesAmount = input.files.length;
+                  for (i = 0; i < filesAmount; i++) {
+                    let reader = new FileReader();
+                    reader.onload = function(event) {
+                      $($.parseHTML("<img>"))
+                        .attr("src", event.target.result)
+                        .appendTo(placeToInsertImagePreview);
+                    };
+                    reader.readAsDataURL(input.files[i]);
+                  }
+                }
+              };
+              $("#input-files").on("change", function() {
+                imagesPreview(this, "div.preview-images");
+              });
+              // window.location.href = `../images/upload/${postId}`
+            });
+          }
+      });
+      } else {
+        console.log('user not logged in')
+      }
     })
 };
 getContent();
+
+
 
 // this will get the logged-in user's profile image and display it in the navbar
 const getProfileImg = () => {
