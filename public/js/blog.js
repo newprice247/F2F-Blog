@@ -22,11 +22,10 @@ const getContent = () => {
                 <div class="date-created newPost">
                 <p><i class="usernameI" data-username="${data[i].user.username}">${data[i].user.username} posted </i>${getDate}</p>
                 <p class="card-text">"${data[i].content}"</p>
-                <div class="content-card-buttons" data-user-posted-id="${data[i].user.id}">
-                <a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a>
+                <div class=" content-card-buttons" data-user-posted-id="${data[i].user.id}">
+                <a href="#" class="w-100 align-bottom btn btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a>
                 </div>
-                
-              
+            
               </div>
               
             </div>
@@ -44,10 +43,10 @@ const getContent = () => {
         $('.content-card-buttons').each(function () {
           if ($(this).attr('data-user-posted-id') === data.id.toString()) {
             $(this).html(`
-            <a href="#" class="btn btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a>
-            <a href="../crud" class="btn btn-primary" id="editPost">Edit post</a>
-            <a href="#" class="btn btn-primary" id="deletePost">Delete post</a>
-            <a href="#" class="btn btn-primary" id="uploadContentImage">Upload Image</a>
+            
+            <a href="../crud" class="w-100 btn btn-primary" id="editPost">Edit or Delete</a>
+            <a href="#myNav" class="btn w-100 btn-primary" id="uploadContentImage">Upload Image</a>
+            <a href="#" class="btn w-100 btn-primary" id="seePost" data-bs-toggle="modal" data-target="#postModal">See post</a>
             `);
             $('#uploadContentImage').on('click', (e) => {
               e.preventDefault();
@@ -56,7 +55,7 @@ const getContent = () => {
               console.log(postId)
               $('#uploadImage').html(`
               <div class="container">
-      <div class="row">
+      <div class="row w-100">
         <div class="col-sm-8 mt-3">
           <h4>Node.js upload images - bezkoder.com</h4>
 
