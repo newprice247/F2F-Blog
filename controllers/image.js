@@ -61,6 +61,7 @@ const uploadContentImage = async (req, res) => {
     try {
         console.log(req.file);
         console.log(req.session.user_id)
+        console.log(req.body.content_id)
 
         if (req.file == undefined) {
             return res.send(`You must select a file.`);
@@ -72,14 +73,15 @@ const uploadContentImage = async (req, res) => {
             data: fs.readFileSync(
                 __dirname + '/resources/static/assets/uploads/' + req.file.filename
             ),
-            content_id: req.content_id,
+            content_id: req.body.content_id,
+            
         }).then((image) => {
             fs.writeFileSync(
-                baseDir + '/public/images/contentImages/' + req.content_id + '.jpg',
+                baseDir + '/public/images/contentImages/' + req.body.content_id + '.jpg',
                 image.data
             );
 
-            return res.sendFile(path.join(`${__dirname}/../public/html/crud.html`));
+            return res.sendFile(path.join(`${__dirname}/../public/html/blog.html`));
         });
     } catch (error) {
         console.log(error);
@@ -107,7 +109,11 @@ router.get('/profilePic', async (req, res) =>{
 
 router.post("/upload", uploadFile.single("file"), uploadProfilePic);
 
-router.post("/contentImage", uploadFile.single("file"), uploadContentImage);
+router.post("/uploadContentImage", uploadFile.single("file"), (req,res) => {
+    req.body.content_id = req.body.content_id || req.query.content_id;
+    uploadContentImage(req, res);
+});
+    
 
 
 
