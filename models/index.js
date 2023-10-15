@@ -10,7 +10,7 @@ const Resource = require('./Resource');
 
 const Image = require('./Image')
 
-
+const ContentImage = require('./ContentImage')
 
 User.hasMany(Content, {
     foreignKey: 'user_id',
@@ -41,6 +41,11 @@ Content.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
+Content.hasOne(ContentImage, {
+    foreignKey: 'content_id',
+    onDelete: 'CASCADE'
+})
+
 Comment.belongsTo(User, {
     foreignKey: 'user_id'
 })
@@ -57,6 +62,10 @@ Image.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
+ContentImage.belongsTo(Content, {
+    foreignKey: 'content_id'
+})
 
 
-module.exports = { User, Admin, Content, Resource, Image, Comment }
+
+module.exports = { User, Admin, Content, Resource, Image, Comment, ContentImage }
