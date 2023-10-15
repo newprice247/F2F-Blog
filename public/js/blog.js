@@ -31,8 +31,7 @@ const getContent = () => {
               
             </div>
             
-          </div>
-          <div id="uploadImage"></div>`);
+          </div>`);
       }
       return fetch('/api/users/loggedInUser')
     })
