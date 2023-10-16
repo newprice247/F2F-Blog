@@ -12,18 +12,9 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 0;
-  margin: 0 10%;
-  gap: 20px;
-
-
+  letter-spacing: 3px;
 }
 
-
-.nav-links li {
-  margin: 0;
-
-}
 
 .nav-links a:hover {
   text-decoration: underline;
@@ -33,7 +24,6 @@
 
 .nav-links li a {
   text-decoration: none;
-  justify-content: space-between;
   color: rgb(19, 225, 240)
 }
 
@@ -217,7 +207,29 @@ footer p{
 }
 
 .resourceInner p{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-self: center;
+  width: 75%;
   letter-spacing: -1px;
+}
+
+.resourceInner a{
+  display: flex;
+  flex-wrap: wrap;
+  letter-spacing: -2px;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-size: 95%;
+}
+
+
+.resourceInner a:hover{
+  text-decoration: underline;
+  color: rgb(21, 115, 115);
+  transform: scale(0.85); 
 }
 
 
