@@ -1,3 +1,5 @@
+// const  response  = require("express");
+
 const getProfileImg = () => {
   fetch('/api/users/profile')
     .then((response) => response.json())
@@ -47,18 +49,19 @@ document.addEventListener('DOMContentLoaded', function () {
   };
   getResources();
 
-  const postResource = (comment, url, tag) => {
-    fetch('/api/resources', {
+  const postResource = async (comment, url, tag) => {
+
+    const response = await fetch('/api/resources', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ comment, url, tag }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('postResource', data);
-      });
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ comment, url, tag })
+    });
+
+    if (response.ok) {
+      console.log('Resource added successfully!');
+    } else {
+      document.location.replace('/login');
+    }
   };
 
 

@@ -1,20 +1,183 @@
 [
     {
-        
-        "comment": "Cool.",
+      "comment": "This post is a great introduction to JavaScript basics!",
+      "user_id": 1,
+      "content_id": 1
+    },
+    {
+      "comment": "I've just started learning JavaScript, and this post is really helpful.",
+      "user_id": 2,
+      "content_id": 1
+    },
+    {
+      "comment": "I agree, understanding variables and data types is essential for JavaScript.",
+      "user_id": 3,
+      "content_id": 1
+    },
+    {
+      "comment": "I've been considering a coding bootcamp. The pros and cons are well-explained here.",
+      "user_id": 4,
+      "content_id": 2
+    },
+    {
+      "comment": "Bootcamps seem like a fast-track to a tech career. I'm leaning towards it.",
+      "user_id": 5,
+      "content_id": 2
+    },
+    {
+      "comment": "It's always good to weigh the pros and cons before making such a decision.",
+      "user_id": 6,
+      "content_id": 2
+    },
+    {
+      "comment": "I'm interested in MySQL and building APIs. This guide is a great starting point.",
+      "user_id": 1,
+      "content_id": 3
+    },
+    {
+      "comment": "I've worked with MySQL before, and it's powerful for database management.",
+      "user_id": 2,
+      "content_id": 3
+    },
+    {
+      "comment": "APIs are essential for connecting applications. Thanks for sharing!",
+      "user_id": 3,
+      "content_id": 3
+    },
+    {
+      "comment": "Responsive web design is vital. Your post outlines the key principles well.",
+      "user_id": 4,
+      "content_id": 4
+    },
+    {
+      "comment": "I'm a web designer, and I always strive for mobile responsiveness.",
+      "user_id": 5,
+      "content_id": 4
+    },
+    {
+      "comment": "Making a website look great on all devices is a user-centric approach.",
+      "user_id": 6,
+      "content_id": 4
+    },
+    {
+      "comment": "I'm a front-end developer, and I enjoy crafting user interfaces.",
+      "user_id": 1,
+      "content_id": 5
+    },
+    {
+      "comment": "Back-end development is equally important for a seamless user experience.",
+      "user_id": 2,
+      "content_id": 5
+    },
+    {
+      "comment": "The collaboration between front-end and back-end is the heart of web development.",
+      "user_id": 3,
+      "content_id": 5
+    },
+    {
+      "comment": "SEO is a game-changer for website visibility. Your strategies are helpful.",
+      "user_id": 4,
+      "content_id": 6
+    },
+    {
+      "comment": "I've seen significant traffic growth using SEO techniques. It works!",
+      "user_id": 5,
+      "content_id": 6
+    },
+    {
+      "comment": "Thanks for sharing SEO insights. My website is climbing the ranks.",
+      "user_id": 6,
+      "content_id": 6
+    },
+    {
+        "comment": "Python's versatility makes it a great choice for various projects.",
         "user_id": 1,
-        "content_id": 1
-    },
-    {
-        
-        "comment": "This should be helpful, thanks!",
+        "content_id": 7
+      },
+      {
+        "comment": "Python is excellent for data analysis. It's my go-to language.",
         "user_id": 2,
-        "content_id": 2
-    },
-    {
-
-        "comment": "This post sucks!",
+        "content_id": 7
+      },
+      {
+        "comment": "The Python community is supportive, and there's always something new to learn.",
         "user_id": 3,
-        "content_id": 3
-    }
-]
+        "content_id": 7
+      },
+      {
+        "comment": "Website security is crucial. Thanks for highlighting the best practices.",
+        "user_id": 4,
+        "content_id": 8
+      },
+      {
+        "comment": "Data breaches are a significant concern in today's digital landscape.",
+        "user_id": 5,
+        "content_id": 8
+      },
+      {
+        "comment": "Securing your online presence is an ongoing effort. Stay vigilant!",
+        "user_id": 6,
+        "content_id": 8
+      },
+      {
+        "comment": "AI and ML are transforming industries. Exciting times for tech enthusiasts.",
+        "user_id": 1,
+        "content_id": 9
+      },
+      {
+        "comment": "I'm working on a machine learning project, and the possibilities are endless.",
+        "user_id": 2,
+        "content_id": 9
+      },
+      {
+        "comment": "AI and ML in healthcare have the potential to save lives and improve patient care.",
+        "user_id": 3,
+        "content_id": 9
+      },
+      {
+        "comment": "Mobile app development is dynamic and ever-evolving. Keep learning!",
+        "user_id": 4,
+        "content_id": 10
+      },
+      {
+        "comment": "I specialize in Android app development, and it's a rewarding field.",
+        "user_id": 5,
+        "content_id": 10
+      },
+      {
+        "comment": "iOS app development is a challenging but fulfilling journey. I love it!",
+        "user_id": 6,
+        "content_id": 10
+      },
+      {
+        "comment": "Data science is about uncovering valuable insights in data. It's an exciting field.",
+        "user_id": 1,
+        "content_id": 11
+      },
+      {
+        "comment": "Data scientists play a crucial role in today's data-driven world. Heroes indeed!",
+        "user_id": 2,
+        "content_id": 11
+      },
+      {
+        "comment": "Big data analytics has the power to transform businesses and decision-making.",
+        "user_id": 3,
+        "content_id": 11
+      },
+      {
+        "comment": "Cybersecurity is an ongoing battle. Staying informed is vital for defense.",
+        "user_id": 4,
+        "content_id": 12
+      },
+      {
+        "comment": "I work in cybersecurity, and it's a challenging but rewarding field.",
+        "user_id": 5,
+        "content_id": 12
+      },
+      {
+        "comment": "Emerging threats in 2023 mean we need to adapt quickly. Thanks for the insights.",
+        "user_id": 6,
+        "content_id": 12
+      }
+  ]
+  

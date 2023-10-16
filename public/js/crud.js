@@ -3,22 +3,22 @@ const postButton = document.getElementById("post-button");
 
 const getProfileImg = () => {
     fetch('/api/users/profile')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-        if (data !== null) {
-          console.log('getProfileImg', data.id);
-          $('.nav-links').append(`
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            if (data !== null) {
+                console.log('getProfileImg', data.id);
+                $('.nav-links').append(`
                   <li><a href="../api/users/logout">Logout</a></li>
                   `);
-        } else {
-          $('.nav-links').append(`
+            } else {
+                $('.nav-links').append(`
                   <li><a href="../login">Login</a></li>
                   `);
-        }
-      });
-  };
-  getProfileImg();
+            }
+        });
+};
+getProfileImg();
 
 function addPost(e) {
     const title = document.querySelector(".postTitle").value;
@@ -49,7 +49,7 @@ function addPost(e) {
                 // getContent();
                 document.location.replace('/crud');
             })
-            
+
             .catch((err) => console.error('Oops, sorry, post could not be updated. Error:', err));
     } else {
         // Send a POST request to add a new post
@@ -115,6 +115,7 @@ const getProfile = () => {
         .then((response) => response.json())
         .then((data) => {
             console.log('getProfile', data);
+            $('#createEditDelete').text('Create Post');
             $('.user-header').append(`
             <h1>Welcome ${data.username}... </h1>
             
@@ -139,6 +140,8 @@ const getProfile = () => {
             }
             $('.edit-post').on('click', (e) => {
                 e.preventDefault();
+
+                $('#createEditDelete').text('Edit Post');
                 const row = e.target.closest('tr');
                 const postId = JSON.parse(row.getAttribute('id'));
                 const post = data.contents.find(post => post.id === postId);

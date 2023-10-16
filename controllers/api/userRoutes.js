@@ -123,6 +123,7 @@ router.post('/register', async (req, res) => {
 router.get('/loggedInUser', async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
+            include: [{ model: Content, Resource }],
             attributes: { exclude: ['password'] }
         });
         res.status(200).json(userData);
