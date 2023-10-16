@@ -122,36 +122,65 @@ document.addEventListener('DOMContentLoaded', function () {
 
     for (let i = 0; i < resources.length; i++) {
       const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
-      if (resourceTag.includes(tagSearchText) || tagSearchText === 'all') {
+      if (resourceTag === tagSearchText || tagSearchText === 'all') {
         resources[i].style.display = 'block';
       } else {
         resources[i].style.display = 'none';
       }
     }
+
+
     // clears search box after
     tagSearchInput.value = '';
 
+ // Scroll to the "displayArea" element
+ const displayArea = document.getElementById('displayArea');
+ displayArea.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Listen for the "Enter" key press in the input element
+tagSearchInput.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    const tagSearchText = tagSearchInput.value.toLowerCase();
+    filterAndScroll(tagSearchText);
+  }
+});
+
+
+
+  // search by Tag name by BUTTON which will scroll down to display-area
+function filterAndScroll(tag) {
+  const resources = document.querySelectorAll('.resource-item');
+
+  for (let i = 0; i < resources.length; i++) {
+    const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
+    if (tag === 'all' || resourceTag === tag) {
+      resources[i].style.display = 'block'; 
+    } else {
+      resources[i].style.display = 'none'; 
+    }
+  }
+
+  // Scroll to the "displayArea" element
+  const displayArea = document.getElementById('displayArea');
+  displayArea.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Tag buttons click event
+const tagButtons = document.querySelectorAll('.tag-button');
+tagButtons.forEach((button) => {
+  button.addEventListener('click', function () {
+    const selectedTag = button.getAttribute('data-tag');
+    filterAndScroll(selectedTag);
   });
-
-
-  // search by Tag name by BUTTON
-  const tagButtons = document.querySelectorAll('.tag-button');
-  tagButtons.forEach((button) => {
-    button.addEventListener('click', function () {
-      const selectedTag = button.getAttribute('data-tag');
-      const resources = document.querySelectorAll('.resource-item');
-
-      for (let i = 0; i < resources.length; i++) {
-        const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
-        if (selectedTag === 'all' || resourceTag === selectedTag) {
-          resources[i].style.display = 'block'; // Show the button
-        } else {
-          resources[i].style.display = 'none'; // Hide the button
-        }
-      }
-    });
-  });
+});
 })
+
+
+
+
+
+
 
 
 // this opens F2f menu bar
