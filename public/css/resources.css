@@ -639,6 +639,13 @@ main img:hover {
   }
 
 
+  .Sbtn:hover,
+.Sbtn:focus-visible{
+  width: 40%;
+  letter-spacing: 5px;
+}
+
+
 }
 
 
@@ -852,6 +859,11 @@ margin: 0 55%;
     font-size: x-small;
 
 }
+.Sbtn:hover,
+.Sbtn:focus-visible{
+  width: 50%;
+  letter-spacing: 5px;
+}
 
 }
 
@@ -873,6 +885,12 @@ margin: 0 55%;
   #urlLink.form-control{
     font-size: xx-small;
 
+}
+
+.Sbtn:hover,
+.Sbtn:focus-visible{
+  width: 50%;
+  letter-spacing: 4px;
 }
 }
 
