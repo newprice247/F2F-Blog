@@ -1,17 +1,62 @@
 [
     {
-        "title": "JavaScript",
-        "content": "I feel like we are missing the script tag in our HTML.",
+      "title": "JavaScript Fundamentals",
+      "content": "In JavaScript, understanding the basics is crucial. Let's dive into variables, data types, and more.",
+      "user_id": 1
+    },
+    {
+      "title": "Web Development Bootcamps: Are They Worth It?",
+      "content": "Thinking about enrolling in a coding bootcamp? Explore the pros and cons before making your decision.",
+      "user_id": 2
+    },
+    {
+      "title": "MySQL Database and API Building",
+      "content": "A step-by-step guide to mastering MySQL and creating your own database-driven APIs for web development.",
+      "user_id": 3
+    },
+    {
+      "title": "Responsive Web Design Best Practices",
+      "content": "Discover the key principles of responsive web design and ensure your site looks great on all devices.",
+      "user_id": 4
+    },
+    {
+      "title": "Front-End vs. Back-End Development",
+      "content": "Explore the roles and responsibilities of front-end and back-end developers to find your ideal career path.",
+      "user_id": 5
+    },
+    {
+      "title": "SEO Strategies for Higher Google Rankings",
+      "content": "Boost your website's search engine rankings with these effective SEO tips and optimization techniques.",
+      "user_id": 6
+    },
+    {
+        "title": "The Power of Python",
+        "content": "Python is a versatile and powerful programming language. Let's explore its capabilities.",
         "user_id": 1
-    },
-    {
-        "title": "JavaScript",
-        "content": "Is bootcamp worth it? Enrolling Now UCF ONLINE Coding, Register now!\n\n UCF Schedule\n 12/11/23: Full-Time (12 weeks)\n\n10/10/23: Part-Time (24 weeks)",
+      },
+      {
+        "title": "Web Security Best Practices",
+        "content": "Protect your website from common security threats. Learn the best practices to secure your online presence.",
         "user_id": 2
-    },
-    {
-        "title": "JavaScript",
-        "content": "I thought this would help anyone learning MYSQL and building their own database/api's!",
+      },
+      {
+        "title": "Artificial Intelligence and Machine Learning",
+        "content": "Discover how AI and ML are shaping the future and their applications in various industries.",
         "user_id": 3
-    }
-]
+      },
+      {
+        "title": "The World of Mobile App Development",
+        "content": "From iOS to Android, explore the exciting world of mobile app development and its tools.",
+        "user_id": 4
+      },
+      {
+        "title": "Data Science and Big Data Analytics",
+        "content": "Uncover the data-driven world of data science and big data analytics. Insights and trends await!",
+        "user_id": 5
+      },
+      {
+        "title": "Cybersecurity Threats in 2023",
+        "content": "Stay ahead of emerging cybersecurity threats in 2023. Learn about the latest risks and defenses.",
+        "user_id": 6
+      }
+  ]
