@@ -14,7 +14,7 @@ router.get('/contact', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/html/contact.html'))
 })
 
-router.get('/crud', (req, res) => {
+router.get('/crud', withAuth, (req, res) => {
     res.sendFile(path.join(__dirname, '../public/html/crud.html'))
 })
 
@@ -30,6 +30,9 @@ router.get('/teambio', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/html/teambio.html'))
 })
 
+router.get('/stanley', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/html/stanley.html'))
+})
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/html/blog.html'))
 })

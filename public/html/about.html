@@ -20,67 +20,193 @@
 <body>
   <nav class="navbar bg-body-tertiary">
     <div class="container">
+
+
+<!-- F2F menu bar -->
+<div class="menu">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; F2F menu</span>
+  </div>
+      
+
+
+
       <a class="navbar-brand" href="../blog">
-        <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
+        <img src="../images/F2F BLOG Logo.png" class="rounded" alt="F2F fist to five logo" width="150" height="50">
       </a>
 
+<!-- F2f Menu bar -->
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
       <ul class="nav-links">
         <li><a href="../blog"> Blog </a></li>
         <li><a href="../about"> About </a></li>
         <li><a href="../crud"> POST </a></li>
         <li><a href="../resources"> Resources </a></li>
         <li><a href="../contact"> Contact us</a></li>
-        <li><a href="../login"> Logout </a></li>
       </ul>
+      </div>
+      </div>
 
-      <div class="profile-img">
-        <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
+
+      <div class="user-profile-img row">
+        <!-- <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40"> -->
       </div>
 
     </div>
   </nav>
-  <br>
+ 
 
-  
-  <div class="background">
-    <div class="about-app">
-      <div class="hero">
-        <p><i>Our vision is Mauris nunc urna, dignissim ac dignissim ac, accumsan ac massa. Duis a dolor a purus
-            tristique tempus.
-            Aenean dapibus justo vitae aliquet laoreet. Etiam porttitor viverra condimentum. Morbi elementum fringilla
-            diam, quis fringilla eros faucibus et.</i></p>
-      </div>
-    </div>
-  </div>
-  <div class="image-computer">
-    <img src="../images/about-page-img.png">
-      </div>
-  <div class="stanley-code">
-    <div class="stanley-quote">
-      <h1><i>"INPUT DO-WORK OUPUT"</i>
-        <h1>
-         
-    </div>
     <div class="stanley-code">
       <div class="stanley-quote">
         
-        <h3>What does F2F stand for?</h3>
+        <h1>What does F2F stand for?</h1>
+        <br/>
         <ul>
           <li><span class="bolded"><u>F</u></span> is for <span class="bolded">Fist</span></li>
           <li><span class="bolded"></u><u>2</u></span> is for <span class="bolded">To</span></li>
           <li><span class="bolded"></u><u>F</u></span> is for <span class="bolded">Five</span></li>
         </ul>
+        <br/>
         
 
-        <h3>What is the purpose of F2F Blog app?</h3>
-        <p>"Mauris nunc urna, dignissim ac dignissim ac, accumsan ac massa. Duis a dolor a purus tristique tempus.
-          Aenean dapibus justo vitae aliquet laoreet. Etiam porttitor viverra condimentum. Morbi elementum fringilla
-          diam, quis fringilla eros faucibus et."</p>
 
+        <div class="stanley-quote">
+          <h2><i>"INPUT ~ DO-WORK ~ OUPUT"</i><h2>
+        </div>
+
+        <h3>What is the purpose of F2F Blog app?</h3>
+        <br/>
+
+        <div class="background">
+          <div class="about-app">
+            <div class="hero">
+              <p><span class="bolded"><u>Educate</u></span>
+                <br/> <i>Our blog offers educational content, tutorials, and resources that cater to coders of all levels. Whether you're just starting or seeking to master a specific programming language, we've got you covered.</i>
+                <br/>
+                <br/>
+                
+                <span class="bolded"><u>Inspire</u></span>
+                <br/>
+              <i>We share blog posts, success stories, and industry insights to spark your coding passion and fuel your personal and professional growth.</i>
+              <br/>
+              <br/>
+
+              <span class="bolded"><u>Support</u></span>
+                <br/><i>We're here to help, whether you're troubleshooting or exploring advanced coding techniques.</i></p>
+            </div>
+          </div>
+        </div>
+
+
+<div class="banner">
+        <div class="spinner">
+          <div class="containerS mb-2 p-2
+                      text-light text-center"> 
+              <div id="carouselExample" 
+                   class="carousel slide carousel-fade" 
+                   data-bs-ride="carousel"> 
+                  <div class="carousel-inner"> 
+  
+                     
+    
+    <!-- About us -->
+                      <div class="carousel-item bg-dark" 
+                      data-bs-interval="2500"> 
+                          <h2 class="m-4 text-white"> 
+                          About Us</h2> 
+                              <div class="imageCenter">
+                                  <img src="../images/about-page-img.png">
+                                  </div>
+                      </div> 
+
+                      
+    <!-- Blog -->
+                      <div class="carousel-item bg-dark active" 
+                      data-bs-interval="2500"> 
+                      <h2 class="m-4 text-white"> 
+                        F2F Blog</h2> 
+                        <div class="imageCenter">
+                          <img src= "../images/blogphoto.png" 
+                          alt="UCF LOGO"></a></div>
+                  </div>                   
+    
+
+    <!-- resource -->
+                      <div class="carousel-item bg-dark" 
+                           data-bs-interval="2500"> 
+                          <h2 class="m-4 text-white"> 
+                            Resources</h2> 
+                          <div class="imageCenter"> 
+                              <img src= "../images/resourcephoto.png"
+                                  alt="stackOverFlow Logo"> </a>
+                          </div> 
+                          
+                      </div> 
+    
+    
+    <!-- stanley -->
+                      <div class="carousel-item bg-dark" 
+                      data-bs-interval="2500"> 
+                          <h2 class="m-4 text-white"> 
+                          Big Winner! </h2> 
+                              <div class="imageCenter">
+                              <img src= 
+                              "../images/stanphoto.png"
+                                  alt="NPM LOGO"> </a>
+                              </div> 
+                          
+                      </div>
+    
+    
+                      
+    
+                </div> 
+    
+                
+    
+                  <button class="carousel-control-prev" 
+                          type="button" 
+                          data-bs-target="#carouselExample" 
+                          data-bs-slide="prev"> 
+                      <span class="carousel-control-prev-icon" 
+                            aria-hidden="true"></span> 
+                      <span class="visually-hidden">Previous</span> 
+                  </button> 
+                  <button class="carousel-control-next" 
+                          type="button" 
+                          data-bs-target="#carouselExample" 
+                          data-bs-slide="next"> 
+                      <span class="carousel-control-next-icon" 
+                            aria-hidden="true"></span> 
+                      <span class="visually-hidden">Next</span> 
+                  </button> 
+              </div> 
+          </div>
+    </div>
+    </div>
+    
+    
+    <!-- End of Title/Spinner -->
+
+
+        
+
+        <p>At F2F Blog, we're on a mission to enhance your coding and learning journey. Our focus is to provide valuable insights, resources, and expertise in programming, making knowledge accessible to everyone.
+          <br/>
+          <br/>
+          <br/>
+          <i>Join Us on Your Learning Journey</i>
+        </p>
+<br/>
 
       </div>
     </div>
   </div>
+
+
+
+
   <footer>
     <div class="footer-container">
       <div class="social">
@@ -93,7 +219,7 @@
           <li><a href="../blog"> Blog </a></li>
           <li><a href="../resources"> Resources </a></li>
           <li><a href="../contact"> Contact us </a></li>
-          <li><a href="../teambio"> Our Team</a></li>
+          
         </ul>
       </div>
     </div>
@@ -102,9 +228,10 @@
           alt="F2F fist to five logo" width="30" height="30"></p>
 
   </footer>
-
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"> 
   </script> 
+  <script src="../js/about.js"></script>
 </body>
 
 </html>

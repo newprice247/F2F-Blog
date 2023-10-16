@@ -20,21 +20,36 @@
 <body>
   <nav class="navbar bg-body-tertiary">
     <div class="container">
+
+
+<!-- F2F menu bar -->
+<div class="menu">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()"> &#9776; F2F menu</span>
+  </div>
+      
+
+
       <a class="navbar-brand" href="../blog">
-        <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
+        <img src="../images/F2F BLOG Logo.png" class="rounded" alt="F2F fist to five logo" width="150" height="50">
       </a>
 
+<!-- F2f Menu bar -->
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
       <ul class="nav-links">
         <li><a href="../blog"> Blog </a></li>
         <li><a href="../about"> About </a></li>
         <li><a href="../crud"> POST </a></li>
         <li><a href="../resources"> Resources </a></li>
         <li><a href="../contact"> Contact us</a></li>
-        <li><a href="../login"> Logout </a></li> <!--Login page-->
       </ul>
+      </div>
+      </div>
 
-      <div class="profile-img">
-        <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
+
+      <div class="user-profile-img row">
+        <!-- <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40"> -->
       </div>
 
     </div>
@@ -44,7 +59,30 @@
   <div class="user-header">
   </div>
   <br> 
+  
         <div class="user-action-form addPost">
+          <div class="post-history-area">
+            <h1>Post history</h1>
+          </div>
+          <table class="table table-light table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Date Created</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col"></th>
+        
+              </tr>
+            </thead>
+            <tbody id="userPostTable">
+              
+                <!--shows in javascript -->
+        
+            </tbody>
+          </table>
+          <div class="post-history-area">
+            <h1 id="createEditDelete"></h1>
+          </div>
           <form class="post-form" method="post">
             <div class="mb-3">
                 <label for="titleName" class="form-label title">Title:</label>
@@ -64,26 +102,9 @@
         
               <br>
 
-              <div class="post-history-area">
-                <h1>Post history</h1>
-              </div>
+              
 
-    <table class="table table-light table-striped table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Date Created</th>
-          <th scope="col">Title</th>
-          <th scope="col">Content</th>
-          <th scope="col"></th>
-
-        </tr>
-      </thead>
-      <tbody id="userPostTable">
-        
-          <!--shows in javascript -->
-
-      </tbody>
-    </table>
+   
   </div>
   
   <br>
@@ -100,7 +121,7 @@
             <li><a href="../blog"> Blog </a></li>
             <li><a href="../resources"> Resources </a></li>
             <li><a href="../contact"> Contact </a></li>
-            <li><a href="../teambio"> Our Team</a></li>
+            
           </ul>
         </div>
       </div>
@@ -111,6 +132,20 @@
     </footer>
  
 
+
+
+
+    
+ <!-- JS for NavBar -->
+ <script>
+  function openNav() {
+    document.getElementById("myNav").style.height = "100%";
+  }
+  
+  function closeNav() {
+    document.getElementById("myNav").style.height = "0%";
+  }
+  </script> 
 
   <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
     crossorigin="anonymous"></script>

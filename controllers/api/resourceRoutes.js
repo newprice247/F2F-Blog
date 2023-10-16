@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const {User, Resource} = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
         const resourceData = await Resource.findAll({
-            include: [{model: User, attributes: ['username']}],
+            include: [{model: User, attributes: ['username', 'id']}],
             exclude: [{model: User, attributes: ['password']}]
         });
         res.status(200).json(resourceData);
@@ -31,6 +32,10 @@ router.get('/:id', async (req, res) =>{
 
 router.post('/', async (req, res) =>{
     try {
+        if (req.session.user_id === null) {
+            res.redirect('/login');
+            return;
+          }
         const resourceData = await Resource.create({
             ...req.body,
             user_id: req.session.user_id,

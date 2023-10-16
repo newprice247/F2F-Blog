@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const {User, Content} = require('../../models');
+const {User, Content, Comment, ContentImage} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
         const contentData = await Content.findAll({
-            include: [{model: User, attributes: ['username', 'id']}],
+            include: [{model: User, attributes: ['username', 'id']}, {model: Comment, include: [{model: User, attributes: ['username']}]}, {model: ContentImage}],
             exclude: [{model: User, attributes: ['password']}]
         });
         res.status(200).json(contentData);
@@ -17,7 +17,8 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) =>{
     try {
         const contentData = await Content.findByPk(req.params.id, {
-            include: [{model: User, attributes: ['username']}],
+            include: [{model: User, attributes: ['username']},
+            {model: Comment, include: [{model: User, attributes: ['username']}]}],
             exclude: [{model: User, attributes: ['password']}]
         });
         if (!contentData) {

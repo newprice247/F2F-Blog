@@ -1,3 +1,31 @@
+// const  response  = require("express");
+
+const getProfileImg = () => {
+  fetch('/api/users/profile')
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      if (data !== null) {
+        console.log('getProfileImg', data.id);
+        $('.user-profile-img').html(`
+                <div class="center-vertically">
+                  <img src="../images/tmp/${data.id}.jpg" class="profile-pic" alt="profile-pic" width="40" height="40">
+                  <p class="profile-p">${data.username}</p>
+                </div>
+                `);
+        $('.nav-links').append(`
+                  <li><a href="../api/users/logout">Logout</a></li>
+                  `);
+      } else {
+        $('.nav-links').append(`
+                  <li><a href="../login">Login</a></li>
+                  `);
+      }
+    });
+};
+getProfileImg();
+
+
 document.addEventListener('DOMContentLoaded', function () {
   const getResources = () => {
     fetch('/api/resources')
@@ -7,30 +35,33 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < data.length; i++) {
           $('#displayArea').append(`
             <div class="resource-item" data-tag="${data[i].tag}"> <!-- Add data-tag attribute -->
-              <h3>Resource:</h3>   
-              <p><strong>Username:</strong> ${data[i].user.username}</p>        
-              <p><strong>Comment:</strong> ${data[i].comment}</p>
-              <p><strong>URL:</strong> <a href="${data[i].url}" target="_blank" id="urlLinkDisplay">${data[i].url}</a></p>
-              <p><strong>#Tag:</strong> ${data[i].tag}</p>
+              <div class="resourceInner">
+             <h3>Resource:</h3>
+              <h4><strong>Username:</strong></h4> <p> ${data[i].user.username}</p>        
+              <h4><strong>Comment:</strong></h4> <p> ${data[i].comment}</p>
+              <h4><strong>URL:</strong></h4> <p> <a href="${data[i].url}" target="_blank" id="urlLinkDisplay">${data[i].url}</a></p>
+              <h4><strong>#Tag:</strong></h4> <p> ${data[i].tag}</p>
+            </div>
             </div>`);
-            console.log(data)
+          console.log(data)
         }
       });
   };
   getResources();
 
-  const postResource = (comment, url, tag) => {
-    fetch('/api/resources', {
+  const postResource = async (comment, url, tag) => {
+
+    const response = await fetch('/api/resources', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ comment, url, tag }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('postResource', data);
-      });
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ comment, url, tag })
+    });
+
+    if (response.ok) {
+      console.log('Resource added successfully!');
+    } else {
+      document.location.replace('/login');
+    }
   };
 
 
@@ -67,11 +98,12 @@ document.addEventListener('DOMContentLoaded', function () {
     resourceDiv.className = 'resource-item';
     resourceDiv.setAttribute('data-tag', data.tag); // Add data-tag attribute
     resourceDiv.innerHTML = `
-      <h3>New Resource Added:</h3>
-      <p><strong>Comment:</strong> ${data.comment}</p>
-      <p><strong>URL:</strong> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
-      <p><strong>#Tag:</strong> ${data.tag}</p>
-    </div>`;
+    <div class="resourceInner">
+      <h2>New Resource Added:</h2>
+      <h4><strong>Comment:</strong></h4> <p> ${data.comment}</p>
+      <h4><strong>URL:</strong></h4> <p> <a href="${data.url}" target="_blank" id="urlLinkDisplay">${data.url}</a></p>
+      <h4><strong>#Tag:</strong></h4> <p> ${data.tag}</p>
+    </div></div>`;
 
     displayArea.insertBefore(resourceDiv, displayArea.firstChild);
   }
@@ -84,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 
- // Search by tagName in SEARCH BOX
+  // Search by tagName in SEARCH BOX
   const tagSearchButton = document.getElementById('tagSearchButton');
 
   tagSearchButton.addEventListener('click', function () {
@@ -93,33 +125,80 @@ document.addEventListener('DOMContentLoaded', function () {
 
     for (let i = 0; i < resources.length; i++) {
       const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
-      if (resourceTag.includes(tagSearchText) || tagSearchText === 'all') {
+      if (resourceTag === tagSearchText || tagSearchText === 'all') {
         resources[i].style.display = 'block';
       } else {
         resources[i].style.display = 'none';
       }
     }
+
+
     // clears search box after
     tagSearchInput.value = '';
-  
+    
+
+ // Scroll to the "displayArea" element
+ const displayArea = document.getElementById('displayArea');
+ displayArea.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Listen for the "Enter" key press in the input element
+tagSearchInput.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    const tagSearchText = tagSearchInput.value.toLowerCase();
+    filterAndScroll(tagSearchText);
+    tagSearchInput.value = '';
+  }
+});
+
+
+
+
+  // search by Tag name by BUTTON which will scroll down to display-area
+function filterAndScroll(tag) {
+  const resources = document.querySelectorAll('.resource-item');
+
+  for (let i = 0; i < resources.length; i++) {
+    const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
+    if (tag === 'all' || resourceTag === tag) {
+      resources[i].style.display = 'block'; 
+    } else {
+      resources[i].style.display = 'none'; 
+    }
+  }
+
+  // Scroll to the "displayArea" element
+  const displayArea = document.getElementById('displayArea');
+  displayArea.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Tag buttons click event
+const tagButtons = document.querySelectorAll('.tag-button');
+tagButtons.forEach((button) => {
+  button.addEventListener('click', function () {
+    const selectedTag = button.getAttribute('data-tag');
+    filterAndScroll(selectedTag);
   });
-
-
-// search by Tag name by BUTTON
-  const tagButtons = document.querySelectorAll('.tag-button');
-  tagButtons.forEach((button) => {
-    button.addEventListener('click', function () {
-      const selectedTag = button.getAttribute('data-tag');
-      const resources = document.querySelectorAll('.resource-item');
-
-      for (let i = 0; i < resources.length; i++) {
-        const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
-        if (selectedTag === 'all' || resourceTag === selectedTag) {
-          resources[i].style.display = 'block'; // Show the button
-        } else {
-          resources[i].style.display = 'none'; // Hide the button
-        }
-      }
-    });
-  });
+});
 })
+
+
+
+
+
+// this opens F2f menu bar
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+
+
+
+// BIG WINNER BUTTON!
+document.getElementById('myButton').onclick = function() {
+  window.location.href = '../stanley';
+};
+

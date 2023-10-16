@@ -5,7 +5,7 @@ const fs = require('fs');
 const baseDir = process.cwd();
 const multer = require('multer');
 
-const Image = require('../models/Image');
+const { Image, ContentImage } = require('../models');
 
 const imageFilter = (req, file, cb) => {
     if (file.mimetype.startsWith('image')) {
@@ -27,7 +27,7 @@ const storage = multer.diskStorage({
 
 const uploadFile = multer({ storage: storage, fileFilter: imageFilter });
 
-const uploadFiles = async (req, res) => {
+const uploadProfilePic = async (req, res) => {
     try {
         console.log(req.file);
         console.log(req.session.user_id)
@@ -49,7 +49,39 @@ const uploadFiles = async (req, res) => {
                 image.data
             );
 
-            return res.send(`File has been uploaded.`);
+            return res.sendFile(path.join(`${__dirname}/../public/html/crud.html`));
+        });
+    } catch (error) {
+        console.log(error);
+        return res.send(`Error when trying upload images: ${error}`);
+    }
+}
+
+const uploadContentImage = async (req, res) => {
+    try {
+        console.log(req.file);
+        console.log(req.session.user_id)
+        console.log(req.body.content_id)
+
+        if (req.file == undefined) {
+            return res.send(`You must select a file.`);
+        }
+
+        ContentImage.create({
+            type: req.file.mimetype,
+            name: req.file.originalname,
+            data: fs.readFileSync(
+                __dirname + '/resources/static/assets/uploads/' + req.file.filename
+            ),
+            content_id: req.body.content_id,
+            
+        }).then((image) => {
+            fs.writeFileSync(
+                baseDir + '/public/images/contentImages/' + req.body.content_id + '.jpg',
+                image.data
+            );
+
+            return res.sendFile(path.join(`${__dirname}/../public/html/blog.html`));
         });
     } catch (error) {
         console.log(error);
@@ -60,24 +92,6 @@ const uploadFiles = async (req, res) => {
 router.get("/upload", (req, res) => {
     res.sendFile(path.join(`${__dirname}/../views/images.html`))
 });
-
-//This is the route to get the image from the database
-// router.get("/images/:id", (req, res) => {
-//     Image.findById(req.params.id)
-//         .then(image => {
-//             res.setHeader('Content-Type', image.type);
-//             res.send(image.data);
-//         })
-//         .catch(err => {
-//             res.status(500).send({
-//                 message: "Could not retrieve image with id=" + req.params.id
-//             });
-//         });
-// });
-
-
-
-
 
 router.get('/profilePic', async (req, res) =>{
     try {
@@ -93,9 +107,13 @@ router.get('/profilePic', async (req, res) =>{
     }
 });
 
-router.post("/upload", uploadFile.single("file"), uploadFiles);
+router.post("/upload", uploadFile.single("file"), uploadProfilePic);
 
-
+router.post("/uploadContentImage", uploadFile.single("file"), (req,res) => {
+    req.body.content_id = req.body.content_id || req.query.content_id;
+    uploadContentImage(req, res);
+});
+    
 
 
 
