@@ -11,9 +11,14 @@ const getContent = () => {
       console.log('getContent', data);
       for (let i = 0; i < data.length; i++) {
         let getDate = new Date(data[i].createdAt).toLocaleString();
+        
+        let contentImageSrc = imageExists(`../images/contentImages/${data[i].id}.jpg`) ?
+        `../images/contentImages/${data[i].id}.jpg` :
+        '../images/default-content-image.jpg';
+
         $('.blog-post-area').prepend(`
         <div id="${data[i].id}" data-content-id="${data[i].id}" class="card" style="width: 18rem;">
-            <img src="../images/contentImages/${data[i].id}.jpg" class="card-img-top" alt="...">
+            <img src="${contentImageSrc}" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">${data[i].title}</h5>
               <div class="profile-img">
@@ -57,7 +62,7 @@ const getContent = () => {
               <div class="container">
       <div class="row w-100">
         <div class="col-sm-8 mt-3">
-          <h4>Node.js upload images - bezkoder.com</h4>
+          <h4>Upload New Blog Image</h4>
 
           <form
             class="mt-4"
@@ -115,7 +120,12 @@ const getContent = () => {
 };
 getContent();
 
-
+function imageExists(imageUrl) {
+  var http = new XMLHttpRequest();
+  http.open('HEAD', imageUrl, false);
+  http.send();
+  return http.status !== 404;
+}
 
 // this will get the logged-in user's profile image and display it in the navbar
 const getProfileImg = () => {
@@ -177,7 +187,7 @@ const getContentComments = (id) => {
       console.log(data)
       if (data) {
         $('#modal-button').html(`
-          <button class="modal-comment-button" id="comment" type="submit">Post comment</button>
+          <button class="modal-comment-button" id="comment" >Post comment</button>
           <button class="modal-close-button close-button" id="close" data-dismiss="modal"
           aria-label="Close">Cancel</button>`
         );

@@ -28,5 +28,10 @@
       "username": "DavidMartin55",
       "email": "david@email.com",
       "password": "myPassw0rd!"
+    },
+    {
+      "username": "John Doe",
+      "email": "john@email.com",
+      "password": "123456"
     }
   ]
