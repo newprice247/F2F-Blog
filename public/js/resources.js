@@ -132,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // clears search box after
     tagSearchInput.value = '';
+    
 
  // Scroll to the "displayArea" element
  const displayArea = document.getElementById('displayArea');
@@ -143,8 +144,10 @@ tagSearchInput.addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
     const tagSearchText = tagSearchInput.value.toLowerCase();
     filterAndScroll(tagSearchText);
+    tagSearchInput.value = '';
   }
 });
+
 
 
 
