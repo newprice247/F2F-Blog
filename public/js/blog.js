@@ -11,10 +11,10 @@ const getContent = () => {
       console.log('getContent', data);
       for (let i = 0; i < data.length; i++) {
         let getDate = new Date(data[i].createdAt).toLocaleString();
-        
+
         let contentImageSrc = imageExists(`../images/contentImages/${data[i].id}.jpg`) ?
-        `../images/contentImages/${data[i].id}.jpg` :
-        '../images/default-content-image.jpg';
+          `../images/contentImages/${data[i].id}.jpg` :
+          '../images/default-content-image.jpg';
 
         $('.blog-post-area').prepend(`
         <div id="${data[i].id}" data-content-id="${data[i].id}" class="card" style="width: 18rem;">
@@ -55,6 +55,9 @@ const getContent = () => {
             `);
             $('#uploadContentImage').on('click', (e) => {
               e.preventDefault();
+              document.body.scrollTop = 0; // For Safari
+              document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
               const content = e.target.closest('.card');
               const postId = content.getAttribute('data-content-id').valueOf();
               console.log(postId)
@@ -92,27 +95,27 @@ const getContent = () => {
     </div>
               `);
 
-              let imagesPreview = function(input, placeToInsertImagePreview) {
-                if (input.files) {
-                  let filesAmount = input.files.length;
-                  for (i = 0; i < filesAmount; i++) {
-                    let reader = new FileReader();
-                    reader.onload = function(event) {
-                      $($.parseHTML("<img>"))
-                        .attr("src", event.target.result)
-                        .appendTo(placeToInsertImagePreview);
-                    };
-                    reader.readAsDataURL(input.files[i]);
-                  }
-                }
-              };
-              $("#input-files").on("change", function() {
-                imagesPreview(this, "div.preview-images");
-              });
+              // let imagesPreview = function (input, placeToInsertImagePreview) {
+              //   if (input.files) {
+              //     let filesAmount = input.files.length;
+              //     for (i = 0; i < filesAmount; i++) {
+              //       let reader = new FileReader();
+              //       reader.onload = function (event) {
+              //         $($.parseHTML("<img>"))
+              //           .attr("src", event.target.result)
+              //           .appendTo(placeToInsertImagePreview);
+              //       };
+              //       reader.readAsDataURL(input.files[i]);
+              //     }
+              //   }
+              // };
+              // $("#input-files").on("change", function () {
+              //   imagesPreview(this, "div.preview-images");
+              // });
               // window.location.href = `../images/upload/${postId}`
             });
           }
-      });
+        });
       } else {
         console.log('user not logged in')
       }
