@@ -7,34 +7,26 @@
 
 .nav-links {
     list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 0;
-  margin: 0 10%;
-  gap: 20px;
-
-
-}
-
-.nav-links li {
-    margin: 0;
-
-}
-
-.nav-links a:hover {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    letter-spacing: 3px;
+  }
+  
+  
+  .nav-links a:hover {
     text-decoration: underline;
     color: aqua;
-}
-
-
-
-.nav-links li a {
+  }
+  
+  
+  .nav-links li a {
     text-decoration: none;
-    justify-content: space-between;
     color: rgb(19, 225, 240)
-}
+  }
+
+  
 
 .profile-img img {
     width: 40px;
