@@ -1,17 +1,32 @@
 [
     {
-        "username": "John Doe",
-        "email": "john@email.com",
-        "password": "123456"
+      "username": "AliceSmith365",
+      "email": "alice@email.com",
+      "password": "password123"
     },
     {
-        "username": "Jane Doe",
-        "email": "jane@email.com",
-        "password": "123456"
+      "username": "BobJohnson82",
+      "email": "bob@email.com",
+      "password": "securePwd456"
     },
     {
-        "username": "Jack Doe",
-        "email": "jack@email.com",
-        "password": "123456"
+      "username": "EmmaDavis19",
+      "email": "emma@email.com",
+      "password": "mypassword789"
+    },
+    {
+      "username": "MichaelWilson71",
+      "email": "michael@email.com",
+      "password": "secretCode42"
+    },
+    {
+      "username": "OliviaAnderson10",
+      "email": "olivia@email.com",
+      "password": "pa$$w0rd55"
+    },
+    {
+      "username": "DavidMartin55",
+      "email": "david@email.com",
+      "password": "myPassw0rd!"
     }
-]
+  ]
