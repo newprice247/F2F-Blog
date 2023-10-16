@@ -656,6 +656,11 @@ display:flex;
         font-size: large;
     
     }
+
+
+    .modal-button button {
+        font-size: small;
+    }
     
   }
   

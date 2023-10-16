@@ -400,21 +400,70 @@ h5 {
   }
 }
 
+
+
 .buttonS {
   display: flex;
-  justify-content: center;
-}
+  justify-content: space-evenly;
 
-
-.Sbtn {
-  text-decoration: none;
 }
 
 /* Big Winner button! */
-.Sbtn:hover {
+.Sbtn {
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: 600;
+  border-radius: 5px;
+
+  --b: 3px;   /* border thickness */
+  --s: 15px; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+
+}
+
+
+.Sbtn:hover,
+.Sbtn:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em; 
   transform: scale(1.8);
   width: 20%;
+  background-color: rgba(0, 255, 255, 0.5);
+  border: #68a7a7 solid 8px;
+  letter-spacing: 10px;
 }
+
+
+.Sbtn:active{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em; 
+  transform: scale(1.8);
+  width: 30%;
+  background-color: rgba(0, 255, 255, 0.444);
+}
+
+
+
+
+
 
 
 .center {
@@ -765,6 +814,7 @@ margin: 0 55%;
     font-size: small;
 
 }
+
 
 }
 

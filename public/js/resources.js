@@ -197,4 +197,8 @@ function closeNav() {
 
 
 
+// BIG WINNER BUTTON!
+document.getElementById('myButton').onclick = function() {
+  window.location.href = '../stanley';
+};
 
