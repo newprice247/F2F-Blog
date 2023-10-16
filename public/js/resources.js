@@ -180,9 +180,6 @@ tagButtons.forEach((button) => {
 
 
 
-
-
-
 // this opens F2f menu bar
 function openNav() {
   document.getElementById("myNav").style.height = "100%";
