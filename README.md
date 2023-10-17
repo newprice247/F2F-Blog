@@ -72,6 +72,22 @@ Join Us on Your Learning Journey!
   * UCF Full-Time Full-Stack Coding Bootcamp
   * Beszcoder.com: Provided tutorials on how to integrate multer into the blog site to upload images to the database
   * Ali(TA) Came in at the end to save us a ton of time and headache trying to figure out how to revert back to a previous version of the site, he saved the day!
+  
+  ## Technologies Used
+
+  * MySQL
+  * JavaScript
+  * Bootstrap CSS
+  * JQuery
+  * Express
+  * Express-Sessions
+  * Connect-session-sequelize
+  * Bcrypt
+  * Multer
+  * Axios
+  * Sequelize
+  * DotENV
+  * Nodemon
 
   ## License
 
