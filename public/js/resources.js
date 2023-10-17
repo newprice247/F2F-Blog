@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     for (let i = 0; i < resources.length; i++) {
       const resourceTag = resources[i].getAttribute('data-tag').toLowerCase();
-      if (resourceTag === tagSearchText || tagSearchText === 'all') {
+      if (resourceTag === tagSearchText || tagSearchText === 'all' || tagSearchText === '') {
         resources[i].style.display = 'block';
       } else {
         resources[i].style.display = 'none';
