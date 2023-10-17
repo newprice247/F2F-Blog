@@ -65,7 +65,7 @@ Join Us on Your Learning Journey!
 
   ## Contribution
 
-  "Explore our website and become an active part of our burgeoning coding community. Share your insights with fellow aspiring developers or contribute valuable resources and information. Join us in shaping the future of this platform!"
+  Explore the site and become an active part in it! Share insights, knowledge, advice, show off your own projects, ask for advice on that project or homework assignment you're hung up on, and join a community of fellow aspiring developers, all are welcome!
 
   ## Credits
 
