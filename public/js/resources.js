@@ -91,11 +91,11 @@ document.addEventListener('DOMContentLoaded', function () {
     clearFormFields();
   });
 
-  // This adds new data
+  // This adds NEW Resource data
   function displayResource(data) {
     const resourceDiv = document.createElement('div');
     resourceDiv.className = 'resource-item';
-    resourceDiv.setAttribute('data-tag', data.tag); // Add data-tag attribute
+    resourceDiv.setAttribute('data-tag', data.tag); 
     resourceDiv.innerHTML = `
     <div class="resourceInner">
       <h2>New Resource Added:</h2>
@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <h4><strong>#Tag:</strong></h4> <p> ${data.tag}</p>
     </div></div>`;
 
+    // displays the New card FIRST/before the other cards
     displayArea.insertBefore(resourceDiv, displayArea.firstChild);
   }
 
