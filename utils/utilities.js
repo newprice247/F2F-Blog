@@ -1,4 +1,5 @@
-// Handles grabbing the user's profile picture and username for the navbar, as well as the logout button if the user is logged in
+
+
 const getProfileImg = () => {
     fetch('/api/users/profile')
         .then((response) => response.json())
@@ -22,14 +23,5 @@ const getProfileImg = () => {
             }
         });
 };
-getProfileImg();
 
-//Function for NavBar
-
-function openNav() {
-    document.getElementById("myNav").style.height = "100%";
-}
-
-function closeNav() {
-    document.getElementById("myNav").style.height = "0%";
-}
+module.exports = getProfileImg;

@@ -15,32 +15,9 @@ router.get('/', async (req, res) => {
     }
 });
 
-// GET /api/users/":id"
-// router.get('/:id', async (req, res) => {
-//     try {
-//         // Get a single user by id, excluding their password
-//         const userData = await User.findByPk(req.params.id, {
-//             attributes: { exclude: ['password'] }
-//         });
-//         // If no user is found, return an error
-//         if (!userData) {
-//             res.status(404).json({ message: 'No user found with this id!' });
-//             return;
-//         }
-//         res.status(200).json(userData);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
-// router.get('/profile', async (req, res) => {
-//     try {
-//         const 
-//     }
-
+// Handles user login
 router.post('/login', async (req, res) => {
     try {
-        console.log(req.body)
         const userData = await User.findOne({ where: { email: req.body.email } });
         if (userData.email !== req.body.email) {
             res.statusText = 'Incorrect email';
@@ -57,19 +34,18 @@ router.post('/login', async (req, res) => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
             res.status(200).json({ message: 'You are now logged in!' });
-            console.log(`${userData.username} logged in`)
         });
     } catch (err) {
         res.status(400).json(err);
     }
 });
 
+// Handles user logout
 router.get('/logout', async (req, res) => {
     try {
         if (req.session.logged_in) {
             req.session.destroy(() => {
                 res.redirect('/');
-                console.log('logged out')
             }
             );
         } else {
@@ -80,6 +56,7 @@ router.get('/logout', async (req, res) => {
     }
 });
 
+// Handles getting user's information for the POST page
 router.get('/profile', async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
@@ -92,6 +69,7 @@ router.get('/profile', async (req, res) => {
     }
 });
 
+// Handles getting user's blog posts for the POST page
 router.get('/postHistory', async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {
@@ -104,15 +82,13 @@ router.get('/postHistory', async (req, res) => {
     }
 });
 
+// Handles registering a new user
 router.post('/register', async (req, res) => {
     try {
-        console.log(req.body)
         const userData = await User.create(req.body);
-        console.log(userData)
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-            console.log(`${userData.username} registered`)
             res.status(200).json({ message: 'You are now logged in!' });
         });
     } catch (err) {
@@ -120,6 +96,7 @@ router.post('/register', async (req, res) => {
     }
 });
 
+// Checks if user is logged in, so that they can access the POST page and edit their own posts
 router.get('/loggedInUser', async (req, res) => {
     try {
         const userData = await User.findByPk(req.session.user_id, {

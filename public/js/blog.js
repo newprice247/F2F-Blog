@@ -8,7 +8,6 @@ const getContent = () => {
   fetch('/api/content')
     .then((response) => response.json())
     .then((data) => {
-      console.log('getContent', data);
       for (let i = 0; i < data.length; i++) {
         let getDate = new Date(data[i].createdAt).toLocaleString();
 
@@ -41,9 +40,7 @@ const getContent = () => {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
       if (data) {
-        console.log('user logged in')
         // this will target only the posts that the logged-in user has posted
         $('.content-card-buttons').each(function () {
           if ($(this).attr('data-user-posted-id') === data.id.toString()) {
@@ -57,62 +54,40 @@ const getContent = () => {
               e.preventDefault();
               document.body.scrollTop = 0; // For Safari
               document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-
               const content = e.target.closest('.card');
               const postId = content.getAttribute('data-content-id').valueOf();
-              console.log(postId)
               $('#uploadImage').html(`
               <div class="container">
-      <div class="row w-100">
-        <div class="col-sm-8 mt-3">
-          <h4>Upload New Blog Image</h4>
-
-          <form
-            class="mt-4"
-            action="/images/uploadContentImage"
-            method="POST"
-            enctype="multipart/form-data"
-          >
-            <div class="form-group">
-              <input
-                type="file"
-                name="file"
-                id="input-files"
-                class="form-control-file border"
-              />
-            </div>
-            <input type="hidden" name="content_id" id="content_id" value="${postId}">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
-      <hr />
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="preview-images"></div>
-        </div>
-      </div>
-    </div>
+                  <div class="row w-100">
+                    <div class="col-sm-8 mt-3">
+                      <h4>Upload New Blog Image</h4>
+                      <form
+                        class="mt-4"
+                        action="/images/uploadContentImage"
+                        method="POST"
+                        enctype="multipart/form-data"
+                      >
+                        <div class="form-group">
+                          <input
+                            type="file"
+                            name="file"
+                            id="input-files"
+                            class="form-control-file border"
+                          />
+                        </div>
+                        <input type="hidden" name="content_id" id="content_id" value="${postId}">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="preview-images"></div>
+                    </div>
+                  </div>
+                </div>
               `);
-
-              // let imagesPreview = function (input, placeToInsertImagePreview) {
-              //   if (input.files) {
-              //     let filesAmount = input.files.length;
-              //     for (i = 0; i < filesAmount; i++) {
-              //       let reader = new FileReader();
-              //       reader.onload = function (event) {
-              //         $($.parseHTML("<img>"))
-              //           .attr("src", event.target.result)
-              //           .appendTo(placeToInsertImagePreview);
-              //       };
-              //       reader.readAsDataURL(input.files[i]);
-              //     }
-              //   }
-              // };
-              // $("#input-files").on("change", function () {
-              //   imagesPreview(this, "div.preview-images");
-              // });
-              // window.location.href = `../images/upload/${postId}`
             });
           }
         });
@@ -123,6 +98,7 @@ const getContent = () => {
 };
 getContent();
 
+// this will check if an image exists for the content
 function imageExists(imageUrl) {
   var http = new XMLHttpRequest();
   http.open('HEAD', imageUrl, false);
@@ -130,14 +106,14 @@ function imageExists(imageUrl) {
   return http.status !== 404;
 }
 
+
 // this will get the logged-in user's profile image and display it in the navbar
 const getProfileImg = () => {
   fetch('/api/users/profile')
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      // if the user is logged in, display their profile image in the navbar as well as a logout button
       if (data !== null) {
-        console.log('getProfileImg', data.id);
         $('.user-profile-img').html(`
                 <div class="center-vertically">
                   <img src="../images/tmp/${data.id}.jpg" class="profile-pic" alt="profile-pic" width="40" height="40">
@@ -147,6 +123,7 @@ const getProfileImg = () => {
         $('.nav-links').append(`
                   <li><a href="../api/users/logout">Logout</a></li>
                   `);
+      // Otherwise, display a login button in the navbar
       } else {
         $('.nav-links').append(`
                   <li><a href="../login">Login</a></li>
@@ -161,9 +138,9 @@ const getContentComments = (id) => {
   fetch(`/api/content/${id}`)
     .then((response) => response.json())
     .then((data) => {
+      // empty the comment list
       $('#commentList').empty();
-      console.log('getComments', data.comments);
-
+      // if there are comments, display them in the modal
       if (data.comments.length !== 0) {
         for (let i = 0; i < data.comments.length; i++) {
           let getDate = new Date(data.comments[i].createdAt).toLocaleString();
@@ -175,6 +152,7 @@ const getContentComments = (id) => {
           </div>`
           );
         }
+      // otherwise, display a message saying there are no comments yet
       } else {
         $('#commentList').empty();
         $('#commentList').html(`
@@ -183,17 +161,19 @@ const getContentComments = (id) => {
        </div>`
         );
       }
+      // chain another fetch to check if the user is logged in
       return fetch('/api/users/loggedInUser')
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      // if the user is logged in, display a comment box and a post comment button
       if (data) {
         $('#modal-button').html(`
           <button class="modal-comment-button" id="comment" >Post comment</button>
           <button class="modal-close-button close-button" id="close" data-dismiss="modal"
           aria-label="Close">Cancel</button>`
         );
+      // otherwise, display a message saying the user must be logged in to post a comment
       } else {
         $('#modal-button').html(`
         <p><a href="../login">Login to post a comment</a></p>
@@ -209,8 +189,10 @@ const getContentComments = (id) => {
 // this will add a comment to the database
 function addComment(e) {
   e.preventDefault();
+  //grabs the comment from the textarea
   const comment = document.querySelector(".textarea").value;
   const modalId = document.querySelector('#postModal').getAttribute('modal-id').valueOf();
+  // this will post the comment to the database
   const commentData = {
     comment: comment,
     content_id: modalId
@@ -224,12 +206,11 @@ function addComment(e) {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // chain another fetch to check if the user is logged in
       return fetch('/api/users/loggedInUser')
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
       // this will add the comment to the modal
       const date = new Date().toLocaleString();
       $('#commentList').append(`
@@ -259,17 +240,9 @@ document.addEventListener('DOMContentLoaded', function () {
       const username = card.querySelector('.usernameI').getAttribute('data-username').valueOf();
 
       openPost(imageSrc, postTitle, postText, profilePic, id, username);
-      console.log(id)
-
     }
   });
 });
-
-
-
-
-
-
 
 // this will open the modal and display the post
 const openPost = (imageSrc, postTitle, postText, profilePic, id, username) => {
@@ -294,7 +267,6 @@ function closePost() {
   const postModal = new bootstrap.Modal(document.getElementById('postModal'));
   postModal.hide(); // Hide the Bootstrap modal
 }
-
 
 closeModal.addEventListener('click', closePost);
 

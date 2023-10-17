@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {User, Content, Comment, ContentImage} = require('../../models');
-const withAuth = require('../../utils/auth');
 
+// Handles getting all content for the blog page, as well as the comments and images associated with each blog post
 router.get('/', async (req, res) => {
     try {
         const contentData = await Content.findAll({
@@ -31,16 +31,8 @@ router.get('/:id', async (req, res) =>{
     }
 });
 
-// router.post('/', async (req, res) =>{
-//     try {
-//         const contentData = await Content.create(req.body);
-//         res.status(200).json(contentData);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });
-
-router.post('/', withAuth, async (req, res) => {
+// Handles creating new content and attaching it to the logged in user
+router.post('/', async (req, res) => {
     try {
       const newContent = await Content.create({
         ...req.body,
@@ -53,6 +45,7 @@ router.post('/', withAuth, async (req, res) => {
     }
   });
 
+  // Handles editing content from the POST page
 router.put('/:id', async (req, res) =>{
     try {
         const contentData = await Content.update(req.body, {
@@ -68,6 +61,7 @@ router.put('/:id', async (req, res) =>{
     }
 });
 
+// Handles deleting content from the POST page
 router.delete('/:id', async (req, res) =>{
     try {
         const contentData = await Content.destroy({

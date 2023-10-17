@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {User, Resource} = require('../../models');
-const withAuth = require('../../utils/auth');
 
+// Handles getting all resources for the resources page
 router.get('/', async (req, res) => {
     try {
         const resourceData = await Resource.findAll({
@@ -30,6 +30,7 @@ router.get('/:id', async (req, res) =>{
     }
 });
 
+// Handles creating new resources
 router.post('/', async (req, res) =>{
     try {
         if (req.session.user_id === null) {
