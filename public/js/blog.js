@@ -232,7 +232,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if (event.target.matches('[data-bs-toggle="modal"]')) {
 
       const card = event.target.closest('.card');
-      let id = card.id
+      
+      const contentId = card.getAttribute('data-content-id');
+
+      const id = card.id
       const imageSrc = card.querySelector('.card-img-top').src;
       const postTitle = card.querySelector('.card-title').textContent;
       const postText = card.querySelector('.card-text').textContent;
