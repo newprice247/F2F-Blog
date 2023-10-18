@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const {User, Content, Comment} = require('../../models');
-const withAuth = require('../../utils/auth');
 
-
+// Handles getting all comments for the blog page and attaching them to the content they belong to
 router.get('/', async (req, res) => {
     try {
         const commentData = await Comment.findAll({
@@ -18,8 +17,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-
-
+// Handles creating new comments and attaching them to the logged in user as well as the content they belong to
 router.post('/', async (req, res) => {
     try {
       const newComment = await Comment.create({
@@ -27,9 +25,9 @@ router.post('/', async (req, res) => {
         user_id: req.session.user_id,});
   
       res.status(200).json(newComment);
+      // }
     } catch (err) {
       res.status(400).json(err);
     }
   });
-
 module.exports = router

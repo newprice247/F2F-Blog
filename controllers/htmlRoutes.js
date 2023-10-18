@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const path = require('path');
-const withAuth = require('../utils/auth');
 
 router.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/html/login.html'))
@@ -15,7 +14,11 @@ router.get('/contact', (req, res) => {
 })
 
 router.get('/crud', (req, res) => {
+    if (!req.session.logged_in) {
+        res.redirect('/login');
+      } else {
     res.sendFile(path.join(__dirname, '../public/html/crud.html'))
+        }
 })
 
 router.get('/blog', (req, res) => {

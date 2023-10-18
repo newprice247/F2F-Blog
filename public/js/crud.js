@@ -1,6 +1,25 @@
 
 const postButton = document.getElementById("post-button");
 
+const getProfileImg = () => {
+    fetch('/api/users/profile')
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            if (data !== null) {
+                console.log('getProfileImg', data.id);
+                $('.nav-links').append(`
+                  <li><a href="../api/users/logout">Logout</a></li>
+                  `);
+            } else {
+                $('.nav-links').append(`
+                  <li><a href="../login">Login</a></li>
+                  `);
+            }
+        });
+};
+getProfileImg();
+
 function addPost(e) {
     const title = document.querySelector(".postTitle").value;
     const content = document.querySelector(".postContent").value;
@@ -30,7 +49,7 @@ function addPost(e) {
                 // getContent();
                 document.location.replace('/crud');
             })
-            
+
             .catch((err) => console.error('Oops, sorry, post could not be updated. Error:', err));
     } else {
         // Send a POST request to add a new post
@@ -45,7 +64,7 @@ function addPost(e) {
             .then((data) => {
                 console.log(data);
                 // getContent();
-                document.location.replace('/crud');
+                document.location.replace('/');
             })
             .catch((err) => console.error('Oops, sorry, post could not be added. Error:', err));
     }
@@ -96,7 +115,14 @@ const getProfile = () => {
         .then((response) => response.json())
         .then((data) => {
             console.log('getProfile', data);
-            $('.user-header').append(`<h1>Welcome ${data.username}... </h1>`);
+            $('#createEditDelete').text('Create Post');
+            $('.user-header').append(`
+            <h1>Welcome ${data.username}... </h1>
+            
+            <img src="../images/tmp/${data.id}.jpg" class="profile-pic" alt="profile-pic" width="300" height="300">
+            <br>
+            <a href="../images/upload"> Upload Profile Image</a>  
+            `);
 
             //once the user is logged in, the user's posts will be displayed in the table by default
 
@@ -114,6 +140,8 @@ const getProfile = () => {
             }
             $('.edit-post').on('click', (e) => {
                 e.preventDefault();
+
+                $('#createEditDelete').text('Edit Post');
                 const row = e.target.closest('tr');
                 const postId = JSON.parse(row.getAttribute('id'));
                 const post = data.contents.find(post => post.id === postId);
@@ -144,3 +172,7 @@ getProfile()
 //this button will add post to blog page using the getcontent function  and send the post data to database 
 postButton.addEventListener("click", addPost);
 // commentButton.addEventListener("click", addComment);
+
+
+
+

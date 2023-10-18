@@ -23,21 +23,37 @@
 <body>
   <nav class="navbar bg-body-tertiary">
     <div class="container">
+
+      <!-- F2F menu bar -->
+      <div class="menu">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; F2F menu</span>
+      </div>
+    
+        <!-- End of F2f Menu bar -->
+
+
       <a class="navbar-brand" href="../blog">
-        <img src="../images/F2F BLOG Logo.png" alt="F2F fist to five logo" width="150" height="50">
+        <img src="../images/F2F BLOG Logo.png" class="rounded" alt="F2F fist to five logo" width="150" height="50">
       </a>
 
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+        
+        <div class="overlay-content">
       <ul class="nav-links">
         <li><a href="../blog"> Blog </a></li>
         <li><a href="../about"> About </a></li>
         <li><a href="../crud"> POST </a></li>
         <li><a href="../resources"> Resources </a></li>
         <li><a href="../contact"> Contact us </a></li>
-        <li><a href="../login"> Logout </a></li>
       </ul>
+    </div>
+  </div>
+ 
 
-      <div class="profile-img">
-        <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40">
+      <div class="user-profile-img">
+        <!-- <img src="../images/Profile-pic.jpg" alt="profile-pic" width="40" height="40"> -->
       </div>
 
     </div>
@@ -116,7 +132,7 @@
 
   <div class="resources-app">
     <div class="spinner">
-      <div class="container mb-2 p-2
+      <div class="containerS mb-2 p-2
                   text-light text-center"> 
           <div id="carouselExample" 
                class="carousel slide carousel-fade" 
@@ -227,20 +243,23 @@
 
 
 
-
 <br/>
 
 <div class="buttonS">
-<button class="Sbtn btn-info tag-button"> <a href="../html/stanley.html" > Big Winner! </a></button>
+  <button class="Sbtn btn-info" id="myButton">Big Winner!</button>
 </div>
 
 
 
+
+
+<br/>
 <br/>
 <hr/>
 
 <div class="center">
     <div class="addLink">
+      <br/>
       <h1 contenteditable>Add a Link Below:</h1>
     </div>
 
@@ -321,6 +340,7 @@
     <div class="footer-container">
       <div class="social">
         <a href=""><i class="bi bi-youtube youtube"></i></a>
+        <br/>
         <a href="https://github.com/newprice247/F2F-Blog"><i class="bi bi-github github"></i></a>
       </div>
       <div class="footerNav">
@@ -329,7 +349,7 @@
           <li><a href="../blog"> Blog </a></li>
           <li><a href="../resources"> Resources </a></li>
           <li><a href="../contact"> Contact us </a></li>
-          <li><a href="../teambio"> Our Team</a></li>
+         
         </ul>
       </div>
     </div>
@@ -343,6 +363,7 @@
     crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"> 
     </script> 
+
   <script src="../js/resources.js"></script>
 
 </body>

@@ -4,21 +4,17 @@
 
 
 
+
+
 .nav-links {
   list-style-type: none;
   display: flex;
-  padding: 0;
-  margin: 0;
-  gap: 20px;
-  margin-left: 50%;
-
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  letter-spacing: 3px;
 }
 
-
-.nav-links li {
-  margin: 0;
-
-}
 
 .nav-links a:hover {
   text-decoration: underline;
@@ -28,10 +24,26 @@
 
 .nav-links li a {
   text-decoration: none;
-  justify-content: space-between;
   color: rgb(19, 225, 240)
 }
 
+
+.profile-pic {
+  border-radius: 25%;
+  object-fit: cover;
+  margin-top: .5rem;
+  margin-left: 1rem;
+}
+
+.center-vertically {
+  display: flex;
+  align-items: center; /* Vertically center the content */
+}
+
+.center-vertically p {
+  margin-bottom: 0;
+  margin-left: 1rem;
+}
 
 .profile-img img {
   width: 40px;
@@ -62,6 +74,15 @@ form {
 footer {
   background-color: black;
 
+}
+
+footer p{
+  letter-spacing: 1px;
+  color: whitesmoke;
+}
+
+.navbar {
+  margin: 0;
 }
 
 .footer-container {
@@ -101,7 +122,7 @@ footer {
   text-decoration: none;
   padding: 10px;
   background-color: white;
-  margin: 5px;
+  margin: 5px 7px;
   border-radius: 30%;
 }
 
@@ -125,7 +146,7 @@ footer {
 
 
 /* New resource card */
-.displayNew{
+.displayNew {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -135,24 +156,80 @@ footer {
 
 /* Previously saved resource card */
 .resource-item{
+  display: flex; 
+  justify-content: center;
+  align-items: stretch;
+  flex: 1 1 1;
   background-image: url(../images/img.jpg);
   border-radius: 8px;
   border: 5px solid black;
   padding: 10px;
-  margin: 10px;
-  width: 30%;
-  height: 30%;
+  margin: 15px;
 }
 
 .resourceInner{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-wrap: wrap;
   border-radius: 5px;
   background-color: rgba(245, 245, 245, 0.6);
   margin: 5px;
   font-weight: 600;
+  text-align: center;
+  font: bold;
+  
+}
+
+
+.resourceInner h2{
+  text-decoration: underline;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px red, 0 0 5px darkred;
 }
 
 .resourceInner h3{
- letter-spacing: 3px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+.resourceInner h4{
+  letter-spacing: 0px;
+  text-transform: uppercase;  
+  text-shadow: 0 0 2px rgb(13, 37, 53);
+}
+
+.resourceInner p{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-self: center;
+  width: 75%;
+  letter-spacing: -1px;
+}
+
+.resourceInner a{
+  display: flex;
+  flex-wrap: wrap;
+  letter-spacing: -2px;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-size: 95%;
+}
+
+
+.resourceInner a:hover{
+  text-decoration: underline;
+  color: rgb(21, 115, 115);
+  transform: scale(0.85); 
 }
 
 
@@ -165,13 +242,13 @@ footer {
   position: sticky;
   top: 0;
   padding: 5px;
-  z-index: 1000;
+  z-index: 500;
 }
 
 
 
 /* Search by #TagName and search box */
-.searchInLine{
+.searchInLine {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -188,7 +265,7 @@ footer {
 }
 
 #tagSearchInput {
-  width: 200px; 
+  width: 200px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -203,15 +280,15 @@ footer {
   cursor: pointer;
 }
 
-#tagSearchButton:hover{
+#tagSearchButton:hover {
   background-color: whitesmoke
- }
- 
-   #tagSearchButton:active {
-     background-color: aqua;
-     box-shadow: 0 5px #666;
-     transform: translateX(4px);
-   }
+}
+
+#tagSearchButton:active {
+  background-color: aqua;
+  box-shadow: 0 5px #666;
+  transform: translateX(4px);
+}
 
 
 
@@ -221,25 +298,25 @@ h1 {
   text-align: center;
 }
 
-h3{
+h3 {
   letter-spacing: 10px;
   text-decoration: underline;
 }
 
 
-h5{
+h5 {
   letter-spacing: 5px;
 }
 
 
-.title{
+.title {
   width: 75%;
   margin: 7% 12% 3%;
 
 }
 
 
-.resources-app{
+.resources-app {
   width: 50%;
   height: auto;
   margin: 0px 25%;
@@ -250,9 +327,9 @@ h5{
 
 
 /* Fancy RESOURCES title...maybe */
-.grid{
+.grid {
   margin-top: 4%;
- 
+
 }
 
 .stroke {
@@ -275,6 +352,7 @@ h5{
 .halftone {
   position: relative;
 }
+
 .halftone:after {
   content: "RESOURCES";
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAHElEQVQYV2NUVFT8f//+fUYGBgYGMAEDcA5IBQCKJQVmn76DhAAAAABJRU5ErkJggg==") repeat;
@@ -306,6 +384,7 @@ h5{
 .fancy {
   position: relative;
   white-space: nowrap;
+
   &:after {
     --deco-height: 0.3125em;
     content: "";
@@ -321,25 +400,74 @@ h5{
   }
 }
 
-.buttonS{
+
+
+.buttonS {
   display: flex;
-  justify-content: center;
-}
+  justify-content: space-evenly;
 
-
-.Sbtn{
-  text-decoration: none;
 }
 
 /* Big Winner button! */
-.Sbtn:hover{
-  transform: scale(1.8);
-  width: 20%;
+.Sbtn {
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: 600;
+  border-radius: 5px;
+
+  --b: 3px;   /* border thickness */
+  --s: 15px; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+
+
 }
 
 
+.Sbtn:hover,
+.Sbtn:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em; 
+  transform: scale(1.8);
+  width: 20%;
+  background-color: rgba(0, 255, 255, 0.5);
+  border: #68a7a7 solid 8px;
+  letter-spacing: 10px;
+}
+
+
+.Sbtn:active{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em; 
+  transform: scale(1.8);
+  width: 30%;
+  background-color: rgba(0, 255, 255, 0.444);
+}
+
+
+
+
+
+
+
 .center {
-  margin: 30px 10%;
+  margin: 30px 5%;
 }
 
 form .btn {
@@ -385,11 +513,11 @@ main img:hover {
   font-variation-settings: "wght";
   color: aqua;
   text-align: center;
-  text-shadow: 4px 4px  #2d4848;
+  text-shadow: 4px 4px #2d4848;
 }
 
 .addLink h1:hover {
-  font-variation-settings: "wght" 582; 
+  font-variation-settings: "wght" 582;
   letter-spacing: 2px;
 }
 
@@ -398,6 +526,7 @@ main img:hover {
 
 .form-group {
   margin-bottom: 15px;
+
 }
 
 
@@ -408,7 +537,7 @@ main img:hover {
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
-  margin: 0px 10%;
+  margin: 0px 15%;
 }
 
 
@@ -421,7 +550,7 @@ main img:hover {
   overflow-x: auto; 
 }
 
-.tag-button{
+.tag-button {
   height: 60%;
   align-items: center;
   background-color: rgb(203, 255, 255);
@@ -430,7 +559,9 @@ main img:hover {
   transition: 0.3s;
 }
 
-.tag-button:hover {opacity: 1}
+.tag-button:hover {
+  opacity: 1
+}
 
 
 
@@ -440,54 +571,62 @@ main img:hover {
 
 
 
-@media screen and (max-width: 1300px) {
-  .subtitle h1{
+@media screen and (max-width: 1200px) {
+  .subtitle h1 {
     font-size: xx-large;
   }
 
   h2 {
     font-size: x-large;
-   }
+  }
 
-    h4{
+  h4 {
     font-size: large;
   }
-  .center {
-    margin: 4%;
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+  
   }
+
+  .center {
+    margin: 30px 5%;
+  }
+
 }
 
 
 
 @media screen and (max-width: 950px) {
-  .subtitle h1{
+  .subtitle h1 {
     font-size: x-large;
   }
 
   .searchFor h3 {
-    font-size: 30px;
-    letter-spacing: 5px;
-   }
+    font-size: 35px;
+    letter-spacing: 5px; 
+  }
 
-   .searchFor h3 {
-    font-size: xx-large;
-    letter-spacing: 7px;
-   }
-   
-   #tagSearchInput {
+
+
+  #tagSearchInput {
     width: 175px;
-     height: 45px;
-   }
-   
-   #tagSearchButton {
-     font-size: 15px; 
-   }
+    height: 45px;
+  }
 
-   h2, h4{
+  #tagSearchButton {
+    font-size: 15px;
+  }
+
+  h2,
+  h4 {
     font-size: larger;
   }
-  
-  
+
+
   main img {
     width: 150px;
     height: 150px;
@@ -500,71 +639,91 @@ main img:hover {
   }
 
 
+  .Sbtn:hover,
+.Sbtn:focus-visible{
+  width: 40%;
+  letter-spacing: 5px;
+}
+
+
 }
 
 
 @media screen and (max-width: 820px) {
- 
-  .resources-app{
+
+  .resources-app {
     width: 75%;
     margin: 50px 15%;
   }
 
-  .title h1{
+  .title h1 {
     margin: 15% 10% 0%;
     font-size: 35px;
   }
 
-  /* .res{
-    font-size: 80px;
-  } */
 
-
-  h1{
-  font-size: 35px;
+  h1 {
+    font-size: 35px;
   }
 
-  .subtitle h1{
+  .subtitle h1 {
     font-size: large;
   }
 
 
-.searchFor h3 {
- font-size: x-large;
- letter-spacing: 3px;
-}
+  .searchFor h3 {
+    font-size: x-large;
+    letter-spacing: 3px;
+  }
 
-#tagSearchInput {
- width: 150px;
-  height: 35px;
-}
+  #tagSearchInput {
+    width: 150px;
+    height: 35px;
+  }
 
-#tagSearchButton {
-  font-size: 15px; 
-}
+  #tagSearchButton {
+    font-size: 15px;
+  }
 
-.tagButtonContainer {
-  margin: 0px 7%;
-}
+  .tagButtonContainer {
+    margin: 0px 12%;
+  }
 
-.tag-button{
-  font-size: 14px;
-}
+  .tag-button {
+    font-size: 14px;
+  }
 
-h2, h4{
-  font-size: large;
-}
+  h2,
+  h4 {
+    font-size: large;
+  }
 
 
-main img {
-  width: 130px;
-  height: 130px;
-}
+  main img {
+    width: 130px;
+    height: 130px;
+  }
 
 .addLink h1 {
   width: 120%;
   font-size: 70px;
 }
+
+
+.footerNav ul {
+  display: flex;
+flex-direction: column;
+flex-wrap:  nowrap;
+align-items: center;
+margin-top: 20px;
+
+}
+
+.social {
+margin: 0 55%;
+
+}
+
 
 }
 
@@ -574,7 +733,7 @@ main img {
 
 
 @media screen and (max-width: 600px) {
-  .subtitle h1{
+  .subtitle h1 {
     font-size: medium;
   }
 
@@ -582,26 +741,26 @@ main img {
     font-size: 23px;
     letter-spacing: 2px;
     margin-right: 5px;
-   }
-   
-   #tagSearchInput {
+  }
+
+  #tagSearchInput {
     width: 125px;
-     height: 35px;
-   }
-   
-   #tagSearchButton {
-     font-size: 15px; 
-   }
+    height: 35px;
+  }
 
-   h2 {
-    font-size: small;
-   }
+  #tagSearchButton {
+    font-size: 15px;
+  }
 
-    h4{
+  h2 {
     font-size: small;
   }
-  
-  
+
+  h4 {
+    font-size: small;
+  }
+
+
   main img {
     width: 110px;
     height: 120px;
@@ -611,58 +770,323 @@ main img {
     width: 100%;
     font-size: 50px;
   }
+
+  .container{
+    display: flex;
+  flex-direction: row;
+  width: 500px;
+  }
 }
 
 
 @media screen and (max-width: 480px) {
-  .subtitle h1{
+  .subtitle h1 {
     font-size: x-small;
   }
 
   .searchFor h3 {
     font-size: small;
     letter-spacing: 2px;
-   }
-   
-   #tagSearchInput {
-    width: 100px;
-     height: 35px;
-   }
-   
-   #tagSearchButton {
-     font-size: 15px; 
-   }
+  }
 
-   main img {
+  #tagSearchInput {
+    width: 100px;
+    height: 35px;
+  }
+
+  #tagSearchButton {
+    font-size: 15px;
+  }
+
+  main img {
     width: 120px;
     height: 120px;
   }
+
+  .container{
+    display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;  
+  }
+
+  .menu {
+    margin-top: 20px;
+  }
+
+ #commentBox.form-control{
+    font-size: small;
+  }
+
+#urlLink.form-control{
+    font-size: small;
+
+}
+
+
 }
 
 
 
-@media screen and (max-width: 380px) {
-  .subtitle h1{
+@media screen and (max-width: 400px) {
+  .subtitle h1 {
     font-size: x-small;
+    flex-wrap: wrap;
   }
 
   .searchFor h3 {
     font-size: 18px;
     letter-spacing: 1px;
-   }
-   
-   #tagSearchInput {
-    width: 80px;
-     height: 25px;
-   }
-   
-   #tagSearchButton {
-     font-size: 12px; 
-   }
+  }
 
-   .tag-button{
+  #tagSearchInput {
+    width: 80px;
+    height: 25px;
+  }
+
+  #tagSearchButton {
+    font-size: 12px;
+  }
+
+  .tag-button {
     font-size: 10px;
   }
-  
+
+  #commentBox.form-control{
+    font-size: x-small;
+  }
+
+#urlLink.form-control{
+    font-size: x-small;
 
 }
+.Sbtn:hover,
+.Sbtn:focus-visible{
+  width: 50%;
+  letter-spacing: 5px;
+}
+
+}
+
+
+
+@media screen and (max-width: 355px) {
+
+
+  .searchFor h3 {
+    font-size: 16px;
+ text-align: center;
+   
+  }
+
+  #commentBox.form-control{
+    font-size: xx-small;
+  }
+
+  #urlLink.form-control{
+    font-size: xx-small;
+
+}
+
+.Sbtn:hover,
+.Sbtn:focus-visible{
+  width: 50%;
+  letter-spacing: 4px;
+}
+}
+
+
+
+
+
+/* Nav Bar drop down menu */
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+
+
+
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+
+
+
+
+/*********************************/
+/* STANLEY PAGE */
+
+.background{
+  background-image: url(../images/stanbackground.jpg);
+}
+
+.background h1{
+  font-size: 80px;
+  color: whitesmoke;
+  padding-top: 30px;
+  text-shadow: 2px 2px  aqua;
+}
+
+.videos{
+  margin: 50px 33%;
+}
+
+.under {
+  font-size: 30px;
+  text-align: center;
+  margin: 0 5%;
+  color: whitesmoke;
+}
+
+
+
+table, th, td {
+  border:1px solid black;
+  text-align: center;
+  padding: 2% 0;
+  
+}
+
+th {
+  letter-spacing: 5px;
+  background-color: rgba(0, 255, 255, 0.2);
+}
+
+table {
+  width: 75%;
+  margin: 0 15%;
+}
+
+td a{
+  text-decoration: none;
+}
+
+td:hover{
+  transform: scale(1.2);
+  background-color: #688ad53f;
+  
+}
+
+
+.accordion-button {
+  letter-spacing: 4px;
+ 
+}
+
+@media screen and (max-width: 1100px){
+  .under {
+    font-size: 28px;
+    margin: 0 18%;
+  }
+}
+
+
+
+@media screen and (max-width: 850px){
+.videos{
+  margin: 50px 25%;
+}
+.background h1{
+  font-size: 70px;
+}
+
+.under {
+  font-size: 28px;
+  margin: 0 18%;
+}
+
+}
+
+
+@media screen and (max-width: 600px){
+  .background h1{
+    font-size: 55px;
+  }
+  .videos{
+    margin: 50px 20%;
+  }
+
+  table {
+    transform: translateX(-10px);
+  }
+}
+
+
+
+@media screen and (max-width: 450px){
+  table {
+    width: 115%;
+    margin: 0 auto;
+    transform: translateX(-18px);
+  }
+
+  .videos{
+    margin: 50px 15%;
+  }
+
+  .background h1{
+    font-size: 40px;
+    margin: 0 2%;
+    padding-bottom: 10px;
+}
+
+.under {
+  font-size: 20px;
+  margin: 0 10%;
+}
+
+}
+
+
+@media screen and (max-width: 300px){
+  table {
+    transform: translateX(-23px);
+  }
+}
+

@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const {User, Resource} = require('../../models');
 
+// Handles getting all resources for the resources page
 router.get('/', async (req, res) => {
     try {
         const resourceData = await Resource.findAll({
-            include: [{model: User, attributes: ['username']}],
+            include: [{model: User, attributes: ['username', 'id']}],
             exclude: [{model: User, attributes: ['password']}]
         });
         res.status(200).json(resourceData);
@@ -29,8 +30,13 @@ router.get('/:id', async (req, res) =>{
     }
 });
 
+// Handles creating new resources
 router.post('/', async (req, res) =>{
     try {
+        if (req.session.user_id === null) {
+            res.redirect('/login');
+            return;
+          }
         const resourceData = await Resource.create({
             ...req.body,
             user_id: req.session.user_id,
