@@ -9,29 +9,29 @@ let secondVideoSectionHTML = '';
 let thirdVideoSectionHTML = '';
 
 const getVideos = async () => {
-  await fetch(apiUrl1)
-    .then((response) => {
+  // await fetch(apiUrl1)
+  //   .then((response) => {
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
 
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
+  //     return response.json();
+  //   })
+  //   .then((data) => {
+  //     console.log(data);
 
-      data.items.forEach(el => {
-        videoSectionHTML += `
-        <div class="video-card">
-        <a target="_blank" href="https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}">
-            <img src="${el.snippet.thumbnails.maxres.url}" />
-            <h3>${el.snippet.title}</h3>
-        </a>
-    </div>`;
+  //     data.items.forEach(el => {
+  //       videoSectionHTML += `
+  //       <div class="video-card">
+  //       <a target="_blank" href="https://www.youtube.com/watch?v=${el.snippet.resourceId.videoId}">
+  //           <img src="${el.snippet.thumbnails.maxres.url}" />
+  //           <h3>${el.snippet.title}</h3>
+  //       </a>
+  //   </div>`;
 
-      });
-    });
+  //     });
+  //   });
 
   await fetch(apiUrl2)
     .then((response) => {
