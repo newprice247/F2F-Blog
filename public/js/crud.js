@@ -43,7 +43,6 @@ function addPost(e) {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 // Clear the edit flag
                 postButton.removeAttribute("data-edit");
                 // getContent();
@@ -62,7 +61,6 @@ function addPost(e) {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 // getContent();
                 document.location.replace('/');
             })
@@ -114,7 +112,6 @@ const getProfile = () => {
     fetch('/api/users/profile')
         .then((response) => response.json())
         .then((data) => {
-            console.log('getProfile', data);
             $('#createEditDelete').text('Create Post');
             $('.user-header').append(`
             <h1>Welcome ${data.username}... </h1>
